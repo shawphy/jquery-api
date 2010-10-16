@@ -1426,12 +1426,9 @@ if ( mydata.count &lt; 9 ) {
          </example>
          <example>
             <desc>恢复 $ 别名，然后创建并执行一个函数，其内部作用域提供了 $ 作为 jQuery 的别名。这样，就不会访问到全局的 $ 对象了。大多数不依赖其他库的插件在这个函数中都可以正常使用。</desc>
-
-</desc>
          </example>
          <example>
             <desc>你可以对 jQuery.noConflict() 进行链式操作来调用 ready 的快捷方式，这样可以压缩代码。</desc>
-</desc>
          </example>
          <example>
             <desc>Creates a different alias instead of jQuery to use in the rest of the script.</desc>
