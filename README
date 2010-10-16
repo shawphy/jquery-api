@@ -26,3 +26,12 @@ README				你正在看的文件
 4. 编辑 jQueryAPI.zh_CN.xml 进行翻译
 5. 运行 build.bat 在 dist 中生成打散的文件
 6. 发布 dist 目录下的所有文件即可
+
+
+翻译词汇对照表
+
+The JSON string to parse.		将要解析的 JSON 字符串
+The message to send out.		将要发送的消息
+
+This method is most useful for ...	这个方法通常在 ... 的情况下使用
+Additionally				另外

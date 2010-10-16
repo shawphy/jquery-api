@@ -296,64 +296,64 @@
          </example>
       </entry>
       <entry type="method" name="jQuery.error">
-         <desc>Takes a string and throws an exception containing it.</desc>
+         <desc>接受一个字符串，并抛出包含这个字符串的异常。</desc>
          <signature>
             <argument name="message">
-               <desc>The message to send out.</desc>
+               <desc>将要发出的消息.</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This method exists primarily for plugin developers who wish to override it and provide a better display (or more information) for the error messages.</p>
+            <p>这个方法主要是为了让插件开发人员可以重载此方法，并以更好的方式显示错误消息，或者提供更多相关信息。</p>
          </longdesc>
          <example>
-            <desc>Override jQuery.error for display in Firebug.</desc>
+            <desc>重载 jQuery.error 以便可以在 Firebug 中显示。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.parseJSON">
-         <desc>Takes a well-formed JSON string and returns the resulting JavaScript object.</desc>
+         <desc>接受一个标准格式的 JSON 字符串，并返回解析后的 JavaScript 对象。</desc>
          <signature>
             <argument name="json">
-               <desc>The JSON string to parse.</desc>
+               <desc>将要解析的 JSON 字符串。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Passing in a malformed JSON string may result in an exception being thrown. For example, the following are all malformed JSON strings:</p>
+            <p>传入格式有误的 JSON 字符串可能导致抛出异常。例如，下面这些 JSON 字符串格式都不对：</p>
             <ul>
                <li>
-                  <code>{test: 1}</code> (test does not have double quotes around it).</li>
+                  <code>{test: 1}</code> (test 没有使用双引号包裹).</li>
                <li>
-                  <code>{'test': 1}</code> ('test' is using single quotes instead of double quotes).</li>
+                  <code>{'test': 1}</code> ('test' 用了单引号而不是双引号包裹).</li>
             </ul>
-            <p>Additionally if you pass in nothing, an empty string, null, or undefined, 'null' will be returned from parseJSON. Where the browser provides a native implementation of <code>JSON.parse</code>, jQuery uses it to parse the string. For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.
+            <p>另外，如果你什么都不传入，或者传入空字符串、null、undefined 等，parseJSON 都会返回 null 。如果浏览器原生实现了 <code>JSON.parse</code>， jQuery 则会使用它来解析字符串。更多关于JSON格式的细节请参考 <a href="http://json.org/">http://json.org/</a> 
 </p>
          </longdesc>
          <example>
-            <desc>Parse a JSON string.</desc>
+            <desc>解析一个 JSON 字符串。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.proxy">
-         <desc>Takes a function and returns a new one that will always have a particular context.</desc>
+         <desc>接受一个函数，然后返回一个新函数，并且这个新函数始终保持了特定的上下文语境。</desc>
          <signature>
             <argument name="function">
-               <desc>The function whose context will be changed.</desc>
+               <desc>将要改变上下文语境的函数。</desc>
             </argument>
             <argument name="context">
-               <desc>The object to which the context (`this`) of the function should be set.</desc>
+               <desc>函数的上下文语境(`this`)会被设置成这个 object 对象。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="context">
-               <desc>The object to which the context of the function should be set.</desc>
+               <desc>函数的上下文语境会被设置成这个 object 对象。</desc>
             </argument>
             <argument name="name">
-               <desc>The name of the function whose context will be changed (should be a property of the 'context' object.</desc>
+               <desc>将要改变上下文语境的函数名(这个函数必须是前一个参数 'context' 对象的属性)</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This method is most useful for attaching event handlers to an element where the context is pointing back to a different object. Additionally, jQuery makes sure that even if you bind the function returned from jQuery.proxy() it will still unbind the correct function, if passed the original.</p>
+            <p>这个方法通常在向一个元素上附加事件处理函数时，上下文语境实际是指向另一个对象的情况下使用。另外，jQuery 能够确保即使你绑定的函数是经过 jQuery.proxy() 处理过的函数，你依然可以用原先的函数来正确地取消绑定。</p>
          </longdesc>
          <example>
-            <desc>Enforce the context of the function.</desc>
+            <desc>强制修改函数的上下文语境</desc>
          </example>
       </entry>
       <entry type="method" name="focusout">
