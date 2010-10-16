@@ -1,0 +1,28 @@
+这里是jQuery文档
+生成文档需要 Python 3.1 和 Java 支持
+
+jQueryAPI.zh_CN.xml		翻译的文档
+index.zh_CN.xml			文档转换主体xslt样式表
+build.bat			用于最终生成HTML和CHM文件
+README				你正在看的文件
+
+/build
+	downloadapi.py		下载最新官方 API xml dump
+	convert.bat		用于转换并提取需要翻译的字符串
+	convert.xsl		同上
+	category.zh_CN.xml	同上，目录的中文部分
+	saxon9he.jar		xml+xslt 转换引擎
+
+/file
+	blank.html		空白文件，用于示例代码iframe载入
+	style.css		样式表
+	jquery.min.js		jQuery 文件
+
+
+如果要重新构建一个新的翻译，参考以下步骤
+1. 删除 jQueryAPI.en_US.xml 和 jQueryAPI.zh_CN.xml (应该会自动删除)
+2. 运行 downloadapi.py 下载一份最新的 jQueryAPI.en_US.xml
+3. 运行 convert.bat 将 jQueryAPI.en_US.xml 提取字符串转换成 jQueryAPI.zh_CN.xml
+4. 编辑 jQueryAPI.zh_CN.xml 进行翻译
+5. 运行 build.bat 在 dist 中生成打散的文件
+6. 发布 dist 目录下的所有文件即可

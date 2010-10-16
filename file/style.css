@@ -1,0 +1,243 @@
+@charset "utf-8";
+
+/*-------------------------------------
+Base Style
+
+version:	1.0
+author:		Shawphy
+email:		shawphy@gmail.com
+website:	http://shawphy.com/
+-------------------------------------*/
+
+/* =Reset
+-------------------------------------*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,th,td{
+    margin: 0;
+	padding: 0;
+	outline: 0;
+	font-family:Verdana,Tahoma,Arial,sans-serif,"宋体";
+	color:#333;
+	font-size: 12px;
+	text-align: left;
+	vertical-align:baseline;
+	font-weight: normal;
+	line-height: 18px;
+}
+strong{
+	font-weight: bold;
+}
+ul,ol,li{
+    list-style: none;
+}
+a,a:link,a:visited{
+	color:rgb(79,129,189);
+}
+a:active{
+	color:black;
+}
+a:hover{
+	color:white;
+	background: rgb(79,129,189);
+}
+
+.clear {
+	clear:both;
+}
+
+/* =Layout
+-------------------------------------*/
+#header{
+	min-width:960px;
+	height:20px;
+	border-bottom: 1px dashed #ccc;
+}
+#header #headerMain{
+	width:960px;
+	margin:0 auto;
+}
+#header,#sidebar,#content{
+	margin-bottom: 10px;
+}
+#wrapper{
+	position:relative;
+	width:960px;
+	margin:0 auto;
+}
+#sidebar{
+	float:left;
+	width:239px;
+	border-right: 1px dashed #ccc;
+	padding-left: 20px;
+}
+#api #content{
+	position:absolute;
+	right:0px;
+}
+#content{
+	width:680px;
+	padding-left: 20px;
+}
+#split #content{
+	padding:0 10px;
+	float:none;
+}
+
+/* =Typegraphy
+-------------------------------------*/
+ul,ol{
+	margin-left: 15px;
+}
+hr{
+	width: 95%;
+	margin: 0 auto;
+	border:1px solid #aaa;
+}
+#sidebar{
+	font-size: 14px;
+}
+#sidebar div{
+	display:none;
+}
+#sidebar ul{
+	display:block;
+}
+#sidebar h2{
+	padding: 4px;
+	cursor:pointer;
+	background: rgb(219,229,241);
+	font-size: 14px;
+	text-align: center;
+}
+#sidebar ul li{
+	padding: 4px;
+	cursor:pointer;
+	display:block;
+	background: #fff;
+	font-size: 12px;
+	text-align: left;
+}
+#sidebar h2:hover,#sidebar ul li:hover{
+	color:white;
+	background: rgb(79,129,189);
+}
+#sidebar h2:hover em{
+	color:#ddd;
+}
+#sidebar h2 span{
+	display:none;
+}
+#content ul li{
+	margin:0 15px;
+	list-style: disc;
+}
+#content ol li{
+	margin-left: 15px;
+	list-style: decimal;
+}
+#content p{
+	text-indent: 2em;
+	margin-left: 5px;
+}
+#content h2{
+	margin-bottom: 5px;
+	padding: 10px;
+	background:rgb(79,129,189);
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+}
+#content h2 span{
+	color:#f0f0f0;
+	float:right;
+	width: 200px;
+}
+#content h3{
+	margin: 5px auto;
+	padding: 5px;
+	background: rgb(149,179,215);
+	color: #fff;
+}
+
+#content .entry{
+	margin-bottom: 40px;
+}
+#content .signatures{
+	background: rgb(238,243,249);
+	margin-top: 10px;
+}
+#content .signatures li{
+	list-style:none;
+	padding-bottom: 5px;
+}
+#content .signatures h4{
+	border-bottom: 1px solid #aaa;
+	font-size: 14px;
+	padding: 5px;
+	font-weight: bold;
+	color: #444;
+}
+#content .desc .signatures div{
+	font-size: 12px;
+	text-indent: 1em;
+	margin: 5px;
+}
+#content .desc .signatures div strong{
+	color: #444;
+}
+#content .signatures h4 span{
+	width: 150px;
+	float:right;
+	font-size: 12px;
+	font-weight: normal;
+	color: #999;
+}
+#content .desc p{
+	font-size: 14px;
+}
+#content .longdesc p{
+	font-size: 12px;
+	line-height:1.5;
+	margin:10px 0;
+}
+#content .longdesc strong{
+	font-size: 14px;
+}
+#content .longdesc a{
+	font-size: 12px;
+}
+#content .longdesc{
+	margin-top: 5px;
+}
+#content .example h4{
+	background: rgb(219,229,241);
+	padding: 5px 10px;
+	margin-left: 10px;
+}
+#content pre,#content iframe{
+	margin: 10px;
+	padding:5px 10px;
+	border: 1px dashed rgb(79,129,189);
+	display:block;
+}
+#content iframe{
+	padding: 0;
+}
+em.optional{
+	color: #999;
+}
+#content h2 em.optional{
+	color:#eee;
+}
+#content .desc .signatures div.option{
+	border-top: 1px solid #ccc;
+	margin:10px 30px;
+	padding:10px 5px 0;
+}
+#content .option .type{
+	float:right;
+	width: 150px;
+}
+#content .option span.default{
+	color:#999;
+	display:block;
+}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api>
+   <categories>
+      <category name="Ajax" zh="Ajax">
+         <category name="Global Ajax Event Handlers" zh="全局Ajax事件"/>
+         <category name="Helper Functions" zh="辅助函数"/>
+         <category name="Low-Level Interface" zh="底层接口"/>
+         <category name="Shorthand Methods" zh="快捷方法"/>
+      </category>
+      <category name="Attributes" zh="属性"/>
+      <category name="Core" zh="核心"/>
+      <category name="CSS" zh="CSS"/>
+      <category name="Data" zh="数据"/>
+      <category name="Dimensions" zh="尺寸"/>
+      <category name="Effects" zh="效果">
+         <category name="Basics" zh="基本"/>
+         <category name="Custom" zh="自定义"/>
+         <category name="Fading" zh="渐变"/>
+         <category name="Sliding" zh="滑动"/>
+      </category>
+      <category name="Events" zh="事件">
+         <category name="Browser Events" zh="浏览器事件"/>
+         <category name="Document Loading" zh="文档加载"/>
+         <category name="Event Handler Attachment" zh="事件处理"/>
+         <category name="Event Object" zh="事件对象"/>
+         <category name="Form Events" zh="表单事件"/>
+         <category name="Keyboard Events" zh="键盘事件"/>
+         <category name="Mouse Events" zh="鼠标事件"/>
+      </category>
+      <category name="Forms" zh="表单"/>
+      <category name="Manipulation" zh="操作">
+         <category name="Class Attribute" zh="Class属性"/>
+         <category name="Copying" zh="复制"/>
+         <category name="DOM Insertion" zh="DOM插入"/>
+         <category name="DOM Insertion, Around" zh="包裹"/>
+         <category name="DOM Insertion, Inside" zh="内部插入"/>
+         <category name="DOM Insertion, Outside" zh="外部插入"/>
+         <category name="DOM Removal" zh="DOM删除"/>
+         <category name="DOM Replacement" zh="DOM替换"/>
+         <category name="General Attributes" zh="通用属性"/>
+         <category name="Style Properties" zh="样式属性"/>
+      </category>
+      <category name="Miscellaneous" zh="杂项">
+         <category name="Collection Manipulation" zh="集合操作"/>
+         <category name="Data Storage" zh="数据存储"/>
+         <category name="DOM Element Methods" zh="DOM元素方法"/>
+         <category name="Setup Methods" zh="设置方法"/>
+      </category>
+      <category name="Offset" zh="偏移"/>
+      <category name="Plugin Authoring" zh="插件编写"/>
+      <category name="Properties" zh="属性">
+         <category name="Properties of jQuery Object Instances" zh="jQuery对象实例属性"/>
+         <category name="Properties of the Global jQuery Object" zh="全局jQuery对象属性"/>
+      </category>
+      <category name="Selectors" zh="选择器">
+         <category name="Attribute" zh="属性"/>
+         <category name="Basic" zh="基础"/>
+         <category name="Basic Filter" zh="简单"/>
+         <category name="Child Filter" zh="子元素"/>
+         <category name="Content Filter" zh="内容"/>
+         <category name="Form" zh="表单"/>
+         <category name="Hierarchy" zh="层级"/>
+         <category name="Visibility Filter" zh="可见性"/>
+      </category>
+      <category name="Traversing" zh="遍历">
+         <category name="Filtering" zh="筛选"/>
+         <category name="Miscellaneous Traversing" zh="其他遍历"/>
+         <category name="Tree Traversal" zh="树遍历"/>
+      </category>
+      <category name="Utilities" zh="工具"/>
+      <category name="Version" zh="版本">
+         <category name="Version 1.0" zh="1.0 版"/>
+         <category name="Version 1.0.4" zh="1.0.4 版"/>
+         <category name="Version 1.1" zh="1.1 版"/>
+         <category name="Version 1.1.2" zh="1.1.2 版"/>
+         <category name="Version 1.1.3" zh="1.1.3 版"/>
+         <category name="Version 1.1.4" zh="1.1.4 版"/>
+         <category name="Version 1.2" zh="1.2 版"/>
+         <category name="Version 1.2.3" zh="1.2.3 版"/>
+         <category name="Version 1.2.6" zh="1.2.6 版"/>
+         <category name="Version 1.3" zh="1.3 版"/>
+         <category name="Version 1.4" zh="1.4 版"/>
+         <category name="Version 1.4.1" zh="1.4.1 版"/>
+         <category name="Version 1.4.2" zh="1.4.2 版"/>
+         <category name="Version 1.4.3" zh="1.4.3 版"/>
+      </category>
+  </categories>
+</api>
