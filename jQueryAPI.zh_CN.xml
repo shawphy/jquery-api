@@ -1430,7 +1430,7 @@ if ( mydata.count &lt; 9 ) {
 </desc>
          </example>
          <example>
-            <desc>You can chain the jQuery.noConflict() with the shorthand ready for a compact code.
+            <desc>你可以对 jQuery.noConflict() 进行链式操作来调用 ready 的快捷方式，这样可以压缩代码。</desc>
 </desc>
          </example>
          <example>
