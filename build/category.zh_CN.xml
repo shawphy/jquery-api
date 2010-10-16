@@ -12,7 +12,7 @@
       <category name="CSS" zh="CSS"/>
       <category name="Data" zh="数据"/>
       <category name="Dimensions" zh="尺寸"/>
-      <category name="Effects" zh="效果">
+      <category name="Effects" zh="动画效果">
          <category name="Basics" zh="基本"/>
          <category name="Custom" zh="自定义"/>
          <category name="Fading" zh="渐变"/>
