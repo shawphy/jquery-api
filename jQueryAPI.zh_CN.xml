@@ -216,7 +216,7 @@
                <desc>A string containing a JavaScript event type, such as "click" or "keydown"</desc>
             </argument>
             <argument name="handler">
-               <desc>A function to execute at the time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -245,7 +245,7 @@
                <desc>A string containing one or more space-separated JavaScript event types, such as "click" or "keydown," or custom event names.</desc>
             </argument>
             <argument name="handler">
-               <desc>A function to execute at the time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
@@ -256,10 +256,10 @@
                <desc>A string containing one or more space-separated JavaScript event types, such as "click" or "keydown," or custom event names.</desc>
             </argument>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler">
-               <desc>A function to execute at the time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -357,68 +357,68 @@
          </example>
       </entry>
       <entry type="method" name="focusout">
-         <desc>Bind an event handler to the "focusout" JavaScript event.</desc>
+         <desc>为 "focusout" 事件绑定一个处理函数。</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This method is a shortcut for <code>.bind('focusout', handler)</code>.</p>
-            <p>The <code>focusout</code> event is sent to an element when it, or any element inside of it, loses focus. This is distinct from the <a href="/blur">blur</a> event in that it supports detecting the loss of focus from parent elements (in other words, it supports event bubbling).</p>
-            <p>This event will likely be used together with the <a href="/focusin">focusin</a> event.</p>
+            <p>这个方法是 <code>.bind('focusout', handler)</code> 的快捷方式。</p>
+            <p><code>focusout</code> 事件会在元素（或者其内部的任何元素）失去焦点焦点时触发。这跟 <a href="/blur">blur</a> 事件的显著区别在于，它可以在父元素上检测子元素失去焦点的情况(换而言之，它支持事件冒泡)。</p>
+            <p>这个事件通常会跟 <a href="/focusin">focusin</a> 事件一起使用。</p>
          </longdesc>
          <example>
-            <desc>Watch for a loss of focus to occur inside paragraphs and note the difference between the <code>focusout</code> count and the <code>blur</code> count.</desc>
+            <desc>监视段落内部失去焦点的情况。请注意 <code>focusout</code> 计数和 <code>blur</code> 计数的差异。</desc>
          </example>
       </entry>
       <entry type="method" name="focusin">
-         <desc>Bind an event handler to the "focusin" JavaScript event.</desc>
+         <desc>为 "focusin" 事件绑定一个处理函数。</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This method is a shortcut for <code>.bind('focusin', handler)</code>.</p>
-            <p>The <code>focusin</code> event is sent to an element when it, or any element inside of it, gains focus. This is distinct from the <a href="/focus">focus</a> event in that it supports detecting the focus event on parent elements.</p>
-            <p>This event will likely be used together with the <a href="/focusout">focusout</a> event.</p>
+            <p>这个方法是 <code>.bind('focusin', handler)</code>的快捷方式。</p>
+            <p><code>focusin</code> 事件会在元素（或者其内部的任何元素）获得焦点焦点时触发。这跟 <a href="/focus">focus</a> 事件的显著区别在于，它可以在父元素上检测子元素获得焦点的情况(换而言之，它支持事件冒泡)。</p>
+            <p>这个事件通常会跟 <a href="/focusout">focusout</a> 事件一起使用。</p>
          </longdesc>
          <example>
-            <desc>Watch for a focus to occur within the paragraphs on the page.</desc>
+            <desc>监控页面上段落内获得焦点的情况。</desc>
          </example>
       </entry>
       <entry type="method" name="has">
-         <desc>Reduce the set of matched elements to those that have a descendant that matches the selector or DOM element.</desc>
+         <desc>保留包含特定后代的元素，去掉那些不含有指定后代的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>一个用于匹配元素的选择器字符串。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="contained">
-               <desc>A DOM element to match elements against.</desc>
+               <desc>用于匹配元素的DOM元素。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Given a jQuery object that represents a set of DOM elements, the <code>.has()</code> method constructs a new jQuery object from a subset of the matching elements. The supplied selector is tested against the descendants of the matching elements; the element will be included in the result if any of its descendant elements matches the selector.</p>
-            <p>Consider a page with a nested list as follows:</p>
+            <p>如果提供一个jQuery对象代表DOM元素集合， <code>.has()</code> 方法会用其子集创建一个新的jQuery对象。提供的选择器会一一测试原先那些元素的后代，含有匹配后代的元素会保留在结果中。</p>
+            <p>下面是一个嵌套列表的页面：</p>
             <pre>
  &lt;ul&gt;
   &lt;li&gt;list item 1&lt;/li&gt;
@@ -432,71 +432,71 @@
   &lt;li&gt;list item 4&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>We can apply this method to the set of list items as follows:</p>
+            <p>我们可以用如下方式对列表项集合应用这个方法：</p>
             <pre>$('li').has('ul').css('background-color', 'red');</pre>
-            <p>The result of this call is a red background for item 2, as it is the only <code>&lt;li&gt;</code> that has a <code>&lt;ul&gt;</code> among its descendants.</p>
+            <p>结果是 item 2 背景变成了红色，因为只有这个 <code>&lt;li&gt;</code> 含有 <code>&lt;ul&gt;</code> 后代。</p>
 
          </longdesc>
          <example>
-            <desc>Check if an element is inside another.</desc>
+            <desc>检测是否一个元素在另一个之内。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.contains">
-         <desc>Check to see if a DOM node is within another DOM node.</desc>
+         <desc>检测一个DOM节点是否包含另一个DOM节点。</desc>
          <signature>
             <argument name="container">
-               <desc>The DOM element that may contain the other element.</desc>
+               <desc>可能包含其它元素的DOM元素。</desc>
             </argument>
             <argument name="contained">
-               <desc>The DOM node that may be contained by the other element.</desc>
+               <desc>可能被其它元素包含的DOM节点。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Check if an element is inside another.</desc>
+            <desc>检测是否一个元素在另一个之内。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.noop">
-         <desc>An empty function.</desc>
+         <desc>一个空函数。</desc>
          <signature/>
          <longdesc>
-            <p>You can use this empty function when you wish to pass around a function that will do nothing.</p>
-            <p>This is useful for plugin authors who offer optional callbacks; in the case that no callback is given, something like <code>jQuery.noop</code> could execute.</p>
+            <p>你可以在希望仅仅传递一个函数而不做任何事情时，传递这个空函数。</p>
+            <p>这对插件作者很有用。如果你设置了一个可选的回调函数，那么如果用户调用时没提供这个函数，那么就可以用 <code>jQuery.noop</code> 替代。</p>
          </longdesc>
       </entry>
       <entry type="method" name="delay">
-         <desc>Set a timer to delay execution of subsequent items in the queue.</desc>
+         <desc>设置一个延时来推迟执行队列中之后的项目。</desc>
          <signature>
             <argument name="duration">
-               <desc>An integer indicating the number of milliseconds to delay execution of the next item in the queue.</desc>
+               <desc>以毫秒为单位的整数，用于设定队列推迟执行的时间。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>队列名的字符串。默认是动画队列 <code>fx</code> 。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Added to jQuery in version 1.4, the <code>.delay()</code> method allows us to delay the execution of functions that follow it in the queue. It can be used with the standard effects queue or with a custom queue. </p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of 200 and 600 milliseconds, respectively.</p>
-            <p>Using the standard effects queue, we can, for example, set an 800-millisecond delay between the <code>.slideUp()</code> and <code>.fadeIn()</code> of <code>&lt;div id="foo"&gt;</code>:</p>
+            <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。它既可以推迟动画队列中函数的执行，也可以用于自定义队列。 </p>
+            <p>毫秒为单位的延时，数字越大，动画越慢。字符串 <code>'fast'</code> 和 <code>'slow'</code> 分别代表200和600毫秒的延时。</p>
+            <p>例如，我们可以在 <code>&lt;div id="foo"&gt;</code> 的 <code>.slideUp()</code> 和 <code>.fadeIn()</code> 动画之间添加800毫秒的延时 :</p>
             <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
-            <p>When this statement is executed, the element slides up for 300 milliseconds and then pauses for 800 milliseconds before fading in for 400 milliseconds.</p>
+            <p>当这句语句执行后，元素会有300毫秒的卷起动画，接着暂停800毫秒，再出现400毫秒淡入动画。</p>
             <p>
-               <strong>jQuery.delay() is best for delaying between queued jQuery effects and such, and is not a replacement for JavaScript's native <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> function, which may be more appropriate for certain use cases.</strong>
+               <strong>jQuery.delay() 用在jQuery动画或者类似队列中是再好不过的了。但不应替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong>
             </p>
          </longdesc>
          <example>
-            <desc>Animate the hiding and showing of two divs, delaying the first before showing it.</desc>
+            <desc>隐藏再显示两个div。其中绿色的div再次出现得更慢。</desc>
          </example>
       </entry>
       <entry type="method" name="parentsUntil">
-         <desc>Get the ancestors of each element in the current set of matched elements, up to but not including the element matched by the selector.</desc>
+         <desc>查找当前元素的所有的前辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to indicate where to stop matching ancestor elements.</desc>
+               <desc>选择器字符串，用于确定到哪个前辈元素时停止匹配。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Given a jQuery object that represents a set of DOM elements, the <code>.parentsUntil()</code> method traverses through the ancestors of these elements until it reaches an element matched by the selector passed in the method's argument. The resulting jQuery object contains all of the ancestors up to but not including the one matched by the <code>.parentsUntil()</code> selector. Consider a page with a basic nested list as follows:</p>
+            <p>如果提供一个jQuery对象代表DOM元素集合， <code>.parentsUntil()</code> 方法会找遍所有这些元素的前辈元素，直到遇到了跟参数匹配的元素才会停止。返回的jQuery对象中包含了所有找到的前辈元素，除了与 <code>.parentsUntil()</code> 选择器匹配的那个元素。考虑如下的嵌套列表：</p>
             <pre>&lt;ul class="level-1"&gt;
   &lt;li class="item-i"&gt;I&lt;/li&gt;
   &lt;li class="item-ii"&gt;II
@@ -515,31 +515,31 @@
   &lt;li class="item-iii"&gt;III&lt;/li&gt;
 &lt;/ul&gt;
 </pre>  
-            <p>If we begin at item A, we can find its ancestors up to but not including <code>&lt;ul class="level-1"&gt;</code> as follows:</p>
+            <p>如果我们从项目 A 开始找它的前辈，但不包括 <code>&lt;ul class="level-1"&gt;</code> ，就可以用下面代码：</p>
             <pre>$('li.item-a').parentsUntil('.level-1')
     .css('background-color', 'red');</pre>
-            <p>The result of this call is a red background for the level-2 list and the item II. </p>
-            <p>If the .parentsUntil() selector is not matched, or if no selector is supplied, the returned jQuery object contains all of the previous jQuery object's ancestors. For example, let's say we begin at item A again, but this time we use a selector that is not matched by any of its ancestors:</p>
+            <p>结果就是 level-2 列表和项目 II 的背景变红。 </p>
+            <p>如果提供给 .parentsUntil() 的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么返回的对象会是这个对象所有的前辈元素。例如再次从项目 A 开始找，但这次使用一个匹配不到任何东西的选择器：</p>
             <pre>$('li.item-a').parentsUntil('.not-here')
     .css('background-color', 'red');</pre>
-            <p>The result of this call is a red background-color style applied to the level-2 list, the item II, the level-1 list, the <code>&lt;body&gt;</code> element, and the <code>&lt;html&gt;</code> element.</p>
+            <p>其结果是给 level-2 列表, 项目 II,  level-1 列表, <code>&lt;body&gt;</code> 元素和 <code>&lt;html&gt;</code> 元素都设置了红色背景。</p>
          </longdesc>
          <example>
-            <desc>Find the ancestors of &lt;li class="item-a"&gt; up to &lt;ul class="level-1"&gt; and give them a red background color.</desc>
+            <desc>查找 &lt;li class="item-a"&gt; 的前辈，直到 &lt;ul class="level-1"&gt; 为止，并给它们设置红色背景。</desc>
          </example>
       </entry>
       <entry type="method" name="prevUntil">
-         <desc>Get all preceding siblings of each element up to but not including the element matched by the selector.</desc>
+         <desc>查找当前元素之前所有的同辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to indicate where to stop matching preceding sibling elements.</desc>
+               <desc>选择器字符串，用于确定到哪个排在前面的同辈元素时停止匹配。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Given a jQuery object that represents a set of DOM elements, the <code>.prevUntil()</code> method allows us to search through the predecessors of these elements in the DOM tree, stopping when it reaches an element matched by the method's argument. The new jQuery object that is returned contains all previous siblings up to but not including the one matched by the <code>.prevUntil()</code> selector.</p>
-            <p>If the selector is not matched or is not supplied, all previous siblings will be selected; in these cases it selects the same elements as the <code>.prevAll()</code> method does when no filter selector is provided.</p>
+            <p>如果提供的jQuery代表了一组DOM元素， <code>.prevUntil()</code> 方法会找遍所有元素所在的DOM树中排在它们前面的元素，直到遇到了一个跟提供的参数匹配的元素的时候才会停下来。这个新jQuery对象里包含了前面所有找到的同辈元素，但不包括提供给 <code>.prevUntil()</code> 的选择器匹配到的元素。</p>
+            <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在前面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.prevAll()</code> 效果一样。</p>
   
-            <p>Consider a page with a simple definition list as follows:</p>
+            <p>考虑如下的定义列表：</p>
             <pre>
 &lt;dl&gt;
   &lt;dt&gt;term 1&lt;/dt&gt;
@@ -558,26 +558,25 @@
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-              <p>If we begin at the second term, we can find the elements which come after it until a preceding <code>&lt;dt&gt;</code>.</p>
+              <p>如果我们从 term 2 开始，查找在它之前的所有元素，直到 <code>&lt;dt&gt;</code>为止。</p>
             <pre>$('#term-2').prevUntil('dt').css('background-color', 'red');</pre>
-              <p>The result of this call is a red background behind definitions <code>1-a</code>, <code>1-b</code>, <code>1-c</code>, and <code>1-d</code>. </p>
+              <p>其结果是使 definitions <code>1-a</code>, <code>1-b</code>, <code>1-c</code>, 和 <code>1-d</code> 的背景变为红色。</p>
          </longdesc>
          <example>
-            <desc>Find the siblings that precede &lt;dt id="term-2"&gt; up to the preceding &lt;dt&gt; and give them a red background color.</desc>
+            <desc>查找排在 &lt;dt id="term-2"&gt; 之前的同辈元素，直到 &lt;dt&gt; 为止，并把它们的背景都设成红色。</desc>
          </example>
       </entry>
       <entry type="method" name="nextUntil">
-         <desc>Get all following siblings of each element up to but not including the element matched by the selector.</desc>
+         <desc>查找当前元素之前所有的同辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to indicate where to stop matching following sibling elements.</desc>
+               <desc>选择器字符串，用于确定到哪个跟在后面的同辈元素时停止匹配。</desc>
             </argument>
          </signature>
-         <longdesc>
-            <p>Given a jQuery object that represents a set of DOM elements, the <code>.nextUntil()</code> method allows us to search through the successors of these elements in the DOM tree, stopping when it reaches an element matched by the method's argument. The new jQuery object that is returned contains all following siblings up to but not including the one matched by the <code>.nextUntil()</code> selector.</p>
-            <p>If the selector is not matched or is not supplied, all following siblings will be selected; in these cases it selects the same elements as the <code>.nextAll()</code> method does when no filter selector is provided.</p>
+         <longdesc><p>如果提供的jQuery代表了一组DOM元素， <code>.nextUntil()</code> 方法会找遍所有元素所在的DOM树中跟在它们后面的元素，直到遇到了一个跟提供的参数匹配的元素时才会停下来。这个新jQuery对象里包含了后面所有找到的同辈元素，但不包括提供给 <code>.nextUntil()</code> 的选择器匹配到的元素。</p>
+            <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在后面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.nextAll()</code> 效果一样。</p>
   
-            <p>Consider a page with a simple definition list as follows:</p>
+            <p>考虑如下的定义列表：</p>
             <pre>
 &lt;dl&gt;
   &lt;dt&gt;term 1&lt;/dt&gt;
@@ -596,245 +595,243 @@
   &lt;dd&gt;definition 3-b&lt;/dd&gt;
 &lt;/dl&gt;
 </pre>
-              <p>If we begin at the second term, we can find the elements which come after it until a following <code>&lt;dt&gt;</code>.</p>
+              <p>如果我们从 term 2 开始，查找在它之后的所有元素，直到 <code>&lt;dt&gt;</code>为止</p>
             <pre>$('#term-2').nextUntil('dt').css('background-color', 'red');</pre>
-              <p>The result of this call is a red background behind definitions <code>2-a</code>, <code>2-b</code>, and <code>2-c</code>. </p>
+              <p>其结果是使 definition <code>2-a</code>, <code>2-b</code>, and <code>2-c</code> 的背景变为红色。</p>
          </longdesc>
          <example>
-            <desc>Find the siblings that follow &lt;dt id="term-2"&gt; up to the next &lt;dt&gt; and give them a red background color.</desc>
+            <desc>查找跟在 &lt;dt id="term-2"&gt; 之后的同辈元素，直到 &lt;dt&gt; 为止，并把它们的背景都设成红色。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isImmediatePropagationStopped">
-         <desc>  Returns whether event.stopImmediatePropagation() was ever called on this event object. </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.stopImmediatePropagation">event.stopImmediatePropagation()</a> 方法来返回一个布尔值。</desc>
          <signature/>
          <longdesc> 
-            <p>This property was introduced in <a href="http://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-Event-isImmediatePropagationStopped">DOM level 3</a>.</p>  
+            <p>这个事件方法在 <a href="http://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-Event-isImmediatePropagationStopped">DOM level 3</a> 有介绍。</p>  
          </longdesc>
          <example>
-            <desc>Checks whether event.stopImmediatePropagation() was called.</desc>
+            <desc>检测 event.stopImmediatePropagation() 是否被调用过。</desc>
          </example>
       </entry>
       <entry type="method" name="event.stopImmediatePropagation">
-         <desc> Keeps the rest of the handlers from being executed and prevents the event from bubbling up the DOM tree.
-  </desc>
+         <desc>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</desc>
          <signature/>
          <longdesc>
-            <p>In addition to keeping any additional handlers on an element from being executed, this method also stops the bubbling by implicitly calling <code>event.stopPropagation()</code>. To simply prevent the event from bubbling to ancestor elements but allow other event handlers to execute on the same element, we can use <code>
-                  <a href="http://api.jquery.com/event.stopPropagation">event.stopPropagation()</a>
-               </code> instead.</p>
-            <p>Use <code>
-                  <a href="http://api.jquery.com/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a>
-               </code> to know whether this method was ever called (on that event object).</p> 
+            <p>除了阻止元素上其它的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其它事件处理函数继续执行，我们可以使用 <code>
+                  <a href="/event.stopPropagation">event.stopPropagation()</a>
+               </code> 来代替。</p>
+            <p>使用 <code>
+                  <a href="/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a>
+               </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p> 
          </longdesc>
          <example>
-            <desc>Prevents other event handlers from being called.</desc>
+            <desc>阻止调用其它事件处理函数。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isPropagationStopped">
-         <desc>  Returns whether <a href="/event.stopPropagation">event.stopPropagation()</a> was ever called on this event object. </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.stopPropagation">event.stopPropagation()</a> 方法来返回一个布尔值。</desc>
          <signature/>
          <longdesc>
-            <p>This event method is described in the <a href="http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/events.html#Events-Event-isPropagationStopped">W3C DOM Level 3 specification</a>.</p>
+            <p>这个事件方法在 <a href="http://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/events.html#Events-Event-isPropagationStopped">W3C DOM Level 3 specification</a> 有介绍。</p>
          </longdesc>
          <example>
-            <desc>Checks whether event.stopPropagation() was called</desc>
+            <desc>检测 event.stopPropagation() 是否被调用过。</desc>
          </example>
       </entry>
       <entry type="method" name="event.stopPropagation">
-         <desc>Prevents the event from bubbling up the DOM tree, preventing any parent handlers from being notified of the event.   </desc>
+         <desc>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。</desc>
          <signature/>
          <longdesc>  
-            <p>We can use <code>
+            <p>我们可以用 <code>
                   <a href="/event.isPropagationStopped">event.isPropagationStopped()</a>
-               </code> to determine if this method was ever called (on that event object). </p>
-            <p>This method works for custom events triggered with <a href="/trigger">trigger()</a>, as well.</p>
-            <p>Note that this will not prevent other handlers <em>on the same element</em> from running. </p> 
+               </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
+            <p>这个方法对 <a href="/trigger">trigger()</a> 来自定义的事件同样有效。</p>
+            <p>注意，这不会阻止<em>同一个元素上</em>的其它事件处理函数的运行。</p> 
          </longdesc>
          <example>
-            <desc>Kill the bubbling on the click event.</desc>
+            <desc>灭掉click事件的冒泡。</desc>
          </example>
       </entry>
       <entry type="method" name="event.isDefaultPrevented">
-         <desc>Returns whether <a href="/event.preventDefault">event.preventDefault()</a> was ever called on this event object. </desc>
+         <desc>根据事件对象中是否调用过 <a href="/event.preventDefault">event.preventDefault()</a> 方法来返回一个布尔值。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>Checks whether event.preventDefault() was called.</desc>
+            <desc>检测 event.preventDefault() 是否被调用过。</desc>
          </example>
       </entry>
       <entry type="method" name="event.preventDefault">
-         <desc> If this method is called, the default action of the event will not be triggered. </desc>
+         <desc>阻止默认事件行为的触发。</desc>
          <signature/>
          <longdesc> 
-            <p>For example, clicked anchors will not take the browser to a new URL. We can use <code>event.isDefaultPrevented()</code> to determine if this method has been called by an event handler that was triggered by this event.</p>  
+            <p>举例来说，在执行这个方法后，如果点击一个锚点<code>&lt;a /&gt;</code>，就不会让浏览器跳转到新的 URL 去了。我们可以用 <code>event.isDefaultPrevented()</code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
          </longdesc>
          <example>
-            <desc>Cancel the default action (navigation) of the click.</desc>
+            <desc>取消点击的默认行为(导航)。</desc>
          </example>
       </entry>
       <entry type="property" name="event.timeStamp">
-         <desc> This attribute returns the number of milliseconds since January 1, 1970, when the event is triggered.   </desc>
+         <desc>这个属性返回事件触发时距离1970年1月1日的毫秒数。</desc>
          <signature/>
-         <longdesc>It can be useful for profiling the performance of certain jQuery functions. </longdesc>
+         <longdesc>这可以很方便的检测某个jQuery函数的性能。</longdesc>
          <example>
-            <desc>Display the time since the click handler last executed.</desc>
+            <desc>显示两次点击之间的时间。</desc>
          </example>
       </entry>
       <entry type="property" name="event.result">
-         <desc> This attribute contains the last value returned by an event handler that was triggered by this event, unless the value was <code>undefined</code>.  </desc>
+         <desc>这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 <code>undefined</code> 。</desc>
          <signature/>
-         <longdesc> It can be useful for getting previous return values of custom events.  </longdesc>
+         <longdesc>这经常用于获取自定义事件的前一个返回值。</longdesc>
          <example>
-            <desc>Display previous handler's return value</desc>
+            <desc>显示前一个事件处理函数的返回值。</desc>
          </example>
       </entry>
       <entry type="property" name="event.which">
-         <desc> For key or button events, this attribute indicates the specific button or key that was pressed.  </desc>
+         <desc>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键。</desc>
          <signature/>
          <longdesc> 
             <p>
-               <code>event.which</code> normalizes <code>event.keyCode</code> and <code>event.charCode</code>. It is recommended to watch <code>event.which</code> for keyboard key input. For more detail, read about <a href="https://developer.mozilla.org/en/DOM/event.charCode#Notes">event.charCode on the MDC</a>. </p> 
+               <code>event.which</code> 将 <code>event.keyCode</code> 和 <code>event.charCode</code> 标准化了。推荐用 <code>event.which</code> 来监视键盘输入。更多细节请参阅： <a href="https://developer.mozilla.org/en/DOM/event.charCode#Notes">event.charCode on the MDC</a>. </p> 
          </longdesc>
          <example>
-            <desc>Log what key was depressed.</desc>
+            <desc>记录按键</desc>
          </example>
       </entry>
       <entry type="property" name="event.pageY">
-         <desc>The mouse position relative to the top edge of the document. </desc>
+         <desc>鼠标相对于文档顶部的坐标。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>Show the mouse position relative to the left and top edges of the document (within this iframe).</desc>
+            <desc>显示鼠标相对于文档（框架中）顶部和左边的坐标。</desc>
          </example>
       </entry>
       <entry type="property" name="event.pageX">
-         <desc>The mouse position relative to the left edge of the document. </desc>
+         <desc>鼠标相对于文档左部的坐标。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>Show the mouse position relative to the left and top edges of the document (within the iframe).</desc>
+            <desc>显示鼠标相对于文档（框架中）顶部和左边的坐标。</desc>
          </example>
       </entry>
       <entry type="property" name="event.currentTarget">
-         <desc> The current DOM element within the event bubbling phase.  </desc>
+         <desc>事件冒泡阶段当前所在DOM元素。</desc>
          <signature/>
          <longdesc>
-            <p>This property will always be equal to the <code>this</code> of the function.</p>  
+            <p>这个属性总是等于函数的 <code>this</code> 。</p>
          </longdesc>
          <example>
-            <desc>Alert that currentTarget matches the `this` keyword.</desc>
+            <desc>currentTarget 总是完全等同于 `this` 。</desc>
          </example>
       </entry>
       <entry type="property" name="event.relatedTarget">
-         <desc>  The other DOM element involved in the event, if any. </desc>
+         <desc>在事件中涉及的其它任何DOM元素。</desc>
          <signature/>
          <longdesc>
-            <p>For <code>mouseout</code>, indicates the element being entered; for <code>mousein</code>, indicates the element being exited. </p> 
+            <p>对于 <code>mouseout</code> 事件，它指向被进入的元素；对于 <code>mousein</code> 事件，它指向被离开的元素。</p> 
          </longdesc>
          <example>
-            <desc>On mouseout of anchors, alert the element type being entered.</desc>
+            <desc>对于锚点的 mouseout 事件，显示被进入的元素类型。</desc>
          </example>
       </entry>
       <entry type="property" name="event.data">
-         <desc> Contains the optional data passed to jQuery.fn.bind when the current executing handler was bound.  </desc>
+         <desc> 包含传给 bind 函数的可选数据。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>The description of the example.</desc>
+            <desc>显示传入的数据</desc>
          </example>
       </entry>
       <entry type="property" name="event.target">
-         <desc> The DOM element that initiated the event.  </desc>
+         <desc>最初触发事件的DOM元素。</desc>
          <signature/>
          <longdesc> 
-            <p>This can be the element that registered for the event or a child of it.  It is often useful to compare <code>event.target</code> to <code>this</code> in order to determine if the event is being handled due to event bubbling. This property is very useful in event delegation, when events bubble.</p>
+            <p>这是注册事件时的对象，或者它的子元素。通常用于比较 <code>event.target</code> 和 <code>this</code> 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
          </longdesc>
          <example>
-            <desc>Display the tag's name on click</desc>
+            <desc>显示点击元素的标签名。</desc>
          </example>
          <example>
-            <desc>Implements a simple event delegation: The click handler is added to an unordered list, and the children of its li children are hidden. Clicking one of the li children toggles (see toggle()) their children.</desc>
+            <desc>实现一个简单的事件委托：给无序列表增加一个点击事件处理函数，然后它的子元素li的子元素都隐藏起来。当点击这个ul其中一个子元素li的时候，来回切换显示（参见 <a href="/toggle">toggle()</a>）li的子元素。</desc>
          </example>
       </entry>
       <entry type="property" name="event.type">
-         <desc> Describes the nature of the event.  </desc>
+         <desc>描述事件类型。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
-            <desc>On all anchor clicks, alert the event type.</desc>
+            <desc>点击所有锚点后弹出事件类型。</desc>
          </example>
       </entry>
       <entry type="property" name="jQuery.fx.off">
-         <desc>Globally disable all animations.</desc>
+         <desc>禁用页面上所有的动画。</desc>
          <signature/>
          <longdesc>
-            <p>When this property is set to <code>true</code>, all animation methods will immediately set elements to their final state when called, rather than displaying an effect. This may be desirable for a couple reasons:</p>
+            <p>把这个属性设置为 <code>true</code> 后，所有动画方法会立即停止特效，并把元素设置成动画的最终状态。有时候确实有必要这样做，比如：</p>
             <ul>
-               <li>jQuery is being used on a low-resource device.</li>
-               <li>Users are encountering accessibility problems with the animations (see the article <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html">Turn Off Animation</a> for more information).</li>
+               <li>jQuery 用在资源较少的设备。</li>
+               <li>一些用户由于动画效果而遇到了可访问性问题。（参考文章 <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.html">Turn Off Animation</a> 以获取更多信息。）</li>
             </ul>
-            <p>Animations can be turned back on by setting the property to <code>false</code>.</p>
+            <p>当把这个属性设成 <code>false</code> 之后，可以重新开启所有动画。</p>
 
          </longdesc>
          <example>
-            <desc>Toggle animation on and off</desc>
+            <desc>切换开启或关闭动画。</desc>
          </example>
       </entry>
       <entry type="method" name="each">
-         <desc>Iterate over a jQuery object, executing a function for each matched element. </desc>
+         <desc>迭代jQuery对象，为每个匹配的元素执行函数。</desc>
          <signature>
             <argument name="function(index, Element)">
-               <desc>A function to execute for each matched element.</desc>
+               <desc>为每个匹配元素执行的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.each()</code> method is designed to make DOM looping constructs concise and less error-prone. When called it iterates over the DOM elements that are part of the jQuery object. Each time the callback runs, it is passed the current loop iteration, beginning from 0. More importantly, the callback is fired in the context of the current DOM element, so the keyword <code>this</code> refers to the element.</p>
-            <p>Suppose we had a simple unordered list on the page:</p>
+            <p><code>.each()</code> 方法用来让DOM循环结构更简单更不易出错。它会迭代jQuery对象中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数)。更重要的是，回调函数是在当前DOM元素为上下文的语境中触发的。因此关键字 <code>this</code> 总是指向这个元素。</p>
+            <p>假设页面上有这样一个简单的无序列表。</p>
             <pre>&lt;ul&gt;
     &lt;li&gt;foo&lt;/li&gt;
     &lt;li&gt;bar&lt;/li&gt;
   &lt;/ul&gt;
   </pre>
-            <p>We can select the list items and iterate across them:</p>
+            <p>我们可以选中并迭代这些列表：</p>
             <pre>$('li').each(function(index) {
     alert(index + ': ' + $(this).text());
   });
   </pre>
-            <p>A message is thus alerted for each item in the list:</p>
+            <p>列表中每一项会显示在下面的消息中：</p>
             <p>
                <span class="output">0: foo</span>
                <br/>
                <span class="output">1: bar</span>
             </p>
-            <p>We can stop the loop from within the callback function by returning <code>false</code>.</p>  
-  
+            <p>我们可以通过返回 <code>false</code>以便在回调函数内中止循环。</p>
          </longdesc>
          <example>
-            <desc>Iterates over three divs and sets their color property.</desc>
+            <desc>遍历三个div并设置它们的color属性。</desc>
          </example>
          <example>
-            <desc>If you want to have the jQuery object instead of the regular DOM element, use the $(this) function, for example:</desc>
+            <desc>如果你不想要普通的DOM元素，而想获得的是jQuery对象的话，使用$(this) 函数。例如：</desc>
          </example>
          <example>
-            <desc>You can use 'return' to break out of each() loops early.</desc>
+            <desc>你可以使用 'return' 来提前结束 each() 循环。</desc>
          </example>
       </entry>
       <entry type="method" name="pushStack">
-         <desc>Add a collection of DOM elements onto the jQuery stack.</desc>
+         <desc>将一个DOM元素集合加入到jQuery栈。</desc>
          <signature>
             <argument name="elements">
-               <desc>An array of elements to push onto the stack and make into a new jQuery object.</desc>
+               <desc>将要压入jQuery栈的元素，用于生成一个新的jQuery对象。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="elements">
-               <desc>An array of elements to push onto the stack and make into a new jQuery object.</desc>
+               <desc>将要压入jQuery栈的元素，用于生成一个新的jQuery对象。</desc>
             </argument>
             <argument name="name">
-               <desc>The name of a jQuery method that generated the array of elements.</desc>
+               <desc>用于生成元素数组的jQuery方法名。</desc>
             </argument>
             <argument name="arguments">
-               <desc>The arguments that were passed in to the jQuery method (for serialization).</desc>
+               <desc>传递给jQuery方法的参数(用于序列化)。</desc>
             </argument>
          </signature>
          <longdesc/>
@@ -843,115 +840,114 @@
          </example>
       </entry>
       <entry type="method" name="jQuery.globalEval">
-         <desc>Execute some JavaScript code globally.</desc>
+         <desc>全局执行一些JavaScript代码。</desc>
          <signature>
             <argument name="code">
-               <desc>The JavaScript code to execute.</desc>
+               <desc>将要执行的 JavaScript 代码。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This method behaves differently from using a normal JavaScript <code>eval()</code> in that it's executed within the global context (which is important for loading external scripts dynamically).</p>
+            <p>这个方法与普通 JavaScript 中 <code>eval()</code> 的不同之处在于，它是在全局的上下文语境中执行的代码，这对于动态载入外部脚本非常重要。</p>
          </longdesc>
          <example>
-            <desc>Execute a script in the global context.</desc>
+            <desc>全局地执行脚本。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.isXMLDoc">
-         <desc>Check to see if a DOM node is within an XML document (or is an XML document).</desc>
+         <desc>检测一个DOM节点是否在一个XML文档中（或者本身就是一个XML文档）。</desc>
          <signature>
             <argument name="node">
-               <desc>The DOM node that will be checked to see if it's in an XML document.</desc>
+               <desc>用于检测是否在XML文档中的DOM节点。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Check an object to see if it's in an XML document.</desc>
+            <desc>检测一个对象是否在一个XML文档之中。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.removeData">
-         <desc>Remove a previously-stored piece of data.</desc>
+         <desc>移除先前存储的数据片段。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element from which to remove data.</desc>
+               <desc>将要移除数据的DOM元素。</desc>
             </argument>
             <argument name="name">
-               <desc>A string naming the piece of data to remove.</desc>
+               <desc>将要移除的数据片段名。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/removeData">.removeData()</a>
-               </code> instead.</p>
-	           <p>The <code>jQuery.removeData()</code> method allows us to remove values that were previously set using <code>
+               </code> 来代替。</p>
+	           <p><code>jQuery.removeData()</code> 允许我们移除先前用 <code>
                   <a href="/jQuery.data">jQuery.data()</a>
-               </code>. When called with the name of a key, <code>jQuery.removeData()</code> deletes that particular value; when called with no arguments, all values are removed.</p>
+               </code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
          </longdesc>
          <example>
-            <desc>Set a data store for 2 names then remove one of them.</desc>
+            <desc>设置两个数据，然后再删除其中一个。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.data">
-         <desc>Store arbitrary data associated with the specified element.</desc>
+         <desc>在指定的元素上随心所欲的存放数据。</desc>
          <signature>
             <argument name="element">
-               <desc>The DOM element to associate with the data.</desc>
+               <desc>用于存放数据的DOM元素。</desc>
             </argument>
             <argument name="key">
-               <desc>A string naming the piece of data to set.</desc>
+               <desc>将要设置的数据片段名。</desc>
             </argument>
             <argument name="value">
-               <desc>The new data value.</desc>
+               <desc>新的数据值。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method; you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/data">.data()</a>
-               </code> instead.</p>
-	           <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore free from memory leaks. jQuery ensures that the data is removed when DOM elements are removed via jQuery methods, and when the user leaves the page. We can set several distinct values for a single element and retrieve them later:</p>
+               </code> 来代替。</p>
+	           <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们在单个元素上设置几个独立的数据，并且以后还可以分别检索到：</p>
 	           <pre>jQuery.data(document.body, 'foo', 52);
-		jQuery.data(document.body, 'bar', 'test');</pre>
+jQuery.data(document.body, 'bar', 'test');</pre>
          </longdesc>
          <example>
-            <desc>Store then retrieve a value from the div element.</desc>
+            <desc>在一个DIV元素上存放数据，然后检索这个数据。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.data">
-         <desc>Returns value at named data store for the element, as set by <code>jQuery.data(element, name, value)</code>, or the full data store for the element.</desc>
+         <desc>返回用 <code>jQuery.data(element, name, value)</code> 存放在元素上的指定数据，或者元素上的所有数据。</desc>
          <signature>
             <argument name="element">
-               <desc>The DOM element to query for the data.</desc>
+               <desc>将要查询数据的DOM元素。</desc>
             </argument>
             <argument name="key">
-               <desc>Name of the data stored.</desc>
+               <desc>存放的数据名。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="element">
-               <desc>The DOM element to query for the data.</desc>
+               <desc>将要查询数据的DOM元素。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method; you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/data">.data()</a>
-               </code> instead.</p>
-            <p>The <code>jQuery.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
+               </code> 来代替。</p>
+            <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。 我们可以分别在DOM元素上获取几个独立的数据，或者一次获取一组：</p>
             <pre>alert(jQuery.data( document.body, 'foo' ));
 alert(jQuery.data( document.body ));</pre>
-            <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, an empty string is returned.</p>
-            <p>Calling <code>jQuery.data(element)</code> retrieves all of the element's associated values as a JavaScript object. Note that jQuery itself uses this method to store data for internal use, such as event handlers, so do not assume that it contains only data that your own code has stored.</p>
+            <p>上面两行中alert的数据都是先前给 <code>body</code> 设置的。如果先前没有设置过，则返回一个空字符串。</p>
+            <p>调用 <code>jQuery.data(element)</code> 可以返回一个JavaScript对象，包含元素上所有存放的数据。注意jQuery本身也在内部使用这个方法存放数据，比如事件处理函数，所以返回的对象中会包含不是你自己代码存放的数据。</p>
             <p>
-               <strong>HTML 5 data- Attributes</strong>
+               <strong>HTML 5 data- 属性</strong>
             </p>
-            <p>As of jQuery 1.4.3 <a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- attributes</a> will be automatically pulled in to jQuery's data object.</p>
-
-            <p>For example, given the following HTML:</p>
+            <p>从 jQuery 1.4.3 起，<a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- 属性</a> 中的数据会自动添加进 jQuery 的 data 对象</p>
+            <p>例如下面的 HTML:</p>
 
             <pre>&lt;div data-role="page" data-hidden="true" data-options='{"name":"John"}'&gt;&lt;/div&gt;</pre>
 
-            <p>All of the following jQuery code will work.</p>
+            <p>如下所有的 jQuery 代码都可以正常使用。</p>
 
             <pre>$("div").data("role") === "page";
 $("div").data("hidden") === true;
@@ -960,212 +956,211 @@ $("div").data("options").name === "John";</pre>
             <p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
          </longdesc>
          <example>
-            <desc>Get the data named "blah" stored at for an element.</desc>
+            <desc>获取存放在元素上名叫 "blah" 的数据。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.dequeue">
-         <desc>Execute the next function on the queue for the matched element.</desc>
+         <desc>为匹配的元素执行队列中下一个函数。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element from which to remove and execute a queued function.</desc>
+               <desc>一个DOM元素，会从它附带的函数队列中弹出并执行一个函数。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/dequeue">.dequeue()</a>
-               </code> instead.</p>
-            <p>When <code>jQuery.dequeue()</code> is called, the next function on the queue is removed from the queue, and then executed. This function should in turn (directly or indirectly) cause <code>jQuery.dequeue()</code> to be called, so that the sequence can continue.</p>
+               </code> 来代替。</p>
+            <p>当调用 <code>jQuery.dequeue()</code> 时，队列中的下一个函数会从队列中移出并执行。这个函数应当在内部直接或间接调用 <code>jQuery.dequeue()</code> 以便队列得以继续执行下去。</p>
          </longdesc>
          <example>
-            <desc>Use dequeue to end a custom queue function which allows the queue to keep going.</desc>
+            <desc>使用 dequeue 来结束一个自定义的队列函数，以便能够让队列继续运行下去。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.queue">
-         <desc>Show the queue of functions to be executed on the matched element.</desc>
+         <desc>显示匹配元素上将要执行的函数队列。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element to inspect for an attached queue.</desc>
+               <desc>将要检测附加队列的DOM元素。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/queue">.queue()</a>
-               </code> instead.</p>
+               </code> 来代替。</p>
          </longdesc>
          <example>
-            <desc>Show the length of the queue.</desc>
+            <desc>显示队列长度。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.queue">
-         <desc>Manipulate the queue of functions to be executed on the matched element.</desc>
+         <desc>操作匹配元素上将要执行的函数队列。</desc>
          <signature>
             <argument name="element">
-               <desc>A DOM element where the array of queued functions is attached.</desc>
+               <desc>带有函数队列数组的DOM元素。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
             <argument name="newQueue">
-               <desc>An array of functions to replace the current queue contents.</desc>
+               <desc>一个用于替换现有队列内容的函数数组。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="element">
-               <desc>A DOM element on which to add a queued function.</desc>
+               <desc>将要往队列中增加一个函数的DOM元素。</desc>
             </argument>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
             <argument name="callback()">
-               <desc>The new function to add to the queue.</desc>
+               <desc>将要添加进队列的新函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>
-               <strong>Note:</strong> This is a low-level method, you should probably use <code>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
                   <a href="/queue">.queue()</a>
-               </code> instead.</p>
-	           <p>Every element can have one or more queues of functions attached to it by jQuery. In most applications, only one queue (called <code>fx</code>) is used. Queues allow a sequence of actions to be called on an element asynchronously, without halting program execution.</p>
-	           <p>The <code>jQuery.queue()</code> method allows us to directly manipulate this queue of functions. Calling <code>jQuery.queue()</code> with a callback is particularly useful; it allows us to place a new function at the end of the queue.</p>
-	           <p>Note that when adding a function with <code>jQuery.queue()</code>, we should ensure that <code>jQuery.dequeue()</code> is eventually called so that the next function in line executes.</p>
+               </code> 来代替。</p>
+	           <p>每个元素都可以通过jQuery附加一个或多个函数队列。在大多数程序中，只会使用一个队列（名为 <code>fx</code>）。队列允许异步地对某个元素进行一系列操作，而不是把整个程序挂起。</p>
+	           <p><code>jQuery.queue()</code> 允许我们直接操作这个函数队列。最常用的用法是调用 <code>jQuery.queue()</code> 时带一个回调函数，这样就能让我们在队列最后放置一个新的函数。</p>
+	           <p>注意，当通过 <code>jQuery.queue()</code> 增加一个函数时，务必确保函数的最后调用了 <code>jQuery.dequeue()</code> ，以便能够执行队列中的下一个函数。</p>
          </longdesc>
          <example>
-            <desc>Queue a custom function.</desc>
+            <desc>将一个自定义函数加入队列。</desc>
          </example>
          <example>
-            <desc>Set a queue array to delete the queue.</desc>
+            <desc>通过设置一个队列数组，来删除已有的队列。</desc>
          </example>
       </entry>
       <entry type="method" name="clearQueue">
-         <desc>Remove from the queue all items that have not yet been run.</desc>
+         <desc>清空对象上尚未执行的所有队列。</desc>
          <signature>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>When the <code>.clearQueue()</code> method is called, all functions on the queue that have not been executed are removed from the queue. When used without an argument, <code>.clearQueue()</code> removes the remaining functions from <code>fx</code>, the standard effects queue. In this way it is similar to <code>.stop(true)</code>. However,  while the <code>.stop()</code> method is meant to be used only with animations, <code>.clearQueue()</code> can also be used to remove any function that has been added to a generic jQuery queue with the <code>.queue()</code> method. </p>
+            <p>当调用 <code>.clearQueue()</code> 方法时，队列中所有尚未执行的函数都将被移除。如果不带参数，则 <code>.clearQueue()</code> 默认清空标准动画队列 <code>fx</code> 中剩余的函数。这个方法跟 <code>.stop(true)</code>. 很类似。但 <code>.stop()</code> 方法只适用于动画，而 <code>.clearQueue()</code> 则可以用于移除任何由 <code>.queue()</code> 方法添加的jQuery通用队列中的函数。 </p>
          </longdesc>
          <example>
-            <desc>Empty the queue.</desc>
+            <desc>清空队列。</desc>
          </example>
       </entry>
       <entry type="method" name="toArray">
-         <desc>Retrieve all the DOM elements contained in the jQuery set, as an array.</desc>
+         <desc>返回一个数组，包含jQuery对象集合中的所有DOM元素。</desc>
          <signature/>
          <longdesc>
             <p>
-               <code>.toArray()</code> returns all of the elements in the jQuery set:</p>
+               用 <code>.toArray()</code> 返回jQuery集合中所有元素：</p>
             <pre>alert($('li').toArray());</pre>
-            <p>All of the matched DOM nodes are returned by this call, contained in a standard array:</p>
+            <p>所有匹配的DOM节点都会包含在一个标准的数组中：</p>
             <p>
                <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
             </p>
          </longdesc>
          <example>
-            <desc>Selects all divs in the document and returns the DOM Elements as an Array, then uses the built-in reverse-method to reverse that array.</desc>
+            <desc>选择文档中所有的div，并且返回一个DOM元素数组，然后利用浏览器内置的reverse方法反转整个数组。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.isEmptyObject">
-         <desc>Check to see if an object is empty (contains no properties).</desc>
+         <desc>测试对象是否是空对象（不包含任何属性）。.</desc>
          <signature>
             <argument name="object">
-               <desc>The object that will be checked to see if it's empty.</desc>
+               <desc>用于检测是否为空的对象。</desc>
             </argument>
          </signature>
-         <longdesc>
-            <p>As of jQuery 1.4 this method checks both properties on the object itself and properties inherited from prototypes (in that it doesn't use hasOwnProperty).</p>
+         <longdesc><p>jQuery 1.4 中，这个方法既检测对象本身的属性，也检测从原型继承的属性( 因为没有使用hasOwnProperty )。</p>
          </longdesc>
          <example>
-            <desc>Check an object to see if it's empty.</desc>
+            <desc>检测一个对象是否是一个空对象。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.isPlainObject">
-         <desc>Check to see if an object is a plain object (created using "{}" or "new Object").</desc>
+         <desc>测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的）。</desc>
          <signature>
             <argument name="object">
-               <desc>The object that will be checked to see if it's a plain object.</desc>
+               <desc>用于检测是否是一个纯粹的对象。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Check an object to see if it's a plain object.</desc>
+            <desc>测试对象是否是纯粹的对象。</desc>
          </example>
       </entry>
       <entry type="method" name="keydown">
-         <desc>Bind an event handler to the "keydown" JavaScript event, or trigger that event on an element.</desc>
+         <desc>为 "keydown" 事件绑定一个处理函数，或者触发元素上的 "keydown" 事件。 </desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每次事件触发时会执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
          <longdesc>
-            <p>This method is a shortcut for <code>.bind('keydown', handler)</code> in the first variation, and <code>.trigger('keydown')</code> in the second.</p>
-            <p>The <code>keydown</code> event is sent to an element when the user first presses a key on the keyboard. It can be attached to any element, but the event is only sent to the element that has the focus. Focusable elements can vary between browsers, but form elements can always get focus so are reasonable candidates for this event type.</p>
-            <p>For example, consider the HTML:</p>
+            <p>这个函数的第一种用法是 <code>.bind('keydown', handler)</code> 的快捷方式，第二种用法是 <code>.trigger('keydown')</code> 的快捷方式。</p>
+            <p>当用户第一次按下一个按键时，会在这个元素上触发 <code>keydown</code> 。这个事件可以附加给任何元素，但是只有可以获得焦点的元素才能触发这个事件。不同的浏览器中，可聚焦的元素略有不同，但表单元素总是可以获得焦点，所以这个事件可以放心的用在这些元素上。</p>
+            <p>举例来说，请看下面的HTML：</p>
             <pre>&lt;form&gt;
   &lt;input id="target" type="text" value="Hello there" /&gt;
 &lt;/form&gt;
 &lt;div id="other"&gt;
   Trigger the handler
 &lt;/div&gt;</pre>
-            <p>The event handler can be bound to the input field:</p>
+            <p>事件处理函数可以绑定在输入框上：</p>
             <pre>$('#target').keydown(function() {
   alert('Handler for .keydown() called.');
 });</pre>
-            <p>Now when the insertion point is inside the field and a key is pressed, the alert is displayed:</p>
+            <p>现在，当插入点在这个输入框内部时，按下一个按键，那么弹出对话框中就会显示下面的文字：</p>
             <p>
                <span class="output">Handler for .keydown() called.</span>
             </p>
-            <p>We can trigger the event manually when another element is clicked:</p>
+            <p>我们也可以在点击另一个元素时手动触发这个事件：</p>
             <pre>$('#other').click(function() {
   $('#target').keydown();
 });</pre>
-            <p>After this code executes, clicks on <span class="output">Trigger the handler</span> will also alert the message.</p>
-            <p>If key presses anywhere need to be caught (for example, to implement global shortcut keys on a page), it is useful to attach this behavior to the <code>document</code> object. Because of event bubbling, all key presses will make their way up the DOM to the <code>document</code> object unless explicitly stopped.</p>
-            <p>To determine which key was pressed, we can examine the <a href="http://api.jquery.com/category/events/event-object/">event object</a> that is passed to the handler function. While browsers use differing properties to store this information, jQuery normalizes the <code>.which</code> property so we can reliably use it to retrieve the key code. This code corresponds to a key on the keyboard, including codes for special keys such as arrows. For catching actual text entry, <code>.keypress()</code> may be a better choice.</p>
+            <p>在代码执行后，如果你点击 <span class="output">Trigger the handler</span> 将同样会弹出上面的消息。</p>
+            <p>如果需要捕获在任意位置的按键事件（例如要在页面上实现全局的快捷键），那么可以把这个行为附加到 <code>document</code> 对象上去。由于事件冒泡，所有的按键事件都会沿着各自的DOM树冒泡到 <code>document</code> 对象，除非被明确的制止。</p>
+            <p>要确定哪个按键被按下了，我们可以检测传递给事件处理函数的 <a href="http://api.jquery.com/category/events/event-object/">event object</a> 。由于不同的浏览器使用不同的属性来存储这个信息，所以jQuery将它们标准化成 <code>.which</code> 属性，以便我们能可靠地使用它来获取按键代码。这个代码与键盘上的按键一一对应，包括方向键等特殊键。如果要捕获实际输入的文本， <code>.keypress()</code> 可能是个更好的选择。</p>
          </longdesc>
          <example>
-            <desc>Show the event object for the keydown handler when a key is pressed in the input.</desc>
+            <desc>当按键按下时，显示传递给 keydown 事件处理函数的事件对象。</desc>
          </example>
       </entry>
       <entry type="method" name="index">
-         <desc>Search for a given element from among the matched elements.</desc>
+         <desc>从匹配的元素中搜索给定元素的索引值，从0开始计数。</desc>
          <signature/>
          <signature>
             <argument name="selector">
-               <desc>A selector representing a jQuery collection in which to look for an element.</desc>
+               <desc>一个选择器，代表一个jQuery对象，将会从这个对象中查找元素。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="element">
-               <desc>The DOM element or first element within the jQuery object to look for.</desc>
+               <desc>将要用于查找的DOM元素，或者jQuery对象中的第一个元素。</desc>
             </argument>
          </signature>
          <longdesc>
-            <h4>Return Values</h4>
-            <p>If no argument is passed to the <code>.index()</code> method, the return value is an integer indicating the position of the first element within the jQuery object relative to its sibling elements.</p>
-            <p>If <code>.index()</code> is called on a collection of elements and a DOM element or jQuery object is passed in, <code>.index()</code> returns an integer indicating the position of the passed element relative to the original collection.</p>
-            <p>If a selector string is passed as an argument, <code>.index()</code> returns an integer indicating the position of the original element relative to the elements matched by the selector. If the element is not found, <code>.index()</code> will return -1.</p>
-            <h4>Detail</h4>
-            <p>The complementary operation to <code>.get()</code>, which accepts an index and returns a DOM node, <code>.index()</code> can take a DOM node and returns an index. Suppose we have a simple unordered list on the page:</p>
+            <h4>返回值</h4>
+            <p>如果不传递任何参数给 <code>.index()</code> 方法，则返回值就是jQuery对象中第一个元素相对于它同辈元素的位置。</p>
+            <p>如果在一组元素上调用 <code>.index()</code> ，并且参数是一个DOM元素或jQuery对象， <code>.index()</code> 返回值就是传入的元素相对于原先集合的位置。</p>
+            <p>如果参数是一个选择器， <code>.index()</code> 返回值就是原先元素相对于选择器匹配元素的位置。如果找不到匹配的元素，则 <code>.index()</code> 返回 -1.</p>
+            <h4>细节</h4>
+            <p><code>.get()</code> 接受一个索引值参数并返回对应的DOM节点， <code>.index()</code> 与其正好相反，接受一个DOM节点然后返回其索引值。假设页面上有个简单的无序列表：</p>
             <pre>
 &lt;ul&gt;
   &lt;li id="foo"&gt;foo&lt;/li&gt;
@@ -1173,101 +1168,101 @@ $("div").data("options").name === "John";</pre>
   &lt;li id="baz"&gt;baz&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>If we retrieve one of the three list items (for example, through a DOM function or as the context to an event handler), <code>.index()</code> can search for this list item within the set of matched elements:</p>
+            <p>如果我们获取了三个li中的一个元素（例如通过DOM函数，或者事件处理函数中的上下文this）， <code>.index()</code> 能够在匹配的元素中找到这个列表项：</p>
             <pre>
 var listItem = document.getElementById('bar');
 alert('Index: ' + $('li').index(listItem));
-We get back the zero-based position of the list item:
 </pre>
+            <p>我们就能得到这个li所在的位置，从0开始计数的：</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>Similarly, if we retrieve a jQuery object consisting of one of the three list items, <code>.index()</code> will search for that list item:</p>
+            <p>类似的，如果我们获得了含有这三个之中一个元素的jQuery对象， <code>.index()</code> 也能用于搜索那个列表项：</p>
             <pre>
 var listItem = $('#bar');
 alert('Index: ' + $('li').index(listItem));
 </pre>
-            <p>We get back the zero-based position of the list item:</p>
+            <p>我们就能得到这个li所在的位置，从0开始计数的：</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>Note that if the jQuery collection used as the <code>.index()</code> method's argument contains more than one element, the first element within the matched set of elements will be used.</p>
+            <p>注意，如果作为 <code>.index()</code> 参数使用的jQuery集合含有多个元素，则只会使用第一个：</p>
             <pre>
 var listItems = $('li:gt(0)');
 alert('Index: ' + $('li').index(listItems));
 </pre>
-            <p>We get back the zero-based position of the first list item within the matched set:</p>
+            <p>我们得到了匹配的li集合中，第一个元素的位置，从0开始计数。</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>If we use a string as the <code>.index()</code> method's argument, it is interpreted as a jQuery selector string. The first element among the object's matched elements which also matches this selector is located.</p>
+            <p>如果我们将一个字符串传递给 <code>.index()</code> 方法，这个字符串会被解析成jQuery选择器，将会定位到调用 <code>.index()</code> 的jQuery对象中第一个元素，相对于由这个选择器匹配到的元素集合中的位置：</p>
             <pre>
 var listItem = $('#bar');
 alert('Index: ' + listItem.index('li'));
 </pre>
-            <p>We get back the zero-based position of the list item:</p>
+            <p>我们就能得到这个列表项li#bar所在的位置，从0开始计数的：</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
-            <p>If we omit the argument, <code>.index()</code> will return the position of the first element within the set of matched elements in relation to its siblings:</p>
+            <p>如果我们忽略参数， <code>.index()</code> 将返回集合中第一个元素相对于其同辈元素的位置：</p>
             <pre>alert('Index: ' + $('#bar').index();</pre>
-            <p>Again, we get back the zero-based position of the list item:</p>
+            <p>又一次，我们得到了这个li从0开始数的位置。</p>
             <p>
                <span class="output">Index: 1</span>
             </p>
 
          </longdesc>
          <example>
-            <desc>On click, returns the index (based zero) of that div in the page.</desc>
+            <desc>点击后，返回那个div在页面上的索引值(从0开始计数)。</desc>
          </example>
          <example>
-            <desc>Returns the index for the element with ID bar.</desc>
+            <desc>返回ID为bar的元素的索引值。</desc>
          </example>
          <example>
-            <desc>Returns the index for the first item in the jQuery collection.</desc>
+            <desc>返回jQuery集合中第一项的索引值。</desc>
          </example>
          <example>
-            <desc>Returns the index for the element with ID bar in relation to all &lt;li&gt; elements.</desc>
+            <desc>返回ID为bar的元素相对于所有 &lt;li&gt; 元素的索引值。</desc>
          </example>
          <example>
-            <desc>Returns the index for the element with ID bar in relation to its siblings.</desc>
+            <desc>返回ID为bar的元素相对于同辈的索引值。</desc>
          </example>
          <example>
-            <desc>Returns -1, as there is no element with ID foobar.</desc>
+            <desc>由于没有元素的ID为foobar，所以返回 -1。</desc>
          </example>
       </entry>
       <entry type="method" name="removeData">
-         <desc>Remove a previously-stored piece of data.</desc>
+         <desc>移除先前存储的数据片段。</desc>
          <signature>
             <argument name="name">
-               <desc>A string naming the piece of data to delete.</desc>
+               <desc>将要移除的数据片段名。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.removeData()</code> method allows us to remove values that were previously set using <code>.data()</code>. When called with the name of a key, <code>.removeData()</code> deletes that particular value; when called with no arguments, all values are removed.</p>
+            <p><code>.removeData()</code> 方法允许我们移除先前用 <code>.data()</code>. 设置的数据。如果提供了name参数，则 <code>.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
          </longdesc>
          <example>
-            <desc>Set a data store for 2 names then remove one of them.</desc>
+            <desc>设置两个数据，然后再删除其中一个。</desc>
          </example>
       </entry>
       <entry type="method" name="data">
-         <desc>Store arbitrary data associated with the matched elements.</desc>
+         <desc>在匹配的元素上随心所欲的存放数据。</desc>
          <signature>
             <argument name="key">
-               <desc>A string naming the piece of data to set.</desc>
+               <desc>将要设置的数据片段名。</desc>
             </argument>
             <argument name="value">
-               <desc>The new data value; it can be any Javascript type including Array or Object.</desc>
+               <desc>新的数据值；可以是任何 Javascript 数据类型，包括数组和对象。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="obj">
-               <desc>An object of key-value pairs of data to update.</desc>
+               <desc>用于设置的键值对。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks.</p>
-            <p> We can set several distinct values for a single element and retrieve them later:</p>
+            <p><code>.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。</p>
+            <p>在单个元素上设置几个独立的数据，并且以后还可以分别检索到：</p>
             <pre>
 $('body').data('foo', 52);
 $('body').data('bar', { myType: 'test', count: 40 });
@@ -1296,26 +1291,26 @@ $("div").data("options").name === "John";</pre>
             <p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
          </longdesc>
          <example>
-            <desc>Store then retrieve a value from the div element.</desc>
+            <desc>往div元素上存放再获取数据</desc>
          </example>
       </entry>
       <entry type="method" name="data">
-         <desc>Returns value at named data store for the first element in the jQuery collection, as set by data(name, value).</desc>
+         <desc>返回jQuery对象集合中第一个元素上储存的数据，这个数据是先前用data(name, value)设定的。</desc>
          <signature>
             <argument name="key">
-               <desc>Name of the data stored.</desc>
+               <desc>先前存放的数据名</desc>
             </argument>
          </signature>
          <signature/>
          <longdesc>
-            <p>The <code>.data()</code> method allows us to attach data of any type to DOM elements in a way that is safe from circular references and therefore from memory leaks. We can retrieve several distinct values for a single element one at a time, or as a set:</p>
+            <p><code>.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们可以同时获取单一元素上几个独立的数据，或者整个一组：</p>
             <pre>
 alert($('body').data('foo'));
 alert($('body').data());
 </pre>
-            <p>The above lines alert the data values that were set on the <code>body</code> element. If nothing was set on that element, null is returned.</p>
-            <p>Calling <code>.data()</code> with no parameters retrieves all of the values as a JavaScript object. This object can be safely cached in a variable as long as a new object is not set with <code>.data(obj)</code>. Using the object directly to get or set values is faster than making individual calls to <code>.data()</code> to get or set each value:</p>
-            <pre>
+            <p>上面两行会显示先前设置在 <code>body</code> 元素上的数据。如果元素上没有设置过任何东西，则会返回 null 。</p>
+            <p>调用 <code>.data()</code> 时如果不带参数，将会以 JavaScript 对象的形式获取所有数据。这个对象可以安全的存放在变量中，因为一旦这个新对象被提取出来，之后对元素进行的 <code>.data(obj)</code> 操作，将无法再影响到这个对象了。另外，直接操作对象会比通过调用 <code>.data()</code>来设置或获取值要快一些：</p>
+<pre>
 var mydata = $("#mydiv").data();
 if ( mydata.count &lt; 9 ) {
     mydata.count = 43;
@@ -1324,70 +1319,71 @@ if ( mydata.count &lt; 9 ) {
 </pre>
          </longdesc>
          <example>
-            <desc>Get the data named "blah" stored at for an element.</desc>
+            <desc>获取存放在元素上，名为 "blah" 的数据。</desc>
          </example>
       </entry>
       <entry type="method" name="get">
-         <desc>Retrieve the DOM elements matched by the jQuery object.</desc>
+         <desc>获取jQuery对象对应的DOM元素。</desc>
          <signature>
             <argument name="index">
-               <desc>A zero-based integer indicating which element to retrieve.</desc>
+               <desc>从0开始计数，确定获取哪个元素。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.get()</code> method grants us access to the DOM nodes underlying each jQuery object. Suppose we had a simple unordered list on the page:</p>
+            <p><code>.get()</code> 方法允许我们直接访问jQuery对象隐含的DOM节点。假设我们页面上有一个简单的无序列表：</p>
             <pre>
 &lt;ul&gt;
   &lt;li id="foo"&gt;foo&lt;/li&gt;
   &lt;li id="bar"&gt;bar&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>Without a parameter, <code>.get()</code> returns all of the elements:</p>
+            <p>不带参数的 <code>.get()</code> 会返回所有的元素：</p>
             <pre>alert($('li').get());</pre>
-            <p>All of the matched DOM nodes are returned by this call, contained in a standard array:</p>
+            <p>调用这个方法会返回所有匹配的DOM节点，这些节点包含在一个标准的数组中：</p>
             <p>
                <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
             </p>
-            <p>With an index specified, .get() will retrieve a single element:</p>
+            <p>如果指定了 index 参数， .get() 则会获取单个元素：</p>
             <pre>($('li').get(0));</pre>
-            <p>Since the index is zero-based, the first list item is returned:</p>
+            <p>由于索引 index 是以 0 开始计数的，所以上面代码返回了第一个列表项：</p>
             <p>
                <span class="output">&lt;li id="foo"&gt;</span>
             </p>
-            <p>Each jQuery object also masquerades as an array, so we can use the array dereferencing operator to get at the list item instead:</p>
+            <p>由于每个 jQuery 对象也会冒充为一个数组，所以我们也可以用直接用数组的取值运算符来获得列表项：</p>
             <pre>alert($('li')[0]);</pre>
-            <p>However, this syntax lacks some of the additional capabilities of .get(), such as specifying a negative index:</p>
+            <p>然而，这种语法缺少某些 .get() 所具有的附加功能，比如可以指定索引值为负值：</p>
             <pre>alert($('li').get(-1));</pre>
-            <p>A negative index is counted from the end of the matched set, so this example will return the last item in the list:</p>
+            <p>负的索引值表示从匹配的集合中从末尾开始倒数，所以上面这个例子将会返回列表中最后一项：</p>
             <p>
                <span class="output">&lt;li id="bar"&gt;</span>
             </p>
          </longdesc>
          <example>
-            <desc>Selects all divs in the document and returns the DOM Elements as an Array, then uses the built-in reverse-method to reverse that array.</desc>
+            <desc>选择文档中的所有div，并且作为一个数组返回。然后使用浏览器原生的 reverse 方法将数组翻转。</desc>
          </example>
          <example>
-            <desc>Gives the tag name of the element clicked on.</desc>
+            <desc>给出点中元素的标签名。</desc>
          </example>
       </entry>
       <entry type="method" name="size">
-         <desc>Return the number of DOM elements matched by the jQuery object.</desc>
+         <desc>返回 jQuery 对象中对应 DOM 元素的个数。</desc>
          <signature/>
-         <longdesc>Suppose we had a simple unordered list on the page:
+		 <longdesc>
+            <p>假设页面上有下面一个简单的无序列表：</p>
 <pre>
 &lt;ul&gt;
   &lt;li&gt;foo&lt;/li&gt;
   &lt;li&gt;bar&lt;/li&gt;
 &lt;/ul&gt;
 </pre>
-            <p>We can determine the number of list items by calling <code>.size()</code>:</p>
+            <p>我们通过调用 <code>.size()</code> 来获取列表项的数目：</p>
             <pre>alert('Size: ' + $('li').size());</pre>
-            <p>This will alert the count of items:</p>
+            <p>于是就显示了列表项的个数：</p>
             <p>
                <span class="output">Size: 2</span>
             </p>
             <p>
-               <strong>You should use the <a href="/length/">.length</a> property instead, which is slightly faster.</strong>
+               <strong>你也可以使用 <a href="/length/">.length</a> 属性来代替，他会略微快那么一点点。</strong>
             </p>
          </longdesc>
          <example>
@@ -1395,41 +1391,41 @@ if ( mydata.count &lt; 9 ) {
          </example>
       </entry>
       <entry type="method" name="jQuery.noConflict">
-         <desc>Relinquish jQuery's control of the <code>$</code> variable.</desc>
+         <desc>放弃jQuery对 <code>$</code> 变量的控制权。</desc>
          <signature>
             <argument name="removeAll">
-               <desc>A Boolean indicating whether to remove all jQuery variables from the global scope (including jQuery itself).</desc>
+               <desc>一个布朗值，用于确定是否在全局作用域中移除所有 jQuery 变量，包括 jQuery 本身。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Many JavaScript libraries use <code> $</code> as a function or variable name, just as jQuery does. In jQuery's case, <code> $</code> is just an alias for <code>jQuery</code>, so all functionality is available without using <code> $</code>. If we need to use another JavaScript library alongside jQuery, we can return control of <code> $</code> back to the other library with a call to <code>$.noConflict()</code>:</p>
+            <p>许多 JavaScript 库会跟 jQuery 一样使用 <code> $</code> 作为一个函数或者变量名。在 jQuery 中 <code>$</code> 仅仅是 <code>jQuery</code> 对象的别名，所以就算不用 <code>$</code> 也可以通过 <code>jQuery</code> 完整地使用所有功能。例如，用到 $("div p") 的地方，换成 jQuery("div p") 也是可以的。下面的例子就展示了如果你需要跟 jQuery 同时使用其他 JavaScript 库，我们可以通过调用 <code>$.noConflict()</code> 来把 <code>$</code> 的控制权交还给其他库：</p>
             <pre>
 &lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   $.noConflict();
-  // Code that uses other library's $ can follow here.
+  // 这里的代码使用其他库中的 $ 。
 &lt;/script&gt;
 </pre>
-            <p>This technique is especially effective in conjunction with the .ready() method's ability to alias the jQuery object, as within callback passed to .ready() we can use $ if we wish without fear of conflicts later:</p>
+            <p>这里有个技巧对于解决冲突特别有效。.ready() 方法可以给 jQuery 对象取个别名，这样就能够在传给 .ready() 的回调函数的内部继续使用 $ 而不用担心冲突：</p>
             <pre>
 &lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
   $.noConflict();
   jQuery(document).ready(function($) {
-    // Code that uses jQuery's $ can follow here.
+    // 这里的代码使用 jQuery 中的 $
   });
-  // Code that uses other library's $ can follow here.
+  // 这里的代码使用其他库的 $
 &lt;/script&gt;
 </pre>
-            <p>If necessary, we can free up the <code> jQuery</code> name as well by passing <code>true</code> as an argument to the method. This is rarely necessary, and if we must do this (for example, if we need to use multiple versions of the <code>jQuery</code> library on the same page), we need to consider that most plug-ins rely on the presence of the jQuery variable and may not operate correctly in this situation.</p>
+            <p>如果有必要，我们只要把参数 <code>true</code> 传给这个方法，就可以把 <code>jQuery</code> 这个变量完全释放。这种情况非常罕见，但有时候我们必须这么做（比如我们需要在一个页面中引入多个版本的 <code>jQuery</code> 库）。注意，这样做很有可能导致插件失效，因为插件通常依赖于 jQuery 变量。</p>
          </longdesc>
          <example>
-            <desc>Maps the original object that was referenced by $ back to $.</desc>
+            <desc>把原先映射在 $ 上的对象重新映射到 $ 上。</desc>
          </example>
          <example>
-            <desc>Reverts the $ alias and then creates and executes a function to provide the $ as a jQuery alias inside the functions scope. Inside the function the original $ object is not available. This works well for most plugins that don't rely on any other library.  
+            <desc>恢复 $ 别名，然后创建并执行一个函数，其内部作用域提供了 $ 作为 jQuery 的别名。这样，就不会访问到全局的 $ 对象了。大多数不依赖其他库的插件在这个函数中都可以正常使用。</desc>
 
 </desc>
          </example>
@@ -2145,15 +2141,15 @@ if ( mydata.count &lt; 9 ) {
          <desc>Bind an event handler to the "scroll" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2203,15 +2199,15 @@ if ( mydata.count &lt; 9 ) {
          <desc>Bind an event handler to the "resize" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2306,15 +2302,15 @@ $('#foo').queue(function() {
          <desc>Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2353,15 +2349,15 @@ $('#foo').queue(function() {
          <desc>Bind an event handler to the "keypress" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2403,15 +2399,15 @@ $('#foo').queue(function() {
          <desc>Bind an event handler to the "submit" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2456,15 +2452,15 @@ $('#foo').queue(function() {
          <desc>Bind an event handler to the "select" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2506,15 +2502,15 @@ $('#foo').queue(function() {
          <desc>Bind an event handler to the "change" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2554,15 +2550,15 @@ $('#foo').queue(function() {
          <desc>Bind an event handler to the "blur" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2600,15 +2596,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to the "focus" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2659,15 +2655,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to the "mousemove" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2773,15 +2769,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to be fired when the mouse leaves an element, or trigger that handler on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2823,15 +2819,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to be fired when the mouse enters an element, or trigger that handler on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2874,15 +2870,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to the "mouseout" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2924,15 +2920,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -2975,15 +2971,15 @@ $('#target').blur(function() {
          <desc>Bind an event handler to the "dblclick" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -3035,15 +3031,15 @@ For example, consider the HTML:</p>
          <desc>Bind an event handler to the "click" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -3092,15 +3088,15 @@ For example, consider the HTML:</p>
          <desc>Bind an event handler to the "mouseup" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -3142,15 +3138,15 @@ For example, consider the HTML:</p>
          <desc>Bind an event handler to the "mousedown" JavaScript event, or trigger that event on an element.</desc>
          <signature>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature/>
@@ -3199,10 +3195,10 @@ For example, consider the HTML:</p>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -3241,10 +3237,10 @@ For example, consider the HTML:</p>
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -3275,10 +3271,10 @@ It is not possible to cancel the <code>unload</code> event with <code>.preventDe
          </signature>
          <signature>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -3456,7 +3452,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
                <desc>A string containing a JavaScript event type, such as "click" or "keydown." As of jQuery 1.4 the string can contain multiple, space-separated event types or custom event names, as well.</desc>
             </argument>
             <argument name="handler">
-               <desc>A function to execute at the time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
@@ -3464,10 +3460,10 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
                <desc>A string containing a JavaScript event type, such as "click" or "keydown." As of jQuery 1.4 the string can contain multiple, space-separated event types or custom event names, as well.</desc>
             </argument>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler">
-               <desc>A function to execute at the time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -3688,10 +3684,10 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
                <desc>A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</desc>
             </argument>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute at the time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -4114,10 +4110,10 @@ This example is also an illustration of a closure. Since the handler refers to t
                <desc>A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</desc>
             </argument>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="handler(eventObject)">
-               <desc>A function to execute each time the event is triggered.</desc>
+               <desc>每当事件触发时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
@@ -4125,7 +4121,7 @@ This example is also an illustration of a closure. Since the handler refers to t
                <desc>A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.</desc>
             </argument>
             <argument name="eventData">
-               <desc>A map of data that will be passed to the event handler.</desc>
+               <desc>将要传递给事件处理函数的数据映射。</desc>
             </argument>
             <argument name="false">
                <desc>Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event from bubbling.</desc>
