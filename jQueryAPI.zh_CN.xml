@@ -1270,25 +1270,25 @@ $('body').data('bar', { myType: 'test', count: 40 });
 $('body').data('foo'); // 52
 $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
-            <p>In jQuery 1.4.3 setting an element's data object with <code>.data(obj)</code> extends the data previously stored with that element. jQuery itself uses the <code>.data()</code> method to save information under the names 'events' and 'handle', and also reserves any data name starting with an underscore ('_') for internal use.</p>
-            <p>Prior to jQuery 1.4.3 (starting in jQuery 1.4) the .data() method completely replaced all data, instead of just extending the data object. If you are using third-party plugins it may not be advisable to completely replace the element's data object, since plugins may have also set data.</p>
-            <p>Due to the way browsers interact with plugins and external code, the <code>.data()</code> method cannot be used on <code>&lt;object&gt;</code> (unless it's a Flash plugin), <code>&lt;applet&gt;</code> or <code>&lt;embed&gt;</code> elements.</p>
+            <p>从 jQuery 1.4.3 起，通过 <code>.data(obj)</code> 给元素设置数据时，会在元素原先存放的数据上扩展。jQuery 本身也通过 <code>.data()</code> 方法存放信息，名为 'events' 和 'handle' ，并且保留的任何以下划线开头的数据名称，以供内部使用。</p>
+			<p>特别注意：从 jQuery 1.4 起到 jQuery 1.4.2 的几个版本中， .data(obj) 方法会<strong>完全替换</strong>掉元素上的所有数据，而不是扩展数据对象。如果你使用了第三方插件，那就不建议完全替换掉元素上的数据对象，因为插件也有可能在上面存放数据。</p>
+            <p>由于浏览器与插件和内部代码的交互方式，导致 <code>.data()</code> 方法无法在 <code>&lt;object&gt;</code> (除非他是一个Flash插件)， <code>&lt;applet&gt;</code> 或者 <code>&lt;embed&gt;</code> 元素。</p>
             <p>
-               <strong>HTML 5 data- Attributes</strong>
+               <strong>HTML 5 data- 属性</strong>
             </p>
-            <p>As of jQuery 1.4.3 <a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- attributes</a> will be automatically pulled in to jQuery's data object.</p>
+            <p>从 jQuery 1.4.3 起，<a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- 属性</a> 中的数据会自动放入 jQuery 的数据对象中。</p>
 
-            <p>For example, given the following HTML:</p>
+            <p>举例来说，如果提供如下的 HTML:</p>
 
             <pre>&lt;div data-role="page" data-hidden="true" data-options='{"name":"John"}'&gt;&lt;/div&gt;</pre>
 
-            <p>All of the following jQuery code will work.</p>
+            <p>那么就可以通过下面的 jQuery 代码获得数据。下面的每个语句都是 true。</p>
 
             <pre>$("div").data("role") === "page";
 $("div").data("hidden") === true;
 $("div").data("options").name === "John";</pre>
 
-            <p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
+            <p>注意，这些字符串在用 .data() 获取时会自动转换成他们对应数据类型(包括布尔值、数字、对象、数组和 null )，而 HTML 代码中的字符串不会有任何的改变。另外，data- 属性只会在第一次用 .data() 方法获取数据的时候，从 HTML 代码中获取，并保存到 jQuery 内部对象中。在此之后，.data() 再也不会访问或修改它了。</p>
          </longdesc>
          <example>
             <desc>往div元素上存放再获取数据</desc>
