@@ -149,7 +149,7 @@
 &lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_05.png" alt=""/>
+               <img src="images/0042_05_05.png" alt=""/>
             </p>
             <p>Event handlers can then be bound to the <code>&lt;div&gt;</code>:</p>
             <pre>$('#target').toggle(function() {
@@ -1271,8 +1271,8 @@ $('body').data('foo'); // 52
 $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 </pre>
             <p>从 jQuery 1.4.3 起，通过 <code>.data(obj)</code> 给元素设置数据时，会在元素原先存放的数据上扩展。jQuery 本身也通过 <code>.data()</code> 方法存放信息，名为 'events' 和 'handle' ，并且保留的任何以下划线开头的数据名称，以供内部使用。</p>
-			<p>特别注意：从 jQuery 1.4 起到 jQuery 1.4.2 的几个版本中， .data(obj) 方法会<strong>完全替换</strong>掉元素上的所有数据，而不是扩展数据对象。如果你使用了第三方插件，那就不建议完全替换掉元素上的数据对象，因为插件也有可能在上面存放数据。</p>
-            <p>由于浏览器与插件和内部代码的交互方式，导致 <code>.data()</code> 方法无法在 <code>&lt;object&gt;</code> (除非他是一个Flash插件)， <code>&lt;applet&gt;</code> 或者 <code>&lt;embed&gt;</code> 元素。</p>
+			<p><strong>特别注意</strong>：从 jQuery 1.4 起到 jQuery 1.4.2 的几个版本中， .data(obj) 方法会<strong>完全替换</strong>掉元素上的所有数据，而不是扩展数据对象。如果你使用了第三方插件，那就不建议完全替换掉元素上的数据对象，因为插件也有可能在上面存放数据。</p>
+            <p>由于浏览器与插件和内部代码的交互方式，导致 <code>.data()</code> 方法无法在 <code>&lt;object&gt;</code> (除非他是一个Flash插件)， <code>&lt;applet&gt;</code> 或者 <code>&lt;embed&gt;</code> 元素上存放数据。</p>
             <p>
                <strong>HTML 5 data- 属性</strong>
             </p>
@@ -1288,7 +1288,7 @@ $('body').data(); // {foo: 52, bar: { myType: 'test', count: 40 }}
 $("div").data("hidden") === true;
 $("div").data("options").name === "John";</pre>
 
-            <p>注意，这些字符串在用 .data() 获取时会自动转换成他们对应数据类型(包括布尔值、数字、对象、数组和 null )，而 HTML 代码中的字符串不会有任何的改变。另外，data- 属性只会在第一次用 .data() 方法获取数据的时候，从 HTML 代码中获取，并保存到 jQuery 内部对象中。在此之后，.data() 再也不会访问或修改它了。</p>
+            <p>注意，这些字符串在用 .data() 获取时会自动转换成他们对应数据类型(包括布尔值、数字、对象、数组和 null )，而 HTML 代码中的字符串不会有任何的改变。另外，data- 属性只会在第一次用 .data() 方法获取数据的时候，从 HTML 代码中获取，并保存到 jQuery 内部对象中。在此之后，.data() 再也不会访问或修改 data- 属性里的东西了。</p>
          </longdesc>
          <example>
             <desc>往div元素上存放再获取数据</desc>
@@ -2171,7 +2171,7 @@ if ( mydata.count &lt; 9 ) {
             <p>The style definition is present to make the target element small enough to be scrollable:</p>
  
             <p class="image">
-               <img src="/images/0042_05_11.png" alt=""/>
+               <img src="images/0042_05_11.png" alt=""/>
             </p>
             <p>The <code>scroll</code> event handler can be bound to this element:</p>
             <pre>$('#target').scroll(function() {
@@ -2677,7 +2677,7 @@ $('#target').blur(function() {
 &lt;div id="log"&gt;&lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_10.png" alt=""/>
+               <img src="images/0042_05_10.png" alt=""/>
             </p>
             <p>The event handler can be bound to the target:</p>
             <pre>$('#target').mousemove(function(event) {
@@ -2793,7 +2793,7 @@ $('#target').blur(function() {
 &lt;/div&gt;
 &lt;div id="log"&gt;&lt;/div&gt;</pre> 
             <p class="image">
-               <img src="/images/0042_05_09.png" alt=""/>
+               <img src="images/0042_05_09.png" alt=""/>
             </p>
             <p>The event handler can be bound to any element:</p>
             <pre>$('#outer').mouseleave(function() {
@@ -2844,7 +2844,7 @@ $('#target').blur(function() {
 &lt;div id="log"&gt;&lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_08.png" alt=""/>
+               <img src="images/0042_05_08.png" alt=""/>
             </p>
             <p>The event handler can be bound to any element:</p>
             <pre>$('#outer').mouseenter(function() {
@@ -2894,7 +2894,7 @@ $('#target').blur(function() {
 &lt;/div&gt;
 &lt;div id="log"&gt;&lt;/div&gt;</pre> 
             <p class="image">
-               <img src="/images/0042_05_07.png" alt=""/>
+               <img src="images/0042_05_07.png" alt=""/>
             </p>
             <p>The event handler can be bound to any element:</p>
             <pre>$('#outer').mouseout(function() {
@@ -2945,7 +2945,7 @@ $('#target').blur(function() {
 &lt;div id="log"&gt;&lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_06.png" alt=""/>
+               <img src="images/0042_05_06.png" alt=""/>
             </p>
             <p>The event handler can be bound to any element:</p>
             <pre>$('#outer').mouseover(function() {
@@ -2992,7 +2992,7 @@ For example, consider the HTML:</p>
 &lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_04.png" alt=""/>
+               <img src="images/0042_05_04.png" alt=""/>
             </p>
             <p>The event handler can be bound to any <code>&lt;div&gt;</code>:</p>
             <pre>$('#target').dblclick(function() {
@@ -3052,7 +3052,7 @@ For example, consider the HTML:</p>
 &lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_03.png" alt=""/>
+               <img src="images/0042_05_03.png" alt=""/>
             </p>
             <p>The event handler can be bound to any <code>&lt;div&gt;</code>:</p>
             <pre>$('#target').click(function() {
@@ -3109,7 +3109,7 @@ For example, consider the HTML:</p>
 &lt;/div&gt;
 </pre> 
             <p class="image">
-               <img src="/images/0042_05_02.png" alt=""/>
+               <img src="images/0042_05_02.png" alt=""/>
             </p>
             <p>The event handler can be bound to any <code>&lt;div&gt;</code>:</p>
             <pre>$('#target').mouseup(function() {
@@ -3159,7 +3159,7 @@ For example, consider the HTML:</p>
 &lt;/div&gt;</pre>
  
             <p class="image">
-               <img src="/images/0042_05_01.png" alt=""/>
+               <img src="images/0042_05_01.png" alt=""/>
             </p>
             <p>The event handler can be bound to any <code>&lt;div&gt;</code>:</p>
             <pre>$('#target').mousedown(function() {
@@ -4677,12 +4677,12 @@ $('ul.first').find('.foo')
 });
 </pre>
             <p class="image">
-               <img src="/images/animate-1.jpg" alt=""/>
+               <img src="images/animate-1.jpg" alt=""/>
             </p>
             <p>Note that we have specified <code>toggle</code> as the target value of the <code>height</code> property. Since the image was visible before, the animation shrinks the height to 0 to hide it. A second click then reverses this transition:
 </p>
             <p class="image"> 
-               <img src="/images/animate-2.jpg" alt=""/> 
+               <img src="images/animate-2.jpg" alt=""/> 
             </p>
 
             <p>The <code>opacity</code> of the image is already at its target value, so this property is not animated by the second click. Since we specified the target value for <code>left</code> as a relative value, the image moves even farther to the right during this second animation.</p>
@@ -4859,10 +4859,10 @@ The second button starts a traditional chained animation, where each animation w
   });
   </pre>
             <p class="image four-across"> 
-               <img src="/images/0042_06_41.png" alt=""/>
-               <img src="/images/0042_06_42.png" alt=""/>
-               <img src="/images/0042_06_43.png" alt=""/>
-               <img src="/images/0042_06_44.png" alt=""/>
+               <img src="images/0042_06_41.png" alt=""/>
+               <img src="images/0042_06_42.png" alt=""/>
+               <img src="images/0042_06_43.png" alt=""/>
+               <img src="images/0042_06_44.png" alt=""/>
             </p>
             <p>With <code>duration</code> set to <code>0</code>, this method just changes the <code>opacity</code> CSS property, so <code>.fadeTo(0, opacity)</code> is the same as <code>.css('opacity', opacity)</code>.</p>
          </longdesc>
@@ -4913,10 +4913,10 @@ The second button starts a traditional chained animation, where each animation w
   });
 });</pre>
             <p class="image four-across">
-               <img src="/images/0042_06_37.png" alt=""/>
-               <img src="/images/0042_06_38.png" alt=""/>
-               <img src="/images/0042_06_39.png" alt=""/>
-               <img src="/images/0042_06_40.png" alt=""/>
+               <img src="images/0042_06_37.png" alt=""/>
+               <img src="images/0042_06_38.png" alt=""/>
+               <img src="images/0042_06_39.png" alt=""/>
+               <img src="images/0042_06_40.png" alt=""/>
             </p>
          </longdesc>
          <example>
@@ -5004,10 +5004,10 @@ The second button starts a traditional chained animation, where each animation w
       });
     });</pre>
             <p class="image four-across">
-               <img src="/images/0042_06_33.png" alt=""/>
-               <img src="/images/0042_06_34.png" alt=""/>
-               <img src="/images/0042_06_35.png" alt=""/>
-               <img src="/images/0042_06_36.png" alt=""/>
+               <img src="images/0042_06_33.png" alt=""/>
+               <img src="images/0042_06_34.png" alt=""/>
+               <img src="images/0042_06_35.png" alt=""/>
+               <img src="images/0042_06_36.png" alt=""/>
             </p>
          </longdesc>
          <example>
@@ -5130,18 +5130,18 @@ The second button starts a traditional chained animation, where each animation w
 </pre>
             <p>With the element initially shown, we can hide it slowly with the first click:</p>
             <p class="image four-across"> 
-               <img src="/images/0042_06_25.png" alt=""/>
-               <img src="/images/0042_06_26.png" alt=""/>
-               <img src="/images/0042_06_27.png" alt=""/>
-               <img src="/images/0042_06_28.png" alt=""/>
+               <img src="images/0042_06_25.png" alt=""/>
+               <img src="images/0042_06_26.png" alt=""/>
+               <img src="images/0042_06_27.png" alt=""/>
+               <img src="images/0042_06_28.png" alt=""/>
             </p>
             <p>A second click will show the element once again:</p>
 
             <p class="image four-across"> 
-               <img src="/images/0042_06_29.png" alt=""/>
-               <img src="/images/0042_06_30.png" alt=""/>
-               <img src="/images/0042_06_31.png" alt=""/>
-               <img src="/images/0042_06_32.png" alt=""/>
+               <img src="images/0042_06_29.png" alt=""/>
+               <img src="images/0042_06_30.png" alt=""/>
+               <img src="images/0042_06_31.png" alt=""/>
+               <img src="images/0042_06_32.png" alt=""/>
             </p>
          </longdesc>
          <example>
@@ -5254,10 +5254,10 @@ The second button starts a traditional chained animation, where each animation w
 });
   </pre>
             <p class="image four-across"> 
-               <img src="/images/0042_06_21.png" alt=""/>
-               <img src="/images/0042_06_22.png" alt=""/>
-               <img src="/images/0042_06_23.png" alt=""/> 
-               <img src="/images/0042_06_24.png" alt=""/>
+               <img src="images/0042_06_21.png" alt=""/>
+               <img src="images/0042_06_22.png" alt=""/>
+               <img src="images/0042_06_23.png" alt=""/> 
+               <img src="images/0042_06_24.png" alt=""/>
             </p>
          </longdesc>
          <example>
@@ -5366,10 +5366,10 @@ The second button starts a traditional chained animation, where each animation w
   });
 });</pre>
             <p class="image four-across"> 
-               <img src="/images/0042_06_17.png" alt=""/>
-               <img src="/images/0042_06_18.png" alt=""/>
-               <img src="/images/0042_06_19.png" alt=""/>
-               <img src="/images/0042_06_20.png" alt=""/>
+               <img src="images/0042_06_17.png" alt=""/>
+               <img src="images/0042_06_18.png" alt=""/>
+               <img src="images/0042_06_19.png" alt=""/>
+               <img src="images/0042_06_20.png" alt=""/>
             </p>
          </longdesc>
          <example>
@@ -6180,7 +6180,7 @@ $('li').not(document.getElementById('notli'))
                   <a href="/width">.width()</a>
                </code> instead.</p>
 				        <p class="image">
-               <img src="/images/0042_04_06.png"/>
+               <img src="images/0042_04_06.png"/>
             </p>
          </longdesc>
          <example>
@@ -6200,7 +6200,7 @@ $('li').not(document.getElementById('notli'))
                   <a href="/height">.height()</a>
                </code> instead.</p>
 				        <p class="image">
-               <img src="/images/0042_04_03.png"/>
+               <img src="images/0042_04_03.png"/>
             </p>
          </longdesc>
          <example>
@@ -6257,17 +6257,17 @@ $('li').not(document.getElementById('notli'))
             <p>With the element initially shown, we can hide it slowly with the first click:
 </p>
             <p class="image four-across"> 
-               <img src="/images/0042_06_09.png" alt=""/>
-               <img src="/images/0042_06_10.png" alt=""/>
-               <img src="/images/0042_06_11.png" alt=""/>
-               <img src="/images/0042_06_12.png" alt=""/>
+               <img src="images/0042_06_09.png" alt=""/>
+               <img src="images/0042_06_10.png" alt=""/>
+               <img src="images/0042_06_11.png" alt=""/>
+               <img src="images/0042_06_12.png" alt=""/>
             </p>
             <p>A second click will show the element once again:</p>
             <p class="image four-across">
-               <img src="/images/0042_06_13.png" alt=""/>
-               <img src="/images/0042_06_14.png" alt=""/>
-               <img src="/images/0042_06_15.png" alt=""/>
-               <img src="/images/0042_06_16.png" alt=""/>
+               <img src="images/0042_06_13.png" alt=""/>
+               <img src="images/0042_06_14.png" alt=""/>
+               <img src="images/0042_06_15.png" alt=""/>
+               <img src="images/0042_06_16.png" alt=""/>
             </p>
             <p>The second version of the method accepts a Boolean parameter. If this parameter is <code>true</code>, then the matched elements are shown; if <code>false</code>, the elements are hidden. In essence, the statement:
 </p>
@@ -6299,7 +6299,7 @@ $('li').not(document.getElementById('notli'))
                   <a href="/width">.width()</a>
                </code> instead.</p>
             <p class="image">
-               <img src="/images/0042_04_05.png"/>
+               <img src="images/0042_04_05.png"/>
             </p>
          </longdesc>
          <example>
@@ -6315,7 +6315,7 @@ $('li').not(document.getElementById('notli'))
                   <a href="/height">.height()</a>
                </code> instead.</p>
             <p class="image">
-               <img src="/images/0042_04_02.png"/>
+               <img src="images/0042_04_02.png"/>
             </p>
          </longdesc>
          <example>
@@ -6443,10 +6443,10 @@ $('#clickme').click(function() {
 });</pre>
 
             <p class="image four-across"> 
-               <img src="/images/0042_06_05.png" alt=""/> 
-               <img src="/images/0042_06_06.png" alt=""/>
-               <img src="/images/0042_06_07.png" alt=""/>
-               <img src="/images/0042_06_08.png" alt=""/>
+               <img src="images/0042_06_05.png" alt=""/> 
+               <img src="images/0042_06_06.png" alt=""/>
+               <img src="images/0042_06_07.png" alt=""/>
+               <img src="images/0042_06_08.png" alt=""/>
             </p>
 
          </longdesc>
@@ -6469,7 +6469,7 @@ $('#clickme').click(function() {
          <longdesc>
             <p>The difference between <code>.css(width)</code> and <code>.width()</code> is that the latter returns a unit-less pixel value (for example, <code>400</code>) while the former returns a value with units intact (for example, <code>400px</code>). The <code>.width()</code> method is recommended when an element's width needs to be used in a mathematical calculation.</p>
             <p class="image">
-               <img src="/images/0042_04_04.png"/>
+               <img src="images/0042_04_04.png"/>
             </p>
             <p>This method is also able to find the width of the window and document.</p>
 
@@ -6511,7 +6511,7 @@ $(document).width(); // returns width of HTML document</pre>
          <longdesc>
             <p>The difference between <code>.css('height')</code> and <code>.height()</code> is that the latter returns a unit-less pixel value (for example, <code>400</code>) while the former returns a value with units intact (for example, <code>400px</code>). The <code>.height()</code> method is recommended when an element's height needs to be used in a mathematical calculation.</p>
             <p class="image">
-               <img src="/images/0042_04_01.png"/>
+               <img src="images/0042_04_01.png"/>
             </p>
 
             <p>This method is also able to find the height of the window and document.</p>
@@ -6589,10 +6589,10 @@ $('#clickme').click(function() {
   });
 });</pre>
             <p class="image four-across">
-               <img src="/images/0042_06_01.png" alt=""/>
-               <img src="/images/0042_06_02.png" alt=""/>
-               <img src="/images/0042_06_03.png" alt=""/>
-               <img src="/images/0042_06_04.png" alt=""/>
+               <img src="images/0042_06_01.png" alt=""/>
+               <img src="images/0042_06_02.png" alt=""/>
+               <img src="images/0042_06_03.png" alt=""/>
+               <img src="images/0042_06_04.png" alt=""/>
             </p>
 
          </longdesc>
