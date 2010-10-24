@@ -1431,88 +1431,88 @@ if ( mydata.count &lt; 9 ) {
             <desc>你可以对 jQuery.noConflict() 进行链式操作来调用 ready 的快捷方式，这样可以压缩代码。</desc>
          </example>
          <example>
-            <desc>Creates a different alias instead of jQuery to use in the rest of the script.</desc>
+            <desc>创建一个不同的别名，之后的脚本中就可以使用这个别名来替代 jQuery 。</desc>
          </example>
          <example>
-            <desc>Completely move jQuery to a new namespace in another object.</desc>
+            <desc>完全把 jQuery 移到另一个对象上新的命名空间中。</desc>
          </example>
       </entry>
       <entry type="selector" name="selected">
-         <desc>Selects all elements that are selected.</desc>
+         <desc>选择所有选中的元素。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>:selected</code> selector works for <code>&lt;option&gt;</code> elements. It does not work for checkboxes or radio inputs; use <code>:checked</code> for them.</p>
+            <p><code>:selected</code> 选择器仅适用于 <code>&lt;option&gt;</code> 元素。复选框和单选框元素请使用 <code>:checked</code></p>
          </longdesc>
          <example>
-            <desc>Attaches a change event to the select that gets the text for each selected option and writes them in the div.  It then triggers the event for the initial text draw.</desc>
+            <desc>附加 change 事件到一个 select 元素上，获取选中的 option 元素并把文本写入一个 div 之中。</desc>
          </example>
       </entry>
       <entry type="selector" name="checked">
-         <desc>Matches all elements that are checked.</desc>
+         <desc>匹配所有勾选的元素。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>:checked</code> selector works for checkboxes and radio buttons. For select elements, use the <code>:selected</code> selector.</p>
+            <p><code>:checked</code> 选择器仅适用于复选框和单选框按钮。如果要选择 select 中选中的 option 元素，请使用 <code>:selected</code> 选择器。</p>
          </longdesc>
          <example>
-            <desc>Finds all input elements that are checked.</desc>
+            <desc>查找选中的 input 元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="disabled">
-         <desc>Selects all elements that are disabled.</desc>
+         <desc>选择所有禁用的元素。</desc>
          <signature/>
          <longdesc>
-            <p>As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':disabled')</code> is equivalent to <code>$('*:disabled')</code>, so <code>$('input:disabled')</code> should be used instead. </p>
+            <p>如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':disabled')</code> 等价于 <code>$('*:disabled')</code>，所以应该使用 <code>$('input:disabled')</code> 来提升匹配效率。</p>
          </longdesc>
          <example>
-            <desc>Finds all input elements that are disabled.</desc>
+            <desc>查找所有禁用的 input 元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="enabled">
-         <desc>Selects all elements that are enabled.</desc>
+         <desc>选择所有可用的元素。</desc>
          <signature/>
          <longdesc>
-            <p>As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':enabled')</code> is equivalent to <code>$('*:enabled')</code>, so <code>$('input:enabled')</code> should be used instead. </p>
+            <p>如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':enabled')</code> 等价于 <code>$('*:enabled')</code>，所以应该使用 <code>$('input:enabled')</code> 来提升匹配效率。</p>
          </longdesc>
          <example>
-            <desc>Finds all input elements that are enabled.</desc>
+            <desc>查找所有可用的 input 元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="file">
-         <desc>Selects all elements of type file.</desc>
+         <desc>选择所有文件域，即 type 为 file 的元素。</desc>
          <signature/>
          <longdesc>
-            <p>As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':file')</code> is equivalent to <code>$('*:file')</code>, so <code>$('input:file')</code> should be used instead. </p>
+            <p>如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':file')</code> 等价于 <code>$('*:file')</code>，所以应该使用 <code>$('input:file')</code> 来提升匹配效率。</p>
          </longdesc>
          <example>
-            <desc>Finds all file inputs.</desc>
+            <desc>查找所有的文件域。</desc>
          </example>
       </entry>
       <entry type="selector" name="button">
-         <desc>Selects all button elements and elements of type button.</desc>
+         <desc>选择所有按钮，包括 button 元素和 type 为 button 的元素。</desc>
          <signature/>
          <longdesc/>
          <example>
-            <desc>Finds all button inputs.</desc>
+            <desc>查找所有按钮。</desc>
          </example>
       </entry>
       <entry type="selector" name="reset">
-         <desc>Selects all elements of type reset.</desc>
+         <desc>选择所有重置按钮，即 type 为 reset 的元素。</desc>
          <signature/>
          <longdesc/>
          <example>
-            <desc>Finds all reset inputs.</desc>
+            <desc>查找所有的重置按钮。</desc>
          </example>
       </entry>
       <entry type="selector" name="image">
-         <desc>Selects all elements of type image.</desc>
+         <desc>选择所有图像提交按钮，即 type 为 image 的元素。</desc>
          <signature/>
          <longdesc/>
          <example>
-            <desc>Finds all image inputs.</desc>
+            <desc>查找所有图像提交按钮。</desc>
          </example>
       </entry>
       <entry type="selector" name="submit">
-         <desc>Selects all elements of type submit.</desc>
+         <desc>选择所有提交按钮，即 type 为 submit 的元素。</desc>
          <signature/>
          <longdesc>
             <p>The <code>:submit</code> selector typically applies to button or input elements. Note that some browsers treat <code>&lt;button&gt;</code> element as <code>type="default"</code> implicitly while others (such as Internet Explorer) do not.  </p>

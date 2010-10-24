@@ -99,7 +99,7 @@
 					if($(this).hasClass("selector")){
 						name="entry/"+$(this).attr("title").replace(" ","-")+"-selector";
 					}
-					$("#content").load(name+".html",function(){
+					$("#content").load(name+".html?"+ +new Date,function(){
 						$("iframe").each(function(){
 							 var doc = this.contentDocument ||
 									(iframe.contentWindow && iframe.contentWindow.document) ||
