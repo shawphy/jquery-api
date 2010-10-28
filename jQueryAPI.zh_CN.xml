@@ -1515,56 +1515,52 @@ if ( mydata.count &lt; 9 ) {
          <desc>选择所有提交按钮，即 type 为 submit 的元素。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>:submit</code> selector typically applies to button or input elements. Note that some browsers treat <code>&lt;button&gt;</code> element as <code>type="default"</code> implicitly while others (such as Internet Explorer) do not.  </p>
+            <p><code>:submit</code> 选择器主要用于 button 或者 input 元素。注意，某些浏览器默认把没有设置 type 的 <code>&lt;button&gt;</code> 元素看做 <code>type="default"</code> ，而其他浏览器(比如IE)则并非如此。</p>
          </longdesc>
          <example>
-            <desc>Finds all submit elements that are descendants of a td element.</desc>
+            <desc>查找所有作为 td 元素后代的提交按钮。</desc>
          </example>
       </entry>
       <entry type="selector" name="checkbox">
-         <desc>Selects all elements of type checkbox.</desc>
+         <desc>选择所有复选框，即 type 为 checkbox 的元素。</desc>
          <signature/>
          <longdesc>
-            <p>
-               <code>$(':checkbox')</code> is equivalent to <code>$('[type=checkbox]')</code>. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':checkbox')</code> is equivalent to <code>$('*:checkbox')</code>, so <code>$('input:checkbox')</code> should be used instead. </p>
+            <p><code>$(':checkbox')</code> 等价于 <code>$('[type=checkbox]')</code>。如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':checkbox')</code> 等价于 <code>$('*:checkbox')</code>，所以应该使用 <code>$('input:checkbox')</code> 来提升匹配效率。</p>
          </longdesc>
          <example>
-            <desc>Finds all checkbox inputs.</desc>
+            <desc>查找所有复选框。</desc>
          </example>
       </entry>
       <entry type="selector" name="radio">
-         <desc>Selects all  elements of type radio.</desc>
+         <desc>选择所有单选框元素，即 type 为 radio 的元素。</desc>
          <signature/>
          <longdesc>
-            <p>
-               <code>$(':radio')</code> is equivalent to <code>$('[type=radio]')</code>. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':radio')</code> is equivalent to <code>$('*:radio')</code>, so <code>$('input:radio')</code> should be used instead. </p>
-            <p>To select a set of associated radio buttons, you might use: <code>$('input[name=gender]:radio')</code>
+            <p><code>$(':radio')</code> 等价于 <code>$('[type=radio]')</code>。如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':radio')</code> 等价于 <code>$('*:radio')</code>，所以应该使用 <code>$('input:radio')</code> 来提升匹配效率。</p>
+            <p>如果要选择一组关联的单选按钮 button ，你可以使用： <code>$('input[name=gender]:radio')</code>
             </p>
          </longdesc>
          <example>
-            <desc>Finds all radio inputs.</desc>
+            <desc>查找所有单选框。</desc>
          </example>
       </entry>
       <entry type="selector" name="password">
-         <desc>Selects all elements of type password.</desc>
+         <desc>选择所有密码框，即 type 为 password 的元素。</desc>
          <signature/>
          <longdesc>
-            <p>
-               <code>$(':password')</code> is equivalent to <code>$('[type=password]')</code>. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':password')</code> is equivalent to <code>$('*:password')</code>, so <code>$('input:password')</code> should be used instead. </p>
+            <p><code>$(':password')</code> 等价于 <code>$('[type=password]')</code>。如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':password')</code> 等价于 <code>$('*:password')</code>，所以应该使用 <code>$('input:password')</code> 来提升匹配效率。</p>
          </longdesc>
          <example>
-            <desc>Finds all password inputs.</desc>
+            <desc>查找所有密码框。</desc>
          </example>
       </entry>
       <entry type="selector" name="text">
-         <desc>Selects all elements of type text.</desc>
+         <desc>选择所有文本输入框，即 type 为 text 的元素。不包括 textarea 元素。</desc>
          <signature/>
          <longdesc>
-            <p>
-               <code>$(':text')</code> is equivalent to <code>$('[type=text]')</code> and thus selects all <code>&lt;input type="text"&gt;</code> elements. As with other pseudo-class selectors (those that begin with a ":") it is recommended to precede it with a tag name or some other selector; otherwise, the universal selector ("*") is implied. In other words, the bare <code>$(':text')</code> is equivalent to <code>$('*:text')</code>, so <code>$('input:text')</code> should be used instead. </p>
+            <p><code>$(':text')</code> 等价于 <code>$('[type=text]')</code>。如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':text')</code> 等价于 <code>$('*:text')</code>，所以应该使用 <code>$('input:text')</code> 来提升匹配效率。</p>
          </longdesc>
          <example>
-            <desc>Finds all text inputs.</desc>
+            <desc>查找所有文本框。</desc>
          </example>
       </entry>
       <entry type="selector" name="input">
