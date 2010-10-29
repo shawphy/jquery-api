@@ -1070,7 +1070,7 @@ $("div").data("options").name === "John";</pre>
             <desc>选择文档中所有的div，并且返回一个DOM元素数组，然后利用浏览器内置的reverse方法反转整个数组。</desc>
          </example>
       </entry>
-      <entry type="method" name="jQuery.isEmptyObject">
+      <entry type="method" name="jQuery.isEmptyObject">3120660532
          <desc>测试对象是否是空对象（不包含任何属性）。.</desc>
          <signature>
             <argument name="object">
@@ -1564,20 +1564,20 @@ if ( mydata.count &lt; 9 ) {
          </example>
       </entry>
       <entry type="selector" name="input">
-         <desc>Selects all input, textarea, select and button elements.</desc>
+         <desc>选择所有的 input, textarea, select 和 button 元素。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>:input</code> selector basically selects all form controls.</p>
+            <p><code>:input</code> 选择器会选中所有的表单控件。</p>
          </longdesc>
          <example>
-            <desc>Finds all input elements.</desc>
+            <desc>查找所有的输入元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="only-child">
-         <desc>Selects all elements that are the only child of their parent.</desc>
+         <desc>选择所有的独生子元素，他们的父元素下只有这一个子元素。</desc>
          <signature/>
          <longdesc>
-            <p>If the parent has other child elements, nothing is matched.</p>
+            <p>如果某个元素有同辈元素，则不会被匹配到。</p>
          </longdesc>
          <example>
             <desc>Finds the button with no siblings in each matched div and modifies look.</desc>
