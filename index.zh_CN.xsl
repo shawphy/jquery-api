@@ -154,18 +154,29 @@
 						<xsl:variable name="zh-signature" select="$zh-entry/signature[$sigpos]"/>
 						<li>
 						<h4>
-						<span><xsl:value-of select="added"/> 新增</span>
-						<xsl:value-of select="../@name"/>(<xsl:for-each select="argument">
+							<span><xsl:value-of select="added"/> 新增</span>
 							<xsl:choose>
-								<xsl:when test="@optional">
-									<em class="optional">[<xsl:value-of select="@name"/>]</em>
+								<xsl:when test="../@type='selector'">
+									<xsl:value-of select="../sample"/>
+								</xsl:when>
+								<xsl:when test="../@type='property'">
+									<xsl:value-of select="../@name"/>
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:value-of select="@name"/>
+									<xsl:value-of select="../@name"/>(<xsl:for-each select="argument">
+										<xsl:choose>
+											<xsl:when test="@optional">
+												<em class="optional">[<xsl:value-of select="@name"/>]</em>
+											</xsl:when>
+											<xsl:otherwise>
+												<xsl:value-of select="@name"/>
+											</xsl:otherwise>
+										</xsl:choose>
+										<xsl:if test="position() != last()">, </xsl:if>
+									</xsl:for-each>)
 								</xsl:otherwise>
 							</xsl:choose>
-							<xsl:if test="position() != last()">, </xsl:if>
-						</xsl:for-each>)</h4>
+						</h4>
 						<xsl:for-each select="argument">
 							<div class="arguement">
 								<strong><xsl:value-of select="@name"/></strong>

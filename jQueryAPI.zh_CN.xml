@@ -8620,4 +8620,3 @@ $('li').filter(function(index) {
       </entry>
    </entries>
 </api>
-            <p>注意，<a href="/first-selector">:first</a> 只匹配一个元素，就是第一个元素，而 <code>:first-child</code> 则能匹配多个元素：即每个父元素中的第一个元素。selector can match more than one: one for each parent. This is equivalent to <code>:nth-child(1)</code>.</p>
