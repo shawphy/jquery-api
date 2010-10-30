@@ -1611,7 +1611,7 @@ if ( mydata.count &lt; 9 ) {
             </argument>
          </signature>
          <longdesc>
-            <p>Because jQuery's implementation of <code>:nth-child(n)</code> is strictly derived from the CSS specification, the value of <code>n</code> is "1-indexed", meaning that the counting starts at 1. For all other selector expressions, however, jQuery follows JavaScript's "0-indexed" counting. Therefore, given a single <code>&lt;ul&gt;</code> containing two <code>&lt;li&gt;</code>s, <code>$('li:nth-child(1)')</code> selects the first <code>&lt;li&gt;</code> while  <code>$('li:eq(1)')</code> selects the second.</p>
+            <p>因为Because jQuery's implementation of <code>:nth-child(n)</code> is strictly derived from the CSS specification, the value of <code>n</code> is "1-indexed", meaning that the counting starts at 1. For all other selector expressions, however, jQuery follows JavaScript's "0-indexed" counting. Therefore, given a single <code>&lt;ul&gt;</code> containing two <code>&lt;li&gt;</code>s, <code>$('li:nth-child(1)')</code> selects the first <code>&lt;li&gt;</code> while  <code>$('li:eq(1)')</code> selects the second.</p>
                 
             <p>The <code>:nth-child(n)</code> pseudo-class is easily confused with <code>:eq(n)</code>, even though the two can result in dramatically different matched elements. With <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p> 
 
