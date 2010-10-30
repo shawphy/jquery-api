@@ -1574,40 +1574,40 @@ if ( mydata.count &lt; 9 ) {
          </example>
       </entry>
       <entry type="selector" name="only-child">
-         <desc>选择所有的独生子元素，他们的父元素下只有这一个子元素。</desc>
+         <desc>选择所有的独生子元素。</desc>
          <signature/>
          <longdesc>
-            <p>如果某个元素有同辈元素，则不会被匹配到。</p>
+            <p>如果某个元素是他父元素下唯一的子元素，那他就会被匹配到。换句话说，如果某个元素有同辈元素，则不会被匹配到。</p>
          </longdesc>
          <example>
-            <desc>Finds the button with no siblings in each matched div and modifies look.</desc>
+            <desc>在每个 div 中查找没有同辈的 button 按钮，并且改变这些按钮的外观。</desc>
          </example>
       </entry>
       <entry type="selector" name="last-child">
-         <desc>Selects all elements that are the last child of their parent.</desc>
+         <desc>如果某个元素是父元素中的最后一个元素，那么他就会被选中。</desc>
          <signature/>
          <longdesc>
-            <p>While <a href="/last-selector">:last</a> matches only a single element, <code>:last-child</code> can match more than one: one for each parent.</p>
+            <p>注意，<a href="/last-selector">:last</a> 只匹配一个元素，就是最后一个元素，而 <code>:last-child</code> 则能匹配多个元素：即每个父元素中的最后一个。</p>
          </longdesc>
          <example>
-            <desc>Finds the last span in each matched div and adds some css plus a hover state.</desc>
+            <desc>在每个匹配的 div 中查找最后一个 span ，并加上 CSS 以及增加鼠标悬停效果。</desc>
          </example>
       </entry>
       <entry type="selector" name="first-child">
-         <desc>Selects all elements that are the first child of their parent.</desc>
+         <desc>如果某个元素是父元素中的第一个元素，那么他就会被选中。</desc>
          <signature/>
          <longdesc>
-            <p>While <a href="/first-selector">:first</a> matches only a single element, the <code>:first-child</code> selector can match more than one: one for each parent. This is equivalent to <code>:nth-child(1)</code>.</p>
+            <p>注意，<a href="/first-selector">:first</a> 只匹配一个元素，就是第一个元素，而 <code>:first-child</code> 则能匹配多个元素：即每个父元素中的第一个。这等价于 <code>:nth-child(1)</code>。</p>
          </longdesc>
          <example>
-            <desc>Finds the first span in each matched div to underline and add a hover state.</desc>
+            <desc>给每个 div 中第一个 span 增加下划线，并增加一个鼠标悬停效果。</desc>
          </example>
       </entry>
       <entry type="selector" name="nth-child">
-         <desc>Selects all elements that are the nth-child of their parent.</desc>
+         <desc>如果某个元素是父元素中的第 n 个子元素，那么他就会被选中。</desc>
          <signature>
             <argument name="index">
-               <desc>The index of each child to match, starting with <code>1</code>, the string <code>even</code> or <code>odd</code>, or an equation ( eg. <code>:nth-child(even)</code>, <code>:nth-child(4n)</code> )</desc>
+               <desc>用于匹配子元素的索引值，可以是从 <code>1</code> 开始计数的数字、 字符串 <code>even</code> 和 <code>odd</code>, 或者一个表达式。(比如 <code>:nth-child(even)</code>, <code>:nth-child(4n)</code> )</desc>
             </argument>
          </signature>
          <longdesc>
@@ -8620,3 +8620,4 @@ $('li').filter(function(index) {
       </entry>
    </entries>
 </api>
+            <p>注意，<a href="/first-selector">:first</a> 只匹配一个元素，就是第一个元素，而 <code>:first-child</code> 则能匹配多个元素：即每个父元素中的第一个元素。selector can match more than one: one for each parent. This is equivalent to <code>:nth-child(1)</code>.</p>
