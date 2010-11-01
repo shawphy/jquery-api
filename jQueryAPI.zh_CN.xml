@@ -1613,15 +1613,15 @@ if ( mydata.count &lt; 9 ) {
          <longdesc>
             <p>由于 jQuery 中的 <code>:nth-child(n)</code> 是严格按照 CSS 规范设计的，所以这里 <code>n</code> 的数值是从 1 开始计数的。然而，所有其他的选择器表达式中，jQuery 遵从的是 JavaScript 以 0 开始计数的规范。因此，如果一个 <code>&lt;ul&gt;</code> 含有两个 <code>&lt;li&gt;</code> ，那么 <code>$('li:nth-child(1)')</code> 选中的会是第一个 <code>&lt;li&gt;</code> 而 <code>$('li:eq(1)')</code> 选中的则是第二个。</p>
                 
-            <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，即使是两者匹配元素的结果有着显著的不同。 用 <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p> 
+            <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，然而两者匹配元素有着很大的差异。 用 <code>:nth-child(n)</code> 时，不论子元素是何种元素，他们都会被计数，而最终被选中的，只有与这个伪类前面的选择器相匹配的元素。如果用 <code>:eq(n)</code> 时，只有与这个伪类前面的选择相匹配的元素才会被计数，而不管他们是否是哪个元素的子元素，并且最终选中的是第 n+1 个元素(因为是从 0 开始计数的)。</p>
 
-            <p>Further discussion of this unusual usage can be found in the <a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS specification</a>.</p>
+            <p>关于这个不寻常的用法的深入探讨，可以在 <a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS 规范</a> 中找到。</p>
                     </longdesc>
          <example>
-            <desc>Finds the second li in each matched ul and notes it.</desc>
+            <desc>查找每个匹配的 ul 中第二个 li，并标记出来。</desc>
          </example>
          <example>
-            <desc>This is a playground to see how the selector works with different strings.  Notice that this is different from the :even and :odd which have no regard for parent and just filter the list of elements to every other one.  The :nth-child, however, counts the index of the child to its particular parent.  In any case, it's easier to see than explain so...</desc>
+            <desc>这是一个例子，用于展示两个容易混淆的选择起如何工作的。注意这里的 :even 和 :odd 会无视他们的父元素，而仅仅把元素列表中的元素一个隔一个的过滤出来。而 :nth-child 则会计算子元素在各自父元素中的索引值。很多情况下，直接看例子会比空讲容易理解的多...</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeContainsPrefix">
@@ -8620,3 +8620,5 @@ $('li').filter(function(index) {
       </entry>
    </entries>
 </api>
+            <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，然而两者匹配元素的结果有着显著的不同。 用 <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p> 
+            <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，然而两者匹配元素有着很大的差异。 用 <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p> 
