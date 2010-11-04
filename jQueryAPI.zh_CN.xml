@@ -1621,69 +1621,69 @@ if ( mydata.count &lt; 9 ) {
             <desc>查找每个匹配的 ul 中第二个 li，并标记出来。</desc>
          </example>
          <example>
-            <desc>这是一个例子，用于展示两个容易混淆的选择起如何工作的。注意这里的 :even 和 :odd 会无视他们的父元素，而仅仅把元素列表中的元素一个隔一个的过滤出来。而 :nth-child 则会计算子元素在各自父元素中的索引值。很多情况下，直接看例子会比空讲容易理解的多...</desc>
+            <desc>这是例子展示了两个容易混淆的选择器是如何工作的。注意这里的 :even 和 :odd 会无视他们的父元素，而仅仅把元素列表中的元素一个隔一个的过滤出来。而 :nth-child 则会计算子元素在各自父元素中的索引值。很多时候，直接看例子会比空讲容易理解的多...</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeContainsPrefix">
-         <desc>Selects elements that have the specified attribute with a value either equal to a given string or starting with that string followed by a hyphen (-).</desc>
+         <desc>选择那些属性值前缀与给定的字符串相同的元素。</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This selector was introduced into the CSS specification to handle language attributes.</p>
+            <p>所谓的前缀，就是指一个短横 (-) 前面的部分。另外，如果一个属性值没有前缀，但与给定的字符串相同的话，也会被匹配到。这个选择器主要用于处理语言属性，因而加入到 CSS 规范中的。</p>
          </longdesc>
          <example>
-            <desc>Finds all links with an hreflang attribute that is english.</desc>
+            <desc>查找所有 hreflang 属性是英语的链接。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeContainsWord">
-         <desc>Selects elements that have the specified attribute with a value containing a given word, delimited by spaces.</desc>
+         <desc>选择那些属性值中，含有给定单词的元素。单词以空格分隔。</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This selector matches the test string against each word in the attribute value, where a "word" is defined as a string delimited by whitespace. The selector matches if the test string is exactly equal to any of the words.</p> 
+            <p>这个选择器会用测试字符串去匹配属性值中的每一个单词。这里“单词”的定义是以空格为界的字符串。只要测试字符串等于属性中任何一个单词，这个元素就会被选中。</p> 
          </longdesc>
          <example>
-            <desc>Finds all inputs with a name attribute that contains the word 'man' and sets the value with some text.</desc>
+            <desc>查找所有属性中含有 'man' 这个单词的文本框，并且修改其文本值。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeMultiple">
-         <desc>Matches elements that match all of the specified attribute filters.</desc>
+         <desc>匹配满足所有这些属性选择器的元素。</desc>
          <signature>
             <argument name="attributeFilter1">
-               <desc>An attribute filter.</desc>
+               <desc>属性过滤器。</desc>
             </argument>
             <argument name="attributeFilter2">
-               <desc>Another attribute filter, reducing the selection even more</desc>
+               <desc>另一个属性过滤器，用于进一步减少选择的元素。</desc>
             </argument>
             <argument name="attributeFilterN">
-               <desc>As many more attribute filters as necessary</desc>
+               <desc>如果需要，可以跟更多的属性选择器。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Finds all inputs that have an id attribute and whose name attribute ends with man and sets the value.</desc>
+            <desc>查找那些有 id 属性，并且 name 属性以 man 结尾的输入框，并设置文本值。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeContains">
-         <desc>Selects elements that have the specified attribute with a value containing the a given substring.</desc>
+         <desc>选择那些属性值含有给定子字符串的元素。</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -1697,10 +1697,10 @@ if ( mydata.count &lt; 9 ) {
          <desc>Selects elements that have the specified attribute with a value ending exactly with a given string. The comparison is case sensitive.</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc/>
@@ -1712,10 +1712,10 @@ if ( mydata.count &lt; 9 ) {
          <desc>Selects elements that have the specified attribute with a value beginning exactly with a given string.</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -1729,10 +1729,10 @@ if ( mydata.count &lt; 9 ) {
          <desc>Select elements that either don't have the specified attribute, or do have the specified attribute but not with a certain value.</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -1746,10 +1746,10 @@ if ( mydata.count &lt; 9 ) {
          <desc>Selects elements that have the specified attribute with a value exactly equal to a certain value.</desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
             <argument name="value">
-               <desc>An attribute value. Quotes are optional.</desc>
+               <desc>属性值，引号是强制性的。</desc>
             </argument>
          </signature>
          <longdesc/>
@@ -1761,7 +1761,7 @@ if ( mydata.count &lt; 9 ) {
          <desc>Selects elements that have the specified attribute, with any value. </desc>
          <signature>
             <argument name="attribute">
-               <desc>An attribute name.</desc>
+               <desc>属性名。</desc>
             </argument>
          </signature>
          <longdesc/>
@@ -8620,5 +8620,3 @@ $('li').filter(function(index) {
       </entry>
    </entries>
 </api>
-            <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，然而两者匹配元素的结果有着显著的不同。 用 <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p> 
-            <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，然而两者匹配元素有着很大的差异。 用 <code>:nth-child(n)</code>, all children are counted, regardless of what they are, and the specified element is selected only if it matches the selector attached to the pseudo-class. With <code>:eq(n)</code> only the selector attached to the pseudo-class is counted, not limited to children of any other element, and the (n+1)th one (n is 0-based) is selected.</p> 
