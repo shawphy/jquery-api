@@ -170,6 +170,7 @@
                <span class="output">First handler for .toggle() called.</span>
             </p>
             <p>If more than two handlers are provided, <code>.toggle()</code> will cycle among all of them. For example, if there are three handlers, then the first handler will be called on the first click, the fourth click, the seventh click, and so on.</p>
+            <blockquote><p>Note: jQuery also provides an animation method named <a href="http://api.jquery.com/toggle/">.toggle()</a> that toggles the visibility of elements. Whether the animation or the event method is fired depends on the set of arguments passed.</p></blockquote>
             <p>The <code>.toggle()</code> method is provided for convenience. It is relatively straightforward to implement the same behavior by hand, and this can be necessary if the assumptions built into <code>.toggle()</code> prove limiting. For example, <code>.toggle()</code> is not guaranteed to work correctly if applied twice to the same element. Since <code>.toggle()</code> internally uses a <code>click</code> handler to do its work, we must unbind <code>click</code> to remove a behavior attached with <code>.toggle()</code>, so other <code>click</code> handlers can be caught in the crossfire. The implementation also calls <code>.preventDefault()</code> on the event, so links will not be followed and buttons will not be clicked if <code>.toggle()</code> has been called on the element.</p>
          </longdesc>
          <example>
@@ -190,9 +191,9 @@
          </example>
       </entry>
       <entry type="property" name="event.namespace">
-         <desc> This attribute contains the namespace specified when the event was triggered.</desc>
+         <desc>The namespace specified when the event was triggered.</desc>
          <signature/>
-         <longdesc>This will likely be primarily used by plugin authors that wish to handle tasks differently depending upon if a certain event namespace was used.</longdesc>
+         <longdesc><p>This will likely be used primarily by plugin authors who wish to handle tasks differently depending on the event namespace used.</p></longdesc>
          <example>
             <desc>Determine the event namespace used.</desc>
          </example>
@@ -671,17 +672,17 @@
          </example>
       </entry>
       <entry type="property" name="event.timeStamp">
-         <desc>这个属性返回事件触发时距离1970年1月1日的毫秒数。</desc>
+         <desc>事件触发时距离1970年1月1日的毫秒数。</desc>
          <signature/>
-         <longdesc>这可以很方便的检测某个jQuery函数的性能。</longdesc>
+         <longdesc><p>通过在代码中两处获得 <code>event.timeStamp</code> 的值并记录他们的差值，可以很方便的检测某个jQuery函数的性能。</p> </longdesc>
          <example>
             <desc>显示两次点击之间的时间。</desc>
          </example>
       </entry>
       <entry type="property" name="event.result">
-         <desc>这个属性包含了当前事件事件最后触发的那个处理函数的返回值，除非值是 <code>undefined</code> 。</desc>
+         <desc>当前事件最后触发的那个处理函数的返回值，除非值是 <code>undefined</code> 。</desc>
          <signature/>
-         <longdesc>这经常用于获取自定义事件的前一个返回值。</longdesc>
+         <longdesc><p>这个属性经常用于获取自定义事件的前一个返回值。</p></longdesc>
          <example>
             <desc>显示前一个事件处理函数的返回值。</desc>
          </example>
@@ -734,7 +735,7 @@
          </example>
       </entry>
       <entry type="property" name="event.data">
-         <desc> 包含传给 bind 函数的可选数据。</desc>
+         <desc>在绑定事件时传给 bind 函数的可选数据。</desc>
          <signature/>
          <longdesc>   </longdesc>
          <example>
@@ -745,7 +746,7 @@
          <desc>最初触发事件的DOM元素。</desc>
          <signature/>
          <longdesc> 
-            <p>这是注册事件时的对象，或者它的子元素。通常用于比较 <code>event.target</code> 和 <code>this</code> 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
+            <p><code>event.target</code> 属性指向的对象可能是事件绑定时的那个对象，也可能是它的子孙元素。通常通过比较 <code>event.target</code> 和 <code>this</code> 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。</p>
          </longdesc>
          <example>
             <desc>显示点击元素的标签名。</desc>
@@ -877,9 +878,9 @@
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
+               <strong>注意：</strong> 这是一个底层方法，使用 <code>
                   <a href="/removeData">.removeData()</a>
-               </code> 来代替。</p>
+               </code> 更方便。</p>
 	           <p><code>jQuery.removeData()</code> 允许我们移除先前用 <code>
                   <a href="/jQuery.data">jQuery.data()</a>
                </code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
@@ -903,9 +904,9 @@
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
+               <strong>注意：</strong> 这是一个底层方法，使用 <code>
                   <a href="/data">.data()</a>
-               </code> 来代替。</p>
+               </code> 更方便。</p>
 	           <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们在单个元素上设置几个独立的数据，并且以后还可以分别检索到：</p>
 	           <pre>jQuery.data(document.body, 'foo', 52);
 jQuery.data(document.body, 'bar', 'test');</pre>
@@ -931,9 +932,9 @@ jQuery.data(document.body, 'bar', 'test');</pre>
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
+               <strong>注意：</strong> 这是一个底层方法，使用 <code>
                   <a href="/data">.data()</a>
-               </code> 来代替。</p>
+               </code> 更方便。</p>
             <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。 我们可以分别在DOM元素上获取几个独立的数据，或者一次获取一组：</p>
             <pre>alert(jQuery.data( document.body, 'foo' ));
 alert(jQuery.data( document.body ));</pre>
@@ -1240,6 +1241,7 @@ alert('Index: ' + listItem.index('li'));
          </signature>
          <longdesc>
             <p><code>.removeData()</code> 方法允许我们移除先前用 <code>.data()</code>. 设置的数据。如果提供了name参数，则 <code>.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
+            <p>注意，从 jQuery 1.4.3 起，调用 <code>.removeData()</code> 会让这个要移除的属性值恢复成 DOM 中同名的 data- 属性值，而不是把它设置成 <code>undefined</code>。</p>
          </longdesc>
          <example>
             <desc>设置两个数据，然后再删除其中一个。</desc>
@@ -1687,14 +1689,14 @@ if ( mydata.count &lt; 9 ) {
             </argument>
          </signature>
          <longdesc>
-            <p>This is the most generous of the jQuery attribute selectors that match against a value. It will select an element if the selector's string appears anywhere within the element's attribute value. Compare this selector with the Attribute Contains Word selector (e.g. [attr~=word]), which is more appropriate in many cases.</p>
+            <p>这是 jQuery 属性值选择器中，能匹配到最多元素的一个选择器。只要元素属性值字符串中任何一部分能匹配到给定的值，这个元素就能被匹配到。很多情况下，相较于单词选择器 (比如 [attr~=word])，他更合适。</p>
          </longdesc>
          <example>
-            <desc>Finds all inputs with a name attribute that contains 'man' and sets the value with some text.</desc>
+            <desc>查找所有 input 的 name 属性中带有 'man' 的元素并设置一些文本。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeEndsWith">
-         <desc>Selects elements that have the specified attribute with a value ending exactly with a given string. The comparison is case sensitive.</desc>
+         <desc>选择那些属性值是以给定字符串结尾的元素。这里对大小写敏感。</desc>
          <signature>
             <argument name="attribute">
                <desc>属性名。</desc>
@@ -1705,11 +1707,11 @@ if ( mydata.count &lt; 9 ) {
          </signature>
          <longdesc/>
          <example>
-            <desc>Finds all inputs with an attribute name that ends with 'letter' and puts text in them.</desc>
+            <desc>查找所有 name 属性是以 'letter' 开头的 input 元素，并放置一些文本。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeStartsWith">
-         <desc>Selects elements that have the specified attribute with a value beginning exactly with a given string.</desc>
+         <desc>选择那些属性值是以给定字符串开头的元素。这里对大小写敏感。</desc>
          <signature>
             <argument name="attribute">
                <desc>属性名。</desc>
@@ -1719,14 +1721,14 @@ if ( mydata.count &lt; 9 ) {
             </argument>
          </signature>
          <longdesc>
-            <p>This selector can be useful for identifying elements in pages produced by server-side frameworks that produce HTML with systematic element IDs. However it will be slower than using a class selector so leverage classes, if you can, to group like elements.</p>
+            <p>这个选择器能很方便的定位一些由服务器端框架生成的语义化的 ID ，他们可能带有相同的前缀。然而这个选择器的速度要比用 class 选择器慢得多，所以如果你能做到的话，最好在这些元素上生成相同的 class ，之后使用 class 选择器来选中他们。</p>
          </longdesc>
          <example>
-            <desc>Finds all inputs with an attribute name that starts with 'news' and puts text in them.</desc>
+            <desc>查找所有 name 属性是以 'news' 开头的 input 元素，并放置一些文本。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeNotEqual">
-         <desc>Select elements that either don't have the specified attribute, or do have the specified attribute but not with a certain value.</desc>
+         <desc>选择那些不含有特定的属性，或者其属性值不等于给定值的元素。</desc>
          <signature>
             <argument name="attribute">
                <desc>属性名。</desc>
@@ -1736,14 +1738,14 @@ if ( mydata.count &lt; 9 ) {
             </argument>
          </signature>
          <longdesc>
-            <p>This selector is equivalent to <code>:not([attr=value])</code>.</p> 
+            <p>这个选择器等价于 <code>:not([attr=value])</code>.</p> 
          </longdesc>
          <example>
-            <desc>Finds all inputs that don't have the name 'newsletter' and appends text to the span next to it.</desc>
+            <desc>查找所有 name 属性不是 'newsletter' 的元素，并在其后的 span 中放置一点文本。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeEquals">
-         <desc>Selects elements that have the specified attribute with a value exactly equal to a certain value.</desc>
+         <desc>选择含有特定属性，并且其属性值精确等于给定值的元素。</desc>
          <signature>
             <argument name="attribute">
                <desc>属性名。</desc>
@@ -1754,11 +1756,11 @@ if ( mydata.count &lt; 9 ) {
          </signature>
          <longdesc/>
          <example>
-            <desc>Finds all inputs with name 'newsletter' and changes the text of the span next to it.</desc>
+            <desc>查找所有 name 属性值为 'newsletter' 的元素，并且修改跟在他后面的 span 元素中的文本。</desc>
          </example>
       </entry>
       <entry type="selector" name="attributeHas">
-         <desc>Selects elements that have the specified attribute, with any value. </desc>
+         <desc>选择含有特定属性的元素，不管属性值是什么都可以。</desc>
          <signature>
             <argument name="attribute">
                <desc>属性名。</desc>
@@ -1766,88 +1768,89 @@ if ( mydata.count &lt; 9 ) {
          </signature>
          <longdesc/>
          <example>
-            <desc>Bind a single click that adds the div id to its text.</desc>
+            <desc>绑定一个事件，让含有 id 属性的 div 元素，在点击后把自己的 id 添加进自己的文本中。</desc>
          </example>
       </entry>
       <entry type="selector" name="visible">
-         <desc>Selects all elements that are visible.</desc>
+         <desc>选择所有可见的元素。</desc>
          <signature/>
          <longdesc> 
-            <p>Elements can be considered hidden for several reasons:</p>
+            <p>元素可能出于以下几个理由而被隐藏：</p>
             <ul>
-               <li>They have a CSS <code>display</code> value of <code>none</code>.</li>
-               <li>They are form elements with <code>type="hidden"</code>.</li>
-               <li>Their width and height are explicitly set to 0.</li>
-               <li>An ancestor element is hidden, so the element is not shown on the page.</li>
+               <li>他们的 CSS 中 <code>display</code> 值为 <code>none</code>。</li>
+               <li>他们是表单元素，带有 <code>type="hidden"</code> 属性。</li>
+               <li>他们的高和宽被设置成 0。</li>
+               <li>他们的祖辈元素被隐藏了，所以他们也没有在页面中显示。</li>
             </ul>
-            <p>Elements with <code>visibility: hidden</code> or <code>opacity: 0</code> are considered to be visible, since they still consume space in the layout. During animations that hide an element, the element is considered to be visible until the end of the animation. During animations to show an element, the element is considered to be visible at the start at the animation.</p>
-            <p>How <code>:visible</code> is calculated was changed in jQuery 1.3.2. The <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">release notes</a> outline the changes in more detail.</p>
+            <p><code>visibility: hidden</code> 或者 <code>opacity: 0</code> 的元素被认为是可见的，因为实际上，他们在页面布局中占据了一定的空间。在执行隐藏效果动画的元素也认为是可见的，直到动画结束为止。在执行显示效果动画的元素，从动画的一开始就被认为是可见的了。</p>
+            <p>从 jQuery 1.3.2 起，<code>:visible</code> 的计算方式发生了变动。可以访问 <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">jQuery 1.3.2 更新信息</a> 来获取更多内容。</p>
          </longdesc>
          <example>
-            <desc>Make all visible divs turn yellow on click.</desc>
+            <desc>在所有可见的 div 上添加事件，当点击后变成黄色。</desc>
          </example>
       </entry>
       <entry type="selector" name="hidden">
-         <desc>Selects all elements that are hidden.</desc>
+         <desc>选择所有吟唱的元素。</desc>
          <signature/>
          <longdesc>
-                    <p>Elements can be considered hidden for several reasons:</p>
+            <p>元素可能出于以下几个理由而被隐藏：</p>
             <ul>
-               <li>They have a CSS <code>display</code> value of <code>none</code>.</li>
-               <li>They are form elements with <code>type="hidden"</code>.</li>
-               <li>Their width and height are explicitly set to 0.</li>
-               <li>An ancestor element is hidden, so the element is not shown on the page.</li>
+               <li>他们的 CSS 中 <code>display</code> 值为 <code>none</code>。</li>
+               <li>他们是表单元素，带有 <code>type="hidden"</code> 属性。</li>
+               <li>他们的高和宽被设置成 0。</li>
+               <li>他们的祖辈元素被隐藏了，所以他们也没有在页面中显示。</li>
             </ul>
-            <p>Elements with <code>visibility: hidden</code> or <code>opacity: 0</code> are considered to be visible, since they still consume space in the layout. During animations that hide an element, the element is considered to be visible until the end of the animation. During animations to show an element, the element is considered to be visible at the start at the animation.</p>
-            <p>How <code>:hidden</code> is determined was changed in jQuery 1.3.2. An element is assumed to be hidden if it or any of its parents consumes no space in the document. CSS visibility isn't taken into account (therefore <code>$(elem).css('visibility','hidden').is(':hidden') == false</code>). The <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">release notes</a> outline the changes in more detail.</p>
+            <p><code>visibility: hidden</code> 或者 <code>opacity: 0</code> 的元素被认为是可见的，因为实际上，他们在页面布局中占据了一定的空间。在执行隐藏效果动画的元素也认为是可见的，直到动画结束为止。在执行显示效果动画的元素，从动画的一开始就被认为是可见的了。</p>
+            <p>从 jQuery 1.3.2 起，<code>:hidden</code> 的检测方式发生了变动。一个元素，只要他或者他的父元素在页面布局中不占据空间，则被认为是隐藏了。CSS 中的 visibility 属性并不影响这个选择器的判断。（所以 <code>$(elem).css('visibility','hidden').is(':hidden') == false</code>). 访问 <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">jQuery 1.3.2 更新信息</a> 来获得更多内容。</p>
+            <p><strong>注意</strong>，有些浏览器中，包括 head, title, script, style 在内的一些元素也会被认为是隐藏的元素而被选中！</p>
          </longdesc>
          <example>
-            <desc>Shows all hidden divs and counts hidden inputs.</desc>
+            <desc>显示所有隐藏的 div 并计算 type='hidden' 的 input 元素数目。</desc>
          </example>
       </entry>
       <entry type="selector" name="parent">
-         <desc>Select all elements that are the parent of another element, including text nodes.</desc>
+         <desc>选择所有父元素，即含有子元素的元素，文本节点也算是子元素。</desc>
          <signature/>
          <longdesc>
-            <p>This is the inverse of <code>:empty</code>. </p>
-            <p>One important thing to note regarding the use of <code>:parent</code> (and <code>:empty</code>) is that child elements include text nodes.</p>
-            <p>The W3C recommends that the <code>&lt;p&gt;</code> element have at least one child node, even if that child is merely text (see <a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">http://www.w3.org/TR/html401/struct/text.html#edef-P</a>). Some other elements, on the other hand, are empty (i.e. have no children) by definition:<code> &lt;input&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>, for example.</p>
+            <p>这个选择器与 <code>:empty</code> 正好相反。</p>
+            <p><strong>注意</strong>， <code>:parent</code> (和 <code>:empty</code>) 所涉及的子元素，包括文本节点！</p>
+            <p>W3C 推荐  <code>&lt;p&gt;</code> 元素应当至少包含一个子元素，即使那个子元素仅仅是一个文本节点也好。(参考 <a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">http://www.w3.org/TR/html401/struct/text.html#edef-P</a>)。另一方面，某些元素始终被定义成空元素，比如： <code> &lt;input&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>。</p>
     
          </longdesc>
          <example>
-            <desc>Finds all tds with children, including text.</desc>
+            <desc>查找含有子元素的 td 元素，包括含有文本的 td 。</desc>
          </example>
       </entry>
       <entry type="selector" name="has">
-         <desc>Selects elements which contain at least one element that matches the specified selector.</desc>
+         <desc>如果某个元素含有至少一个与选择器相匹配的子孙元素，则或这个元素就会被选中。</desc>
          <signature/>
          <longdesc>
-            <p>The expression <code>$('div:has(p)')</code> matches a <code>&lt;div&gt;</code> if a <code>&lt;p&gt;</code> exists anywhere among its descendants, not just as a direct child.</p> 
+            <p>表达式 <code>$('div:has(p)')</code> 会匹配一个 <code>&lt;div&gt;</code> ，并且他的子孙元素中含有 <code>&lt;p&gt;</code> ，就算不是直接的子元素也没关系。</p>
          </longdesc>
          <example>
-            <desc>Adds the class "test" to all divs that have a paragraph inside of them.</desc>
+            <desc>给所有含有一个 p 段落的 div 加上一个 "test" 的 class。</desc>
          </example>
       </entry>
       <entry type="selector" name="empty">
-         <desc>Select all elements that have no children (including text nodes).</desc>
+         <desc>选择所有不含任何子元素以及文本节点的元素。</desc>
          <signature/>
          <longdesc>
-            <p>This is the inverse of <code>:parent</code>. </p>
-            <p>One important thing to note with :empty (and :parent) is that child elements include text nodes.</p>
-            <p>The W3C recommends that the <code>&lt;p&gt;</code> element have at least one child node, even if that child is merely text (see http://www.w3.org/TR/html401/struct/text.html#edef-P). Some other elements, on the other hand, are empty (i.e. have no children) by definition: &lt;input&gt;, &lt;img&gt;, &lt;br&gt;, and &lt;hr&gt;, for example.</p>
+            <p>这个选择器与 <code>:parent</code> 正好相反。</p>
+            <p><strong>注意</strong>， <code>:empty</code> (和 <code>:parent</code>) 所涉及的子元素，包括文本节点！</p>
+            <p>W3C 推荐  <code>&lt;p&gt;</code> 元素应当至少包含一个子元素，即使那个子元素仅仅是一个文本节点也好。(参考 <a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">http://www.w3.org/TR/html401/struct/text.html#edef-P</a>)。另一方面，某些元素始终被定义成空元素，比如： <code> &lt;input&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>。</p>
          </longdesc>
          <example>
-            <desc>Finds all elements that are empty - they don't have child elements or text.</desc>
+            <desc>查找所有空元素——即不含有子元素和文本的元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="contains">
-         <desc>Select all elements that contain the specified text.</desc>
+         <desc>选择含有特定文本的元素。</desc>
          <signature/>
          <longdesc>
-            <p>The matching text can appear directly within the selected element, in any of that element's descendants, or a combination thereof. As with attribute value selectors, text inside the parentheses of <code>:contains()</code> can be written as bare words or surrounded by quotation marks. The text must have matching case to be selected.</p>
+            <p>匹配的文本可以直接出现在选中的元素之中，或者出现在这个元素的子孙元素之中。作为一个属性选择器，<code>:contains()</code> 的括号中的文本可以直接书写字符串，也可以用引号包裹一下。</p>
          </longdesc>
          <example>
-            <desc>Finds all divs containing "John" and underlines them.</desc>
+            <desc>查找所有含有 "John" 的 div 并且添加下划线。</desc>
          </example>
       </entry>
       <entry type="selector" name="animated">
@@ -1941,11 +1944,9 @@ if ( mydata.count &lt; 9 ) {
             </argument>
          </signature>
          <longdesc>
-            <p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p> 
+            <p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p>
             <h3>Additional Notes</h3>
-            <p>The <code>
-                  <a href="/not/">.not()</a>
-               </code> method is typically faster and may end up providing you with more readable selections than pushing complex selectors or variables into a <code>:not()</code> selector filter.</p>
+            <p>The <code><a href="/not/">.not()</a></code> method will end up providing you with more readable selections than pushing complex selectors or variables into a <code>:not()</code> selector filter. In most cases, it is a better choice.</p>
          </longdesc>
          <example>
             <desc>Finds all inputs that are not checked and highlights the next sibling span.  Notice there is no change when clicking the checkboxes since no click events have been linked.</desc>
@@ -4579,7 +4580,7 @@ $('ul.first').find('.foo')
          <desc>Get the siblings of each element in the set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -4756,7 +4757,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Get all preceding siblings of each element in the set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -4784,7 +4785,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Get the immediately preceding sibling of each element in the set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -4896,6 +4897,7 @@ The second button starts a traditional chained animation, where each animation w
          <longdesc>
             <p>The <code>.fadeOut()</code> method animates the opacity of the matched elements. Once the opacity reaches 0, the <code>display</code> style property is set to <code>none</code>, so the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -4926,7 +4928,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -4987,6 +4989,7 @@ The second button starts a traditional chained animation, where each animation w
          <longdesc>
             <p>The <code>.fadeIn()</code> method animates the opacity of the matched elements.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -5017,7 +5020,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Get the parent of each element in the current set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -5110,6 +5113,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>The <code>.slideToggle()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up or down, appearing to reveal or conceal the items. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>. When the height reaches 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
@@ -5236,6 +5240,7 @@ The second button starts a traditional chained animation, where each animation w
          <longdesc>
             <p>The <code>.slideUp()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up, appearing to conceal the items. Once the height reaches 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -5267,7 +5272,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Get all following siblings of each element in the set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -5295,10 +5300,10 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="next">
-         <desc>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling that matches the selector.</desc>
+         <desc>Get the immediately following sibling of each element in the set of matched elements. If a selector is provided, it retrieves the next sibling only if it matches that selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -5349,6 +5354,7 @@ The second button starts a traditional chained animation, where each animation w
          <longdesc>
             <p>The <code>.slideDown()</code> method animates the height of the matched elements. This causes lower parts of the page to slide down, making way for the revealed items.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -5379,7 +5385,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Get the descendants of each element in the current set of matched elements, filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -5500,12 +5506,12 @@ $('.container').contents().filter(function() {
          <desc>Get the first ancestor element that matches the selector, beginning at the current element and progressing up through the DOM tree.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
             <argument name="context">
                <desc>A DOM element within which a matching element may be found. If no context is passed in then the context of the jQuery set will be used instead.</desc>
@@ -5618,9 +5624,8 @@ $('li.item-a').closest('#one', listItemII)
   success: <em>callback</em>
 });
 </pre>
-            <p>The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the <code>
-                  <a href="/jQuery.parseJSON">$.parseJSON()</a>
-               </code> method.</p>
+            <p>Data that is sent to the server is appended to the URL as a query string. If the value of the <code>data</code> parameter is an object (map), it is converted to a string and url-encoded before it is appended to the URL.</p>
+            <p>The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the <code><a href="/jQuery.parseJSON">$.parseJSON()</a></code> method.</p>
             <p>Most implementations will specify a success handler:</p>
             <pre>$.getJSON('ajax/test.json', function(data) {
   $('.result').html('&lt;p&gt;' + data.foo + '&lt;/p&gt;'
@@ -5636,13 +5641,10 @@ $('li.item-a').closest('#one', listItemII)
 </pre>
             <p>Using this structure, the example inserts the first string and second number from the file onto the page.</p>
             <blockquote>
-               <p>
-                  <strong>Important:</strong> As of jQuery 1.4, if the JSON file contains a syntax error, the request will usually fail silently. Avoid frequent hand-editing of JSON data for this reason. JSON is a data-interchange format with syntax rules that are stricter than those of JavaScript's object literal notation. For example, all strings represented in JSON, whether they are properties or values, must be enclosed in double-quotes. For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.</p>
-	           </blockquote>
-	           <h4 id="jsonp">JSONP</h4>
-            <p>If the URL includes the string "callback=?" in the URL, the request is treated as JSONP instead. See the discussion of the <code>jsonp</code> data type in <code>
-                  <a href="/jQuery.ajax">$.ajax()</a>
-               </code> for more details.</p>
+               <p><strong>Important:</strong> As of jQuery 1.4, if the JSON file contains a syntax error, the request will usually fail silently. Avoid frequent hand-editing of JSON data for this reason. JSON is a data-interchange format with syntax rules that are stricter than those of JavaScript's object literal notation. For example, all strings represented in JSON, whether they are properties or values, must be enclosed in double-quotes. For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.</p>
+            </blockquote>
+            <h4 id="jsonp">JSONP</h4>
+            <p>If the URL includes the string "callback=?" (or similar, as defined by the server-side API), the request is treated as JSONP instead. See the discussion of the <code>jsonp</code> data type in <code><a href="/jQuery.ajax">$.ajax()</a></code> for more details.</p>
          </longdesc>
          <example>
             <desc>Loads the four most recent cat pictures from the Flickr JSONP API.</desc>
@@ -5970,7 +5972,7 @@ option to false, the automatic conversion of data to strings is prevented.</desc
          <desc>Get the children of each element in the set of matched elements, optionally filtered by a selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
@@ -6102,7 +6104,7 @@ The value of this property is typically equal to document, as this is the defaul
          <desc>Remove elements from the set of matched elements.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <signature>
@@ -6236,6 +6238,8 @@ $('li').not(document.getElementById('notli'))
             <p>The matched elements will be revealed or hidden immediately, with no animation, by changing the CSS <code>display</code> property. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.toggle()</code> becomes an animation method. The <code>.toggle()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <blockquote><p>Note: The event handling suite also has a method named <a href="http://api.jquery.com/toggle-event/">.toggle()</a>. Which one is fired depends on the set of arguments passed.</p></blockquote>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -6425,6 +6429,7 @@ alert(shallowDecoded);
             <p>The matched elements will be hidden immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'none')</code>, except that the value of the <code>display</code> property is saved in jQuery's data cache so that <code>display</code> can later be restored to its initial value. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.hide()</code> becomes an animation method. The <code>.hide()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -6572,6 +6577,7 @@ $(document).height(); // returns height of HTML document</pre>
             <p>The matched elements will be revealed immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'block')</code>, except that the <code>display</code> property is restored to whatever it was initially. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.show()</code> becomes an animation method. The <code>.show()</code> method animates the width, height, and opacity of the matched elements simultaneously.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
             <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
             <p>We can animate any element, such as a simple image:</p>
             <pre>&lt;div id="clickme"&gt;
@@ -8206,7 +8212,7 @@ $('input:radio[name=bar]:checked').val(); // get the value from a set of radio b
          <desc>Check the current matched set of elements against a selector and return true if at least one of these elements matches the selector.</desc>
          <signature>
             <argument name="selector">
-               <desc>A string containing a selector expression to match elements against.</desc>
+               <desc>用于匹配元素的选择器字符串</desc>
             </argument>
          </signature>
          <longdesc>
