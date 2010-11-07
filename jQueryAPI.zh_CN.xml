@@ -5761,127 +5761,123 @@ $('li.item-a').closest('#one', listItemII)
          </example>
       </entry>
       <entry type="method" name="jQuery.ajax">
-         <desc>Perform an asynchronous HTTP (Ajax) request.</desc>
+         <desc>执行异步 HTTP (Ajax) 请求。</desc>
          <signature>
             <argument name="settings">
-               <desc>A set of key/value pairs that configure the Ajax request. All options are optional. A default can be set for any option with <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>.</desc>
+               <desc>一组用于配置 Ajax 请求的键值对。所有的选项都是可选的。任何一个选项的默认值都可以通过 <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a> 来设定。</desc>
             </argument>
             <option name="async">
-               <desc>By default, all requests are sent asynchronous (i.e. this is set to true by default). If you need synchronous requests, set this option to false. Cross-domain requests and <code>dataType: "jsonp"</code> requests do not support synchronous operation. Note that synchronous requests may temporarily lock the browser, disabling any actions while the request is active.</desc>
+               <desc>默认设置下，所有请求均为异步请求。如果需要发送同步请求，请将此选项设置为 false。跨域请求以及 <code>dataType: "jsonp"</code> 的请求不支持同步方式。注意，同步请求将锁住浏览器，用户其它操作必须等待请求完成才可以执行。</desc>
             </option>
             <option name="beforeSend(XMLHttpRequest)">
-               <desc>A pre-callback to modify the XMLHttpRequest object before it is sent. Use this to set custom headers etc. The XMLHttpRequest is passed as the only argument. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>. You may return false in function to cancel the request.</desc>
+               <desc>发送请求前可修改 XMLHttpRequest 对象的函数，如添加自定义 HTTP 头。XMLHttpRequest 对象是唯一的参数。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。如果返回false可以取消本次ajax请求。</desc>
             </option>
             <option name="cache">
-               <desc>If set to false it will force the pages that you request to not be cached by the browser.</desc>
+               <desc>设置为 false 将强制不缓所请求的页面。</desc>
             </option>
             <option name="complete(XMLHttpRequest, textStatus)">
-               <desc>A function to be called when the request finishes (after success and error callbacks are executed). The function gets passed two arguments: The XMLHttpRequest object and a string categorizing the status of the request (<code>"success"</code>, <code>"notmodified"</code>, <code>"error"</code>, <code>"timeout"</code>, or <code>"parsererror"</code>). This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+               <desc>请求完成后回调函数 (请求成功或失败之后均调用)。参数： XMLHttpRequest 对象和一个描述请求状态的字符串。 (<code>"success"</code>, <code>"notmodified"</code>, <code>"error"</code>, <code>"timeout"</code>, 或 <code>"parsererror"</code>)。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
             </option>
             <option name="contentType">
-               <desc>When sending data to the server, use this content-type. Default is "application/x-www-form-urlencoded", which is fine for most cases. If you explicitly pass in a content-type to $.ajax() then it'll always be sent to the server (even if no data is sent). Data will always be transmitted to the server using UTF-8 charset; you must decode this appropriately on the server side.</desc>
+               <desc>发送信息至服务器时内容编码类型。 默认值 "application/x-www-form-urlencoded" 适合大多数情况。如果你明确地传递了一个 content-type 给 $.ajax() 那么他必定也会发送给服务器（即使没有数据要发送） 数据总是以 UTF-8 的编码传输的。你必须在服务器端进行适当的解码。</desc>
             </option>
             <option name="context">
-               <desc>This object will be made the context of all Ajax-related callbacks. For example specifying a DOM element as the context will make that the context for the complete callback of a request, like so: <pre>$.ajax({ url: "test.html", context: document.body, success: function(){
+               <desc>这个对象用于设置Ajax相关回调函数的上下文。也就是说，让回调函数内 this 指向这个对象（如果不设定这个参数，那么this就指向调用本次AJAX请求时传递的 settings 参数）。比如指定一个 DOM 元素作为 context 参数，就能把 success 回调函数的上下文设置成了这个 DOM 元素： <pre>$.ajax({ url: "test.html", context: document.body, success: function(){
         $(this).addClass("done");
       }});</pre>
                </desc>
             </option>
             <option name="data">
-               <desc>Data to be sent to the server. It is converted to a query string, if not already a string. It's appended to the url for GET-requests. See processData option to prevent this automatic processing. Object must be Key/Value pairs. If value is an Array, jQuery serializes multiple values with same key based on the value of the <code>traditional</code> setting (described below).</desc>
+               <desc>发送到服务器的数据。将自动转换为请求字符串格式。GET 请求中将附加在 URL 后。查看 processData 选项说明以禁止此自动转换。对象必须是键值对，如果数据是一个数组，jQuery 会按照 <code>traditional</code> 参数的值(查看下面的说明)，自动将数据序列化成一个同名的多值查询字符串。</desc>
             </option>
             <option name="dataFilter(data, type)">
-               <desc>A function to be used to handle the raw responsed data of XMLHttpRequest.This is a pre-filtering function to sanitize the response.You should return the sanitized data.The function gets passed two arguments: The raw data returned from the server, and the 'dataType' parameter.</desc>
+               <desc>给 Ajax 返回的原始数据的进行预处理的函数。必须返回处理后的数据。提供 data 和 type 两个参数：data 是 Ajax 返回的原始数据， type 是调用 $.ajax 时提供的 dataType 参数。</desc>
             </option>
             <option name="dataType">
-               <desc>The type of data that you're expecting back from the server. If none is specified, jQuery will intelligently try to get the results, based on the MIME type of the response (an XML MIME type will yield XML, in 1.4 JSON will yield a JavaScript object, in 1.4 script will execute the script, and anything else will be returned as a string). The available types (and the result passed as the first argument to your success callback) are:
+               <desc>预期服务器返回的数据类型。如果不指定，jQuery 将自动根据 HTTP 包 MIME 信息来智能判断，比如XML MIME类型就被识别为 XML 。在 jQuery 1.4中， JSON 就会生成一个 JavaScript 对象，而 script 则会执行这个脚本，而其他的任何值都会看成是字符串。可用的类型 (并且其结果会作为 success 回调函数的第一个参数) 有：
         <ul>
-                     <li>"xml": Returns a XML document that can be processed via jQuery.</li>
-                     <li>"html": Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.</li>
-                     <li>"script": Evaluates the response as JavaScript and returns it as plain text. Disables caching unless option "cache" is used. <strong>Note:</strong> This will turn POSTs into GETs for remote-domain requests.</li>
-                     <li>"json": Evaluates the response as JSON and returns a JavaScript object. In jQuery 1.4 the JSON data is parsed in a strict manner; any malformed JSON is rejected and a parse error is thrown. (See <a href="http://json.org/">json.org</a> for more information on proper JSON formatting.)</li>
-                     <li>"jsonp": Loads in a JSON block using <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a>. Will add an extra "?callback=?" to the end of your URL to specify the callback.</li>
-                     <li>"text": A plain text string.</li>
+                     <li>"xml": 返回 XML 文档，可用 jQuery 处理。</li>
+                     <li>"html":  返回纯文本 HTML 信息；包含的script标签会在插入dom时执行。</li>
+                     <li>"script": 把响应的结果当作 JavaScript 执行，并将其当作纯文本返回。默认情况下不会自动缓存结果，除非设置了"cache"参数。<strong>注意:</strong> 在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)</li>
+                     <li>"json": 把响应的结果当作 JSON  执行，之后返回一个 JavaScript 对象。在 jQuery 1.4 中，JSON 格式以严格的方式解析，任何格式有误的 JSON 都会被拒绝并抛出一个解析错误的异常。 (参考  <a href="http://json.org/">json.org</a> 获取更多关于 JSON 格式的信息。)</li>
+                     <li>"jsonp": 以 <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">JSONP</a> 的方式载入 JSON 数据块。会自动添加 "?callback=?" 到所请求 URL 的最后。</li>
+                     <li>"text": 纯文本字符串。</li>
                   </ul>
                </desc>
             </option>
             <option name="error(XMLHttpRequest, textStatus, errorThrown)">
-               <desc>A function to be called if the request fails. The function is passed three arguments: The XMLHttpRequest object, a string describing the type of error that occurred and an optional exception object, if one occurred. Possible values for the second argument (besides null) are "timeout", "error", "notmodified" and "parsererror". This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+               <desc>请求失败时调用此函数。有以下三个参数：XMLHttpRequest 对象、错误信息、（可选）捕获的异常对象。如果发生了错误，错误信息（第二个参数）除了得到null之外，还可能是"timeout", "error", "notmodified" 和 "parsererror"。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
             </option>
             <option name="global">
-               <desc>Whether to trigger global Ajax event handlers for this request. The default is true. Set to false to prevent the global handlers like ajaxStart or ajaxStop from being triggered. This can be used to control various <a href="http://docs.jquery.com/Ajax_Events">Ajax Events</a>.</desc>
+               <desc>是否触发全局 AJAX 事件。默认值是 true 。设置为 false 将不会触发全局 AJAX 事件，如 ajaxStart 或 ajaxStop 可用于控制不同的 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
             </option>
             <option name="ifModified">
-               <desc>Allow the request to be successful only if the response has changed since the last request. This is done by checking the Last-Modified header. Default value is false, ignoring the header. In jQuery 1.4 this technique also checks the 'etag' specified by the server to catch unmodified data.</desc>
+               <desc>仅在服务器数据从上次请求后发生改变后，请求才会成功。使用 HTTP 包 Last-Modified 头信息判断。默认值是 false ，忽略响应报头。在jQuery 1.4中，他也会检查服务器指定的'etag'来确定数据没有被修改过。</desc>
             </option>
             <option name="jsonp">
-               <desc>Override the callback function name in a jsonp request.  This value will be used instead of 'callback' in the 'callback=?' part of the query string in the url.  So <code>{jsonp:'onJsonPLoad'}</code> would result in <code>'onJsonPLoad=?'</code> passed to the server.</desc>
+               <desc>在一个jsonp请求中重写回调函数的名字。这个值用来替代在"callback=?"这种GET或POST请求中URL参数里的"callback"部分，比如 <code>{jsonp:'onJsonPLoad'}</code> 会导致将 <code>'onJsonPLoad=?'</code> 传给服务器。</desc>
             </option>
             <option name="jsonpCallback">
-               <desc>Specify the callback function name for a jsonp request.  This value will be used instead of the random name automatically generated by jQuery. It is preferable to let jQuery generate a unique name as it'll make it easier to manage the requests and provide callbacks and error handling. You may want to specify the callback when you want to enable better browser caching of GET requests.</desc>
+               <desc>为jsonp请求指定一个回调函数名。这个值将用来取代jQuery自动生成的随机函数名。这主要用来让jQuery生成度独特的函数名，这样管理请求更容易，也能方便地提供回调函数和错误处理。你也可以在想让浏览器缓存GET请求的时候，指定这个回调函数名。</desc>
             </option>
             <option name="password">
-               <desc>A password to be used in response to an HTTP access authentication request.</desc>
+               <desc>用于响应HTTP访问认证请求的密码</desc>
             </option>
             <option name="processData">
-               <desc>By default, data passed in to the data option as an object (technically, anything other than a string) will be processed and transformed into a query string, fitting to the default content-type "application/x-www-form-urlencoded". If you want to send a DOMDocument, or other non-processed data, set this option to false.</desc>
+               <desc>默认情况下，通过data选项传递进来的数据，如果是一个对象(技术上讲只要不是字符串)，都会处理转化成一个查询字符串，以配合默认内容类型 "application/x-www-form-urlencoded"。如果要发送 DOM 树信息或其它不希望转换的信息，请设置为 false。</desc>
             </option>
             <option name="scriptCharset">
-               <desc>Only for requests with "jsonp" or "script" dataType and "GET" type. Forces the request to be interpreted as a certain charset. Only needed for charset differences between the remote and local content.</desc>
+               <desc>只有当请求时 dataType 为 "jsonp" 或 "script" ，并且 type 是 "GET" 时，才会用于强制修改charset。通常只在本地和远程的内容编码不同时使用。</desc>
             </option>
             <option name="success(data, textStatus, XMLHttpRequest)">
-               <desc>A function to be called if the request succeeds. The function gets passed three arguments: The data returned from the server, formatted according to the 'dataType' parameter; a string describing the status; and the XMLHttpRequest object (available as of jQuery 1.4). This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+               <desc>请求成功后的回调函数。函数接受 3 个参数：服务器返回，并根据dataType参数进行处理后的数据、描述状态的字符串、以及一个 XMLHttpRequest 对象(jQuery 1.4 开始才有)。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
             </option>
             <option name="timeout">
-               <desc>Set a local timeout (in milliseconds) for the request. This will override the global timeout, if one is set via <a href="/jQuery.ajaxSetup">$.ajaxSetup</a>. For example, you could use this property to give a single request a longer timeout than all other requests that you've set to time out in one second. See <a href="/jQuery.ajaxSetup">$.ajaxSetup</a>() for global timeouts.</desc>
+               <desc>设置请求超时时间（毫秒）。此设置将覆盖用 <a href="/jQuery.ajaxSetup">$.ajaxSetup</a> 做的全局设置。例如你可以给某一个请求单独设置较长的超时时间。参考 <a href="/jQuery.ajaxSetup">$.ajaxSetup</a>() 获得全局 timeout 的更多信息。</desc>
             </option>
             <option name="traditional">
-               <desc>Set this to true if you wish to use the traditional style of <a href="/jQuery.param">param serialization</a>.</desc>
+               <desc>如果你想要用传统的方式来序列化数据，那么就设置为true。请参 <a href="/jQuery.param">参数序列化</a> 方法。</desc>
             </option>
             <option name="type">
-               <desc>The type of request to make ("POST" or "GET"), default is "GET". <strong>Note:</strong> Other HTTP request methods, such as PUT and DELETE, can also be used here, but they are not supported by all browsers.</desc>
+               <desc>请求方式 ("POST" 或 "GET")， 默认为 "GET"。 <strong>注意：</strong> 其它 HTTP 请求方法，如 PUT 和 DELETE ，这里也可以使用，但只有部分浏览器能支持。</desc>
             </option>
             <option name="url">
-               <desc> A string containing the URL to which the request is sent.</desc>
+               <desc>发送请求的地址。</desc>
             </option>
             <option name="username">
-               <desc>A username to be used in response to an HTTP access authentication request.</desc>
+               <desc>用于响应HTTP访问认证请求的用户名</desc>
             </option>
             <option name="xhr">
-               <desc>Callback for creating the XMLHttpRequest object. Defaults to the ActiveXObject when available (IE), the XMLHttpRequest otherwise. Override to provide your own implementation for XMLHttpRequest or enhancements to the factory.</desc>
+               <desc>需要返回一个 XMLHttpRequest 对象。默认在IE下是 ActiveXObject 而其他浏览器下是 XMLHttpRequest 。用于重写或者提供一个增强的XMLHttpRequest 对象。这个参数在jQuery 1.3以前不可用。</desc>
             </option>
          </signature>
          <longdesc>
-            <p>The <code>$.ajax()</code> function underlies all Ajax requests sent by jQuery.  It is often unnecessary to directly call this function, as several higher-level alternatives like <code>
-                  <a href="/jQuery.get">$.get()</a>
-               </code> and <code>
-                  <a href="/load">.load()</a>
-               </code> are available and are easier to use. If less common options are required, though, <code>$.ajax()</code> can be used more flexibly.</p>
-            <p>At its simplest, the <code>$.ajax()</code> function can be called with no arguments:</p>
+            <p>jQuery 发送的所有 Ajax 请求，内部都会通过调用 <code>$.ajax()</code> 函数来实现。通常没有必要直接调用这个函数，有几个简单易用的封装可以使用，比如 <code><a href="/jQuery.get">$.get()</a></code> 和 <code><a href="/load">.load()</a></code>。如果你需要使用几个不常用的选项，那么 <code>$.ajax()</code> 可以提供更高的灵活性。</p>
+            <p>最简单的情况下， <code>$.ajax()</code> 可以不带任何参数直接使用:</p>
             <pre>$.ajax();</pre>
 
             <p>
-               <strong>Note:</strong> Default settings can be set globally by using the <code>
+               <strong>注意：</strong> 所有选项的默认值都可以通过 <code>
                   <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>
-               </code> function.</p>
+               </code> 函数来全局设置。</p>
 
-            <p>This example, using no options, loads the contents of the current page, but does nothing with the result. To use the result, we can implement one of the callback functions.</p>
+            <p>上面这个例子中，我们没用使用任何选项，于是默认会载入当前页面的内容，但载入的结果是无法使用的。如果想要进一步处理先前载入的数据，我们就需要使用回调函数来操作了。</p>
 
-            <h4 id="callback-functions">Callback Functions</h4>
-            <p>The <code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> and <code>complete</code> options all take callback functions that are invoked at the appropriate times. The <code>this</code> object for all of them will be the object in the <code>context</code> property passed to <code>$.ajax</code> in the settings; if that was not specified it will be a reference to the Ajax settings themselves. Some types of Ajax requests, such as JSONP and cross-domain GET requests, do not use XHR; in those cases the <code>XMLHttpRequest</code> parameter passed to the callback will be <code>undefined</code>.</p>
+            <h4 id="callback-functions">回调函数</h4>
+            <p><code>beforeSend</code>, <code>error</code>, <code>dataFilter</code>, <code>success</code> 和 <code>complete</code> 等选项都可以接受一个函数，这个函数会在适当的时机执行。这些函数中的 <code>this</code> 会始终指向传递给 <code>$.ajax</code> 函数的选项中， <code>context</code> 属性所指向的对象。如果没有设置 <code>context</code> ，则 <code>context</code> 会指向传给 <code>$.ajax</code> 函数的选项本身。有些类型的 Ajax 请求，比如 JSONP 和跨域的 GET 请求，本身不使用 XHR，所以在这种情况下，传给回调函数的 <code>XMLHttpRequest</code> 参数就是 <code>undefined</code> 了。</p>
             <ol>
                <li>
-                  <code>beforeSend</code> is called before the request is sent, and is passed the <code>XMLHttpRequest</code> object as a parameter.</li>
+                  <code>beforeSend</code> 会在发送请求之前调用，并且传入一个 <code>XMLHttpRequest</code> 对象作为参数。</li>
                <li>
-                  <code>error</code> is called if the request fails. It is passed the <code>XMLHttpRequest</code>, a string indicating the error type, and an exception object if applicable.</li>
+                  <code>error</code> 会在请求失败时调用。他会传入 <code>XMLHttpRequest</code>，描述错误类型的字符串，以及一个异常对象（如果有的话）</li>
                <li>
-                  <code>dataFilter</code> is called on success. It is passed the returned data and the value of <code>dataType</code>, and must return the (possibly altered) data to pass on to <code>success</code>.</li>
+                  <code>dataFilter</code> 会在请求成功之后调用。他会传入请求到的数据以及 <code>dataType</code> 参数的值。并且必须返回一个新的数据（可以是处理过的），这个数据将传递给 <code>success</code> 回调函数做进一步处理。</li>
                <li>
-                  <code>success</code> is called if the request succeeds. It is passed the returned data, a string containing the success code, and the <code>XMLHttpRequest</code> object.</li>
+                  <code>success</code> 会在请求成功之后调用。他会传入请求到的数据，包含成功代码的字符串，以及 <code>XMLHttpRequest</code> 对象。</li>
                <li>
-                  <code>complete</code> is called when the request finishes, whether in failure or success. It is passed the <code>XMLHttpRequest</code> object, as well as a string containing the success or error code.</li>
+                  <code>complete</code> 无论请求成败与否，他都会在请求结束后调用。他会传入 <code>XMLHttpRequest</code> 对象，以及一个包含成功或失败代码的字符串</li>
             </ol>
-            <p>To make use of the returned HTML, we can implement a <code>success</code> handler:</p>
+            <p>如果想直接使用返回的 HTML，可以给 <code>success</code> 添加如下的处理函数:</p>
             <pre>$.ajax({
   url: 'ajax/test.html',
   success: function(data) {
@@ -5889,80 +5885,67 @@ $('li.item-a').closest('#one', listItemII)
     alert('Load was performed.');
   }
 });</pre>
-	           <p>Such a simple example would generally be better served by using <code>
-                  <a href="/load">.load()</a>
-               </code> or <code>
-                  <a href="/jQuery.get">$.get()</a>
-               </code>.</p>
+	           <p>如此简单的例子，还可以用更优雅的方式来替代： <code><a href="/load">.load()</a></code> 或 <code><a href="/jQuery.get">$.get()</a></code>。</p>
 				
-            <h4 id="data-types">Data Types</h4>
-            <p>The <code>$.ajax()</code> function relies on the server to provide information about the retrieved data. If the server reports the return data as XML, the result can be traversed using normal XML methods or jQuery's selectors. If another type is detected, such as HTML in the example above, the data is treated as text.</p>
-            <p>Different data handling can be achieved by using the <code>dataType</code> option. Besides plain <code>xml</code>, the <code>dataType</code> can be <code>html</code>, <code>json</code>, <code>jsonp</code>, <code>script</code>, or <code>text</code>.</p>
-            <p>The <code>text</code> and <code>xml</code> types return the data with no processing. The data is simply passed on to the success handler, either through the <code>responseText</code> or <code>responseXML</code> property of the <code>XMLHttpRequest</code> object, respectively.</p>
+            <h4 id="data-types">数据类型</h4>
+            <p><code>$.ajax()</code> 函数依赖服务器提供的信息来处理返回的数据。如果服务器报告说返回的数据是XML，那么返回的结果就可以用普通的XML方法或者jQuery的选择器来遍历。如果检测到到其他类型，比如HTML，则数据就以文本形式来对待。</p>
+            <p>通过设定 <code>dataType</code> 选项，可以指定成其他不同数据类型. 除了 <code>xml</code>, <code>dataType</code> 还可以是 <code>html</code>, <code>json</code>, <code>jsonp</code>, <code>script</code>, 火 <code>text</code>.</p>
+            <p>其中， <code>text</code> 和 <code>xml</code> 类型返回的数据不会经过处理。数据仅仅简单的将 <code>XMLHttpRequest</code> 的 <code>responseText</code> 或 <code>responseXML</code> 属性传递给 success 回调函数。</p>
             <p>
-               <strong>Note:</strong> We must ensure that the MIME type reported by the web server matches our choice of <code>dataType</code>. In particular, XML must be declared by the server as <code>text/xml</code> or <code>application/xml</code> for consistent results.</p>
-            <p>If <code>html</code> is specified, any embedded JavaScript inside the retrieved data is executed before the HTML is returned as a string. Similarly, <code>script</code> will execute the JavaScript that is pulled back from the server, then return the script itself as textual data.</p>
-            <p>The <code>json</code> type parses the fetched data file as a JavaScript object and returns the constructed object as the result data. To do so, it uses <code>JSON.parse()</code> when the browser supports it; otherwise it uses a <code>Function</code> 
-               <strong>constructor</strong>. Malformed JSON data will throw a parse error (see <a href="http://json.org/">json.org</a> for more information). JSON data is convenient for communicating structured data in a way that is concise and easy for JavaScript to parse. If the fetched data file exists on a remote server, specify the <code>jsonp</code> type instead.</p>
-            <p>The <code>jsonp</code> type appends a query string parameter of <code>callback=?</code> to the URL. The server should prepend the JSON data with the callback name to form a valid JSONP response. We can specify a parameter name other than <code>callback</code> with the <code>jsonp</code> option to <code>$.ajax()</code>.</p>
+               <strong>注意：</strong> 我们必须确保服务器端报告的 MIME 类型与我们选择的 <code>dataType</code> 所匹配。比如说，选择 XML 的话，服务器端就必须声明 <code>text/xml</code> 或 <code>application/xml</code>。</p>
+            <p>如果指定为 <code>html</code> 类型，任何内嵌的JavaScript都会在HTML作为一个字符串返回之前执行。类似的，指定 <code>script</code> 类型的话，也会先执行服务器端生成 JavaScript 脚本，然后再把脚本作为一个文本数据返回。</p>
+            <p>如果指定为 <code>json</code> 类型，则会把获取到的数据作为一个JavaScript对象来解析，并且把构建好的对象作为结果返回。为了实现这个目的，首先尝试使用 <code>JSON.parse()</code>。如果浏览器不支持，则使用一个<code>Function</code><strong>constructor</strong>。格式有误的 JSON 数据会抛出一个错误，详见 <a href="http://json.org/">json.org</a> 。JSON数据是一种能很方便通过JavaScript解析的结构化数据。如果获取的数据文件存放在远程服务器上（域名不同，也就是跨域获取数据），则需要使用jsonp类型来代替。</p>
+            <p>使用 <code>jsonp</code> 类型的话，会创建一个查询字符串参数 <code>callback=?</code> ，这个参数会加在请求的URL后面。服务器端应当在JSON数据前加上回调函数名，以便完成一个有效的JSONP请求。如果要指定回调函数的参数名来取代默认的callback，可以通过设置 <code>$.ajax()</code> 的 <code>jsonp</code> 参数。 </p>
             <p>
-               <strong>Note:</strong> JSONP is an extension of the JSON format, requiring some server-side code to detect and handle the query string parameter. More information about it can be found in the <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">original post detailing its use</a>.</p>
-            <p>When data is retrieved from remote servers (which is only possible using the <code>script</code> or <code>jsonp</code> data types), the operation is performed using a <code>&lt;script&gt;</code> tag rather than an <code>XMLHttpRequest</code> object. In this case, no <code>XMLHttpRequest</code> object is returned from <code>$.ajax()</code>, nor is one passed to the handler functions such as <code>beforeSend</code>.</p>
-				
-					       <h4 id="sending-data-to-server">Sending Data to the Server</h4>
-					       <p>By default, Ajax requests are sent using the GET HTTP method. If the POST method is required, the method can be specified by setting a value for the <code>type</code> option. This option affects how the contents of the <code>data</code> option are sent to the server. POST data will always be transmitted to the server using UTF-8 charset, per the W3C XMLHTTPRequest standard.</p>
-					       <p>The <code>data</code> option can contain either a query string of the form <code>key1=value1&amp;key2=value2</code>, or a map of the form <code>{key1: 'value1', key2: 'value2'}</code>. If the latter form is used, the data is converted into a query string before it is sent. This processing can be circumvented by setting <code>processData</code> to <code>false</code>.  The processing might be undesirable if we wish to send an XML object to the server; in this case, we would also want to change the <code>contentType</code> option from <code>application/x-www-form-urlencoded</code> to a more appropriate MIME type.</p>
-				
-					       <h4 id="advanced-options">Advanced Options</h4>
-					       <p>The <code>global</code> option prevents handlers registered using <code>
+               <strong>注意，</strong> JSONP是JSON格式的扩展。他要求一些服务器端的代码来检测并处理查询字符串参数。更多信息可以参阅 <a href="http://bob.pythonmac.org/archives/2005/12/05/remote-json-jsonp/">最早关于 JSONP 的文章</a>.</p>
+            <p>当数据需要从远端服务器上获得时(这只可能是用了 <code>script</code> 或 <code>jsonp</code> 数据类型)，这个操作实际上是使用了 <code>&lt;script&gt;</code> 标签，而并非 <code>XMLHttpRequest</code> 对象。所以这种情况下，<code>XMLHttpRequest</code> 对象既不会作为 <code>$.ajax()</code> 函数的返回值，也不会传递给任何回调函数（比如 <code>beforeSend</code>）。</p>
+
+            <h4 id="sending-data-to-server">发送数据到服务器</h4>
+            <p>默认情况下，Ajax请求使用GET方法。如果要使用POST方法，可以设定 <code>type</code> 选项。这个选项也会影响 <code>data</code> 选项中的内容如何发送到服务器。按照 W3C  XMLHTTPRequest 的标准，POST 的数据始终是用 UTF-8 字符集传输的。</p>
+            <p><code>data</code> 选项既可以包含一个查询字符串，比如  <code>key1=value1&amp;key2=value2</code>也可以是一个映射，比如 <code>{key1: 'value1', key2: 'value2'}</code>。如果使用了后者的形式，则数据在发送给服务器前会被转换成查询字符串。这个处理过程也可以通过设置 <code>processData</code> 为 <code>false</code> 来回避。比如我们希望发送一个 XML 对象给服务器时，这种处理就可能不合适了。同时在这种情况下，我们还应当设置 <code>contentType</code> 选项，使用其他合适的 MIME 类型，取代默认的 <code>application/x-www-form-urlencoded</code>。</p>
+
+            <h4 id="advanced-options">高级选项</h4>
+            <p><code>global</code> 选项用于在 Ajax 请求时，阻止响应全局注册的 Ajax 事件回调函数，比如 <code>
                   <a href="/ajaxSend">.ajaxSend()</a>
                </code>, <code>
                   <a href="/ajaxError">.ajaxError()</a>
-               </code>, and similar methods from firing when this request would trigger them. This can be useful to, for example, suppress a loading indicator that was implemented with <code>
-                  <a href="/jQuery.ajaxSend">.ajaxSend()</a>
-               </code> if the requests are frequent and brief. See the descriptions of these methods below for more details.</p>
-					       <p>If the server performs HTTP authentication before providing a response, the user name and password pair can be sent via the <code>username</code> and <code>password</code> options.</p>
-					       <p>Ajax requests are time-limited, so errors can be caught and handled to provide a better user experience. Request timeouts are usually either left at their default or set as a global default using <code>
-                  <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>
-               </code> rather than being overridden for specific requests with the <code>timeout</code> option.</p>
-					       <p>By default, requests are always issued, but the browser may serve results out of its cache. To disallow use of the cached results, set <code>cache</code> to <code>false</code>. To cause the request to report failure if the asset has not been modified since the last request, set <code>ifModified</code> to <code>true</code>.</p>
-					       <p>The <code>scriptCharset</code> allows the character set to be explicitly specified for requests that use a <code>&lt;script&gt;</code> tag (that is, a type of <code>script</code> or <code>jsonp</code>). This is useful if the script and host page have differing character sets.</p>
-					       <p>The first letter in Ajax stands for "asynchronous," meaning that the operation occurs in parallel and the order of completion is not guaranteed. The <code>async</code> option to <code>$.ajax()</code> defaults to <code>true</code>, indicating that code execution can continue after the request is made. Setting this option to <code>false</code> (and thus making the call no longer asynchronous) is strongly discouraged, as it can cause the browser to become unresponsive.</p>
+               </code> ，以及其他类似的方法。这在有些时候很有用，比如发送的请求非常频繁且简短的时候，就可以禁用 <a href="/jQuery.ajaxSend">.ajaxSend()</a> 里设置的载入等待指示器。更多关于这些方法的详细信息，请参阅下面的内容。</p>
+					       <p>如果服务器需要HTTP认证，可以使用用户名和密码可以通过 <code>username</code> 和 <code>password</code> 选项来设置。</p>
+					       <p>Ajax请求是限时的，所以错误警告被捕获并处理后，可以用来提升用户体验。请求超时这个参数通常就保留其默认值，或者就通过<code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code>来全局设定，很少为特定的请求重新设置 <code>timeout</code> 选项。</p>
+					       <p>默认情况下，请求总会被发出去的，但浏览器有可能从他的缓存中调取数据。要禁止使用缓存的结果，可以设置 <code>cache</code> 参数为 <code>false</code> 。如果希望判断数据自从上次请求后是否更改过，如果没有更改过就报告请求失败的话，可以设置 <code>ifModified</code> 参数为 <code>true</code>。</p>
+					       <p><code>scriptCharset</code> 参数允许给 <code>&lt;script&gt;</code> 标签的请求设定一个特定的字符集，通常用户 用于 <code>script</code> 或者 <code>script</code> 的数据。当脚本和页面字符集不同时，这特别好用。</p>
+					       <p>Ajax 的第一个字母是 "asynchronous" 的开头字母，这意味着所有的操作都是并行的，完成的顺序没有前后关系。<code>$.ajax()</code> 的 <code>async</code> 选项默认是 <code>true</code>，这意味着在请求开始后，其他代码依然能够执行。强烈不建议把这个选项设置成<code>false</code>（意味着所有的请求都不再是异步的了），这会导致浏览器显得反应迟钝。</p>
 					
-					       <p>The <code>$.ajax()</code> function returns the <code>XMLHttpRequest</code> object that it creates. Normally jQuery handles the creation of this object internally, but a custom function for manufacturing one can be specified using the <code>xhr</code> option. The returned object can generally be discarded, but does provide a lower-level interface for observing and manipulating the request. In particular, calling <code>.abort()</code> on the object will halt the request before it completes.</p>
+					       <p><code>$.ajax()</code> 函数返回他创建的 <code>XMLHttpRequest</code>对象。通常jQuery只在内部处理并创建这个对象，但用户也可以通过 <code>xhr</code> 选项来传递一个自己创建的xhr对象。返回的对象通常已经被丢弃了，但依然提供一个底层接口来观察和操控请求。比如说，调用对象上的 <code>.abort()</code> 可以在请求完成前中止请求。</p>
          </longdesc>
          <example>
-            <desc>Load and execute a JavaScript file.</desc>
+            <desc>加载并执行一个 JavaScript 文件。</desc>
          </example>
          <example>
-            <desc>Save some data to the server and notify the user once it's complete.</desc>
+            <desc>保存数据到服务器，成功时显示信息。</desc>
          </example>
          <example>
-            <desc>Retrieve the latest version of an HTML page.</desc>
+            <desc>装入一个 HTML 网页最新版本。</desc>
          </example>
          <example>
-            <desc>Loads data synchronously. Blocks the browser while the requests is active.
-It is better to block user interaction by other means when synchronization is
-necessary.</desc>
+            <desc>同步加载数据。发送请求时锁住浏览器。当需要使用同步方式加载数据时，最好通过其他方式锁住用户的交互行为。</desc>
          </example>
          <example>
-            <desc>Sends an xml document as data to the server. By setting the processData
-option to false, the automatic conversion of data to strings is prevented.</desc>
+            <desc>发送 XML 数据至服务器。设置 processData 选项为 false，防止自动转换数据格式。</desc>
          </example>
          <example>
-            <desc>Sends an id as data to the server, save some data to the server and notify the user once it's complete.  <strong>Note that this usage - returning the result of the call into a variable - requires a synchronous (blocking) request! <em>(async:false)</em>
-               </strong>
+            <desc>发送一个 id 数据到服务器，并在成功后通知用户。<strong>注意这种用法——把返回的数据装入一个变量中——必须使用同步请求（即锁住脚本进程）！<em>(async:false)</em></strong>
             </desc>
          </example>
       </entry>
       <entry type="property" name="length">
-         <desc>The number of elements in the jQuery object.</desc>
+         <desc>jQuery 对象中元素的个数。</desc>
          <signature/>
          <longdesc>
-            <p>The number of elements currently matched. The .<a href="/size">size()</a> method will return the same value.</p>
+            <p>当前匹配的元素个数。<a href="/size">size()</a> 方法将返回相同的值。</p>
          </longdesc>
          <example>
-            <desc>Count the divs.  Click to add more.</desc>
+            <desc>计算 div 数目，点击后增加还会增加。</desc>
          </example>
       </entry>
       <entry type="method" name="children">
