@@ -1346,7 +1346,7 @@ if ( mydata.count &lt; 9 ) {
                <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
             </p>
             <p>如果指定了 index 参数， .get() 则会获取单个元素：</p>
-            <pre>($('li').get(0));</pre>
+            <pre>alert($('li').get(0));</pre>
             <p>由于索引 index 是以 0 开始计数的，所以上面代码返回了第一个列表项：</p>
             <p>
                <span class="output">&lt;li id="foo"&gt;</span>
@@ -1854,166 +1854,163 @@ if ( mydata.count &lt; 9 ) {
          </example>
       </entry>
       <entry type="selector" name="animated">
-         <desc>Select all elements that are in the progress of an animation at the time the selector is run.</desc>
+         <desc>选择所有正在执行动画的元素。</desc>
          <signature/>
          <longdesc/>
          <example>
-            <desc>Change the color of any div that is animated.</desc>
+            <desc>改变正在执行动画的 div 的颜色。</desc>
          </example>
       </entry>
       <entry type="selector" name="header">
-         <desc>Selects all elements that are headers, like h1, h2, h3 and so on.</desc>
+         <desc>选择所有的标题元素，比如 h1, h2, h3 等。</desc>
          <signature/>
          <longdesc/>
          <example>
-            <desc>Adds a background and text color to all the headers on the page.</desc>
+            <desc>给页面上所有的标题元素加上背景和文本颜色。</desc>
          </example>
       </entry>
       <entry type="selector" name="lt">
-         <desc>Select all elements at an index less than <code>index</code> within the matched set.</desc>
+         <desc>选择在匹配的集合中，索引值小于 <code>index</code> 参数的元素。</desc>
          <signature>
             <argument name="index">
-               <desc>Zero-based index.</desc>
+               <desc>从 0 开始计数匹配元素用的索引值。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>
-               <strong>index-related selectors</strong>
-            </p>
-            <p>The index-related selectors (including this "less than" selector) filter the set of elements that have matched the expressions that precede them. They narrow the set down based on the order of the elements within this matched set. For example, if elements are first selected with a class selector (<code>.myclass</code>) and four elements are returned, these elements are given indices 0 through 3 for the purposes of these selectors.</p>
-            <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:lt(1)')</code> selects the first element in the document with the class <code>myclass</code>, rather than selecting no elements. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
+            <p><strong>索引值相关的选择器</strong></p>
+            <p>索引值相关的选择器 (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>)，会在先前提供的选择器筛选出的元素基础上再进行筛选。进一步筛选的依据就是这个元素在原先匹配集合中的顺序。举例来说，如果一开始通过 class 选择器 (<code>.myclass</code>) 选中了 4 个元素，然后这四个元素的索引值会被分配为 0 到 3 ，之后就可以用这种索引值选择器来进一步筛选了。</p>
+            <p>注意，由于 JavaScript 数组的索引值是从 0 开始计数的，所以这些选择器也是以 0 开始计数的。例如，<code>$('.myclass:lt(1)')</code> 就能选中文档中 class 是 <code>myclass</code> 的第一个元素，而不是什么都选不到。作为对比， <code>:nth-child(n)</code> 中的 n 是以 1 开始计数的，因为 CSS 规范里是这么设定的。</p>
          </longdesc>
          <example>
-            <desc>Finds TDs less than the one with the 4th index (TD#4).</desc>
+            <desc>查找索引值小于 4 的 td。</desc>
          </example>
       </entry>
       <entry type="selector" name="gt">
-         <desc>Select all elements at an index greater than <code>index</code> within the matched set.</desc>
+         <desc>选择在匹配的集合中，索引值大于 <code>index</code> 参数的元素。</desc>
          <signature/>
          <longdesc>
-            <p>
-               <strong>index-related selectors</strong>
-            </p>
-                  <p>The index-related selector expressions (including this "greater than" selector) filter the set of elements that have matched the expressions that precede them. They narrow the set down based on the order of the elements within this matched set. For example, if elements are first selected with a class selector (<code>.myclass</code>) and four elements are returned, these elements are given indices 0 through 3 for the purposes of these selectors.</p>
-                <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:gt(1)')</code> selects elements after the second element in the document with the class <code>myclass</code>, rather than after the first. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
-                </longdesc>
+            <p><strong>索引值相关的选择器</strong></p>
+            <p>索引值相关的选择器 (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>)，会在先前提供的选择器筛选出的元素基础上再进行筛选。进一步筛选的依据就是这个元素在原先匹配集合中的顺序。举例来说，如果一开始通过 class 选择器 (<code>.myclass</code>) 选中了 4 个元素，然后这四个元素的索引值会被分配为 0 到 3 ，之后就可以用这种索引值选择器来进一步筛选了。</p>
+            <p>注意，由于 JavaScript 数组的索引值是从 0 开始计数的，所以这些选择器也是以 0 开始计数的。例如，<code>$('.myclass:lt(1)')</code> 就能选中文档中 class 是 <code>myclass</code> 的第一个元素，而不是什么都选不到。作为对比， <code>:nth-child(n)</code> 中的 n 是以 1 开始计数的，因为 CSS 规范里是这么设定的。</p>
+         </longdesc>
          <example>
-            <desc>Finds TD #5 and higher. Reminder: the indexing starts at 0.</desc>
+            <desc>查找索引值大于等于 5 的 td 。注意，索引值是从 0 开始计数的。</desc>
          </example>
       </entry>
       <entry type="selector" name="eq">
-         <desc>Select the element at index <code>n</code> within the matched set.</desc>
+         <desc>选择在匹配的集合中，索引值等于 <code>index</code> 参数的元素。</desc>
          <signature>
             <argument name="index">
-               <desc>Zero-based index of the element to match.</desc>
+               <desc>从 0 开始计数匹配元素用的索引值。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The index-related selectors (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>) filter the set of elements that have matched the expressions that precede them. They narrow the set down based on the order of the elements within this matched set. For example, if elements are first selected with a class selector (<code>.myclass</code>) and four elements are returned, these elements are given indices <code>0</code> through <code>3</code> for the purposes of these selectors.</p>
-            <p>Note that since JavaScript arrays use <em>0-based indexing</em>, these selectors reflect that fact. This is why <code>$('.myclass:eq(1)')</code> selects the second element in the document with the class myclass, rather than the first. In contrast, <code>:nth-child(n)</code> uses <em>1-based indexing</em> to conform to the CSS specification.</p>
+            <p><strong>索引值相关的选择器</strong></p>
+            <p>索引值相关的选择器 (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>)，会在先前提供的选择器筛选出的元素基础上再进行筛选。进一步筛选的依据就是这个元素在原先匹配集合中的顺序。举例来说，如果一开始通过 class 选择器 (<code>.myclass</code>) 选中了 4 个元素，然后这四个元素的索引值会被分配为 0 到 3 ，之后就可以用这种索引值选择器来进一步筛选了。</p>
+            <p>注意，由于 JavaScript 数组的索引值是从 0 开始计数的，所以这些选择器也是以 0 开始计数的。例如，<code>$('.myclass:lt(1)')</code> 就能选中文档中 class 是 <code>myclass</code> 的第一个元素，而不是什么都选不到。作为对比， <code>:nth-child(n)</code> 中的 n 是以 1 开始计数的，因为 CSS 规范里是这么设定的。</p>
          </longdesc>
          <example>
-            <desc>Finds the third td.</desc>
+            <desc>查找第三个 td 。</desc>
          </example>
       </entry>
       <entry type="selector" name="odd">
-         <desc>Selects odd elements, zero-indexed.  See also <a href="/Selectors/even">even</a>.</desc>
+         <desc>选择索引值是奇数的元素。索引值从 0 开始计数。同时可以参考 <a href="/Selectors/even">even</a>。</desc>
          <signature/>
          <longdesc>
-            <p>In particular, note that the <em>0-based indexing</em> means that, counter-intuitively, <code>:odd</code> selects the second element, fourth element, and so on within the matched set.</p>
+            <p>特别注意，跟通常的直觉相反，索引值从 0 开始计数实际上意味着，如果使用了这个奇数索引选择器 <code>:odd</code> ，实际选中的是匹配集合中第二个、第四个、第六个这类元素。</p>
          </longdesc>
          <example>
-            <desc>Finds odd table rows, matching the second, fourth and so on (index 1, 3, 5 etc.).</desc>
+            <desc>查找表格中的偶数行，即匹配第二行、第四行等 (索引值是 1, 3 ,5 )。</desc>
          </example>
       </entry>
       <entry type="selector" name="even">
-         <desc>Selects even elements, zero-indexed.  See also <a href="/Selectors/odd">odd</a>.</desc>
+         <desc>选择索引值是奇数的元素。索引值从 0 开始计数。同时可以参考 <a href="/Selectors/odd">odd</a>。</desc>
          <signature/>
          <longdesc>
-            <p>In particular, note that the <em>0-based indexing</em> means that, counter-intuitively, <code>:even</code> selects the first element, third element, and so on within the matched set.</p>
+            <p>特别注意，跟通常的直觉相反，索引值从 0 开始计数实际上意味着，如果使用了这个偶数索引选择器 <code>:even</code> ，实际选中的是匹配集合中第一个、第三个、第五个这类元素。</p>
          </longdesc>
          <example>
-            <desc>Finds even table rows, matching the first, third and so on (index 0, 2, 4 etc.).</desc>
+            <desc>查找表格中的奇数行，即匹配第一行、第三行等 (索引值是 0, 2 ,4 )。</desc>
          </example>
       </entry>
       <entry type="selector" name="not">
-         <desc>Selects all elements that do not match the given selector.</desc>
+         <desc>选择所有不匹配给定选择器的元素。</desc>
          <signature>
             <argument name="selector">
-               <desc>A selector with which to filter by.</desc>
+               <desc>用于过滤的选择器。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>All selectors are accepted inside <code>:not()</code>,  for example: <code>:not(div a)</code> and <code>:not(div,a)</code>.</p>
-            <h3>Additional Notes</h3>
-            <p>The <code><a href="/not/">.not()</a></code> method will end up providing you with more readable selections than pushing complex selectors or variables into a <code>:not()</code> selector filter. In most cases, it is a better choice.</p>
+            <p><code>:not()</code> 可以接受所有选择器。比如 <code>:not(div a)</code> 和 <code>:not(div,a)</code>。</p>
+            <h3>附加信息</h3>
+            <p>使用 <code><a href="/not/">.not()</a></code> 方法可以让代码更易读。使用 <code>:not()</code> 通常会构建出一个非常复杂的选择器。所以大多数情况下，推荐使用使用 <code><a href="/not/">.not()</a></code> 方法。</p>
          </longdesc>
          <example>
-            <desc>Finds all inputs that are not checked and highlights the next sibling span.  Notice there is no change when clicking the checkboxes since no click events have been linked.</desc>
+            <desc>查找所有没有被选中的复选框，然后高亮后面的 span 。注意，当你点击复选框的时候不会有反应，因为这里没有绑定任何点击事件。</desc>
          </example>
       </entry>
       <entry type="selector" name="last">
-         <desc>Selects the last matched element.</desc>
+         <desc>选择最后一个匹配到的元素。</desc>
          <signature/>
          <longdesc>
-            <p>Note that <code>:last</code> selects a single element by filtering  the current jQuery collection and matching the last element within it.</p>
+            <p>注意，<code>:last</code> 只会选择单个元素，这个元素是这个选择器之前的选择器匹配到的元素集合中的最后一个元素。</p>
          </longdesc>
          <example>
-            <desc>Finds the last table row.</desc>
+            <desc>查找表格中最后一行。</desc>
          </example>
       </entry>
       <entry type="selector" name="first">
-         <desc>Selects the first matched element.</desc>
+         <desc>选择第一个匹配到的元素。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>:first</code> pseudo-class is equivalent to <code>:eq(0)</code>. It could also be written as <code>:lt(1)</code>. While this matches only a single element, <a href="first-child-selector">:first-child</a> can match more than one: One for each parent.</p>
+            <p><code>:first</code> 伪类选择器等价于 <code>:eq(0)</code>。也等价于 <code>:lt(1)</code>，因为这也只能匹配到第一个元素。 <a href="first-child-selector">:first-child</a> 则可以匹配到多个元素：即每个父元素中的第一个元素。</p>
          </longdesc>
          <example>
-            <desc>Finds the first table row.</desc>
+            <desc>查找表格中的第一行。</desc>
          </example>
       </entry>
       <entry type="selector" name="next siblings">
-         <desc>Selects all sibling elements that follow after the "prev" element, have the same parent, and match the filtering "siblings" selector.</desc>
+         <desc>选择跟在 "prev" 元素后面，有共同的父元素，且与 "siblings" 中的选择器相匹配的元素。</desc>
          <signature>
             <argument name="prev">
-               <desc>Any valid selector.</desc>
+               <desc>任何有效的选择器。</desc>
             </argument>
             <argument name="siblings">
-               <desc>A selector to filter elements that are the following siblings of the first selector.</desc>
+               <desc>用于筛选跟在后面的同辈元素的选择器。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The notable difference between (<code>prev + next</code>) and (<code>prev ~ siblings</code>) is their respective reach. While the former reaches only to the immediately following sibling element, the latter extends that reach to all following sibling elements.</p>
+            <p>注意 (<code>prev + next</code>) 和 (<code>prev ~ siblings</code>) 他们的区别。前者仅仅选择紧跟在 "prev" 后面的元素，而后者则扩展到 "prev" 后面的所有同辈元素。</p>
          </longdesc>
          <example>
-            <desc>Finds all divs that are siblings after the element with #prev as its id.  Notice the span isn't selected since it is not a div and the "niece" isn't selected since it is a child of a sibling, not an actual sibling.</desc>
+            <desc>查找所有跟在 id 为 #prev 的元素后面的所有 div 。注意，跟在后面的 span 不会被选中，因为他不是 div 。同时 "niece" 也不会被选中，因为他是某个同辈的子元素，而不是直接的同辈元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="next adjacent">
-         <desc>Selects all next elements matching "next" that are immediately preceded by a sibling "prev".</desc>
+         <desc>选择所有紧跟在 "prev" 后面的，匹配 "next" 选择器的元素。</desc>
          <signature>
             <argument name="prev">
-               <desc>Any valid selector.</desc>
+               <desc>任何有效的选择器。</desc>
             </argument>
             <argument name="next">
-               <desc>A selector to match the element that is next to the first selector.</desc>
+               <desc>用于筛选紧跟在后面的元素的选择器。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>One important point to consider with both the next adjacent sibling selector (<code>prev + next</code>) and the general sibling selector (<code>prev ~ siblings</code>) is that the elements on either side of the combinator must share the same parent.</p>
+            <p>非常重要的一点是，(<code>prev + next</code>) 和 (<code>prev ~ siblings</code>) 所选择到的元素，必须是在同一个父元素下的。</p>
          </longdesc>
          <example>
-            <desc>Finds all inputs that are next to a label.</desc>
+            <desc>查找所有跟在 label 后面的 input 元素。</desc>
          </example>
       </entry>
       <entry type="selector" name="child">
-         <desc>Selects all direct child elements specified by "child" of elements specified by "parent".</desc>
+         <desc>选择所有在 父元素 "parent" 下面直接的子元素，并且要匹配 "child" 里的选择器。</desc>
          <signature>
             <argument name="parent">
-               <desc>Any valid selector.</desc>
+               <desc>任何有效的选择器。</desc>
             </argument>
             <argument name="child">
-               <desc>A selector to filter the child elements.</desc>
+               <desc>用于筛选子元素的选择器。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -2028,10 +2025,10 @@ if ( mydata.count &lt; 9 ) {
          <desc>Selects all elements that are descendants of a given ancestor.</desc>
          <signature>
             <argument name="ancestor">
-               <desc>Any valid selector.</desc>
+               <desc>任何有效的选择器。</desc>
             </argument>
             <argument name="descendant">
-               <desc>A selector to filter the descendant elements.</desc>
+               <desc>用于筛选子孙元素的选择器。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -2045,10 +2042,10 @@ if ( mydata.count &lt; 9 ) {
          <desc>Selects the combined results of all the specified selectors.</desc>
          <signature>
             <argument name="selector1">
-               <desc>Any valid selector.</desc>
+               <desc>任何有效的选择器。</desc>
             </argument>
             <argument name="selector2">
-               <desc>Another valid selector.</desc>
+               <desc>另一个任何有效的选择器。</desc>
             </argument>
             <argument name="selectorN">
                <desc>As many more valid selectors as you like.</desc>
