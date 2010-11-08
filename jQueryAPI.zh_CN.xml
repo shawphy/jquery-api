@@ -3630,42 +3630,39 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
          </example>
       </entry>
       <entry type="method" name="ajaxComplete">
-         <desc>Register a handler to be called when Ajax requests complete. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+         <desc>注册一个事件处理函数，这个函数会在 Ajax 请求完成时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
          <signature>
             <argument name="handler(event, XMLHttpRequest, ajaxOptions)">
-               <desc>The function to be invoked.</desc>
+               <desc>将要调用的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Whenever an Ajax request completes, jQuery triggers the <code>ajaxComplete</code> event. Any and all handlers that have been registered with the <code>.ajaxComplete()</code> method are executed at this time.</p>
-				        <p>To observe this method in action, we can set up a basic Ajax load request:</p>
-				        <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            <p>当 Ajax 请求完成时，jQuery 会触发 <code>ajaxComplete</code> 事件。任何先前通过 <code>.ajaxComplete()</code> 方法注册的事件处理函数都会在此刻执行。</p>
+            <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
+            <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
 &lt;div class="result"&gt;&lt;/div&gt;
 &lt;div class="log"&gt;&lt;/div&gt;
 </pre>
-				        <p>We can attach our event handler to any element:</p>
-				        <pre>$('.log').ajaxComplete(function() {
+            <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
+            <pre>$('.log').ajaxComplete(function() {
   $(this).text('Triggered ajaxComplete handler.');
 });
 </pre>
-				        <p>Now, we can make an Ajax request using any jQuery method:</p>
-				        <pre>$('.trigger').click(function() {
+            <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
+            <pre>$('.trigger').click(function() {
   $('.result').load('ajax/test.html');
 });</pre>
-				        <p>When the user clicks the button and the Ajax request completes, the log message is displayed.</p>
-
-				        <p>
-               <strong>Note:</strong> Because <code>.ajaxComplete()</code> is implemented as a method of jQuery object instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
-
-				        <p>All <code>ajaxComplete</code> handlers are invoked, regardless of what Ajax request was completed. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an <code>ajaxComplete</code> handler is executed, it is passed the event object, the <code>XMLHttpRequest</code> object, and the settings object that was used in the creation of the request. For example, we can restrict our callback to only handling events dealing with a particular URL:</p>
-				        <pre>$('.log').ajaxComplete(function(e, xhr, settings) {
+            <p>当用户点击按钮，接着等 Ajax 请求结束后，就会显示日志信息。</p>
+            <p><strong>注意：</strong> 由于 <code>.ajaxComplete()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。</p>
+            <p>无论是哪一个 Ajax 请求完成了， <code>ajaxComplete</code> 处理函数都会被执行。如果有时必须区分出不同的请求，我们可以使用传递给事件处理函数的参数来识别不同的请求。每次 <code>ajaxComplete</code> 的事件处理函数执行时，都会传递一个事件对象，一个 <code>XMLHttpRequest</code> 对象，以及一个 settings 参数对象。其中 settings 参数对象就是调用 Ajax 请求时，传递给 $.ajax 方法的 settings 对象(有时候是在 jQuery 内部传递的，比如用 load 方法时，jQuery 内部也会调用 $.ajax 方法，并且构造并传递一个 settings 参数)。通过 settings 对象，我们就可以用来确定这是哪一个请求。比如说，我们可以限定某个回调函数，仅仅处理某个特定的 URL：</p>
+            <pre>$('.log').ajaxComplete(function(e, xhr, settings) {
   if (settings.url == 'ajax/test.html') {
     $(this).text('Triggered ajaxComplete handler.');
   }
 });</pre>
          </longdesc>
          <example>
-            <desc>Show a message when an Ajax request completes.</desc>
+            <desc>在 Ajax 请求完毕后显示一条信息。</desc>
          </example>
       </entry>
       <entry type="method" name="one">
@@ -3843,125 +3840,116 @@ $.ajax({
          <desc/>
          <signature>
             <argument name="handler(event, XMLHttpRequest, ajaxOptions)">
-               <desc>The function to be invoked.</desc>
+               <desc>将要调用的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Whenever an Ajax request completes successfully, jQuery triggers the <code>ajaxSuccess</code> event. Any and all handlers that have been registered with the <code>.ajaxSuccess()</code> method are executed at this time.</p>
-            <p>To observe this method in action, we can set up a basic Ajax load request:</p>
-		          <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            <p>当 Ajax 请求成功后，jQuery 会触发 <code>ajaxSuccess</code> 事件。任何先前通过 <code>.ajaxSuccess()</code> 方法注册的事件处理函数都会在此刻执行。</p>
+            <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
+            <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
 &lt;div class="result"&gt;&lt;/div&gt;
 &lt;div class="log"&gt;&lt;/div&gt;</pre>
-            <p>We can attach our event handler to any element:</p>
+            <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
             <pre>$('.log').ajaxSuccess(function() {
   $(this).text('Triggered ajaxSuccess handler.');
 });</pre>
-            <p>Now, we can make an Ajax request using any jQuery method:</p>
+            <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
             <pre>$('.trigger').click(function() {
   $('.result').load('ajax/test.html');
 });</pre>
-		          <p>When the user clicks the button and the Ajax request completes successfully, the log message is displayed.</p>
-
-
-            <p>
-               <strong>Note:</strong> Because <code>.ajaxSuccess()</code> is implemented as a method of jQuery object instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
-
-		          <p>All <code>ajaxSuccess</code> handlers are invoked, regardless of what Ajax request was completed. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an <code>ajaxSuccess</code> handler is executed, it is passed the event object, the <code>XMLHttpRequest</code> object, and the settings object that was used in the creation of the request. For example, we can restrict our callback to only handling events dealing with a particular URL:</p>
-	           <pre>$('.log').ajaxSuccess(function(e, xhr, settings) {
+            <p>当用户点击按钮，接着等 Ajax 请求成功后，就会显示日志信息。</p>
+            <p><strong>注意：</strong> 由于 <code>.ajaxSuccess()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。</p>
+            <p>无论是哪一个 Ajax 请求完成了， <code>ajaxSuccess</code> 处理函数都会被执行。如果有时必须区分出不同的请求，我们可以使用传递给事件处理函数的参数来识别不同的请求。每次 <code>ajaxSuccess</code> 的事件处理函数执行时，都会传递一个事件对象，一个 <code>XMLHttpRequest</code> 对象，以及一个 settings 参数对象。其中 settings 参数对象就是调用 Ajax 请求时，传递给 $.ajax 方法的 settings 对象(有时候是在 jQuery 内部传递的，比如用 load 方法时，jQuery 内部也会调用 $.ajax 方法，并且构造并传递一个 settings 参数)。通过 settings 对象，我们就可以用来确定这是哪一个请求。比如说，我们可以限定某个回调函数，仅仅处理某个特定的 URL：</p>
+            <pre>$('.log').ajaxSuccess(function(e, xhr, settings) {
   if (settings.url == 'ajax/test.html') {
     $(this).text('Triggered ajaxSuccess handler.');
   }
 });</pre>
          </longdesc>
          <example>
-            <desc>Show a message when an Ajax request completes successfully.</desc>
+            <desc>在 Ajax 请求成功后显示一条信息。</desc>
          </example>
       </entry>
       <entry type="method" name="ajaxStop">
-         <desc>Register a handler to be called when all Ajax requests have completed. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+         <desc>注册一个事件处理函数，这个函数会在所有的 Ajax 请求都完成时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
          <signature>
             <argument name="handler()">
-               <desc>The function to be invoked.</desc>
+               <desc>将要调用的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Whenever an Ajax request completes, jQuery checks whether there are any other outstanding Ajax requests. If none remain, jQuery triggers the <code>ajaxStop</code> event. Any and all handlers that have been registered with the <code>.ajaxStop()</code> method are executed at this time.</p>
-            <p>To observe this method in action, we can set up a basic Ajax load request:</p>
+            <p>当一个 Ajax 请求完成后， jQuery 会检测时候还有其他未完成的 Ajax 请求。如果没有还未完成的请求了， jQuery 就触发一个 <code>ajaxStop</code> 事件。任何先前通过 <code>.ajaxStop()</code> 方法注册的事件处理函数都会在此刻执行。</p>
+            <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
             <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
 &lt;div class="result"&gt;&lt;/div&gt;
 &lt;div class="log"&gt;&lt;/div&gt;</pre>
-            <p>We can attach our event handler to any element:</p>
+            <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
             <pre>$('.log').ajaxStop(function() {
   $(this).text('Triggered ajaxStop handler.');
 });</pre>
-            <p>Now, we can make an Ajax request using any jQuery method:</p>
+            <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
             <pre>$('.trigger').click(function() {
   $('.result').load('ajax/test.html');
 });</pre>
-            <p>When the user clicks the button and the Ajax request completes, the log message is displayed.</p>
-  	         <p>Because <code>.ajaxStop()</code> is implemented as a method of jQuery object instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
+            <p>当用户点击按钮，接着等 Ajax 请求完成后，就会显示日志信息。</p>
+            <p><strong>注意：</strong> 由于 <code>.ajaxStop()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。</p>
          </longdesc>
          <example>
-            <desc>Hide a loading message after all the Ajax requests have stopped.</desc>
+            <desc>当所有的 Ajax 请求结束后，隐藏加载提示信息。</desc>
          </example>
       </entry>
       <entry type="method" name="ajaxStart">
-         <desc>Register a handler to be called when the first Ajax request begins. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+         <desc>注册一个事件处理函数，这个函数会在第一个 Ajax 请求都开始时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
          <signature>
             <argument name="handler()">
-               <desc>The function to be invoked.</desc>
+               <desc>将要调用的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Whenever an Ajax request is about to be sent, jQuery checks whether there are any other outstanding Ajax requests. If none are in progress, jQuery triggers the <code>ajaxStart</code> event. Any and all handlers that have been registered with the <code>.ajaxStart()</code> method are executed at this time.</p>
-				        <p>To observe this method in action, we can set up a basic Ajax load request:</p>
-				        <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            <p>当一个 Ajax 请求将要开始时， jQuery 会检测时候还有其他未完成的 Ajax 请求。如果没有正在进行中的请求， jQuery 就触发一个 <code>ajaxStart</code> 事件。任何先前通过 <code>.ajaxStart()</code> 方法注册的事件处理函数都会在此刻执行。</p>
+            <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
+            <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
 &lt;div class="result"&gt;&lt;/div&gt;
 &lt;div class="log"&gt;&lt;/div&gt;</pre>
-				        <p>We can attach our event handler to any element:</p>
-				        <pre>$('.log').ajaxStart(function() {
+            <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
+            <pre>$('.log').ajaxStart(function() {
   $(this).text('Triggered ajaxStart handler.');
 });</pre>
-				        <p>Now, we can make an Ajax request using any jQuery method:</p>
-				        <pre>$('.trigger').click(function() {
+            <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
+            <pre>$('.trigger').click(function() {
   $('.result').load('ajax/test.html');
 });</pre>
-				        <p>When the user clicks the button and the Ajax request is sent, the log message is displayed.</p>
-
-				        <p>
-               <strong>Note:</strong> Because <code>.ajaxStart()</code> is implemented as a method of jQuery object instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
+            <p>当用户点击按钮，接着 Ajax 请求将要发送前，会显示日志信息。</p>
+            <p><strong>注意：</strong> 由于 <code>.ajaxStart()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。</p>
          </longdesc>
          <example>
-            <desc>Show a loading message whenever an Ajax request starts (and none is already active).</desc>
+            <desc>当 Ajax 请求开始，且没有其他正在进行中的 Ajax 请求时，显示加载提示信息。</desc>
          </example>
       </entry>
       <entry type="method" name="ajaxSend">
          <desc/>
          <signature>
             <argument name="handler(event, XMLHttpRequest, ajaxOptions)">
-               <desc>The function to be invoked.</desc>
+               <desc>将要调用的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Whenever an Ajax request is about to be sent, jQuery triggers the <code>ajaxSend</code> event. Any and all handlers that have been registered with the <code>.ajaxSend()</code> method are executed at this time.</p>
-            <p>To observe this method in action, we can set up a basic Ajax load request:</p>
+            <p>当 Ajax 请求将要发送前，jQuery 会触发 <code>ajaxSend</code> 事件。任何先前通过 <code>.ajaxSend()</code> 方法注册的事件处理函数都会在此刻执行。</p>
+            <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
             <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
 &lt;div class="result"&gt;&lt;/div&gt;
 &lt;div class="log"&gt;&lt;/div&gt;</pre>
-            <p>We can attach our event handler to any element:</p>
+            <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
             <pre>$('.log').ajaxSend(function() {
   $(this).text('Triggered ajaxSend handler.');
 });</pre>
-            <p>Now, we can make an Ajax request using any jQuery method:</p>
+            <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
             <pre>$('.trigger').click(function() {
   $('.result').load('ajax/test.html');
 });</pre>
-            <p>When the user clicks the button and the Ajax request is about to begin, the log message is displayed.</p>
-
-            <p>
-               <strong>Note:</strong> Because <code>.ajaxSend()</code> is implemented as a method of jQuery instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
-
-            <p>All <code>ajaxSend</code> handlers are invoked, regardless of what Ajax request is to be sent. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an <code>ajaxSend</code> handler is executed, it is passed the event object, the <code>XMLHttpRequest</code> object, and the <a href="http://api.jquery.com/jQuery.ajax/">settings object</a> that was used in the creation of the Ajax request. For example, we can restrict our callback to only handling events dealing with a particular URL:</p>
+            <p>当用户点击按钮，接着 Ajax 请求将要开始前，会显示日志信息。</p>
+            <p><strong>注意：</strong> 由于 <code>.ajaxSend()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。</p>
+            <p>无论是哪一个 Ajax 请求将要发送前， <code>ajaxSend</code> 处理函数都会被执行。如果有时必须区分出不同的请求，我们可以使用传递给事件处理函数的参数来识别不同的请求。每次 <code>ajaxSend</code> 的事件处理函数执行时，都会传递一个事件对象，一个 <code>XMLHttpRequest</code> 对象，以及一个 settings 参数对象。其中 settings 参数对象就是调用 Ajax 请求时，传递给 $.ajax 方法的 settings 对象(有时候是在 jQuery 内部传递的，比如用 load 方法时，jQuery 内部也会调用 $.ajax 方法，并且构造并传递一个 settings 参数)。通过 settings 对象，我们就可以用来确定这是哪一个请求。比如说，我们可以限定某个回调函数，仅仅处理某个特定的 URL：</p>
             <pre>$('.log').ajaxSend(function(e, xhr, settings) {
   if (settings.url == 'ajax/test.html') {
     $(this).text('Triggered ajaxSend handler.');
@@ -3969,44 +3957,41 @@ $.ajax({
 });</pre>
          </longdesc>
          <example>
-            <desc>Show a message before an Ajax request is sent.</desc>
+            <desc>在 Ajax 请求将要发送前显示一条信息。</desc>
          </example>
       </entry>
       <entry type="method" name="ajaxError">
-         <desc>Register a handler to be called when Ajax requests complete with an error. This is an <a href="http://docs.jquery.com/Ajax_Events">Ajax Event</a>.</desc>
+         <desc>注册一个事件处理函数，这个函数会在 Ajax 请求出错时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
          <signature>
             <argument name="handler(event, XMLHttpRequest, ajaxOptions, thrownError)">
-               <desc>The function to be invoked.</desc>
+               <desc>将要调用的函数</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>Whenever an Ajax request completes with an error, jQuery triggers the <code>ajaxError</code> event. Any and all handlers that have been registered with the <code>.ajaxError()</code> method are executed at this time.</p>
-				        <p>To observe this method in action, we can set up a basic Ajax load request:</p>
-				        <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+            <p>当 Ajax 请求出错时，jQuery 会触发 <code>ajaxError</code> 事件。任何先前通过 <code>.ajaxError()</code> 方法注册的事件处理函数都会在此刻执行。</p>
+            <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
+            <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
 &lt;div class="result"&gt;&lt;/div&gt;
 &lt;div class="log"&gt;&lt;/div&gt;</pre>
-				        <p>We can attach our event handler to any element:</p>
-				        <pre>$('.log').ajaxError(function() {
+            <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
+            <pre>$('.log').ajaxError(function() {
   $(this).text('Triggered ajaxError handler.');
 });</pre>
-				        <p>Now, we can make an Ajax request using any jQuery method:</p>
-				        <pre>$('.trigger').click(function() {
+            <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
+            <pre>$('.trigger').click(function() {
   $('.result').load('ajax/missing.html');
 });</pre>
-				        <p>When the user clicks the button and the Ajax request fails, because the requested file is missing, the log message is displayed.</p>
-
-				        <p>
-               <strong>Note:</strong> Because <code>.ajaxError()</code> is implemented as a method of jQuery object instances, we can use the <code>this</code> keyword as we do here to refer to the selected elements within the callback function.</p>
-
-				        <p>All <code>ajaxError</code> handlers are invoked, regardless of what Ajax request was completed. If we must differentiate between the requests, we can use the parameters passed to the handler. Each time an <code>ajaxError</code> handler is executed, it is passed the event object, the <code>XMLHttpRequest</code> object, and the settings object that was used in the creation of the request. If the request failed because JavaScript raised an exception, the exception object is passed to the handler as a fourth parameter. For example, we can restrict our callback to only handling events dealing with a particular URL:</p>
-				        <pre>$('.log').ajaxError(function(e, xhr, settings, exception) {
+            <p>当用户点击按钮，接着等 Ajax 请求失败时，由于请求的文件不存在，就会显示日志信息。</p>
+            <p><strong>注意：</strong> 由于 <code>.ajaxError()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。</p>
+            <p>无论是哪一个 Ajax 请求出错了， <code>ajaxError</code> 处理函数都会被执行。如果有时必须区分出不同的请求，我们可以使用传递给事件处理函数的参数来识别不同的请求。每次 <code>ajaxError</code> 的事件处理函数执行时，都会传递一个事件对象，一个 <code>XMLHttpRequest</code> 对象，以及一个 settings 参数对象。其中 settings 参数对象就是调用 Ajax 请求时，传递给 $.ajax 方法的 settings 对象(有时候是在 jQuery 内部传递的，比如用 load 方法时，jQuery 内部也会调用 $.ajax 方法，并且构造并传递一个 settings 参数)。通过 settings 对象，我们就可以用来确定这是哪一个请求。比如说，我们可以限定某个回调函数，仅仅处理某个特定的 URL：</p>
+            <pre>$('.log').ajaxError(function(e, xhr, settings, exception) {
   if (settings.url == 'ajax/missing.html') {
     $(this).text('Triggered ajaxError handler.');
   }
 });</pre>
          </longdesc>
          <example>
-            <desc>Show a message when an Ajax request fails.</desc>
+            <desc>在 Ajax 请求失败时显示一条信息。</desc>
          </example>
       </entry>
       <entry type="method" name="unbind">
