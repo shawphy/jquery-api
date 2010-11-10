@@ -3817,7 +3817,7 @@ $.ajax({
             </blockquote>
          </longdesc>
          <example>
-            <desc>设置 Ajax 请求的默认 url 为 "/xmlhttp/"，之后禁止触发全局事件，以及用 POST 代替默认的 GET。之后发送的 Ajax 请求，只需要带上数据即可，显得非常清爽。</desc>
+            <desc>设置 Ajax 请求的默认 url 为 "/xmlhttp/"，并且默认禁止触发全局事件，以及用 POST 代替默认的 GET。之后发送的 Ajax 请求，只需要带上数据即可，显得非常清爽。</desc>
          </example>
       </entry>
       <entry type="method" name="ajaxSuccess">
@@ -6271,34 +6271,33 @@ $('li').not(document.getElementById('notli'))
          </example>
       </entry>
       <entry type="method" name="jQuery.param">
-         <desc>Create a serialized representation of an array or object, suitable for use in a URL query string or Ajax request. </desc>
+         <desc>创建一个数组或者对象的序列化表示。适用于 URL 查询字符串或者 Ajax 请求。</desc>
          <signature>
             <argument name="obj">
-               <desc>An array or object to serialize.</desc>
+               <desc>用于序列化的数组或对象。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="obj">
-               <desc>An array or object to serialize.</desc>
+               <desc>用于序列化的数组或对象。</desc>
             </argument>
             <argument name="traditional">
-               <desc>A Boolean indicating whether to perform a traditional "shallow" serialization.</desc>
+               <desc>一个布尔值，用于确定是否使用传统的“浅层”序列化。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This function is used internally to convert form element values into a serialized string representation (See <a href="/serialize/">.serialize()</a> for more information).</p>
+            <p>将表单元素值转换成序列化的字符串时，jQuery 内部也会使用这个函数。参考 <a href="/serialize/">.serialize()</a> 获得更多信息。</p>
 
-            <p>As of jQuery 1.3, the return value of a function is used instead of the function as a String.</p>
+            <p>从 jQuery 1.3 起，如果传入的 obj 是一个函数，则会执行这个函数并序列化这个函数的返回值，而不再仅仅简单地将这个函数当作字符串处理。</p>
 
-            <p>As of jQuery 1.4, the <code>$.param()</code> method serializes deep objects recursively to accommodate modern scripting languages and frameworks such as PHP and Ruby on Rails. You can disable this functionality globally by setting <code>jQuery.ajaxSettings.traditional = true;</code>.</p>
-            <p>If the object passed is in an Array, it must be an array of objects in the format returned by <a href="/serializeArray/">.serializeArray()</a>
-            </p> 
+            <p>从 jQuery 1.4 起，<code>$.param()</code> 方法将会通过深度递归的方式序列化对象，以便符合现代化脚本语言的需求，比如 PHP 和 Ruby on Rails。你也可以通过设置 <code>jQuery.ajaxSettings.traditional = true;</code> 这个选项来全局的禁用这个特性。</p>
+            <p>如果传入的对象是在一个数组中，则他必须是一个对象数组，其格式要跟 <a href="/serializeArray/">.serializeArray()</a> 返回的格式一样：</p> 
             <pre>[{name:"first",value:"Rick"},
 {name:"last",value:"Astley"},
 {name:"job",value:"Rock Star"}]</pre>
-            <p>Note: Because some frameworks have limited ability to parse serialized arrays, we should exercise caution when passing an <code>obj</code> argument that contains objects or arrays nested within another array.</p>
-            <p>In jQuery 1.4 HTML5 input elements are serialized, as well.</p>
-            <p>We can display a query string representation of an object and a URI-decoded version of the same as follows:</p>
+            <p>注意，由于某些框架能力有限，无法解析序列化数组，所以在传递 obj 参数时要务必小心，尽量不要传递含有对象的数组，或者数组中嵌套着数组。</p>
+            <p>在 jQuery 1.4 中，HTML5 的表单元素也已经可以序列化了。</p>
+            <p>下面我们显示一个代表对象的查询字符串，以及对应的 URI 编码版：</p>
             <pre>var myObject = {
   a: {
     one: 1, 
@@ -6313,13 +6312,13 @@ var recursiveDecoded = decodeURIComponent($.param(myObject));
 alert(recursiveEncoded);
 alert(recursiveDecoded);
 </pre>
-            <p>The values of <code>recursiveEncoded</code> and <code>recursiveDecoded</code> are alerted as follows:</p>
+            <p><code>recursiveEncoded</code> 和 <code>recursiveDecoded</code> 的值应该是下面的样子：</p>
             <p>
                <span class="output">a%5Bone%5D=1&amp;a%5Btwo%5D=2&amp;a%5Bthree%5D=3&amp;b%5B%5D=1&amp;b%5B%5D=2&amp;b%5B%5D=3</span>
                <br/>
                <span class="output">a[one]=1&amp;a[two]=2&amp;a[three]=3&amp;b[]=1&amp;b[]=2&amp;b[]=3</span>
             </p>
-            <p>To emulate the behavior of <code>$.param()</code> prior to jQuery 1.4, we can set the <code>traditional</code> argument to <code>true</code>:</p>
+            <p>如果想要模拟 <code>$.param()</code> 函数在 jQuery 1.4 之前的行为，我们可以将 <code>traditional</code> 参数设置成 <code>true</code>:</p>
             <pre>var myObject = {
   a: {
     one: 1, 
@@ -6334,7 +6333,7 @@ var shallowDecoded = decodeURIComponent(shallowEncoded);
 alert(shallowEncoded);
 alert(shallowDecoded);
 </pre>
-            <p>The values of <code>shallowEncoded</code> and <code>shallowDecoded</code> are alerted as follows:</p>
+            <p>此时，<code>recursiveEncoded</code> 和 <code>recursiveDecoded</code> 的值就成了下面的样子：</p>
             <p>
                <span class="output">a=%5Bobject+Object%5D&amp;b=1&amp;b=2&amp;b=3</span>
                <br/>
@@ -6342,10 +6341,10 @@ alert(shallowDecoded);
             </p>
          </longdesc>
          <example>
-            <desc>Serialize a key/value object.</desc>
+            <desc>序列化一个键值对对象。</desc>
          </example>
          <example>
-            <desc>Serialize a few complex objects</desc>
+            <desc>序列化一些复杂对象。</desc>
          </example>
       </entry>
       <entry type="method" name="hide">
