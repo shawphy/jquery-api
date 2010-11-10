@@ -81,6 +81,8 @@
       <category name="Version 1.4"/>
       <category name="Version 1.4.1"/>
       <category name="Version 1.4.2"/>
+      <category name="Version 1.4.3"/>
+      <category name="Version 1.4.4"/>
     </category>
   </categories>
     <entries>
@@ -18315,6 +18317,6 @@ $( "#dramaBtn" ).click( function() {
 
 Minified using disk
 Page Caching using disk (enhanced)
-Database Caching 16/26 queries in 0.087 seconds using disk
+Database Caching 14/26 queries in 0.095 seconds using disk
 
-Served from: api.jquery.com @ 2010-11-10 03:01:47 -->
+Served from: api.jquery.com @ 2010-11-10 12:05:17 -->
