@@ -135,7 +135,14 @@ hr{
 	list-style: decimal;
 }
 #content p{
-	text-indent: 2em;
+	margin:10px;
+	margin-right: 0;
+}
+#content p code{
+	background: #eee;
+}
+#content p span.output{
+	color:green;
 	margin-left: 5px;
 }
 #content h2{
@@ -197,7 +204,6 @@ hr{
 #content .longdesc p{
 	font-size: 12px;
 	line-height:1.5;
-	margin:10px 0;
 }
 #content .longdesc strong{
 	font-size: 14px;
