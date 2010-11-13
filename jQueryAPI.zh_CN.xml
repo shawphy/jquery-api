@@ -83,9 +83,33 @@
          <category name="Version 1.4.1" zh="1.4.1 版"/>
          <category name="Version 1.4.2" zh="1.4.2 版"/>
          <category name="Version 1.4.3" zh="1.4.3 版"/>
+         <category name="Version 1.4.4" zh="1.4.4 版"/>
       </category>
   </categories>
    <entries>
+      <entry type="method" name="fadeToggle">
+         <desc>Display or hide the matched elements by animating their opacity.</desc>
+         <signature>
+            <argument name="duration">
+               <desc>A string or number determining how long the animation will run.</desc>
+            </argument>
+            <argument name="easing">
+               <desc>A string indicating which easing function to use for the transition.</desc>
+            </argument>
+            <argument name="callback">
+               <desc>A function to call once the animation is complete.</desc>
+            </argument>
+         </signature>
+         <longdesc>
+            <p>The <code>.fadeToggle()</code> method animates the opacity of the matched elements. When called on a visible element, the element's <code>display</code> style property is set to <code>none</code> once the opacity reaches 0, so the element no longer affects the layout of the page.</p>
+            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>The string representing an easing function specifies the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
+            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
+         </longdesc>
+         <example>
+            <desc>Fades first paragraph in or out, completing the animation within 600 milliseconds and using a linear easing. Fades last paragraph in or out for 200 milliseconds, inserting a "finished" message upon completion. </desc>
+         </example>
+      </entry>
       <entry type="method" name="jQuery.type">
          <desc>Determine the internal JavaScript [[Class]] of an object.</desc>
          <signature>
