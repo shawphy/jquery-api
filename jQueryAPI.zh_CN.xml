@@ -5941,17 +5941,17 @@ $('li.item-a').closest('#one', listItemII)
          </example>
       </entry>
       <entry type="property" name="selector">
-         <desc>A selector representing selector originally passed to jQuery().</desc>
+         <desc>传给jQuery()的原始选择器。</desc>
          <signature/>
          <longdesc>
-            <p>Should be used in conjunction with context to determine the exact query used.</p>
-            <p>The <code>.live()</code> method for binding event handlers uses this property to determine how to perform its searches. Plug-ins which perform similar tasks may also find the property useful. This property contains a string representing the matched set of elements, but if DOM traversal methods have been called on the object, the string may not be a valid jQuery selector expression. For this reason, the value of <code>.selector</code> is generally most useful immediately following the original creation of the object. Consequently, the <code>.live()</code> method should only be used in this scenario. </p>
+            <p>应当与context一起使用，用于精确检测选择器查询情况。</p>
+            <p><code>.live()</code> 方法在绑定事件处理函数时，使用这个属性来确定如何重现他的搜索过程。需要实现类似功能的插件就很可能需要使用这个属性。 这个属性包含一个字符串，他代表了匹配的元素集合，但是如果 DOM 遍历方法调用过之后，这个字符串就可能不再是一个有效的 jQuery 选择器表达式了。基于这个原因，<code>.selector</code> 的值应当在创建对象的代码后面马上使用。因此，<code>.live()</code> 方法也应当在创建对象后马上使用。</p>
          </longdesc>
          <example>
-            <desc>Determine the selector used.</desc>
+            <desc>检测使用的选择器。</desc>
          </example>
          <example>
-            <desc>Collecting elements differently</desc>
+            <desc>不同的方式收集元素</desc>
          </example>
       </entry>
       <entry type="method" name="add">
@@ -6017,15 +6017,14 @@ Using an HTML snippet as the <code>.add()</code> method's argument (as in the th
          </example>
       </entry>
       <entry type="property" name="context">
-         <desc>The DOM node context originally passed to jQuery(); if none was passed then context will likely be the document.</desc>
+         <desc>传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有传递过第二个参数，那么 context 指向当前的文档(document)。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>.live()</code> method for binding event handlers uses this property to determine the root element to use for its event delegation needs. Plug-ins which perform similar tasks may also find the property useful.</p>
-            <p>
-The value of this property is typically equal to document, as this is the default context for jQuery objects if none is supplied. The context may differ if, for example, the object was created by searching within an <code>&lt;iframe&gt;</code> or XML document.</p>
+            <p><code>.live()</code> 方法绑定事件处理函数时会用到这个属性，用于检测将要使用的元素根节点以实现事件委派。需要实现类似功能的插件就很可能需要使用这个属性。</p>
+            <p>这个属性的值通常等价于 document 。因为 jQuery 对象的 context 参数默认情况下是无需提供的。有时候这个值会有变化，比如是在 <code>&lt;iframe&gt;</code> 中搜索，或者 XML 文档中搜索时。</p>
          </longdesc>
          <example>
-            <desc>Determine the exact context used.</desc>
+            <desc>检测实际使用的上下文。</desc>
          </example>
       </entry>
       <entry type="method" name="not">
