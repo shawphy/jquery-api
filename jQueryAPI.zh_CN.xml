@@ -642,12 +642,8 @@
          <desc>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</desc>
          <signature/>
          <longdesc>
-            <p>除了阻止元素上其它的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其它事件处理函数继续执行，我们可以使用 <code>
-                  <a href="/event.stopPropagation">event.stopPropagation()</a>
-               </code> 来代替。</p>
-            <p>使用 <code>
-                  <a href="/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a>
-               </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p> 
+            <p>除了阻止元素上其它的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其它事件处理函数继续执行，我们可以使用 <code><a href="/event.stopPropagation">event.stopPropagation()</a></code> 来代替。</p>
+            <p>使用 <code><a href="/event.isImmediatePropagationStopped">event.isImmediatePropagationStopped()</a></code> 来确定这个方法是否(在那个事件对象上)调用过了。</p> 
          </longdesc>
          <example>
             <desc>阻止调用其它事件处理函数。</desc>
@@ -667,9 +663,7 @@
          <desc>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。</desc>
          <signature/>
          <longdesc>  
-            <p>我们可以用 <code>
-                  <a href="/event.isPropagationStopped">event.isPropagationStopped()</a>
-               </code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
+            <p>我们可以用 <code><a href="/event.isPropagationStopped">event.isPropagationStopped()</a></code> 来确定这个方法是否(在那个事件对象上)调用过了。</p>
             <p>这个方法对 <a href="/trigger">trigger()</a> 来自定义的事件同样有效。</p>
             <p>注意，这不会阻止<em>同一个元素上</em>的其它事件处理函数的运行。</p> 
          </longdesc>
@@ -902,12 +896,8 @@
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，使用 <code>
-                  <a href="/removeData">.removeData()</a>
-               </code> 更方便。</p>
-	           <p><code>jQuery.removeData()</code> 允许我们移除先前用 <code>
-                  <a href="/jQuery.data">jQuery.data()</a>
-               </code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
+               <strong>注意：</strong> 这是一个底层方法，使用 <code><a href="/removeData">.removeData()</a></code> 更方便。</p>
+	           <p><code>jQuery.removeData()</code> 允许我们移除先前用 <code><a href="/jQuery.data">jQuery.data()</a></code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。</p>
          </longdesc>
          <example>
             <desc>设置两个数据，然后再删除其中一个。</desc>
@@ -928,9 +918,7 @@
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，使用 <code>
-                  <a href="/data">.data()</a>
-               </code> 更方便。</p>
+               <strong>注意：</strong> 这是一个底层方法，使用 <code><a href="/data">.data()</a></code> 更方便。</p>
 	           <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们在单个元素上设置几个独立的数据，并且以后还可以分别检索到：</p>
 	           <pre>jQuery.data(document.body, 'foo', 52);
 jQuery.data(document.body, 'bar', 'test');</pre>
@@ -956,9 +944,7 @@ jQuery.data(document.body, 'bar', 'test');</pre>
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，使用 <code>
-                  <a href="/data">.data()</a>
-               </code> 更方便。</p>
+               <strong>注意：</strong> 这是一个底层方法，使用 <code><a href="/data">.data()</a></code> 更方便。</p>
             <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。 我们可以分别在DOM元素上获取几个独立的数据，或者一次获取一组：</p>
             <pre>alert(jQuery.data( document.body, 'foo' ));
 alert(jQuery.data( document.body ));</pre>
@@ -996,9 +982,7 @@ $("div").data("options").name === "John";</pre>
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
-                  <a href="/dequeue">.dequeue()</a>
-               </code> 来代替。</p>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code><a href="/dequeue">.dequeue()</a></code> 来代替。</p>
             <p>当调用 <code>jQuery.dequeue()</code> 时，队列中的下一个函数会从队列中移出并执行。这个函数应当在内部直接或间接调用 <code>jQuery.dequeue()</code> 以便队列得以继续执行下去。</p>
          </longdesc>
          <example>
@@ -1017,9 +1001,7 @@ $("div").data("options").name === "John";</pre>
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
-                  <a href="/queue">.queue()</a>
-               </code> 来代替。</p>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code><a href="/queue">.queue()</a></code> 来代替。</p>
          </longdesc>
          <example>
             <desc>显示队列长度。</desc>
@@ -1051,9 +1033,7 @@ $("div").data("options").name === "John";</pre>
          </signature>
          <longdesc>
             <p>
-               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code>
-                  <a href="/queue">.queue()</a>
-               </code> 来代替。</p>
+               <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code><a href="/queue">.queue()</a></code> 来代替。</p>
 	           <p>每个元素都可以通过jQuery附加一个或多个函数队列。在大多数程序中，只会使用一个队列（名为 <code>fx</code>）。队列允许异步地对某个元素进行一系列操作，而不是把整个程序挂起。</p>
 	           <p><code>jQuery.queue()</code> 允许我们直接操作这个函数队列。最常用的用法是调用 <code>jQuery.queue()</code> 时带一个回调函数，这样就能让我们在队列最后放置一个新的函数。</p>
 	           <p>注意，当通过 <code>jQuery.queue()</code> 增加一个函数时，务必确保函数的最后调用了 <code>jQuery.dequeue()</code> ，以便能够执行队列中的下一个函数。</p>
@@ -2743,11 +2723,7 @@ $('#target').blur(function() {
             <p>The <code>.hover()</code> method binds handlers for both <code>mouseenter</code> and <code>mouseleave</code> events. We can use it to simply apply behavior to an element during the time the mouse is within the element.</p>
             <p>Calling <code>$(selector).hover(handlerIn, handlerOut)</code> is shorthand for:</p>
             <pre>$(selector).mouseenter(handlerIn).mouseleave(handlerOut);</pre>
-            <p>See the discussions for <code>
-                  <a href="/mouseenter">.mouseenter()</a>
-               </code> and <code>
-                  <a href="/mouseleave">.mouseleave()</a>
-               </code> for more details.</p>
+            <p>See the discussions for <code><a href="/mouseenter">.mouseenter()</a></code> and <code><a href="/mouseleave">.mouseleave()</a></code> for more details.</p>
          </longdesc>
          <example>
             <desc>To add a special style to list items that are being hovered over, try:</desc>
@@ -2770,11 +2746,7 @@ $('#target').blur(function() {
             <p>The <code>.hover()</code> method, when passed a single function, will execute that handler for both <code>mouseenter</code> and <code>mouseleave</code> events.   This allows the user to use jQuery's various toggle methods within the handler.</p>
             <p>Calling <code>$(selector).hover(handlerInOut)</code> is shorthand for:</p>
             <pre>$(selector).bind("mouseenter mouseleave",handlerInOut);</pre>
-            <p>See the discussions for <code>
-                  <a href="/mouseenter">.mouseenter()</a>
-               </code> and <code>
-                  <a href="/mouseleave">.mouseleave()</a>
-               </code> for more details.</p>
+            <p>See the discussions for <code><a href="/mouseenter">.mouseenter()</a></code> and <code><a href="/mouseleave">.mouseleave()</a></code> for more details.</p>
          </longdesc>
          <example>
             <desc>Slide the next sibling LI up or down on hover, and toggle a class.</desc>
@@ -3352,9 +3324,7 @@ It is not possible to cancel the <code>unload</code> event with <code>.preventDe
 });</pre>
             <p>If <code>.ready()</code> is called after the DOM has been initialized, the new handler passed in will be executed immediately.</p>
             <h4>Aliasing the jQuery Namespace</h4>
-            <p>When using another JavaScript library, we may wish to call <code>
-                  <a href="/jQuery.noConflict">$.noConflict()</a>
-               </code> to avoid namespace difficulties. When this function is called, the <code>$</code> shortcut is no longer available, forcing us to write <code>jQuery</code> each time we would normally write <code>$</code>. However, the handler passed to the <code>.ready()</code> method can take an argument, which is passed the global <code>jQuery</code> object. This means we can rename the object within the context of our <code>.ready()</code> handler without affecting other code:</p>
+            <p>When using another JavaScript library, we may wish to call <code><a href="/jQuery.noConflict">$.noConflict()</a></code> to avoid namespace difficulties. When this function is called, the <code>$</code> shortcut is no longer available, forcing us to write <code>jQuery</code> each time we would normally write <code>$</code>. However, the handler passed to the <code>.ready()</code> method can take an argument, which is passed the global <code>jQuery</code> object. This means we can rename the object within the context of our <code>.ready()</code> handler without affecting other code:</p>
             <pre>jQuery(document).ready(function($) {
   // Code using $ as usual goes here.
 });</pre>
@@ -3516,9 +3486,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
                <li>If a matching element is found, the original handler is called on it.</li>
             </ol>
             <p>Because the test in step 5 is not performed until the event occurs, elements can be added at any time and still respond to events.</p>
-            <p>See the discussion for <code>
-                  <a href="/bind">.bind()</a>
-               </code> for more information on event binding.</p>
+            <p>See the discussion for <code><a href="/bind">.bind()</a></code> for more information on event binding.</p>
             <h4 id="multiple-events">Multiple Events</h4>
             <p>As of jQuery 1.4.1 <code>.live()</code> can accept multiple, space-separated events, similar to the functionality provided in <a href="/bind">.bind()</a>. For example, we can "live bind" the <code>mouseover</code> and <code>mouseout</code> events at the same time like so: </p>
             <pre>$('.hoverme').live('mouseover mouseout', function(event) {
@@ -3586,9 +3554,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
                <li>Instead of returning the jQuery object (to allow chaining), <code>.triggerHandler()</code> returns whatever value was returned by the last handler it caused to be executed. If no handlers are triggered, it returns <code>undefined</code>
                </li>
             </ul>
-            <p>For more information on this method, see the discussion for <code>
-                  <a href="/trigger">.trigger()</a>
-               </code>.</p>
+            <p>For more information on this method, see the discussion for <code><a href="/trigger">.trigger()</a></code>.</p>
          </longdesc>
          <example>
             <desc>If you called .triggerHandler() on a focus event - the browser's default focus action would not be triggered, only the event handlers bound to the focus event.</desc>
@@ -3722,10 +3688,10 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
          </example>
       </entry>
       <entry type="method" name="serializeArray">
-         <desc>Encode a set of form elements as an array of names and values.</desc>
+         <desc>把表单元素编码成一个名/值对的数组。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>.serializeArray()</code> method creates a JavaScript array of objects, ready to be encoded as a JSON string. It operates on a jQuery object representing a set of form elements. The form elements can be of several types:</p>
+            <p><code>.serializeArray()</code> 方法会创建一个 JavaScript 对象数组，可以用于编码成 JSON 字符串。他可以对一个代表一组表单元素的 jQuery 对象进行操作。表单元素可以有以下几种类型：</p>
             <pre>&lt;form&gt;
   &lt;div&gt;&lt;input type="text" name="a" value="1" id="a" /&gt;&lt;/div&gt;
   &lt;div&gt;&lt;input type="text" name="b" value="2" id="b" /&gt;&lt;/div&gt;
@@ -3745,13 +3711,13 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
     &lt;input type="submit" name="g" value="Submit" id="g" /&gt;
   &lt;/div&gt;
 &lt;/form&gt;</pre>
-            <p>The <code>.serializeArray()</code> method uses the standard W3C rules for <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">successful controls</a> to determine which elements it should include; in particular the element cannot be disabled and must contain a <code>name</code> attribute. No submit button value is serialized since the form was not submitted using a button. Data from file select elements is not serialized.</p>
-            <p>This method can act on a jQuery object that has selected individual form elements, such as <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code>. However, it is typically easier to select the <code>&lt;form&gt;</code> tag itself for serialization:</p>
+            <p><code>.serializeArray()</code> 方法使用了 W3C 关于 <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">successful controls</a>(有效控件) 的标准来检测哪些元素应当包括在内。禁用的元素不会被包括在内。并且元素应当有含有 <code>name</code> 属性。提交按钮的值也不会被序列化。文件选择元素的数据也不会被序列化。</p>
+            <p><code>.serializeArray()</code> 方法可以对单独选择的表单元素对象进行操作，比如 <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code>。然而，还有个更方便的方法是，直接选择 <code>&lt;form&gt;</code> 标签来进行序列化操作。</p>
             <pre>$('form').submit(function() {
   alert($(this).serializeArray());
   return false;
 });</pre>
-            <p>This produces the following data structure:</p>
+            <p>于是生成了如下的数据结构：</p>
             <pre>[
   {
     name: a
@@ -3776,14 +3742,14 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
 ]</pre>
          </longdesc>
          <example>
-            <desc>Get the values from a form, iterate through them, and append them to a results display.</desc>
+            <desc>从一个表单获取数据，迭代并把他们在结果中显示。</desc>
          </example>
       </entry>
       <entry type="method" name="serialize">
-         <desc>Encode a set of form elements as a string for submission.</desc>
+         <desc>把表单元素编码成用于提交的字符串。</desc>
          <signature/>
          <longdesc>
-            <p>The <code>.serialize()</code> method creates a text string in standard URL-encoded notation. It operates on a jQuery object representing a set of form elements. The form elements can be of several types:</p>
+            <p><code>.serialize()</code> 方法能够以标准的 URL 编码表示法来创建一个文本字符串。他可以对一个代表一组表单元素的 jQuery 对象进行操作。表单元素可以有以下几种类型：</p>
             <pre>&lt;form&gt;
   &lt;div&gt;&lt;input type="text" name="a" value="1" id="a" /&gt;&lt;/div&gt;
   &lt;div&gt;&lt;input type="text" name="b" value="2" id="b" /&gt;&lt;/div&gt;
@@ -3803,17 +3769,17 @@ $('#foo').trigger('custom', ['Custom', 'Event']);
     &lt;input type="submit" name="g" value="Submit" id="g" /&gt;
   &lt;/div&gt;
 &lt;/form&gt;</pre>
-            <p>The <code>.serialize()</code> method can act on a jQuery object that has selected individual form elements, such as <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, and <code>&lt;select&gt;</code>. However, it is typically easier to select the <code>&lt;form&gt;</code> tag itself for serialization:</p>
+            <p><code>.serialize()</code> 方法可以对单独选择的表单元素对象进行操作，比如 <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code>。然而，还有个更方便的方法是，直接选择 <code>&lt;form&gt;</code> 标签来进行序列化操作。</p>
             <pre>$('form').submit(function() {
   alert($(this).serialize());
   return false;
 });</pre>
-            <p>This produces a standard-looking query string:</p>
+            <p>于是就生成了一个很标准的查询字符串：</p>
             <pre>a=1&amp;b=2&amp;c=3&amp;d=4&amp;e=5</pre>
-            <p>Note: Only <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">"successful controls"</a> are serialized to the string. No submit button value is serialized since the form was not submitted using a button. For a form element's value to be included in the serialized string, the element must have a <code>name</code> attribute. Data from file select elements is not serialized.</p>
+            <p>注意，只有 <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">"successful controls"</a>(有效控件) 可以被序列化成字符串，其中，提交按钮的值不会被序列化。另外，如果想要一个表单元素的值被序列化成字符串，这个元素必须含有 <code>name</code> 属性。此外，文件选择元素的数据也不会被序列化。</p>
          </longdesc>
          <example>
-            <desc>Serialize a form to a query string, that could be sent to a server in an Ajax request.</desc>
+            <desc>把一个表单序列化成一个查询字符串，用于通过 Ajax 请求发送给服务器。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.ajaxSetup">
@@ -5143,23 +5109,23 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="jQuery.post">
-         <desc>Load data from the server using a HTTP POST request.</desc>
+         <desc>通过 HTTP POST 方式从服务器载入数据。</desc>
          <signature>
             <argument name="url">
-               <desc>A string containing the URL to which the request is sent.</desc>
+               <desc>将要请求的 URL 字符串。</desc>
             </argument>
             <argument name="data">
-               <desc>A map or string that is sent to the server with the request.</desc>
+               <desc>发送给服务器的字符串或者映射。</desc>
             </argument>
-            <argument name="success(data, textStatus, XMLHttpRequest)">
-               <desc>A callback function that is executed if the request succeeds.</desc>
+            <argument name="callback(data, textStatus, XMLHttpRequest)">
+               <desc>当请求成功后会执行的回调函数。</desc>
             </argument>
             <argument name="dataType">
-               <desc>The type of data expected from the server.</desc>
+               <desc>预计从服务器返回的数据类型。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This is a shorthand Ajax function, which is equivalent to:</p>
+            <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
             <pre>$.ajax({
   type: 'POST',
   url: <em>url</em>,
@@ -5168,41 +5134,39 @@ The second button starts a traditional chained animation, where each animation w
   dataType: <em>dataType</em>
 });
 </pre>
-		          <p>The <code>success</code> callback function is passed the returned data, which will be an XML root element or a text string depending on the MIME type of the response. It is also passed the text status of the response.</p>
-		          <p>As of jQuery 1.4, the <code>success</code> callback function is also passed the XMLHttpRequest object.</p>
-		          <p>Most implementations will specify a success handler:</p>
-		          <pre>$.post('ajax/test.html', function(data) {
+            <p><code>success</code> 回调函数会传入返回的数据，根据响应的 MIME 类型的不同，他可能是一个 XML 根元素、文本字符串、JavaScript 文件或者 JSON 对象。同时还会传入描述响应状态的字符串。</p>
+            <p>从 jQuery 1.4 起，<code>success</code> 回调函数还会传入一个 XMLHttpRequest 对象。</p>
+            <p>大多数情况下都会指定一个请求成功后的回调函数：</p>
+            <pre>$.post('ajax/test.html', function(data) {
   $('.result').html(data);
 });
 </pre>
-		          <p>This example fetches the requested HTML snippet and inserts it on the page.</p>
-		          <p>Pages fetched with <code>POST</code> are never cached, so the <code>cache</code> and <code>ifModified</code> options in <code>
-                  <a href="/jQuery.ajaxSetup">jQuery.ajaxSetup()</a>
-               </code> have no effect on these requests.</p>
+            <p>这个例子会把请求到的 HTML 代码片段插入到页面中。</p>
+            <p>用 <code>POST</code> 方式获取的页面永远不会被缓存，所以通过 <code><a href="/jQuery.ajaxSetup">jQuery.ajaxSetup()</a></code> 设置的 <code>cache</code> 和 <code>ifModified</code> 选项在这些请求中无效。</p>
          </longdesc>
          <example>
-            <desc>Request the test.php page, but ignore the return results.</desc>
+            <desc>请求 test.php 页面，但忽略返回的结果。</desc>
          </example>
          <example>
-            <desc>Request the test.php page and send some additional data along (while still ignoring the return results).</desc>
+            <desc>请求 test.php 页面，并传递一些附加的数据，但依然忽略返回的结果。</desc>
          </example>
          <example>
-            <desc>pass arrays of data to the server (while still ignoring the return results).</desc>
+            <desc>传递一个数据数组到服务器，继续忽略返回的结果。</desc>
          </example>
          <example>
-            <desc>send form data using ajax requests</desc>
+            <desc>通过 Ajax 请求发送表单数据。</desc>
          </example>
          <example>
-            <desc>Alert out the results from requesting test.php (HTML or XML, depending on what was returned).</desc>
+            <desc>弹出从 test.php 请求到的结果(HTML 或者 XML，根据返回的结果而不同)。</desc>
          </example>
          <example>
-            <desc>Alert out the results from requesting test.php with an additional payload of data (HTML or XML, depending on what was returned).</desc>
+            <desc>弹出从 test.cgi 请求到的数据，同时传递一些数据。</desc>
          </example>
          <example>
-            <desc>Gets the test.php page content, store it in a XMLHttpResponse object and applies the process() JavaScript function.</desc>
+            <desc>获取 test.php 页面的内容，并交给 process() 函数做进一步处理。</desc>
          </example>
          <example>
-            <desc>Gets the test.php page contents which has been returned in json format (<?php echo json_encode(array("name"=>"John","time"=>"2pm")); ?>)
+            <desc>获取 test.php 页面的内容，其内容是 JSON 格式 (&lt;?php echo json_encode(array("name"=>"John","time"=>"2pm")); ?&gt;)
 
 </desc>
          </example>
@@ -5420,39 +5384,39 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="jQuery.getScript">
-         <desc>Load a JavaScript file from the server using a GET HTTP request, then execute it.</desc>
+         <desc>通过 HTTP GET 方式从服务器请求一个 JavaScript 文件，并执行它。</desc>
          <signature>
             <argument name="url">
-               <desc>A string containing the URL to which the request is sent.</desc>
+               <desc>将要请求的 URL 字符串。</desc>
             </argument>
             <argument name="success(data, textStatus)">
-               <desc>A callback function that is executed if the request succeeds.</desc>
+               <desc>当请求成功后会执行的回调函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This is a shorthand Ajax function, which is equivalent to:</p>
+            <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
             <pre>$.ajax({
   url: <em>url</em>,
   dataType: 'script',
   success: <em>success</em>
 });
 </pre>
-            <p>The callback is passed the returned JavaScript file. This is generally not useful as the script will already have run at this point.</p>
-            <p>The script is executed in the global context, so it can refer to other variables and use jQuery functions. Included scripts should have some impact on the current page:</p>
+            <p>这个函数会传入返回的 JavaScript 文件。但这通常没什么用，因为此时脚本已经运行过了。</p>
+            <p>这个脚本会以全局的上下文来执行，所以他能指向其他变量并且运行 jQuery 函数。加载的脚本就能对页面产生想要的影响：</p>
             <pre>$('.result').html('&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;');</pre>
-            <p>The script can then be included and run by referencing the file name:</p>
+            <p>这个脚本就能通过文件名来加载并运行：</p>
             <pre>$.getScript('ajax/test.js', function() {
   alert('Load was performed.');
 });</pre>
          </longdesc>
          <example>
-            <desc>Load the <a href="http://github.com/jquery/jquery-color">official jQuery Color Animation plugin</a> dynamically and bind some color animations to occur once the new functionality is loaded.</desc>
+            <desc>动态的载入 <a href="http://github.com/jquery/jquery-color">jQuery 官方颜色插件</a> ，并且在载入成功后绑定一些色彩动画。</desc>
          </example>
          <example>
-            <desc>Load the test.js JavaScript file and execute it.</desc>
+            <desc>载入 test.js JavaScript 文件并执行。</desc>
          </example>
          <example>
-            <desc>Load the test.js JavaScript file and execute it, displaying an alert message when the execution is complete.</desc>
+            <desc>载入 test.js JavaScript 文件并执行。当执行完毕后显示一个警告信息。</desc>
          </example>
       </entry>
       <entry type="method" name="contents">
@@ -5594,20 +5558,20 @@ $('li.item-a').closest('#one', listItemII)
          </example>
       </entry>
       <entry type="method" name="jQuery.getJSON">
-         <desc>Load JSON-encoded data from the server using a GET HTTP request.</desc>
+         <desc>通过 HTTP GET 方式从服务器载入 JSON 编码的数据。</desc>
          <signature>
             <argument name="url">
-               <desc>A string containing the URL to which the request is sent.</desc>
+               <desc>将要请求的 URL 字符串。</desc>
             </argument>
             <argument name="data">
-               <desc>A map or string that is sent to the server with the request.</desc>
+               <desc>发送给服务器的字符串或者映射。</desc>
             </argument>
             <argument name="callback(data, textStatus)">
-               <desc>A callback function that is executed if the request succeeds.</desc>
+               <desc>当请求成功后会执行的回调函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This is a shorthand Ajax function, which is equivalent to:</p>
+            <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
             <pre>$.ajax({
   url: <em>url</em>,
   dataType: 'json',
@@ -5615,59 +5579,59 @@ $('li.item-a').closest('#one', listItemII)
   success: <em>callback</em>
 });
 </pre>
-            <p>Data that is sent to the server is appended to the URL as a query string. If the value of the <code>data</code> parameter is an object (map), it is converted to a string and url-encoded before it is appended to the URL.</p>
-            <p>The callback is passed the returned data, which will be a JavaScript object or array as defined by the JSON structure and parsed using the <code><a href="/jQuery.parseJSON">$.parseJSON()</a></code> method.</p>
-            <p>Most implementations will specify a success handler:</p>
+            <p>数据会以 URL 查询字符串形式发送给服务器。如果 <code>data</code> 参数的值是一个对象(映射)，他会自动被转换成 URL 编码的字符串。</p>
+            <p>回调函数会传入一个返回的数据，这个数据是由 <code><a href="/jQuery.parseJSON">$.parseJSON()</a></code> 方法解析后得到的 JavaScript 对象或者数组。</p>
+            <p>大多数情况下都会指定一个请求成功后的回调函数：</p>
             <pre>$.getJSON('ajax/test.json', function(data) {
   $('.result').html('&lt;p&gt;' + data.foo + '&lt;/p&gt;'
     + '&lt;p&gt;' + data.baz[1] + '&lt;/p&gt;');
 });
 </pre>
-	           <p>This example, of course, relies on the structure of the JSON file:</p>
+	           <p>当然，这个例子需要依赖下面的 JSON 文件结构：</p>
 	           <pre>{
   "foo": "The quick brown fox jumps over the lazy dog.",
   "bar": "ABCDEFG",
   "baz": [52, 97]
 }
 </pre>
-            <p>Using this structure, the example inserts the first string and second number from the file onto the page.</p>
+            <p>使用这种结构数据后，这个例子就能把第一个字符串和第二个数字插入到页面当中。</p>
             <blockquote>
-               <p><strong>Important:</strong> As of jQuery 1.4, if the JSON file contains a syntax error, the request will usually fail silently. Avoid frequent hand-editing of JSON data for this reason. JSON is a data-interchange format with syntax rules that are stricter than those of JavaScript's object literal notation. For example, all strings represented in JSON, whether they are properties or values, must be enclosed in double-quotes. For details on the JSON format, see <a href="http://json.org/">http://json.org/</a>.</p>
+               <p><strong>重要提示：</strong> 从 jQuery 1.4 起，如果 JSON 文件包含语法错误，这个请求会失败而不会返回任何提示信息。因此，请尽量避免频繁地手动编辑 JSON 数据。JSON 是一个数据交换格式，所以他的语法规则比普通的 JavaScript 对象字面量表示法还要严格。比如 JSON 中的所有字符串都必须用双引号包裹，不管他是属性还是值。更多信息请参考：<a href="http://json.org/">http://json.org/</a>。</p>
             </blockquote>
             <h4 id="jsonp">JSONP</h4>
-            <p>If the URL includes the string "callback=?" (or similar, as defined by the server-side API), the request is treated as JSONP instead. See the discussion of the <code>jsonp</code> data type in <code><a href="/jQuery.ajax">$.ajax()</a></code> for more details.</p>
+            <p>如果 URL 中包涵字符串 "callback=?" (或者其他类似的，取决于服务器端 API 是如何定义的)，这个请求就会被看做 JSONP 请求。更多关于 <code>jsonp</code> 数据类型的探讨，请参考 <code><a href="/jQuery.ajax">$.ajax()</a></code>。</p>
          </longdesc>
          <example>
-            <desc>Loads the four most recent cat pictures from the Flickr JSONP API.</desc>
+            <desc>用 Flickr 的 JSONP API 载入最近的四张关于猫的图片。</desc>
          </example>
          <example>
-            <desc>Load the JSON data from test.js and access a name from the returned JSON data.</desc>
+            <desc>从 test.js 中载入 JSON 数据，并且从返回的 JSON 数据中获得 name 的值。</desc>
          </example>
          <example>
-            <desc>Load the JSON data from test.js, passing along additional data, and access a name from the returned JSON data.</desc>
+            <desc>从 test.js 中载入 JSON 数据，传递一个附加的数据，并且从返回的 JSON 数据中获得 name 的值。</desc>
          </example>
          <example>
-            <desc>List the result of a consultation of pages.php in HTML as an array. By Manuel Gonzalez.</desc>
+            <desc>列出从 pages.php 中获得的信息。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.get">
-         <desc>Load data from the server using a HTTP GET request.</desc>
+         <desc>通过 HTTP GET 方式从服务器载入数据。</desc>
          <signature>
             <argument name="url">
-               <desc>A string containing the URL to which the request is sent.</desc>
+               <desc>将要请求的 URL 字符串。</desc>
             </argument>
             <argument name="data">
-               <desc>A map or string that is sent to the server with the request.</desc>
+               <desc>发送给服务器的字符串或者映射。</desc>
             </argument>
             <argument name="callback(data, textStatus, XMLHttpRequest)">
-               <desc>A callback function that is executed if the request succeeds.</desc>
+               <desc>当请求成功后会执行的回调函数。</desc>
             </argument>
             <argument name="dataType">
-               <desc>The type of data expected from the server.</desc>
+               <desc>预计从服务器返回的数据类型。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>This is a shorthand Ajax function, which is equivalent to:</p>
+            <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
             <pre>$.ajax({
   url: <em>url</em>,
   data: <em>data</em>,
@@ -5675,30 +5639,30 @@ $('li.item-a').closest('#one', listItemII)
   dataType: <em>dataType</em>
 });
 </pre>
-            <p>The <code>success</code> callback function is passed the returned data, which will be an XML root element, text string, JavaScript file, or JSON object, depending on the MIME type of the response. It is also passed the text status of the response. </p>
-            <p>As of jQuery 1.4, the <code>success</code> callback function is also passed the XMLHttpRequest object.</p>
-            <p>Most implementations will specify a success handler:</p>
+            <p><code>success</code> 回调函数会传入返回的数据，根据响应的 MIME 类型的不同，他可能是一个 XML 根元素、文本字符串、JavaScript 文件或者 JSON 对象。同时还会传入描述响应状态的字符串。</p>
+            <p>从 jQuery 1.4 起，<code>success</code> 回调函数还会传入一个 XMLHttpRequest 对象。</p>
+            <p>大多数情况下都会指定一个请求成功后的回调函数：</p>
             <pre>$.get('ajax/test.html', function(data) {
   $('.result').html(data);
   alert('Load was performed.');
 });
 </pre>
-            <p>This example fetches the requested HTML snippet and inserts it on the page.</p>
+            <p>这个例子会把请求到的 HTML 代码片段插入到页面中。</p>
          </longdesc>
          <example>
-            <desc>Request the test.php page, but ignore the return results.</desc>
+            <desc>请求 test.php 页面，但忽略返回的结果。</desc>
          </example>
          <example>
-            <desc>Request the test.php page and send some additional data along (while still ignoring the return results).</desc>
+            <desc>请求 test.php 页面，并传递一些附加的数据，但依然忽略返回的结果。</desc>
          </example>
          <example>
-            <desc>pass arrays of data to the server (while still ignoring the return results).</desc>
+            <desc>传递一个数据数组到服务器，继续忽略返回的结果。</desc>
          </example>
          <example>
-            <desc>Alert out the results from requesting test.php (HTML or XML, depending on what was returned).</desc>
+            <desc>弹出从 test.php 请求到的结果(HTML 或者 XML，根据返回的结果而不同)。</desc>
          </example>
          <example>
-            <desc>Alert out the results from requesting test.cgi with an additional payload of data (HTML or XML, depending on what was returned).</desc>
+            <desc>弹出从 test.cgi 请求到的数据，同时传递一些数据。</desc>
          </example>
       </entry>
       <entry type="method" name="load">
@@ -5728,9 +5692,7 @@ $('li.item-a').closest('#one', listItemII)
                <p>Note: The event handling suite also has a method named <code><a href="/load-event">.load()</a></code>. Which one is fired depends on the set of arguments passed.</p>
             </blockquote>
             <h4>Loading Page Fragments</h4>
-            <p>The <code>.load()</code> method, unlike <code>
-                  <a href="/jQuery.get">$.get()</a>
-               </code>, allows us to specify a portion of the remote document to be inserted. This is achieved with a special syntax for the <code>url</code> parameter. If one or more space characters are included in the string, the portion of the string following the first space is assumed to be a jQuery selector that determines the content to be loaded.   </p>
+            <p>The <code>.load()</code> method, unlike <code><a href="/jQuery.get">$.get()</a></code>, allows us to specify a portion of the remote document to be inserted. This is achieved with a special syntax for the <code>url</code> parameter. If one or more space characters are included in the string, the portion of the string following the first space is assumed to be a jQuery selector that determines the content to be loaded.   </p>
             <p>We could modify the example above to use only part of the document that is fetched:</p>
             <pre>$('#result').load('ajax/test.html #container');</pre>
             <p>When this method executes, it retrieves the content of <code>ajax/test.html</code>, but then jQuery parses the returned document to find the element with an ID of <code>container</code>. This element, along with its contents, is inserted into the element with an ID of <code>result</code>, and the rest of the retrieved document is discarded.</p>
@@ -5849,9 +5811,7 @@ $('li.item-a').closest('#one', listItemII)
             <pre>$.ajax();</pre>
 
             <p>
-               <strong>注意：</strong> 所有选项的默认值都可以通过 <code>
-                  <a href="/jQuery.ajaxSetup">$.ajaxSetup()</a>
-               </code> 函数来全局设置。</p>
+               <strong>注意：</strong> 所有选项的默认值都可以通过 <code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code> 函数来全局设置。</p>
 
             <p>上面这个例子中，我们没用使用任何选项，于是默认会载入当前页面的内容，但载入的结果是无法使用的。如果想要进一步处理先前载入的数据，我们就需要使用回调函数来操作了。</p>
 
@@ -5897,11 +5857,7 @@ $('li.item-a').closest('#one', listItemII)
             <p><code>data</code> 选项既可以包含一个查询字符串，比如  <code>key1=value1&amp;key2=value2</code>也可以是一个映射，比如 <code>{key1: 'value1', key2: 'value2'}</code>。如果使用了后者的形式，则数据在发送给服务器前会被转换成查询字符串。这个处理过程也可以通过设置 <code>processData</code> 为 <code>false</code> 来回避。比如我们希望发送一个 XML 对象给服务器时，这种处理就可能不合适了。同时在这种情况下，我们还应当设置 <code>contentType</code> 选项，使用其他合适的 MIME 类型，取代默认的 <code>application/x-www-form-urlencoded</code>。</p>
 
             <h4 id="advanced-options">高级选项</h4>
-            <p><code>global</code> 选项用于在 Ajax 请求时，阻止响应全局注册的 Ajax 事件回调函数，比如 <code>
-                  <a href="/ajaxSend">.ajaxSend()</a>
-               </code>, <code>
-                  <a href="/ajaxError">.ajaxError()</a>
-               </code> ，以及其他类似的方法。这在有些时候很有用，比如发送的请求非常频繁且简短的时候，就可以禁用 <a href="/jQuery.ajaxSend">.ajaxSend()</a> 里设置的载入等待指示器。更多关于这些方法的详细信息，请参阅下面的内容。</p>
+            <p><code>global</code> 选项用于在 Ajax 请求时，阻止响应全局注册的 Ajax 事件回调函数，比如 <code><a href="/ajaxSend">.ajaxSend()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code> ，以及其他类似的方法。这在有些时候很有用，比如发送的请求非常频繁且简短的时候，就可以禁用 <a href="/jQuery.ajaxSend">.ajaxSend()</a> 里设置的载入等待指示器。更多关于这些方法的详细信息，请参阅下面的内容。</p>
 					       <p>如果服务器需要HTTP认证，可以使用用户名和密码可以通过 <code>username</code> 和 <code>password</code> 选项来设置。</p>
 					       <p>Ajax请求是限时的，所以错误警告被捕获并处理后，可以用来提升用户体验。请求超时这个参数通常就保留其默认值，或者就通过<code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code>来全局设定，很少为特定的请求重新设置 <code>timeout</code> 选项。</p>
 					       <p>默认情况下，请求总会被发出去的，但浏览器有可能从他的缓存中调取数据。要禁止使用缓存的结果，可以设置 <code>cache</code> 参数为 <code>false</code> 。如果希望判断数据自从上次请求后是否更改过，如果没有更改过就报告请求失败的话，可以设置 <code>ifModified</code> 参数为 <code>true</code>。</p>
@@ -6146,9 +6102,7 @@ $('li').not(document.getElementById('notli'))
          <longdesc>
             <p>Returns the width of the element, along with left and right padding, border, and optionally margin, in pixels.</p>
             <p>If <code>includeMargin</code> is omitted or <code>false</code>, the padding and border are included in the calculation; if <code>true</code>, the margin is also included.</p>
-            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code>
-                  <a href="/width">.width()</a>
-               </code> instead.</p>
+            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="/width">.width()</a></code> instead.</p>
             <p class="image">
                <img src="images/0042_04_06.png"/>
             </p>
@@ -6166,9 +6120,7 @@ $('li').not(document.getElementById('notli'))
          </signature>
          <longdesc>
             <p>The top and bottom padding and border are always included in the <code>.outerHeight()</code> calculation; if the <code>includeMargin</code> argument is set to <code>true</code>, the margin (top and bottom) is also included.</p>
-            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code>
-                  <a href="/height">.height()</a>
-               </code> instead.</p>
+            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="/height">.height()</a></code> instead.</p>
             <p class="image">
                <img src="images/0042_04_03.png"/>
             </p>
@@ -6267,9 +6219,7 @@ $('li').not(document.getElementById('notli'))
          <signature/>
          <longdesc>
             <p>This method returns the width of the element, including left and right padding, in pixels.</p>
-            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code>
-                  <a href="/width">.width()</a>
-               </code> instead.</p>
+            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="/width">.width()</a></code> instead.</p>
             <p class="image">
                <img src="images/0042_04_05.png"/>
             </p>
@@ -6283,9 +6233,7 @@ $('li').not(document.getElementById('notli'))
          <signature/>
          <longdesc>
             <p>This method returns the height of the element, including top and bottom padding, in pixels.</p>
-            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code>
-                  <a href="/height">.height()</a>
-               </code> instead.</p>
+            <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="/height">.height()</a></code> instead.</p>
             <p class="image">
                <img src="images/0042_04_02.png"/>
             </p>
@@ -7028,9 +6976,7 @@ $.each(map, function(key, value) {
          <desc>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</desc>
          <signature/>
          <longdesc>
-            <p>The <code>.position()</code> method allows us to retrieve the current position of an element <em>relative to the offset parent</em>. Contrast this with <code>
-                  <a href="/offset">.offset()</a>
-               </code>, which retrieves the current position <em>relative to the document</em>. When positioning a new element near another one and within the same containing DOM element, <code>.position()</code> is the more useful.</p>
+            <p>The <code>.position()</code> method allows us to retrieve the current position of an element <em>relative to the offset parent</em>. Contrast this with <code><a href="/offset">.offset()</a></code>, which retrieves the current position <em>relative to the document</em>. When positioning a new element near another one and within the same containing DOM element, <code>.position()</code> is the more useful.</p>
             <p>Returns an object containing the properties <code>top</code> and <code>left</code>.</p>
          </longdesc>
          <example>
@@ -7129,9 +7075,7 @@ $.each(map, function(key, value) {
          <longdesc>
             <p>As with the <code>.attr()</code> method, the <code>.css()</code> method makes setting properties of elements quick and easy. This method can take either a property name and value as separate parameters, or a single map of key-value pairs (JavaScript object notation).</p>
             <p>Also, jQuery can equally interpret the CSS and DOM formatting of multiple-word properties. For example, jQuery understands and returns the correct value for both <code>.css({'background-color': '#ffe', 'border-left': '5px solid #ccc'})</code> and <code>.css({backgroundColor: '#ffe', borderLeft: '5px solid #ccc'})</code>. Notice that with the DOM notation, quotation marks around the property names are optional, but with CSS notation they're required due to the hyphen in the name.</p>
-            <p>As with <code>
-                  <a href="/attr">.attr()</a>
-               </code>, <code>.css()</code> allows us to pass a function as the property value:</p>
+            <p>As with <code><a href="/attr">.attr()</a></code>, <code>.css()</code> allows us to pass a function as the property value:</p>
             <pre>$('div.example').css('width', function(index) {
   return index * 50;
 });</pre>
@@ -7154,9 +7098,7 @@ $.each(map, function(key, value) {
          <desc>Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</desc>
          <signature/>
          <longdesc>
-            <p>The <code>.unwrap()</code> method removes the element's parent. This is effectively the inverse of the <code>
-                  <a href="/wrap">.wrap()</a>
-               </code> method. The matched elements (and their siblings, if any) replace their parents within the DOM structure.</p>
+            <p>The <code>.unwrap()</code> method removes the element's parent. This is effectively the inverse of the <code><a href="/wrap">.wrap()</a></code> method. The matched elements (and their siblings, if any) replace their parents within the DOM structure.</p>
          </longdesc>
          <example>
             <desc>Wrap/unwrap a div around each of the paragraphs.</desc>
@@ -7170,9 +7112,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.detach()</code> method is the same as <code>
-                  <a href="/remove">.remove()</a>
-               </code>, except that <code>.detach()</code> keeps all jQuery data associated with the removed elements. This method is useful when removed elements are to be reinserted into the DOM at a later time.</p>
+            <p>The <code>.detach()</code> method is the same as <code><a href="/remove">.remove()</a></code>, except that <code>.detach()</code> keeps all jQuery data associated with the removed elements. This method is useful when removed elements are to be reinserted into the DOM at a later time.</p>
          </longdesc>
          <example>
             <desc>Detach all paragraphs from the DOM</desc>
@@ -7191,9 +7131,7 @@ $.each(map, function(key, value) {
   &lt;div class="hello"&gt;Hello&lt;/div&gt;
   &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
 &lt;/div&gt;</pre>
-            <p>As shown in the discussion for <code>
-                  <a href="/append">.append()</a>
-               </code>,  normally when we insert an element somewhere in the DOM, it is moved from its old location. So, given the code:</p>
+            <p>As shown in the discussion for <code><a href="/append">.append()</a></code>,  normally when we insert an element somewhere in the DOM, it is moved from its old location. So, given the code:</p>
             <pre>$('.hello').appendTo('.goodbye');</pre>
             <p>The resulting DOM structure would be:</p>
             <pre>&lt;div class="container"&gt;
@@ -7229,9 +7167,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>Similar to <code>
-                  <a href="/empty">.empty()</a>
-               </code>, the <code>.remove()</code> method takes elements out of the DOM. We use <code>.remove()</code> when we want to remove the element itself, as well as everything inside it. In addition to the elements themselves, all bound events and jQuery data  associated with the elements are removed.</p>
+            <p>Similar to <code><a href="/empty">.empty()</a></code>, the <code>.remove()</code> method takes elements out of the DOM. We use <code>.remove()</code> when we want to remove the element itself, as well as everything inside it. In addition to the elements themselves, all bound events and jQuery data  associated with the elements are removed.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;div class="hello"&gt;Hello&lt;/div&gt;
@@ -7285,9 +7221,7 @@ $.each(map, function(key, value) {
          <desc>Replace each target element with the set of matched elements.</desc>
          <signature/>
          <longdesc>
-            <p>The <code>.replaceAll()</code> method is corollary to <code>
-                  <a href="/replaceWith">.replaceWith()</a>
-               </code>, but with the source and target reversed. Consider this DOM structure:</p>
+            <p>The <code>.replaceAll()</code> method is corollary to <code><a href="/replaceWith">.replaceWith()</a></code>, but with the source and target reversed. Consider this DOM structure:</p>
             <pre>&lt;div class="container"&gt;
   &lt;div class="inner first"&gt;Hello&lt;/div&gt;
   &lt;div class="inner second"&gt;And&lt;/div&gt;
@@ -7534,9 +7468,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>
-                  <a href="/before">.before()</a>
-               </code> and <code>.insertBefore()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .before()</code>, the selector expression preceding the method is the container before which the content is inserted. With <code>.insertBefore()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted before the target container.</p>
+            <p>The <code><a href="/before">.before()</a></code> and <code>.insertBefore()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .before()</code>, the selector expression preceding the method is the container before which the content is inserted. With <code>.insertBefore()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted before the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;h2&gt;Greetings&lt;/h2&gt;
@@ -7580,9 +7512,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.before()</code> and <code>
-                  <a href="/insertBefore">.insertBefore()</a>
-               </code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .before()</code>, the selector expression preceding the method is the container before which the content is inserted. With <code>.insertBefore()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted before the target container.</p>
+            <p>The <code>.before()</code> and <code><a href="/insertBefore">.insertBefore()</a></code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .before()</code>, the selector expression preceding the method is the container before which the content is inserted. With <code>.insertBefore()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted before the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;h2&gt;Greetings&lt;/h2&gt;
@@ -7630,9 +7560,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>
-                  <a href="/after">.after()</a>
-               </code> and <code>.insertAfter()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .after()</code>, the selector expression preceding the method is the container after which the content is inserted. With <code>.insertAfter()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted after the target container.</p>
+            <p>The <code><a href="/after">.after()</a></code> and <code>.insertAfter()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .after()</code>, the selector expression preceding the method is the container after which the content is inserted. With <code>.insertAfter()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted after the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;h2&gt;Greetings&lt;/h2&gt;
@@ -7676,9 +7604,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.after()</code> and <code>
-                  <a href="/insertAfter">.insertAfter()</a>
-               </code> methods perform the same task. The major difference is in the syntax—specifically, in the placement of the content and target. With<code> .after()</code>, the selector expression preceding the method is the container after which the content is inserted. With <code>.insertAfter()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted after the target container.</p>
+            <p>The <code>.after()</code> and <code><a href="/insertAfter">.insertAfter()</a></code> methods perform the same task. The major difference is in the syntax—specifically, in the placement of the content and target. With<code> .after()</code>, the selector expression preceding the method is the container after which the content is inserted. With <code>.insertAfter()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted after the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;div class="container"&gt;
   &lt;h2&gt;Greetings&lt;/h2&gt;
@@ -7741,9 +7667,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>
-                  <a href="/prepend">.prepend()</a>
-               </code> and <code>.prependTo()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .prepend()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.prependTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
+            <p>The <code><a href="/prepend">.prepend()</a></code> and <code>.prependTo()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .prepend()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.prependTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;div class="container"&gt;
@@ -7794,9 +7718,7 @@ $.each(map, function(key, value) {
             <p>The <code>.prepend()</code> method inserts the specified content as the first child of each element in the jQuery collection (To insert it as the <em>last</em> child, use <a href="http://api.jquery.com/append/">
                   <code>.append()</code>
                </a>). </p>
-            <p>The <code>.prepend()</code> and <code>
-                  <a href="/prependTo">.prependTo()</a>
-               </code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .prepend()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.prependTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
+            <p>The <code>.prepend()</code> and <code><a href="/prependTo">.prependTo()</a></code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .prepend()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.prependTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;div class="container"&gt;
@@ -7845,9 +7767,7 @@ $.each(map, function(key, value) {
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>
-                  <a href="/append">.append()</a>
-               </code> and <code>.appendTo()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .append()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.appendTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
+            <p>The <code><a href="/append">.append()</a></code> and <code>.appendTo()</code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .append()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.appendTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;div class="container"&gt;
@@ -7903,9 +7823,7 @@ $.each(map, function(key, value) {
             <p>The <code>.append()</code> method inserts the  specified content as the last child of each element in the jQuery collection (To insert it as the <em>first</em> child, use <a href="http://api.jquery.com/prepend/">
                   <code>.prepend()</code>
                </a>). </p>
-            <p>The <code>.append()</code> and <code>
-                  <a href="/appendTo">.appendTo()</a>
-               </code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .append()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.appendTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
+            <p>The <code>.append()</code> and <code><a href="/appendTo">.appendTo()</a></code> methods perform the same task. The major difference is in the syntax-specifically, in the placement of the content and target. With<code> .append()</code>, the selector expression preceding the method is the container into which the content is inserted. With <code>.appendTo()</code>, on the other hand, the content precedes the method, either as a selector expression or as markup created on the fly, and it is inserted into the target container.</p>
             <p>Consider the following HTML:</p>
             <pre>&lt;h2&gt;Greetings&lt;/h2&gt;
 &lt;div class="container"&gt;
@@ -8450,11 +8368,11 @@ $('li').filter(function(index) {
          </signature>
          <longdesc>
             <p>Elements may have more than one class assigned to them. In HTML, this is represented by separating the class names with a space:</p>
-		          <pre>&lt;div id="mydiv" class="foo bar"&gt;&lt;/div&gt;</pre>
-		          <p>The <code>.hasClass()</code> method will return <code>true</code> if the class is assigned to an element, even if other classes also are. For example, given the HTML above, the following will return <code>true</code>:</p>
-		          <pre>$('#mydiv').hasClass('foo')</pre>
-		          <p>as would:</p>
-		          <pre>$('#mydiv').hasClass('bar')</pre>
+            <pre>&lt;div id="mydiv" class="foo bar"&gt;&lt;/div&gt;</pre>
+            <p>The <code>.hasClass()</code> method will return <code>true</code> if the class is assigned to an element, even if other classes also are. For example, given the HTML above, the following will return <code>true</code>:</p>
+            <pre>$('#mydiv').hasClass('foo')</pre>
+            <p>as would:</p>
+            <pre>$('#mydiv').hasClass('bar')</pre>
          </longdesc>
          <example>
             <desc>Looks for the class 'selected' on the matched elements.</desc>
