@@ -164,7 +164,9 @@ hr{
 	background: rgb(149,179,215);
 	color: #fff;
 }
-
+#content h4{
+	font-weight: bold;
+}
 #content .entry{
 	margin-bottom: 40px;
 }
@@ -213,11 +215,6 @@ hr{
 }
 #content .longdesc{
 	margin-top: 5px;
-}
-#content .example h4{
-	background: rgb(219,229,241);
-	padding: 5px 10px;
-	margin-left: 10px;
 }
 #content pre,#content iframe{
 	margin: 10px;
