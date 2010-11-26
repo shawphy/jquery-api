@@ -47,7 +47,7 @@
          <category name="Setup Methods" zh="设置方法"/>
       </category>
       <category name="Offset" zh="偏移"/>
-      <category name="Plugin Authoring" zh="插件编写"/>
+      <category name="Internals" zh="内部使用"/>
       <category name="Properties" zh="属性">
          <category name="Properties of jQuery Object Instances" zh="jQuery对象实例属性"/>
          <category name="Properties of the Global jQuery Object" zh="全局jQuery对象属性"/>

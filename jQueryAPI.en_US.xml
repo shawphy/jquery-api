@@ -46,9 +46,9 @@
       <category name="Setup Methods"/>
     </category>
     <category name="Offset"/>
-    <category name="Plugin Authoring"/>
+    <category name="Internals"/>
     <category name="Properties">
-      <category name="Properties of jQuery Object Instances "/>
+      <category name="Properties of jQuery Object Instances"/>
       <category name="Properties of the Global jQuery Object"/>
     </category>
     <category name="Selectors">
@@ -81,6 +81,8 @@
       <category name="Version 1.4"/>
       <category name="Version 1.4.1"/>
       <category name="Version 1.4.2"/>
+      <category name="Version 1.4.3"/>
+      <category name="Version 1.4.4"/>
     </category>
   </categories>
     <entries>
