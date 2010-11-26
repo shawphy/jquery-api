@@ -209,6 +209,7 @@
          <signature/>
          <longdesc>
             <p>This property can be manipulated to adjust the number of frames per second at which animations will run. The default is 13 milliseconds. Making this a lower number could make the animations run smoother in faster browsers (such as Chrome) but there may be performance and CPU implications of doing so.</p>
+            <p>Since jQuery uses one global interval, no animation should be running or all animations should stop for the change of this property to take effect.</p>
          </longdesc>
          <example>
             <desc>Cause all animations to run with less frames.</desc>
@@ -303,6 +304,7 @@
 });</pre>
 
             <p>See also the <a href="/undelegate">.undelegate()</a> method for a way of removing event handlers added in <a href="/delegate">.delegate()</a>.</p>
+            <p>Passing and handling event data works <a href="http://api.jquery.com/bind/#passing-event-data">the same way as it does for .bind()</a>.</p>
          </longdesc>
          <example>
             <desc>Click a paragraph to add another. Note that .delegate() binds the click event to all paragraphs - even new ones.</desc>
@@ -500,14 +502,12 @@
             </argument>
          </signature>
          <longdesc>
-            <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。它既可以推迟动画队列中函数的执行，也可以用于自定义队列。 </p>
+            <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。它既可以推迟动画队列中函数的执行，也可以用于自定义队列。只有在队列中的连续事件可以被延时，因此不带参数的 <code>.show()</code> 和 <code>.hide()</code> 就不会有延时，因为他们没有使用动画队列。</p>
             <p>毫秒为单位的延时，数字越大，动画越慢。字符串 <code>'fast'</code> 和 <code>'slow'</code> 分别代表200和600毫秒的延时。</p>
             <p>例如，我们可以在 <code>&lt;div id="foo"&gt;</code> 的 <code>.slideUp()</code> 和 <code>.fadeIn()</code> 动画之间添加800毫秒的延时 :</p>
             <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
             <p>当这句语句执行后，元素会有300毫秒的卷起动画，接着暂停800毫秒，再出现400毫秒淡入动画。</p>
-            <p>
-               <strong>jQuery.delay() 用在jQuery动画或者类似队列中是再好不过的了。但不应替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong>
-            </p>
+            <blockquote><p><strong><code>.delay()</code> 用在jQuery动画或者类似队列中是再好不过的了。但是，由于其本身的限制，比如无法取消延时，所以不应完全用来替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong>></p></blockquote>
          </longdesc>
          <example>
             <desc>隐藏再显示两个div。其中绿色的div再次出现得更慢。</desc>
@@ -736,10 +736,11 @@
          <desc>事件冒泡阶段当前所在DOM元素。</desc>
          <signature/>
          <longdesc>
-            <p>这个属性总是等于函数的 <code>this</code> 。</p>
+            <p>这个属性通常与函数的 <code>this</code> 相同。</p>
+            <p><em>如果你使用了 <a href="/jQuery.proxy">jQuery.proxy</a> 或其他方式操作了作用域， <code>this</code> 会等于你所指定的内容，而不再是 <code>event.currentTarget</code></em>。</p>
          </longdesc>
          <example>
-            <desc>currentTarget 总是完全等同于 `this` 。</desc>
+            <desc>如果 currentTarget 完全等同于 `this` 则弹出警告框。</desc>
          </example>
       </entry>
       <entry type="property" name="event.relatedTarget">
@@ -964,7 +965,8 @@ alert(jQuery.data( document.body ));</pre>
 $("div").data("hidden") === true;
 $("div").data("options").name === "John";</pre>
 
-            <p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
+            <p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans, numbers, objects, arrays, and null). When the data attribute is an object (starts with '{') or array (starts with '[') then <code>jQuery.parseJSON</code> is used to parse the string; it must follow valid JSON syntax <em>including quoted property names</em>. The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated (all data values are then stored internally in jQuery).</p>
+
          </longdesc>
          <example>
             <desc>获取存放在元素上名叫 "blah" 的数据。</desc>
@@ -1794,7 +1796,7 @@ if ( mydata.count &lt; 9 ) {
          </example>
       </entry>
       <entry type="selector" name="hidden">
-         <desc>选择所有吟唱的元素。</desc>
+         <desc>选择所有隐藏的元素。</desc>
          <signature/>
          <longdesc>
             <p>元素可能出于以下几个理由而被隐藏：</p>
@@ -1827,7 +1829,11 @@ if ( mydata.count &lt; 9 ) {
       </entry>
       <entry type="selector" name="has">
          <desc>如果某个元素含有至少一个与选择器相匹配的子孙元素，则或这个元素就会被选中。</desc>
-         <signature/>
+         <signature>
+            <argument name="selector">
+               <desc>任何选择器。</desc>
+            </argument>
+         </signature>
          <longdesc>
             <p>表达式 <code>$('div:has(p)')</code> 会匹配一个 <code>&lt;div&gt;</code> ，并且他的子孙元素中含有 <code>&lt;p&gt;</code> ，就算不是直接的子元素也没关系。</p>
          </longdesc>
@@ -1849,7 +1855,11 @@ if ( mydata.count &lt; 9 ) {
       </entry>
       <entry type="selector" name="contains">
          <desc>选择含有特定文本的元素。</desc>
-         <signature/>
+         <signature>
+            <argument name="text">
+               <desc>用于查找的文本，大小写敏感。</desc>
+            </argument>
+         </signature>
          <longdesc>
             <p>匹配的文本可以直接出现在选中的元素之中，或者出现在这个元素的子孙元素之中。作为一个属性选择器，<code>:contains()</code> 的括号中的文本可以直接书写字符串，也可以用引号包裹一下。</p>
          </longdesc>
@@ -1891,7 +1901,11 @@ if ( mydata.count &lt; 9 ) {
       </entry>
       <entry type="selector" name="gt">
          <desc>选择在匹配的集合中，索引值大于 <code>index</code> 参数的元素。</desc>
-         <signature/>
+         <signature>
+            <argument name="index">
+               <desc>从 0 开始计数匹配元素用的索引值。</desc>
+            </argument>
+         </signature>
          <longdesc>
             <p><strong>索引值相关的选择器</strong></p>
             <p>索引值相关的选择器 (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>)，会在先前提供的选择器筛选出的元素基础上再进行筛选。进一步筛选的依据就是这个元素在原先匹配集合中的顺序。举例来说，如果一开始通过 class 选择器 (<code>.myclass</code>) 选中了 4 个元素，然后这四个元素的索引值会被分配为 0 到 3 ，之后就可以用这种索引值选择器来进一步筛选了。</p>
@@ -3508,7 +3522,7 @@ The <code>$.browser</code> property is deprecated in jQuery 1.3, but there are n
             <h4 id="caveats">Caveats</h4>
             <p>The <code>.live()</code> technique is useful, but due to its special approach cannot be simply substituted for <code>.bind()</code> in all cases. Specific differences include:</p>
             <ul>
-               <li>DOM traversal methods are not fully supported for finding elements to send to <code>.live()</code>. Rather, the <code>.live()</code> method should always be called directly after a selector, as in the example above.</li>
+               <li>DOM traversal methods, or a context argument to the <code>jQuery()</code> method, are not supported for finding elements to send to <code>.live()</code>. Rather, the <code>.live()</code> method should always be called directly after a selector, as in the example above.</li>
                <li>To stop further handlers from executing after one bound using <code>.live()</code>, the handler must return <code>false</code>. Calling <code>.stopPropagation()</code> will not accomplish this.</li>
                <li>In <b>jQuery 1.3.x</b> only the following JavaScript events (in addition to custom events) could be bound with <code>.live()</code>: <code>click</code>, <code>dblclick</code>, <code>keydown</code>, <code>keypress</code>, <code>keyup</code>, <code>mousedown</code>, <code>mousemove</code>, <code>mouseout</code>, <code>mouseover</code>, and <code>mouseup</code>.</li>
             </ul>
@@ -3811,7 +3825,8 @@ $.ajax({
          </example>
       </entry>
       <entry type="method" name="ajaxSuccess">
-         <desc/>
+         <desc>注册一个事件处理函数，这个函数会在某个 Ajax 请求成功完成时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
+
          <signature>
             <argument name="handler(event, XMLHttpRequest, ajaxOptions)">
                <desc>将要调用的函数</desc>
@@ -3901,7 +3916,7 @@ $.ajax({
          </example>
       </entry>
       <entry type="method" name="ajaxSend">
-         <desc/>
+         <desc>注册一个事件处理函数，这个函数会在 Ajax 请求之前调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。</desc>
          <signature>
             <argument name="handler(event, XMLHttpRequest, ajaxOptions)">
                <desc>将要调用的函数</desc>
@@ -3983,7 +3998,7 @@ $.ajax({
                <desc>A string containing a JavaScript event type, such as <code>click</code> or <code>submit</code>.</desc>
             </argument>
             <argument name="false">
-               <desc>Unbinds the corresponding 'return false' function that was bound using .bind( eventName, false ).</desc>
+               <desc>Unbinds the corresponding 'return false' function that was bound using <code>.bind( eventType, false )</code>.</desc>
             </argument>
          </signature>
          <signature>
@@ -4007,7 +4022,7 @@ $('#foo').unbind('click', handler);
             <pre>$('#foo').bind('click', function() {
   alert('The quick brown fox jumps over the lazy dog.');
 });
-
+// will NOT work
 $('#foo').unbind('click', function() {
   alert('The quick brown fox jumps over the lazy dog.');
 });</pre>
@@ -4027,7 +4042,7 @@ $('#foo').unbind('click', function() {
             <pre>$('#foo').unbind('.myEvents');</pre>
             <p>It is particularly useful to attach namespaces to event bindings when we are developing plug-ins or otherwise writing code that may interact with other event-handling code in the future.</p>
             <h4>Using the Event Object</h4>
-            <p>The second form of the <code>.unbind()</code> method is used when we wish to unbind a handler from within itself. For example, suppose we wish to trigger an event handler only three times:</p>
+            <p>The third form of the <code>.unbind()</code> method is used when we wish to unbind a handler from within itself. For example, suppose we wish to trigger an event handler only three times:</p>
             <pre>var timesClicked = 0;
 $('#foo').bind('click', function(event) {
   alert('The quick brown fox jumps over the lazy dog.');
@@ -4880,6 +4895,9 @@ The second button starts a traditional chained animation, where each animation w
          <example>
             <desc>Fades out spans in one section that you click on.</desc>
          </example>
+         <example>
+            <desc>Fades out two divs, one with a "linear" easing and one with the default, "swing," easing.</desc>
+         </example>
       </entry>
       <entry type="method" name="parents">
          <desc>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
@@ -5263,7 +5281,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>Given a jQuery object that represents a set of DOM elements, the <code>.next()</code> method allows us to search through the immediately following sibling of these elements in the DOM tree and construct a new jQuery object from the matching elements.</p>
-            <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the the immediately following sibling matches the selector, it remains in the newly constructed jQuery object; otherwise, it is excluded.</p>
+            <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the immediately following sibling matches the selector, it remains in the newly constructed jQuery object; otherwise, it is excluded.</p>
             <p>Consider a page with a simple list on it:</p>
             <pre>
 &lt;ul&gt;
@@ -5401,10 +5419,10 @@ The second button starts a traditional chained animation, where each animation w
   success: <em>success</em>
 });
 </pre>
-            <p>这个函数会传入返回的 JavaScript 文件。但这通常没什么用，因为此时脚本已经运行过了。</p>
-            <p>这个脚本会以全局的上下文来执行，所以他能指向其他变量并且运行 jQuery 函数。加载的脚本就能对页面产生想要的影响：</p>
+            <p>这里的回调函数会传入返回的 JavaScript 文件。但这通常没什么用，因为此时脚本已经运行过了。</p>
+            <p>载入的脚本会以全局的上下文来执行，所以可以修改其他变量，或者运行 jQuery 函数。比如加载一个 test.js 文件，里边包含下面这段代码：</p>
             <pre>$('.result').html('&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;');</pre>
-            <p>这个脚本就能通过文件名来加载并运行：</p>
+            <p>于是就可以动态载入并运行了：</p>
             <pre>$.getScript('ajax/test.js', function() {
   alert('Load was performed.');
 });</pre>
@@ -5857,7 +5875,7 @@ $('li.item-a').closest('#one', listItemII)
             <p><code>data</code> 选项既可以包含一个查询字符串，比如  <code>key1=value1&amp;key2=value2</code>也可以是一个映射，比如 <code>{key1: 'value1', key2: 'value2'}</code>。如果使用了后者的形式，则数据在发送给服务器前会被转换成查询字符串。这个处理过程也可以通过设置 <code>processData</code> 为 <code>false</code> 来回避。比如我们希望发送一个 XML 对象给服务器时，这种处理就可能不合适了。同时在这种情况下，我们还应当设置 <code>contentType</code> 选项，使用其他合适的 MIME 类型，取代默认的 <code>application/x-www-form-urlencoded</code>。</p>
 
             <h4 id="advanced-options">高级选项</h4>
-            <p><code>global</code> 选项用于在 Ajax 请求时，阻止响应全局注册的 Ajax 事件回调函数，比如 <code><a href="/ajaxSend">.ajaxSend()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code> ，以及其他类似的方法。这在有些时候很有用，比如发送的请求非常频繁且简短的时候，就可以禁用 <a href="/jQuery.ajaxSend">.ajaxSend()</a> 里设置的载入等待指示器。更多关于这些方法的详细信息，请参阅下面的内容。</p>
+            <p><code>global</code> 选项用于在 Ajax 请求时，阻止响应全局注册的 Ajax 事件回调函数，比如 <code><a href="/ajaxSend">.ajaxSend()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code> ，以及其他类似的方法。这在有些时候很有用，比如发送的请求非常频繁且简短的时候，就可以禁用 <a href="/ajaxSend">.ajaxSend()</a> 里设置的载入等待指示器。更多关于这些方法的详细信息，请参阅下面的内容。</p>
 					       <p>如果服务器需要HTTP认证，可以使用用户名和密码可以通过 <code>username</code> 和 <code>password</code> 选项来设置。</p>
 					       <p>Ajax请求是限时的，所以错误警告被捕获并处理后，可以用来提升用户体验。请求超时这个参数通常就保留其默认值，或者就通过<code><a href="/jQuery.ajaxSetup">$.ajaxSetup()</a></code>来全局设定，很少为特定的请求重新设置 <code>timeout</code> 选项。</p>
 					       <p>默认情况下，请求总会被发出去的，但浏览器有可能从他的缓存中调取数据。要禁止使用缓存的结果，可以设置 <code>cache</code> 参数为 <code>false</code> 。如果希望判断数据自从上次请求后是否更改过，如果没有更改过就报告请求失败的话，可以设置 <code>ifModified</code> 参数为 <code>true</code>。</p>
