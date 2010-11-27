@@ -88,23 +88,23 @@
   </categories>
    <entries>
       <entry type="method" name="fadeToggle">
-         <desc>Display or hide the matched elements by animating their opacity.</desc>
+         <desc>通过透明度动画来显示或隐藏匹配的元素。</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.fadeToggle()</code> method animates the opacity of the matched elements. When called on a visible element, the element's <code>display</code> style property is set to <code>none</code> once the opacity reaches 0, so the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
             <p>The string representing an easing function specifies the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
          </longdesc>
          <example>
             <desc>Fades first paragraph in or out, completing the animation within 600 milliseconds and using a linear easing. Fades last paragraph in or out for 200 milliseconds, inserting a "finished" message upon completion. </desc>
@@ -216,11 +216,11 @@
          </example>
       </entry>
       <entry type="property" name="event.namespace">
-         <desc>The namespace specified when the event was triggered.</desc>
+         <desc>当事件出发时指定命名空间。</desc>
          <signature/>
-         <longdesc><p>This will likely be used primarily by plugin authors who wish to handle tasks differently depending on the event namespace used.</p></longdesc>
+         <longdesc><p>这个属性对插件作者比较有用。可以根据不同的事件命名空间，来完成不同的任务。</p></longdesc>
          <example>
-            <desc>Determine the event namespace used.</desc>
+            <desc>检测使用的事件命名空间。</desc>
          </example>
       </entry>
       <entry type="method" name="undelegate">
@@ -4588,13 +4588,13 @@ $('ul.first').find('.foo')
                <desc>A map of CSS properties that the animation will move toward.</desc>
             </argument>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
@@ -4605,11 +4605,11 @@ $('ul.first').find('.foo')
                <desc>A map of additional options to pass to the method. Supported keys:
         <ul>
                      <li>
-                        <code>duration</code>: A string or number determining how long the animation will run.</li>
+                        <code>duration</code>: 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</li>
                      <li>
-                        <code>easing</code>: A string indicating which easing function to use for the transition.</li>
+                        <code>easing</code>: 要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</li>
                      <li>
-                        <code>complete</code>: A function to call once the animation is complete.</li>
+                        <code>complete</code>: 在动画完成时执行的函数。</li>
                      <li>
                         <code>step</code>: A function to be called after each step of the animation.</li>
                      <li>
@@ -4629,8 +4629,8 @@ $('ul.first').find('.foo')
             <h4 id="duration">Duration</h4>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
             <h4 id="callback">Callback Function</h4>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -4790,34 +4790,34 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Adjust the opacity of the matched elements.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="opacity">
                <desc>A number between 0 and 1 denoting the target opacity.</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="opacity">
                <desc>A number between 0 and 1 denoting the target opacity.</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.fadeTo()</code> method animates the opacity of the matched elements.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, the default duration of  <code>400</code> milliseconds is used. Unlike the other effect methods, <code>.fadeTo()</code> requires that <code>duration</code> be explicitly specified.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
     Click here
   &lt;/div&gt;
@@ -4851,29 +4851,29 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Hide the matched elements by fading them to transparent.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.fadeOut()</code> method animates the opacity of the matched elements. Once the opacity reaches 0, the <code>display</code> style property is set to <code>none</code>, so the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -4946,29 +4946,29 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Display the matched elements by fading them to opaque.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.fadeIn()</code> method animates the opacity of the matched elements.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
       Click here
     &lt;/div&gt;
@@ -5071,29 +5071,29 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Display or hide the matched elements with a sliding motion.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.slideToggle()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up or down, appearing to reveal or conceal the items. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>. When the height reaches 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -5195,29 +5195,29 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Hide the matched elements with a sliding motion.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.slideUp()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up, appearing to conceal the items. Once the height reaches 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -5309,29 +5309,29 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Display the matched elements with a sliding motion.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
             <p>The <code>.slideDown()</code> method animates the height of the matched elements. This causes lower parts of the page to slide down, making way for the revealed items.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -6152,21 +6152,21 @@ $('li').not(document.getElementById('notli'))
          <desc>Display or hide the matched elements.</desc>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
@@ -6182,9 +6182,9 @@ $('li').not(document.getElementById('notli'))
             <p>When a duration is provided, <code>.toggle()</code> becomes an animation method. The <code>.toggle()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
             <blockquote><p>Note: The event handling suite also has a method named <a href="http://api.jquery.com/toggle-event/">.toggle()</a>. Which one is fired depends on the set of arguments passed.</p></blockquote>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -6343,21 +6343,21 @@ alert(shallowDecoded);
          <signature/>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -6367,9 +6367,9 @@ alert(shallowDecoded);
             <p>The matched elements will be hidden immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'none')</code>, except that the value of the <code>display</code> property is saved in jQuery's data cache so that <code>display</code> can later be restored to its initial value. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.hide()</code> becomes an animation method. The <code>.hide()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -6490,21 +6490,21 @@ $(document).height(); // returns height of HTML document</pre>
          <signature/>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>A string or number determining how long the animation will run.</desc>
+               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
             </argument>
             <argument name="easing">
-               <desc>A string indicating which easing function to use for the transition.</desc>
+               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
             </argument>
             <argument name="callback">
-               <desc>A function to call once the animation is complete.</desc>
+               <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
@@ -6515,9 +6515,9 @@ $(document).height(); // returns height of HTML document</pre>
             <p>The matched elements will be revealed immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'block')</code>, except that the <code>display</code> property is restored to whatever it was initially. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.show()</code> becomes an animation method. The <code>.show()</code> method animates the width, height, and opacity of the matched elements simultaneously.</p>
             <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
-            <p>As of jQuery 1.4.3, an optional string naming an easing function may be used. Easing functions specify the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>If supplied, the callback is fired once the animation is complete. This can be useful for stringing different animations together in sequence. The callback is not sent any arguments, but <code>this</code> is set to the DOM element being animated. If multiple elements are animated, it is important to note that the callback is executed once per matched element, not once for the animation as a whole.</p>
-            <p>We can animate any element, such as a simple image:</p>
+            <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;

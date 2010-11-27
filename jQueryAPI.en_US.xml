@@ -46,9 +46,9 @@
       <category name="Setup Methods"/>
     </category>
     <category name="Offset"/>
-    <category name="Plugin Authoring"/>
+    <category name="Internals"/>
     <category name="Properties">
-      <category name="Properties of jQuery Object Instances "/>
+      <category name="Properties of jQuery Object Instances"/>
       <category name="Properties of the Global jQuery Object"/>
     </category>
     <category name="Selectors">
@@ -68,19 +68,21 @@
     </category>
     <category name="Utilities"/>
     <category name="Version">
-      <category name="Version 1.0"/>
-      <category name="Version 1.0.4"/>
-      <category name="Version 1.1"/>
-      <category name="Version 1.1.2"/>
-      <category name="Version 1.1.3"/>
-      <category name="Version 1.1.4"/>
-      <category name="Version 1.2"/>
-      <category name="Version 1.2.3"/>
-      <category name="Version 1.2.6"/>
-      <category name="Version 1.3"/>
-      <category name="Version 1.4"/>
-      <category name="Version 1.4.1"/>
+      <category name="Version 1.4.4"/>
+      <category name="Version 1.4.3"/>
       <category name="Version 1.4.2"/>
+      <category name="Version 1.4.1"/>
+      <category name="Version 1.4"/>
+      <category name="Version 1.3"/>
+      <category name="Version 1.2.6"/>
+      <category name="Version 1.2.3"/>
+      <category name="Version 1.2"/>
+      <category name="Version 1.1.4"/>
+      <category name="Version 1.1.3"/>
+      <category name="Version 1.1.2"/>
+      <category name="Version 1.1"/>
+      <category name="Version 1.0.4"/>
+      <category name="Version 1.0"/>
     </category>
   </categories>
     <entries>

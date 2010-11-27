@@ -7,7 +7,7 @@
 	<xsl:template match="/">
 		<html>
 		<head>
-			<title>jQuery <xsl:value-of select="replace(/api/categories/category[@name='Version']/category[last()]/@name,'Version ','')"/> 中文文档 </title>
+			<title>jQuery <xsl:value-of select="replace(/api/categories/category[@name='Version']/category[1]/@name,'Version ','')"/> 中文文档 </title>
 			<link rel="stylesheet" href="style.css"/>
 		</head>
 		<body id="api">
@@ -78,22 +78,13 @@
 						</xsl:for-each-group>
 					</xsl:for-each-group>
 				</div>
-			</div><!--
-			<script type="text/javascript">
-				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-				</script>
-				<script type="text/javascript">
-				var pageTracker = _gat._getTracker("UA-5320749-1");
-				pageTracker._initData();
-				pageTracker._trackPageview();
-			</script>-->
+			</div>
 			<script src="jquery.min.js"></script>
 			<script src="jquery.ba-hashchange.min.js"></script>
 			<script><![CDATA[
 				$(window).hashchange(function(){
 					var page=window.location.hash.replace("#","")||"cheatsheet";
-					$("#content").load("entry/"+page+".html?"+ +new Date,function(){
+					$("#content").empty().css("top",$(document).scrollTop()).load("entry/"+page+".html?"+ +new Date,function(){
 						$("iframe").each(function(){
 							 var doc = this.contentDocument ||
 									(iframe.contentWindow && iframe.contentWindow.document) ||
@@ -110,7 +101,6 @@
 					$(this).next("div").toggle().siblings("div").hide();
 				});
 				$("#sidebar li").click(function(){
-					$("#content").empty().css("top",$(document).scrollTop());
 					if($(this).hasClass("selector")){
 						window.location.hash==$(this).attr("title").replace(" ","-")+"-selector";
 					}else{
