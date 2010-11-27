@@ -89,17 +89,11 @@
 				pageTracker._trackPageview();
 			</script>-->
 			<script src="jquery.min.js"></script>
+			<script src="jquery.ba-hashchange.min.js"></script>
 			<script><![CDATA[
-				$("#sidebar h2").click(function(){
-					$(this).next("div").toggle().siblings("div").hide();
-				});
-				$("#sidebar li").click(function(){
-					$("#content").empty().css("top",$(document).scrollTop());
-					var name="entry/"+$(this).text().replace("()","");
-					if($(this).hasClass("selector")){
-						name="entry/"+$(this).attr("title").replace(" ","-")+"-selector";
-					}
-					$("#content").load(name+".html?"+ +new Date,function(){
+				$(window).hashchange(function(){
+					var page=window.location.hash.replace("#","")||"cheatsheet";
+					$("#content").load("entry/"+page+".html?"+ +new Date,function(){
 						$("iframe").each(function(){
 							 var doc = this.contentDocument ||
 									(iframe.contentWindow && iframe.contentWindow.document) ||
@@ -109,8 +103,19 @@
 							doc.open();
 							doc.write($(this).prev().prev().find("code").text());
 							doc.close();
-						})
+						});
 					});
+				}).hashchange();
+				$("#sidebar h2").click(function(){
+					$(this).next("div").toggle().siblings("div").hide();
+				});
+				$("#sidebar li").click(function(){
+					$("#content").empty().css("top",$(document).scrollTop());
+					if($(this).hasClass("selector")){
+						window.location.hash==$(this).attr("title").replace(" ","-")+"-selector";
+					}else{
+						window.location.hash=$(this).text().replace("()","");
+					}
 				});
 			]]></script>
 <script type="text/javascript">
