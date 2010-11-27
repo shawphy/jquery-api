@@ -46,9 +46,9 @@
       <category name="Setup Methods"/>
     </category>
     <category name="Offset"/>
-    <category name="Internals"/>
+    <category name="Plugin Authoring"/>
     <category name="Properties">
-      <category name="Properties of jQuery Object Instances"/>
+      <category name="Properties of jQuery Object Instances "/>
       <category name="Properties of the Global jQuery Object"/>
     </category>
     <category name="Selectors">
@@ -81,8 +81,6 @@
       <category name="Version 1.4"/>
       <category name="Version 1.4.1"/>
       <category name="Version 1.4.2"/>
-      <category name="Version 1.4.3"/>
-      <category name="Version 1.4.4"/>
     </category>
   </categories>
     <entries>
@@ -6796,6 +6794,8 @@ if (jQuery.browser.msie) {
   <p>And then later add a new element:</p>
   <pre>$('body').append('&lt;div class="clickme"&gt;Another target&lt;/div&gt;');</pre>
   <p>Then clicks on the new element will also trigger the handler.</p>
+  <p>If we later wish to <em>unbind</em> the click handlers from all <code>&lt;div class="clickme"&gt;</code> that were bound using <code>.live()</code>, we can use the <code><a href="http://api.jquery.com/die/">.die()</a></code> method:</p>
+<pre>$('.clickme').die('click');</pre>
   <h4 id="event-delegation">Event Delegation</h4>
   <p>The <code>.live()</code> method is able to affect elements that have not yet been added to the DOM through the use of event delegation: a handler bound to an ancestor element is responsible for events that are triggered on its descendants. The handler passed to <code>.live()</code> is never bound to an element; instead, <code>.live()</code> binds a special handler to the root of the DOM tree. In our example, when the new element is clicked, the following steps occur:</p>
   <ol>
@@ -18408,6 +18408,6 @@ $( "#dramaBtn" ).click( function() {
 
 Minified using disk
 Page Caching using disk (enhanced)
-Database Caching 18/28 queries in 0.126 seconds using disk
+Database Caching 18/28 queries in 0.122 seconds using disk
 
-Served from: api.jquery.com @ 2010-11-26 16:53:03 -->
+Served from: api.jquery.com @ 2010-11-27 18:11:13 -->
