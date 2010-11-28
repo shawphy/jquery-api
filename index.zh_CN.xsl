@@ -28,17 +28,18 @@
 												<xsl:for-each select="//entry/category[@name=current()/@name]/..">
 													<xsl:sort select="@name"/>
 													<xsl:if test="not(following::entry[1]/@name=@name)">
-														<xsl:choose>
-															<xsl:when test="@type='selector'">
-																<li class="selector">
-																	<xsl:attribute name="title"><xsl:value-of select="@name"/></xsl:attribute>
+														<li><a>
+															<xsl:choose>
+																<xsl:when test="@type='selector'">
+																	<xsl:attribute name="href"><xsl:value-of select="@name"/>-selector.htm</xsl:attribute>
 																	<xsl:value-of select="sample"/>
-																</li>
-															</xsl:when>
-															<xsl:otherwise>
-																<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
-															</xsl:otherwise>
-														</xsl:choose>
+																</xsl:when>
+																<xsl:otherwise>
+																	<xsl:attribute name="href"><xsl:value-of select="@name"/>.htm</xsl:attribute>
+																	<xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if>
+																</xsl:otherwise>
+															</xsl:choose>
+														</a></li>
 													</xsl:if>
 												</xsl:for-each>
 											</ul>
@@ -85,7 +86,7 @@
 				$(window).hashchange(function(){
 					var page=window.location.hash.replace("#","")||"cheatsheet";
 					$("#content").empty().css("top",$(document).scrollTop())
-						.load("entry/"+page+".htm?"+(new Date/86400000).toFixed(0),function(){
+						.load(page+".htm?"+(new Date/86400000).toFixed(0),function(){
 						$("iframe").each(function(){
 							 var doc = this.contentDocument ||
 									(iframe.contentWindow && iframe.contentWindow.document) ||
@@ -101,14 +102,7 @@
 				$("#sidebar h2").click(function(){
 					$(this).next("div").toggle().siblings("div").hide();
 				});
-				$("#sidebar li").click(function(){
-					if($(this).hasClass("selector")){
-						window.location.hash=$(this).attr("title").replace(" ","-")+"-selector";
-					}else{
-						window.location.hash=$(this).text().replace("()","");
-					}
-				});
-				$("#content").click(function(e){
+				$("#wrapper").click(function(e){
 					if($(e.target).is("a[href$='.htm']")){
 						window.location.hash=$(e.target).attr("href").replace(".htm","");
 						return false;

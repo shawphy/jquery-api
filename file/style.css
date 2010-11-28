@@ -108,7 +108,7 @@ hr{
 	font-size: 14px;
 	text-align: center;
 }
-#sidebar ul li{
+#sidebar ul li a{
 	padding: 4px;
 	cursor:pointer;
 	display:block;
@@ -116,9 +116,12 @@ hr{
 	font-size: 12px;
 	text-align: left;
 }
-#sidebar h2:hover,#sidebar ul li:hover{
+#sidebar h2:hover,#sidebar ul li a:hover{
 	color:white;
 	background: rgb(79,129,189);
+}
+#sidebar ul li a{
+	display:block;
 }
 #sidebar h2:hover em{
 	color:#ddd;
