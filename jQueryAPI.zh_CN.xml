@@ -507,7 +507,7 @@
             <p>例如，我们可以在 <code>&lt;div id="foo"&gt;</code> 的 <code>.slideUp()</code> 和 <code>.fadeIn()</code> 动画之间添加800毫秒的延时 :</p>
             <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
             <p>当这句语句执行后，元素会有300毫秒的卷起动画，接着暂停800毫秒，再出现400毫秒淡入动画。</p>
-            <blockquote><p><strong><code>.delay()</code> 用在jQuery动画或者类似队列中是再好不过的了。但是，由于其本身的限制，比如无法取消延时，所以不应完全用来替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong>></p></blockquote>
+            <blockquote><p><strong><code>.delay()</code> 用在jQuery动画或者类似队列中是再好不过的了。但是，由于其本身的限制，比如无法取消延时，所以不应完全用来替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong></p></blockquote>
          </longdesc>
          <example>
             <desc>隐藏再显示两个div。其中绿色的div再次出现得更慢。</desc>
@@ -2235,36 +2235,36 @@ if ( mydata.count &lt; 9 ) {
          </example>
       </entry>
       <entry type="method" name="dequeue">
-         <desc>Execute the next function on the queue for the matched elements.</desc>
+         <desc>执行匹配元素上函数队列中的下一个函数。</desc>
          <signature>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名称的字符串，默认值是动画效果队列 <code>fx</code>。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>When <code>.dequeue()</code> is called, the next function on the queue is removed from the queue, and then executed. This function should in turn (directly or indirectly) cause <code>.dequeue()</code> to be called, so that the sequence can continue.</p>
+            <p>当调用 <code>.dequeue()</code> 时，队列中的下一个函数会移除并执行。这个执行的函数中也应当直接或间接的包含 <code>.dequeue()</code> 语句，这样才能继续执行队列中的再下一个函数，让队列可以继续下去。</p>
          </longdesc>
          <example>
-            <desc>Use dequeue to end a custom queue function which allows the queue to keep going.</desc>
+            <desc>在自定义队列函数中，使用 dequeue 来做结尾，以便队列可以继续运行下去。</desc>
          </example>
       </entry>
       <entry type="method" name="queue">
-         <desc>Show the queue of functions to be executed on the matched elements.</desc>
+         <desc>显示匹配元素上将要执行的函数队列。</desc>
          <signature>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名称的字符串，默认值是动画效果队列 <code>fx</code>。</desc>
             </argument>
          </signature>
          <longdesc/>
          <example>
-            <desc>Show the length of the queue.</desc>
+            <desc>显示队列长度。</desc>
          </example>
       </entry>
       <entry type="method" name="queue">
          <desc>Manipulate the queue of functions to be executed on the matched elements.</desc>
          <signature>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名称的字符串，默认值是动画效果队列 <code>fx</code>。</desc>
             </argument>
             <argument name="newQueue">
                <desc>An array of functions to replace the current queue contents.</desc>
@@ -2272,7 +2272,7 @@ if ( mydata.count &lt; 9 ) {
          </signature>
          <signature>
             <argument name="queueName">
-               <desc>A string containing the name of the queue. Defaults to <code>fx</code>, the standard effects queue.</desc>
+               <desc>包含队列名称的字符串，默认值是动画效果队列 <code>fx</code>。</desc>
             </argument>
             <argument name="callback( next )">
                <desc>The new function to add to the queue, with a function to call that will dequeue the next item.</desc>
@@ -6337,7 +6337,7 @@ alert(shallowDecoded);
          </example>
       </entry>
       <entry type="method" name="hide">
-         <desc>Hide the matched elements.</desc>
+         <desc>隐藏匹配的元素。</desc>
          <signature/>
          <signature>
             <argument name="duration">
@@ -6359,11 +6359,11 @@ alert(shallowDecoded);
             </argument>
          </signature>
          <longdesc>
-            <p>With no parameters, the <code>.hide()</code> method is the simplest way to hide an element:</p>
+            <p>隐藏元素的最简单方式就是不带参数的 <code>.hide()</code> 方法：</p>
             <pre>$('.target').hide();
 </pre>
-            <p>The matched elements will be hidden immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'none')</code>, except that the value of the <code>display</code> property is saved in jQuery's data cache so that <code>display</code> can later be restored to its initial value. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
-            <p>When a duration is provided, <code>.hide()</code> becomes an animation method. The <code>.hide()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
+            <p>此时元素会立即隐藏起来，不带有任何动画。这基本等价于 <code>.css('display', 'none')</code> ，只不过此时 <code>display</code> 属性值会保存到 jQuery 的数据缓存中，之后还能恢复 <code>display</code> 的初始值。比如，如果一个元素的 <code>display</code> 值为 <code>inline</code>，那么当隐藏再显示时，他仍然是 <code>inline</code>。</p>
+            <p>如果提供 duration 参数，<code>.hide()</code> 就变成一个动画方法了。<code>.hide()</code> 会同时对元素的高、宽以及透明度进行动画操作。当这些属性值变成 0 之后，再把 <code>display</code> 样式属性设置成 <code>none</code> 以确保这个元素不再对页面布局产生影响。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -6371,9 +6371,9 @@ alert(shallowDecoded);
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
-&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
-With the element initially shown, we can hide it slowly:
-$('#clickme').click(function() {
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+            <p>元素一开始显现的，我们可以让他缓慢的隐藏起来：</p>
+            <pre>$('#clickme').click(function() {
   $('#book').hide('slow', function() {
     alert('Animation complete.');
   });
@@ -6388,16 +6388,16 @@ $('#clickme').click(function() {
 
          </longdesc>
          <example>
-            <desc>Hides all paragraphs then the link on click.</desc>
+            <desc>点击链接后隐藏所有段落。</desc>
          </example>
          <example>
-            <desc>Animates all shown paragraphs to hide slowly, completing the animation within 600 milliseconds.</desc>
+            <desc>把所有段落缓慢的隐藏起来，用时 600 毫秒。</desc>
          </example>
          <example>
-            <desc>Animates all spans (words in this case) to hide fastly, completing each animation within 200 milliseconds. Once each animation is done, it starts the next one.</desc>
+            <desc>快速隐藏所有的 span 元素，用时 200 毫秒。一个结束后立即开始下一个。</desc>
          </example>
          <example>
-            <desc>Hides the divs when clicked over 2 seconds, then removes the div element when its hidden.  Try clicking on more than one box at a time.</desc>
+            <desc>当点击 div 之后用 2 秒时间隐藏这个 div。当完全隐藏后从文档中移除。试试一次多点几个 div 看看。</desc>
          </example>
       </entry>
       <entry type="method" name="width">
@@ -6484,7 +6484,7 @@ $(document).height(); // returns height of HTML document</pre>
          </example>
       </entry>
       <entry type="method" name="show">
-         <desc>Display the matched elements.</desc>
+         <desc>显示匹配的元素。</desc>
          <signature/>
          <signature>
             <argument name="duration">
@@ -6506,12 +6506,11 @@ $(document).height(); // returns height of HTML document</pre>
             </argument>
          </signature>
          <longdesc>
-            <p>With no parameters, the <code>.show()</code> method is the simplest way to display an element:
-</p>
+            <p>显示元素的最简单方式就是不带参数的 <code>.show()</code> 方法：</p>
             <pre>$('.target').show();
 </pre>
-            <p>The matched elements will be revealed immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'block')</code>, except that the <code>display</code> property is restored to whatever it was initially. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
-            <p>When a duration is provided, <code>.show()</code> becomes an animation method. The <code>.show()</code> method animates the width, height, and opacity of the matched elements simultaneously.</p>
+            <p>此时元素会立即显示起来，不带有任何动画。这基本等价于 <code>.css('display', 'block')</code> ，只不过此时 <code>display</code> 属性值会保存到 jQuery 的数据缓存中，之后还能恢复 <code>display</code> 的初始值。比如，如果一个元素的 <code>display</code> 值为 <code>inline</code>，那么当隐藏再显示时，他仍然是 <code>inline</code>。</p>
+            <p>如果提供 duration 参数，<code>.show()</code> 就变成一个动画方法了。<code>.show()</code> 会同时对元素的高、宽以及透明度进行动画操作。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -6519,11 +6518,11 @@ $(document).height(); // returns height of HTML document</pre>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
-&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
-With the element initially hidden, we can show it slowly:
-$('#clickme').click(function() {
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+            <p>如果元素一开始隐藏的，我们可以让他缓慢的显示出来：</p>
+            <pre>$('#clickme').click(function() {
   $('#book').show('slow', function() {
-    // Animation complete.
+    // 动画完毕
   });
 });</pre>
             <p class="image four-across">
@@ -6535,13 +6534,13 @@ $('#clickme').click(function() {
 
          </longdesc>
          <example>
-            <desc>Animates all hidden paragraphs to show slowly, completing the animation within 600 milliseconds.</desc>
+            <desc>把所有隐藏的段落缓慢显现出来，用时 600 毫秒。</desc>
          </example>
          <example>
-            <desc>Animates all hidden divs to show fastly in order, completing each animation within 200 milliseconds. Once each animation is done, it starts the next one.</desc>
+            <desc>把隐藏的 div 依次迅速显示出来，每个用时 200 毫秒。一个动画完成后立即开始下一个。</desc>
          </example>
          <example>
-            <desc>Shows all span and input elements with an animation. Once the animation is done, it changes the text.</desc>
+            <desc>动画显示所有 span 和 input 元素。可以试着在下面的文本框中输入 yes 并按回车。</desc>
          </example>
       </entry>
       <entry type="method" name="scrollLeft">

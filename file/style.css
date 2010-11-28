@@ -112,9 +112,11 @@ hr{
 	padding: 4px;
 	cursor:pointer;
 	display:block;
+	color:#333;
 	background: #fff;
 	font-size: 12px;
 	text-align: left;
+	text-decoration: none;
 }
 #sidebar h2:hover,#sidebar ul li a:hover{
 	color:white;
