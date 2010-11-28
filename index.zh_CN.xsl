@@ -84,7 +84,8 @@
 			<script><![CDATA[
 				$(window).hashchange(function(){
 					var page=window.location.hash.replace("#","")||"cheatsheet";
-					$("#content").empty().css("top",$(document).scrollTop()).load("entry/"+page+".html?"+ +new Date,function(){
+					$("#content").empty().css("top",$(document).scrollTop())
+						.load("entry/"+page+".html?"+(new Date/86400000).toFixed(0),function(){
 						$("iframe").each(function(){
 							 var doc = this.contentDocument ||
 									(iframe.contentWindow && iframe.contentWindow.document) ||

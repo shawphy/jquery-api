@@ -2063,10 +2063,10 @@ if ( mydata.count &lt; 9 ) {
                <desc>任何有效的选择器。</desc>
             </argument>
             <argument name="selector2">
-               <desc>另一个任何有效的选择器。</desc>
+               <desc>另一个有效的选择器。</desc>
             </argument>
             <argument name="selectorN">
-               <desc>As many more valid selectors as you like.</desc>
+               <desc>只要你愿意，可以提供更多有效的选择器。</desc>
             </argument>
          </signature>
          <longdesc>
