@@ -51,7 +51,10 @@
 									<xsl:for-each select="//entry/category[@name=current()/@name]/..">
 										<xsl:sort select="@name"/>
 										<xsl:if test="not(following::entry[1]/@name=@name)">
-											<li><xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if></li>
+											<li><a>
+												<xsl:attribute name="href"><xsl:value-of select="@name"/>.htm</xsl:attribute>
+												<xsl:value-of select="@name"/><xsl:if test="@type='method'">()</xsl:if>
+											</a></li>
 										</xsl:if>
 									</xsl:for-each>
 									</ul>
