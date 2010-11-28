@@ -31,7 +31,7 @@
 														<li><a>
 															<xsl:choose>
 																<xsl:when test="@type='selector'">
-																	<xsl:attribute name="href"><xsl:value-of select="@name"/>-selector.htm</xsl:attribute>
+																	<xsl:attribute name="href"><xsl:value-of select="replace(@name,' ','-')"/>-selector.htm</xsl:attribute>
 																	<xsl:value-of select="sample"/>
 																</xsl:when>
 																<xsl:otherwise>

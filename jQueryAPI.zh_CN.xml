@@ -94,20 +94,20 @@
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.fadeToggle()</code> method animates the opacity of the matched elements. When called on a visible element, the element's <code>display</code> style property is set to <code>none</code> once the opacity reaches 0, so the element no longer affects the layout of the page.</p>
+            <p><code>.fadeOut()</code> 方法对匹配元素的透明度生成动画效果。当透明度变成 0 之后，再把 <code>display</code> 样式属性设置成 <code>none</code> 以确保这个元素不再对页面布局产生影响。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
          </longdesc>
          <example>
-            <desc>Fades first paragraph in or out, completing the animation within 600 milliseconds and using a linear easing. Fades last paragraph in or out for 200 milliseconds, inserting a "finished" message upon completion. </desc>
+            <desc>第一段落渐隐或渐显，用时 600 毫秒，并且是线性缓冲效果。而第二个段落渐隐渐显用时 200 毫秒, 并且在每次动画完成后插入一个 "finished"。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.type">
@@ -4591,7 +4591,7 @@ $('ul.first').find('.foo')
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -4607,7 +4607,7 @@ $('ul.first').find('.foo')
                      <li>
                         <code>duration</code>: 字符串("slow"或 "fast")或表示动画时长的毫秒数值</li>
                      <li>
-                        <code>easing</code>: 要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</li>
+                        <code>easing</code>: 要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</li>
                      <li>
                         <code>complete</code>: 在动画完成时执行的函数。</li>
                      <li>
@@ -4643,7 +4643,7 @@ $('ul.first').find('.foo')
     left: '+=50',
     height: 'toggle'
   }, 5000, function() {
-    // Animation complete.
+    // 动画完成
   });
 });
 </pre>
@@ -4701,7 +4701,7 @@ $('ul.first').find('.foo')
             <desc>Shows a div animate with a relative move.  Click several times on the buttons to see the relative animations queued up.</desc>
          </example>
          <example>
-            <desc>Animates all paragraphs to toggle both height and opacity, completing the animation within 600 milliseconds.</desc>
+            <desc>Animates all paragraphs to toggle both height and opacity, 用时 600 毫秒。</desc>
          </example>
          <example>
             <desc>Animates all paragraph to a left style of 50 and opacity of 1 (opaque, visible), completing the animation within 500 milliseconds.</desc>
@@ -4715,7 +4715,7 @@ $('ul.first').find('.foo')
 The second button starts a traditional chained animation, where each animation will start once the previous animation on the element has completed.</desc>
          </example>
          <example>
-            <desc>Animates all paragraphs to toggle both height and opacity, completing the animation within 600 milliseconds.</desc>
+            <desc>Animates all paragraphs to toggle both height and opacity, 用时 600 毫秒。</desc>
          </example>
          <example>
             <desc>Animates all paragraph to a left style of 50 and opacity of 1 (opaque, visible), completing the animation within 500 milliseconds.  It also will do it <em>outside</em> the queue, meaning it will automatically start without waiting for its turn.</desc>
@@ -4787,13 +4787,13 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="fadeTo">
-         <desc>Adjust the opacity of the matched elements.</desc>
+         <desc>调整匹配元素的透明度。</desc>
          <signature>
             <argument name="duration">
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="opacity">
-               <desc>A number between 0 and 1 denoting the target opacity.</desc>
+               <desc>0 到 1 之间的数字，表示将要达到的透明度。0 是最透明。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -4804,28 +4804,28 @@ The second button starts a traditional chained animation, where each animation w
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="opacity">
-               <desc>A number between 0 and 1 denoting the target opacity.</desc>
+               <desc>0 到 1 之间的数字，表示将要达到的透明度。0 是最透明。</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.fadeTo()</code> method animates the opacity of the matched elements.</p>
+            <p><code>.fadeTo()</code> 方法对匹配元素的透明度生成动画效果。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。与其他的动画效果不同， <code>.fadeTo()</code> 要求比如设定 <code>duration</code> 参数。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
             <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
     Click here
   &lt;/div&gt;
-  &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
-  With the element initially shown, we can dim it slowly:
-  $('#clickme').click(function() {
+  &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+  <p>如果元素一开始是显现的，我们可以缓慢调整它的透明度：</p>
+  <pre>$('#clickme').click(function() {
     $('#book').fadeTo('slow', 0.5, function() {
-      // Animation complete.
+      // 动画完成
     });
   });
   </pre>
@@ -4835,20 +4835,20 @@ The second button starts a traditional chained animation, where each animation w
                <img src="images/0042_06_43.png" alt=""/>
                <img src="images/0042_06_44.png" alt=""/>
             </p>
-            <p>With <code>duration</code> set to <code>0</code>, this method just changes the <code>opacity</code> CSS property, so <code>.fadeTo(0, opacity)</code> is the same as <code>.css('opacity', opacity)</code>.</p>
+            <p>如果 <code>duration</code> 参数设置成 <code>0</code>，那么这个方法就仅仅修改 <code>opacity</code> CSS属性。所以 <code>.fadeTo(0, opacity)</code> 等价于 <code>.css('opacity', opacity)</code>。</p>
          </longdesc>
          <example>
-            <desc>Animates first paragraph to fade to an opacity of 0.33 (33%, about one third visible), completing the animation within 600 milliseconds.</desc>
+            <desc>把第一个段落的透明度渐变成 0.33 (33%，大约三分之一透明度), 用时 600 毫秒。</desc>
          </example>
          <example>
-            <desc>Fade div to a random opacity on each click, completing the animation within 200 milliseconds.</desc>
+            <desc>每次点击后把 div 渐变成随机透明度，用时 200 毫秒。</desc>
          </example>
          <example>
-            <desc>Find the right answer!  The fade will take 250 milliseconds and change various styles when it completes.</desc>
+            <desc>找到正确答案！渐变耗时 250 毫秒，并且在完成后会改变字体样式。</desc>
          </example>
       </entry>
       <entry type="method" name="fadeOut">
-         <desc>Hide the matched elements by fading them to transparent.</desc>
+         <desc>通过渐变形式让匹配的元素变成透明。</desc>
          <signature>
             <argument name="duration">
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
@@ -4859,17 +4859,17 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值。</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.fadeOut()</code> method animates the opacity of the matched elements. Once the opacity reaches 0, the <code>display</code> style property is set to <code>none</code>, so the element no longer affects the layout of the page.</p>
+            <p><code>.fadeOut()</code> 方法对匹配元素的透明度生成动画效果。当透明度变成 0 之后，再把 <code>display</code> 样式属性设置成 <code>none</code> 以确保这个元素不再对页面布局产生影响。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -4878,10 +4878,10 @@ The second button starts a traditional chained animation, where each animation w
   Click here
 &lt;/div&gt;
 &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
-            <p>With the element initially shown, we can hide it slowly:</p>
+            <p>如果元素一开始是显现的，我们可以这样将其缓慢的隐藏：</p>
             <pre>$('#clickme').click(function() {
   $('#book').fadeOut('slow', function() {
-    // Animation complete.
+    // 动画完成
   });
 });</pre>
             <p class="image four-across">
@@ -4892,13 +4892,13 @@ The second button starts a traditional chained animation, where each animation w
             </p>
          </longdesc>
          <example>
-            <desc>Animates all paragraphs to fade out, completing the animation within 600 milliseconds.</desc>
+            <desc>让所有段落渐渐消失，用时 600 毫秒。</desc>
          </example>
          <example>
-            <desc>Fades out spans in one section that you click on.</desc>
+            <desc>渐隐你点击的 span 。</desc>
          </example>
          <example>
-            <desc>Fades out two divs, one with a "linear" easing and one with the default, "swing," easing.</desc>
+            <desc>渐隐两个 div ，一个使用 "linear" 缓冲效果，另一个使用默认的 "swing," 缓冲效果。</desc>
          </example>
       </entry>
       <entry type="method" name="parents">
@@ -4943,7 +4943,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="fadeIn">
-         <desc>Display the matched elements by fading them to opaque.</desc>
+         <desc>通过透明度渐显匹配的元素。</desc>
          <signature>
             <argument name="duration">
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
@@ -4957,14 +4957,14 @@ The second button starts a traditional chained animation, where each animation w
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.fadeIn()</code> method animates the opacity of the matched elements.</p>
+            <p><code>.fadeIn()</code> 方法对匹配元素的透明度生成动画效果。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -4972,11 +4972,11 @@ The second button starts a traditional chained animation, where each animation w
             <pre>&lt;div id="clickme"&gt;
       Click here
     &lt;/div&gt;
-    &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
-    With the element initially hidden, we can show it slowly:
-    $('#clickme').click(function() {
+    &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+            <p>如果元素一开始是隐藏的，我们可以这样将其缓慢地显现：</p>
+            <pre>$('#clickme').click(function() {
       $('#book').fadeIn('slow', function() {
-        // Animation complete
+        // 动画完成
       });
     });</pre>
             <p class="image four-across">
@@ -4987,10 +4987,10 @@ The second button starts a traditional chained animation, where each animation w
             </p>
          </longdesc>
          <example>
-            <desc>Animates hidden divs to fade in one by one, completing each animation within 600 milliseconds.</desc>
+            <desc>依次把影藏的 div 显现出来，用时 600 毫秒。</desc>
          </example>
          <example>
-            <desc>Fades a red block in over the text. Once the animation is done, it quickly fades in more text on top.</desc>
+            <desc>在文本上方渐渐显示一个红色方块，一旦动画完成后，马上在上面再显示一行文本。</desc>
          </example>
       </entry>
       <entry type="method" name="parent">
@@ -5068,7 +5068,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="slideToggle">
-         <desc>Display or hide the matched elements with a sliding motion.</desc>
+         <desc>通过滑动的形式显示或隐藏匹配的元素。</desc>
          <signature>
             <argument name="duration">
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
@@ -5082,14 +5082,14 @@ The second button starts a traditional chained animation, where each animation w
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.slideToggle()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up or down, appearing to reveal or conceal the items. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>. When the height reaches 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
+            <p><code>.slideToggle()</code> 方法对匹配元素的高度进行动画操作。这会导致页面中，在这个元素下面的内容往下滑。如果元素一开始是显示的，他最终会被隐藏；如果一开始是隐藏的，他会显示出来。 <code>display</code> 属性值会保存到 jQuery 的数据缓存中，之后还能恢复 <code>display</code> 的初始值。比如，如果一个元素的 <code>display</code> 值为 <code>inline</code>，那么当隐藏再显示时，他仍然是 <code>inline</code>。当高度变成 0 之后，会把 <code>display</code> 样式属性设置成 <code>none</code> 以确保这个元素不再对页面布局产生影响。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -5098,22 +5098,21 @@ The second button starts a traditional chained animation, where each animation w
   Click here
 &lt;/div&gt;
 &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
-            <p>We will cause <code>.slideToggle()</code> to be called when another element is clicked:</p>
+            <p>点击之后调用 <code>.slideToggle()</code> 方法：</p>
             <pre>$('#clickme').click(function() {
   $('#book').slideToggle('slow', function() {
-    // Animation complete.
+    // 动画完成
   });
 });
 </pre>
-            <p>With the element initially shown, we can hide it slowly with the first click:</p>
+            <p>如果元素一开始是显现的，那么第一次点击之后，他就会慢慢隐藏起来：</p>
             <p class="image four-across"> 
                <img src="images/0042_06_25.png" alt=""/>
                <img src="images/0042_06_26.png" alt=""/>
                <img src="images/0042_06_27.png" alt=""/>
                <img src="images/0042_06_28.png" alt=""/>
             </p>
-            <p>A second click will show the element once again:</p>
-
+            <p>第二次点击后元素又出现了：</p>
             <p class="image four-across"> 
                <img src="images/0042_06_29.png" alt=""/>
                <img src="images/0042_06_30.png" alt=""/>
@@ -5122,10 +5121,10 @@ The second button starts a traditional chained animation, where each animation w
             </p>
          </longdesc>
          <example>
-            <desc>Animates all paragraphs to slide up or down, completing the animation within 600 milliseconds.</desc>
+            <desc>让所有的段落滑上或滑下，用时 600 毫秒。</desc>
          </example>
          <example>
-            <desc>Animates divs between dividers with a toggle that makes some appear and some disappear.</desc>
+            <desc>让隔开的 div 交替出现或消失。</desc>
          </example>
       </entry>
       <entry type="method" name="jQuery.post">
@@ -5192,7 +5191,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="slideUp">
-         <desc>Hide the matched elements with a sliding motion.</desc>
+         <desc>用滑动的形式隐藏匹配的元素。</desc>
          <signature>
             <argument name="duration">
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
@@ -5206,14 +5205,14 @@ The second button starts a traditional chained animation, where each animation w
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.slideUp()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up, appearing to conceal the items. Once the height reaches 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
+            <p><code>.slideUp()</code> 方法对匹配元素的高度进行动画操作。这会导致页面中，在这个元素下面的内容往下滑。当高度变成 0 之后，会把 <code>display</code> 样式属性设置成 <code>none</code> 以确保这个元素不再对页面布局产生影响。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -5222,10 +5221,10 @@ The second button starts a traditional chained animation, where each animation w
   Click here
 &lt;/div&gt;
 &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
-            <p>With the element initially shown, we can hide it slowly:</p>
+            <p>如果元素一开始是显现的，我们可以这样将其缓慢的隐藏：</p>
             <pre>$('#clickme').click(function() {
   $('#book').slideUp('slow', function() {
-    // Animation complete.
+    // 动画完成
   });
 });
   </pre>
@@ -5237,10 +5236,10 @@ The second button starts a traditional chained animation, where each animation w
             </p>
          </longdesc>
          <example>
-            <desc>Animates all divs to slide up, completing the animation within 400 milliseconds.</desc>
+            <desc>让所有的 div 向上滑，用时 400 毫秒。</desc>
          </example>
          <example>
-            <desc>Animates the parent paragraph to slide up, completing the animation within 200 milliseconds. Once the animation is done, it displays an alert.</desc>
+            <desc>用 200 毫秒让父元素滑动收起。动画完成后，显示一个提示信息。</desc>
          </example>
       </entry>
       <entry type="method" name="nextAll">
@@ -5306,7 +5305,7 @@ The second button starts a traditional chained animation, where each animation w
          </example>
       </entry>
       <entry type="method" name="slideDown">
-         <desc>Display the matched elements with a sliding motion.</desc>
+         <desc>通过滑动的形式显示元素。</desc>
          <signature>
             <argument name="duration">
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
@@ -5320,14 +5319,14 @@ The second button starts a traditional chained animation, where each animation w
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
             </argument>
          </signature>
          <longdesc>
-            <p>The <code>.slideDown()</code> method animates the height of the matched elements. This causes lower parts of the page to slide down, making way for the revealed items.</p>
+            <p><code>.slideDown()</code> 方法对匹配元素的高度进行动画操作。这会导致页面中，在这个元素下面的内容往下滑。</p>
             <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。</p>
             <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
@@ -5336,10 +5335,10 @@ The second button starts a traditional chained animation, where each animation w
   Click here
 &lt;/div&gt;
 &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
-            <p>With the element initially hidden, we can show it slowly:</p>
+            <p>如果元素一开始是隐藏的，我们可以这样将其缓慢地显现：</p>
             <pre>$('#clickme').click(function() {
   $('#book').slideDown('slow', function() {
-    // Animation complete.
+    // 动画完成
   });
 });</pre>
             <p class="image four-across"> 
@@ -5350,10 +5349,10 @@ The second button starts a traditional chained animation, where each animation w
             </p>
          </longdesc>
          <example>
-            <desc>Animates all divs to slide down and show themselves over 600 milliseconds.</desc>
+            <desc>用 600 毫秒让所有 div 下滑显示出来。</desc>
          </example>
          <example>
-            <desc>Animates all inputs to slide down, completing the animation within 1000 milliseconds. Once the animation is done, the input look is changed especially if it is the middle input which gets the focus.</desc>
+            <desc>用 1000 毫秒让所有文本框组件下滑显示出来。动画完成后改变这些文本框的外观，并让中间的文本框获得输入焦点。</desc>
          </example>
       </entry>
       <entry type="method" name="find">
@@ -6161,7 +6160,7 @@ $('li').not(document.getElementById('notli'))
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -6191,7 +6190,7 @@ $('li').not(document.getElementById('notli'))
             <p>We will cause <code>.toggle()</code> to be called when another element is clicked:</p>
             <pre>$('#clickme').click(function() {
   $('#book').toggle('slow', function() {
-    // Animation complete.
+    // 动画完成
   });
 });
 </pre>
@@ -6225,7 +6224,7 @@ $('li').not(document.getElementById('notli'))
             <desc>Toggles all paragraphs.</desc>
          </example>
          <example>
-            <desc>Animates all paragraphs to be shown if they are hidden and hidden if they are visible, completing the animation within 600 milliseconds.</desc>
+            <desc>Animates all paragraphs to be shown if they are hidden and hidden if they are visible, 用时 600 毫秒。</desc>
          </example>
          <example>
             <desc>Shows all paragraphs, then hides them all, back and forth.</desc>
@@ -6352,7 +6351,7 @@ alert(shallowDecoded);
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -6499,7 +6498,7 @@ $(document).height(); // returns height of HTML document</pre>
                <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
-               <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
+               <desc>要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
