@@ -65,12 +65,12 @@
 							<xsl:sort select="@name"/>
 							<xsl:choose>
 								<xsl:when test="@type='selector'">
-									<xsl:result-document href="./dist/entry/{replace(@name,' ','-')}-selector.html">
+									<xsl:result-document href="./dist/{replace(@name,' ','-')}-selector.htm">
 										<xsl:apply-templates select="current-group()"/>
 									</xsl:result-document>
 								</xsl:when>
 								<xsl:otherwise>
-									<xsl:result-document href="./dist/entry/{@name}.html">
+									<xsl:result-document href="./dist/{@name}.htm">
 										<xsl:apply-templates select="current-group()"/>
 									</xsl:result-document>
 								</xsl:otherwise>
@@ -85,7 +85,7 @@
 				$(window).hashchange(function(){
 					var page=window.location.hash.replace("#","")||"cheatsheet";
 					$("#content").empty().css("top",$(document).scrollTop())
-						.load("entry/"+page+".html?"+(new Date/86400000).toFixed(0),function(){
+						.load("entry/"+page+".htm?"+(new Date/86400000).toFixed(0),function(){
 						$("iframe").each(function(){
 							 var doc = this.contentDocument ||
 									(iframe.contentWindow && iframe.contentWindow.document) ||
@@ -103,9 +103,15 @@
 				});
 				$("#sidebar li").click(function(){
 					if($(this).hasClass("selector")){
-						window.location.hash==$(this).attr("title").replace(" ","-")+"-selector";
+						window.location.hash=$(this).attr("title").replace(" ","-")+"-selector";
 					}else{
 						window.location.hash=$(this).text().replace("()","");
+					}
+				});
+				$("#content").click(function(e){
+					if($(e.target).is("a[href$='.htm']")){
+						window.location.hash=$(e.target).attr("href").replace(".htm","");
+						return false;
 					}
 				});
 			]]></script>

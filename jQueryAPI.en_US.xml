@@ -83,7 +83,7 @@
       <category name="Version 1.1"/>
       <category name="Version 1.0.4"/>
       <category name="Version 1.0"/>
-    </category>
+   </category>
   </categories>
     <entries>
     <entry type='method' name="fadeToggle" return="jQuery">
@@ -8143,30 +8143,30 @@ $('div.foo').click(function() {
 <h4 id="cloning-jquery-objects">Cloning jQuery Objects</h4>
 <p>When a jQuery object is passed as a parameter to the  <code>$()</code> function, a clone of the object is created. This new jQuery object references the same DOM elements as the initial one.</p>
 <h4 id="returning-empty-set">Returning an Empty Set</h4>
-<p>As of jQuery 1.4,  calling the <code>jQuery()</code> method with <em>no arguments</em> returns an empty jQuery set. In previous versions of jQuery, this would return a set containing the document node.</p>
+<p>As of jQuery 1.4,  calling the <code>jQuery()</code> method with <em>no arguments</em> returns an empty jQuery set (with a <code><a href="http://api.jquery.com/length/">.length</a></code> property of 0). In previous versions of jQuery, this would return a set containing the document node.</p>
 </longdesc>
-                <example>
-                    <desc>Finds all p elements that are children of a div element.</desc>
-                    <code><![CDATA[$("div > p").css("border", "1px solid gray");]]></code>
-                    <html><![CDATA[<p>one</p> <div><p>two</p></div> <p>three</p>]]></html>
-                    <results><![CDATA[[ <p>two</p> ] ]]></results>
-                </example>
-                <example>
-                    <desc>Finds all inputs of type radio within the first form in the document.</desc>
-                    <code><![CDATA[$("input:radio", document.forms[0]);]]></code>
-                </example>
-                <example>
-                    <desc>Finds all div elements within an XML document from an Ajax response.</desc>
-                    <code><![CDATA[$("div", xml.responseXML);]]></code>
-                </example>
-                <example>
-                    <desc>Sets the background color of the page to black.</desc>
-                    <code><![CDATA[$(document.body).css( "background", "black" );]]></code>
-                </example>
-                <example>
-                    <desc>Hides all the input elements within a form.</desc>
-                    <code><![CDATA[$(myForm.elements).hide()]]></code>
-                </example>
+    <example>
+        <desc>Finds all p elements that are children of a div element.</desc>
+        <code><![CDATA[$("div > p").css("border", "1px solid gray");]]></code>
+        <html><![CDATA[<p>one</p> <div><p>two</p></div> <p>three</p>]]></html>
+        <results><![CDATA[[ <p>two</p> ] ]]></results>
+    </example>
+    <example>
+        <desc>Finds all inputs of type radio within the first form in the document.</desc>
+        <code><![CDATA[$("input:radio", document.forms[0]);]]></code>
+    </example>
+    <example>
+        <desc>Finds all div elements within an XML document from an Ajax response.</desc>
+        <code><![CDATA[$("div", xml.responseXML);]]></code>
+    </example>
+    <example>
+        <desc>Sets the background color of the page to black.</desc>
+        <code><![CDATA[$(document.body).css( "background", "black" );]]></code>
+    </example>
+    <example>
+        <desc>Hides all the input elements within a form.</desc>
+        <code><![CDATA[$(myForm.elements).hide()]]></code>
+    </example>
   <category name="Core"/>
 <category name="Version 1.0"/>
 <category name="Version 1.4"/>
@@ -9178,7 +9178,7 @@ button { float:left; margin:5px 10px 5px 0; }
     </argument>
   </signature>
   <desc>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</desc>
-  <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements ordered from immediate parent on up; the elements are returned in order from the closest parent to the outer ones. The <code>.parents()</code> and <code>.parent()</code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
+  <longdesc><p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from the matching elements ordered from immediate parent on up; the elements are returned in order from the closest parent to the outer ones. The <code>.parents()</code> and <code><a href="http://api.jquery.com/parent/">.parent()</a></code> methods are similar, except that the latter only travels a single level up the DOM tree.</p>
 <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.</p>
 <p>Consider a page with a basic nested list on it:</p>
 <pre>
@@ -10686,7 +10686,7 @@ alert("The last 25 entries in the feed have been loaded");
 				
 					<h4 id="sending-data-to-server">Sending Data to the Server</h4>
 					<p>By default, Ajax requests are sent using the GET HTTP method. If the POST method is required, the method can be specified by setting a value for the <code>type</code> option. This option affects how the contents of the <code>data</code> option are sent to the server. POST data will always be transmitted to the server using UTF-8 charset, per the W3C XMLHTTPRequest standard.</p>
-					<p>The <code>data</code> option can contain either a query string of the form <code>key1=value1&amp;key2=value2</code>, or a map of the form <code>{key1: 'value1', key2: 'value2'}</code>. If the latter form is used, the data is converted into a query string before it is sent. This processing can be circumvented by setting <code>processData</code> to <code>false</code>.  The processing might be undesirable if we wish to send an XML object to the server; in this case, we would also want to change the <code>contentType</code> option from <code>application/x-www-form-urlencoded</code> to a more appropriate MIME type.</p>
+					<p>The <code>data</code> option can contain either a query string of the form <code>key1=value1&amp;key2=value2</code>, or a map of the form <code>{key1: 'value1', key2: 'value2'}</code>. If the latter form is used, the data is converted into a query string using <code><a href="http://api.jquery.com/jQuery.param/">jQuery.param()</a></code> before it is sent. This processing can be circumvented by setting <code>processData</code> to <code>false</code>.  The processing might be undesirable if we wish to send an XML object to the server; in this case, we would also want to change the <code>contentType</code> option from <code>application/x-www-form-urlencoded</code> to a more appropriate MIME type.</p>
 				
 					<h4 id="advanced-options">Advanced Options</h4>
 					<p>The <code>global</code> option prevents handlers registered using <code><a href="/ajaxSend">.ajaxSend()</a></code>, <code><a href="/ajaxError">.ajaxError()</a></code>, and similar methods from firing when this request would trigger them. This can be useful to, for example, suppress a loading indicator that was implemented with <code><a href="/ajaxSend">.ajaxSend()</a></code> if the requests are frequent and brief. See the descriptions of these methods below for more details.</p>
@@ -18410,6 +18410,6 @@ $( "#dramaBtn" ).click( function() {
 
 Minified using disk
 Page Caching using disk (enhanced)
-Database Caching 18/28 queries in 0.122 seconds using disk
+Database Caching 16/28 queries in 0.083 seconds using disk
 
-Served from: api.jquery.com @ 2010-11-27 18:11:13 -->
+Served from: api.jquery.com @ 2010-11-28 07:49:51 -->
