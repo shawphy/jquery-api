@@ -12,7 +12,7 @@
       <category name="CSS" zh="CSS"/>
       <category name="Data" zh="数据"/>
       <category name="Dimensions" zh="尺寸"/>
-      <category name="Effects" zh="效果">
+      <category name="Effects" zh="动画">
          <category name="Basics" zh="基本"/>
          <category name="Custom" zh="自定义"/>
          <category name="Fading" zh="渐变"/>
@@ -91,7 +91,7 @@
          <desc>通过透明度动画来显示或隐藏匹配的元素。</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -102,9 +102,9 @@
          </signature>
          <longdesc>
             <p>The <code>.fadeToggle()</code> method animates the opacity of the matched elements. When called on a visible element, the element's <code>display</code> style property is set to <code>none</code> once the opacity reaches 0, so the element no longer affects the layout of the page.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
-            <p>The string representing an easing function specifies the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called <code>swing</code>, and one that progresses at a constant pace, called <code>linear</code>. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com">jQuery UI suite</a>.</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
+            <p>缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
          </longdesc>
          <example>
             <desc>Fades first paragraph in or out, completing the animation within 600 milliseconds and using a linear easing. Fades last paragraph in or out for 200 milliseconds, inserting a "finished" message upon completion. </desc>
@@ -4588,7 +4588,7 @@ $('ul.first').find('.foo')
                <desc>A map of CSS properties that the animation will move toward.</desc>
             </argument>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -4605,7 +4605,7 @@ $('ul.first').find('.foo')
                <desc>A map of additional options to pass to the method. Supported keys:
         <ul>
                      <li>
-                        <code>duration</code>: 三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</li>
+                        <code>duration</code>: 字符串("slow"或 "fast")或表示动画时长的毫秒数值</li>
                      <li>
                         <code>easing</code>: 要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</li>
                      <li>
@@ -4627,10 +4627,10 @@ $('ul.first').find('.foo')
             <p>In addition to numeric values, each property can take the strings <code>'show'</code>, <code>'hide'</code>, and <code>'toggle'</code>. These shortcuts allow for custom hiding and showing animations that take into account the display type of the element.</p>
             <p>Animated properties can also be relative. If a value is supplied with a leading <code>+=</code> or <code>-=</code> sequence of characters, then the target value is computed by adding or subtracting the given number from the current value of the property.</p>
             <h4 id="duration">Duration</h4>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <h4 id="callback">Callback Function</h4>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -4790,7 +4790,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Adjust the opacity of the matched elements.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="opacity">
                <desc>A number between 0 and 1 denoting the target opacity.</desc>
@@ -4801,7 +4801,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="opacity">
                <desc>A number between 0 and 1 denoting the target opacity.</desc>
@@ -4815,9 +4815,9 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>The <code>.fadeTo()</code> method animates the opacity of the matched elements.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, the default duration of  <code>400</code> milliseconds is used. Unlike the other effect methods, <code>.fadeTo()</code> requires that <code>duration</code> be explicitly specified.</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。与其他的动画效果不同， <code>.fadeTo()</code> 要求比如设定 <code>duration</code> 参数。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
     Click here
   &lt;/div&gt;
@@ -4851,7 +4851,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Hide the matched elements by fading them to transparent.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -4859,7 +4859,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -4870,10 +4870,10 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>The <code>.fadeOut()</code> method animates the opacity of the matched elements. Once the opacity reaches 0, the <code>display</code> style property is set to <code>none</code>, so the element no longer affects the layout of the page.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -4946,7 +4946,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Display the matched elements by fading them to opaque.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -4954,7 +4954,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -4965,10 +4965,10 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>The <code>.fadeIn()</code> method animates the opacity of the matched elements.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
       Click here
     &lt;/div&gt;
@@ -5071,7 +5071,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Display or hide the matched elements with a sliding motion.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -5079,7 +5079,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -5091,9 +5091,9 @@ The second button starts a traditional chained animation, where each animation w
          <longdesc>
             <p>The <code>.slideToggle()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up or down, appearing to reveal or conceal the items. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>. When the height reaches 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -5195,7 +5195,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Hide the matched elements with a sliding motion.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -5203,7 +5203,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -5214,10 +5214,10 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>The <code>.slideUp()</code> method animates the height of the matched elements. This causes lower parts of the page to slide up, appearing to conceal the items. Once the height reaches 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -5309,7 +5309,7 @@ The second button starts a traditional chained animation, where each animation w
          <desc>Display the matched elements with a sliding motion.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -5317,7 +5317,7 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -5328,10 +5328,10 @@ The second button starts a traditional chained animation, where each animation w
          </signature>
          <longdesc>
             <p>The <code>.slideDown()</code> method animates the height of the matched elements. This causes lower parts of the page to slide down, making way for the revealed items.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively. If any other string is supplied, or if the <code>duration</code> parameter is omitted, the default duration of  <code>400</code> milliseconds is used.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -6152,7 +6152,7 @@ $('li').not(document.getElementById('notli'))
          <desc>Display or hide the matched elements.</desc>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -6160,7 +6160,7 @@ $('li').not(document.getElementById('notli'))
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -6180,11 +6180,11 @@ $('li').not(document.getElementById('notli'))
 </pre>
             <p>The matched elements will be revealed or hidden immediately, with no animation, by changing the CSS <code>display</code> property. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.toggle()</code> becomes an animation method. The <code>.toggle()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0 after a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <blockquote><p>Note: The event handling suite also has a method named <a href="http://api.jquery.com/toggle-event/">.toggle()</a>. Which one is fired depends on the set of arguments passed.</p></blockquote>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -6343,7 +6343,7 @@ alert(shallowDecoded);
          <signature/>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -6351,7 +6351,7 @@ alert(shallowDecoded);
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -6366,10 +6366,10 @@ alert(shallowDecoded);
 </pre>
             <p>The matched elements will be hidden immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'none')</code>, except that the value of the <code>display</code> property is saved in jQuery's data cache so that <code>display</code> can later be restored to its initial value. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.hide()</code> becomes an animation method. The <code>.hide()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
@@ -6490,7 +6490,7 @@ $(document).height(); // returns height of HTML document</pre>
          <signature/>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="callback">
                <desc>在动画完成时执行的函数。</desc>
@@ -6498,7 +6498,7 @@ $(document).height(); // returns height of HTML document</pre>
          </signature>
          <signature>
             <argument name="duration">
-               <desc>三种预定速度之一的字符串("slow", "normal", or "fast")或表示动画时长的毫秒数值(如：1000)</desc>
+               <desc>字符串("slow"或 "fast")或表示动画时长的毫秒数值</desc>
             </argument>
             <argument name="easing">
                <desc>要使用的缓冲效果的名称(需要插件支持).默认jQuery提供"linear" 和 "swing".</desc>
@@ -6514,10 +6514,10 @@ $(document).height(); // returns height of HTML document</pre>
 </pre>
             <p>The matched elements will be revealed immediately, with no animation. This is roughly equivalent to calling <code>.css('display', 'block')</code>, except that the <code>display</code> property is restored to whatever it was initially. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.</p>
             <p>When a duration is provided, <code>.show()</code> becomes an animation method. The <code>.show()</code> method animates the width, height, and opacity of the matched elements simultaneously.</p>
-            <p>Durations are given in milliseconds; higher values indicate slower animations, not faster ones. The strings <code>'fast'</code> and <code>'slow'</code> can be supplied to indicate durations of <code>200</code> and <code>600</code> milliseconds, respectively.</p>
+            <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。</p>
             <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问<a href="http://jqueryui.com">jQuery UI 站点</a>来获得更多信息。</p>
-            <p>如果提供了回调函数，那么这个动画一旦结束，就会调用回调函数。这通常用于让一两串不同的动画依次完成。回调函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果多个元素在进行动画，那么要非常注意，回调函数会在每一个动画完元素上执行一次，而不是对这组动画整体才一次。</p>
-            <p>比如下面这个简单的页面，我们让所有元素动起来。</p>
+            <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。</p>
+            <p>比如下面这个页面：</p>
             <pre>&lt;div id="clickme"&gt;
   Click here
 &lt;/div&gt;
