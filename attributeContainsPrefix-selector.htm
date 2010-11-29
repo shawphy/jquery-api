@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>[attribute|="value"]</h2>
+   <div class="desc">
+      <p>选择那些属性值前缀与给定的字符串相同的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>[attribute|="value"]
+            </h4>
+            <div class="arguement"><strong>attribute</strong>
+               								(String)
+               								属性名。
+            </div>
+            <div class="arguement"><strong>value</strong>
+               								(String)
+               								属性值，引号是强制性的。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>所谓的前缀，就是指一个短横 (-) 前面的部分。另外，如果一个属性值没有前缀，但与给定的字符串相同的话，也会被匹配到。这个选择器主要用于处理语言属性，因而加入到 CSS 规范中的。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有 hreflang 属性是英语的链接。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+  &lt;a href="example.html" hreflang="en"&gt;Some text&lt;/a&gt; 
+
+  &lt;a href="example.html" hreflang="en-UK"&gt;Some other text&lt;/a&gt;
+  
+
+&lt;script&gt;
+
+$('a[hreflang|="en"]').css('border','3px dotted green');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:animated</h2>
+   <div class="desc">
+      <p>选择所有正在执行动画的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>:animated
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"></div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>改变正在执行动画的 div 的颜色。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { background:yellow; border:1px solid #AAA; width:80px; height:80px; margin:0 5px; float:left; }
+  div.colored { background:green; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button id="run"&gt;Run&lt;/button&gt;
+
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div id="mover"&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    $("#run").click(function(){
+      $("div:animated").toggleClass("colored");
+    });
+    function animateIt() {
+      $("#mover").slideToggle("slow", animateIt);
+    }
+    animateIt();
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

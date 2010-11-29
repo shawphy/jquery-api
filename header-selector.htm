@@ -1,0 +1,41 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:header</h2>
+   <div class="desc">
+      <p>选择所有的标题元素，比如 h1, h2, h3 等。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>:header
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"></div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>给页面上所有的标题元素加上背景和文本颜色。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  body { font-size: 10px; font-family: Arial; } 
+  h1, h2 { margin: 3px 0; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Header 1&lt;/h1&gt;
+
+  &lt;p&gt;Contents 1&lt;/p&gt;
+  &lt;h2&gt;Header 2&lt;/h2&gt;
+  &lt;p&gt;Contents 2&lt;/p&gt;
+
+&lt;script&gt;
+
+$(":header").css({ background:'#CCC', color:'blue' });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

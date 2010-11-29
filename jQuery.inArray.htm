@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>jQuery.inArray(value, array)<br></h2>
+   <div class="desc">
+      <p>Search for a specified value within an array and return its index (or -1 if not found).</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>jQuery.inArray(value, array)
+               								
+            </h4>
+            <div class="arguement"><strong>value</strong>
+               								(Any)
+               								The value to search for.
+            </div>
+            <div class="arguement"><strong>array</strong>
+               								(Array)
+               								An array through which to search.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>$.inArray()</code> method is similar to JavaScript's native <code>.indexOf()</code> method in that it returns -1 when it doesn't find a match. If the first element within the array matches <code>value</code>, <code>$.inArray()</code> returns 0.
+         </p> 
+         
+         
+         <p>Because JavaScript treats 0 as loosely equal to false (i.e. 0 == false, but 0 !== false), if we're checking for the presence
+            of <code>value</code> within <code>array</code>, we need to check if it's not equal to (or greater than) -1.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Report the index of some elements in the array.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:blue; }
+  span { color:red; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div&gt;"John" found at &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;4 found at &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;"Karl" not found, so &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+var arr = [ 4, "Pete", 8, "John" ];
+
+$("span:eq(0)").text(jQuery.inArray("John", arr));
+$("span:eq(1)").text(jQuery.inArray(4, arr));
+$("span:eq(2)").text(jQuery.inArray("Karl", arr));
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

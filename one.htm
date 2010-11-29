@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>one(eventType, <em class="optional">[eventData]</em>, handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>Attach a handler to an event for the elements. The handler is executed at most once per element.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1 新增</span>one(eventType, <em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
+            </div>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is identical to <code>.bind()</code>, except that the handler is unbound after its first invocation. For example:
+         </p>
+         <pre>$('#foo').one('click', function() {
+  alert('This will be displayed only once.');
+});
+</pre>
+         <p>After the code is executed, a click on the element with ID <code>foo</code> will display the alert. Subsequent clicks will do nothing. This code is equivalent to:
+         </p>
+         <pre>$('#foo').bind('click', function(event) {
+  alert('This will be displayed only once.');
+  $(this).unbind(event);
+});
+</pre>
+         <p>In other words, explicitly calling <code>.unbind()</code> from within a regularly-bound handler has exactly the same effect.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Tie a one-time click to each div.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { width:60px; height:60px; margin:5px; float:left;
+background:green; border:10px outset; 
+cursor:pointer; }
+p { color:red; margin:0; clear:left; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;Click a green square...&lt;/p&gt;
+
+&lt;script&gt;
+
+
+var n = 0;
+$("div").one("click", function(){
+var index = $("div").index(this);
+$(this).css({ borderStyle:"inset",
+    cursor:"auto" });
+$("p").text("Div at index #" + index + " clicked." +
+  "  That's " + ++n + " total clicks.");
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To display the text of all paragraphs in an alert box the first time each of them is clicked:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").one("click", function(){
+alert( $(this).text() );
+});</code></pre></div>
+</div>

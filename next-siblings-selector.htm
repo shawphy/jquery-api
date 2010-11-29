@@ -1,0 +1,70 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>prev ~ siblings</h2>
+   <div class="desc">
+      <p>选择跟在 "prev" 元素后面，有共同的父元素，且与 "siblings" 中的选择器相匹配的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>prev ~ siblings
+            </h4>
+            <div class="arguement"><strong>prev</strong>
+               								(Selector)
+               								任何有效的选择器。
+            </div>
+            <div class="arguement"><strong>siblings</strong>
+               								(Selector)
+               								用于筛选跟在后面的同辈元素的选择器。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>注意 (<code>prev + next</code>) 和 (<code>prev ~ siblings</code>) 他们的区别。前者仅仅选择紧跟在 "prev" 后面的元素，而后者则扩展到 "prev" 后面的所有同辈元素。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有跟在 id 为 #prev 的元素后面的所有 div 。注意，跟在后面的 span 不会被选中，因为他不是 div 。同时 "niece" 也不会被选中，因为他是某个同辈的子元素，而不是直接的同辈元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  div,span {
+    display:block;
+    width:80px;
+    height:80px;
+    margin:5px;
+    background:#bbffaa;
+    float:left;
+    font-size:14px;
+  }
+  div#small {
+    width:60px;
+    height:25px;
+    font-size:12px;
+    background:#fab;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;div (doesn't match since before #prev)&lt;/div&gt;
+  &lt;span id="prev"&gt;span#prev&lt;/span&gt;
+  &lt;div&gt;div sibling&lt;/div&gt;
+
+  &lt;div&gt;div sibling &lt;div id="small"&gt;div niece&lt;/div&gt;&lt;/div&gt;
+  &lt;span&gt;span sibling (not div)&lt;/span&gt;
+  &lt;div&gt;div sibling&lt;/div&gt;
+
+&lt;script&gt;
+
+$("#prev ~ div").css("border", "3px groove blue");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

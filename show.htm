@@ -1,0 +1,198 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>show()<br></h2>
+   <div class="desc">
+      <p>显示匹配的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>show()
+               								
+            </h4>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>show(duration, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>show(<em class="optional">[duration]</em>, <em class="optional">[easing]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>easing</strong>
+               								(String)
+               								 可选参数，要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>显示元素的最简单方式就是不带参数的 <code>.show()</code> 方法：
+         </p>
+         <pre>$('.target').show();
+</pre>
+         <p>此时元素会立即显示起来，不带有任何动画。这基本等价于 <code>.css('display', 'block')</code> ，只不过此时 <code>display</code> 属性值会保存到 jQuery 的数据缓存中，之后还能恢复 <code>display</code> 的初始值。比如，如果一个元素的 <code>display</code> 值为 <code>inline</code>，那么当隐藏再显示时，他仍然是 <code>inline</code>。
+         </p>
+         
+         <p>如果提供 duration 参数，<code>.show()</code> 就变成一个动画方法了。<code>.show()</code> 会同时对元素的高、宽以及透明度进行动画操作。
+         </p>
+         
+         <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。
+         </p>
+         
+         <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。
+         </p>
+         
+         <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。
+         </p>
+         
+         <p>比如下面这个页面：</p>
+         <pre>&lt;div id="clickme"&gt;
+  Click here
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+         <p>如果元素一开始隐藏的，我们可以让他缓慢的显示出来：</p>
+         <pre>$('#clickme').click(function() {
+  $('#book').show('slow', function() {
+    // 动画完毕
+  });
+});</pre>
+         <p class="image four-across">
+            <img src="images/0042_06_01.png" alt="">
+            <img src="images/0042_06_02.png" alt="">
+            <img src="images/0042_06_03.png" alt="">
+            <img src="images/0042_06_04.png" alt="">
+            
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>把所有隐藏的段落缓慢显现出来，用时 600 毫秒。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+      p { background:yellow; }
+      &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Show it&lt;/button&gt;
+
+      &lt;p style="display: none"&gt;Hello  2&lt;/p&gt;
+
+&lt;script&gt;
+
+
+    $("button").click(function () {
+    $("p").show("slow");
+    });
+    
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>把隐藏的 div 依次迅速显示出来，每个用时 200 毫秒。一个动画完成后立即开始下一个。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { background:#def3ca; margin:3px; width:80px; 
+  display:none; float:left; text-align:center; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+  &lt;button id="showr"&gt;Show&lt;/button&gt;
+  &lt;button id="hidr"&gt;Hide&lt;/button&gt;
+  &lt;div&gt;Hello 3,&lt;/div&gt;
+
+  &lt;div&gt;how&lt;/div&gt;
+  &lt;div&gt;are&lt;/div&gt;
+  &lt;div&gt;you?&lt;/div&gt;
+
+&lt;script&gt;
+
+
+$("#showr").click(function () {
+  $("div:eq(0)").show("fast", function () {
+    /* use callee so don't have to name the function */
+    $(this).next("div").show("fast", arguments.callee);
+  });
+});
+$("#hidr").click(function () {
+  $("div").hide(2000);
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>动画显示所有 span 和 input 元素。可以试着在下面的文本框中输入 yes 并按回车。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span { display:none; }
+  div { display:none; }
+  p { font-weight:bold; background-color:#fcd; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Do it!&lt;/button&gt;
+  &lt;span&gt;Are you sure? (type 'yes' if you are) &lt;/span&gt;
+  &lt;div&gt;
+    &lt;form&gt;
+      &lt;input type="text"  value="as;ldkfjalsdf"/&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;p style="display:none;"&gt;I'm hidden...&lt;/p&gt;
+  
+
+&lt;script&gt;
+
+
+function doIt() {
+  $("span,div").show("slow");
+}
+/* can pass in function name */
+$("button").click(doIt);
+
+$("form").submit(function () {
+  if ($("input").val() == "yes") {
+    $("p").show(4000, function () {
+      $(this).text("Ok, DONE! (now showing)");
+    });
+  }
+  $("span,div").hide("fast");
+  /* to stop the submit */
+  return false; 
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

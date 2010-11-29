@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>is(selector)<br></h2>
+   <div class="desc">
+      <p>Check the current matched set of elements against a selector and return true if at least one of these elements matches the
+         selector.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>is(selector)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								用于匹配元素的选择器字符串
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Unlike the other filtering and traversal methods, <code>.is()</code> does not create a new jQuery object. Instead, it allows us to test the contents of a jQuery object without modification.
+            This is often useful inside callbacks, such as event handlers.
+         </p>
+         
+         <p>Suppose we have a list, with two of its items containing a child element:</p>
+         <pre>
+&lt;ul&gt;
+  &lt;li&gt;list &lt;strong&gt;item 1&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;span&gt;list item 2&lt;/span&gt;&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>We can attach a click handler to the &lt;ul&gt; element, and then limit the code to be triggered only when a list item itself, not
+            one of its children, is clicked:
+         </p>
+         <pre>$('ul').click(function(event) {
+  if ($(event.target).is('li') ) {
+    $(event.target).css('background-color', 'red');
+  }
+});</pre>
+         <p>Now, when the user clicks on the word list in the first item or anywhere in the third item, the clicked list item will be
+            given a red background. However, when the user clicks on item 1 in the first item or anywhere in the second item, nothing
+            will occur, because in those cases the target of the event would be <code>&lt;strong&gt;</code> or <code>&lt;span&gt;</code>, respectively.
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Shows a few ways is() can be used inside an event handler.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { width:60px; height:60px; margin:5px; float:left;
+        border:4px outset; background:green; text-align:center; 
+        font-weight:bolder; cursor:pointer; }
+  .blue { background:blue; }
+  .red { background:red; }
+  span { color:white; font-size:16px; }
+  p { color:red; font-weight:bolder; background:yellow; 
+      margin:3px; clear:left; display:none; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;/div&gt;
+  &lt;div class="blue"&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div class="red"&gt;&lt;/div&gt;
+
+  &lt;div&gt;&lt;br/&gt;&lt;span&gt;Peter&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="blue"&gt;&lt;/div&gt;
+  &lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;script&gt;
+
+
+    $("div").one('click', function () {
+      if ($(this).is(":first-child")) {
+        $("p").text("It's the first div.");
+      } else if ($(this).is(".blue,.red")) {
+        $("p").text("It's a blue or red div.");
+      } else if ($(this).is(":contains('Peter')")) {
+        $("p").text("It's Peter!");
+      } else {
+        $("p").html("It's nothing &lt;em&gt;special&lt;/em&gt;.");
+      }
+      $("p").hide().slideDown("slow");
+      $(this).css({"border-style": "inset", cursor:"default"});
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Returns true, because the parent of the input is a form element</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;div { color:red; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;&lt;input type="checkbox" /&gt;&lt;/form&gt;
+
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    var isFormParent = $("input[type='checkbox']").parent().is("form")
+    $("div").text("isFormParent = " + isFormParent);
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Returns false, because the parent of the input is a p element</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;div { color:red; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;&lt;p&gt;&lt;input type="checkbox" /&gt;&lt;/p&gt;&lt;/form&gt;
+
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+    var isFormParent = $("input[type='checkbox']").parent().is("form")
+    $("div").text("isFormParent = " + isFormParent);
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Object</span>jQuery.parseJSON(json)<br></h2>
+   <div class="desc">
+      <p>接受一个标准格式的 JSON 字符串，并返回解析后的 JavaScript 对象。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.1 新增</span>jQuery.parseJSON(json)
+               								
+            </h4>
+            <div class="arguement"><strong>json</strong>
+               								(String)
+               								将要解析的 JSON 字符串。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>传入格式有误的 JSON 字符串可能导致抛出异常。例如，下面这些 JSON 字符串格式都不对：</p>
+         
+         <ul>
+            
+            <li>
+               <code>{test: 1}</code> (test 没有使用双引号包裹).
+            </li>
+            
+            <li>
+               <code>{'test': 1}</code> ('test' 用了单引号而不是双引号包裹).
+            </li>
+            
+         </ul>
+         
+         <p>另外，如果你什么都不传入，或者传入空字符串、null、undefined 等，parseJSON 都会返回 null 。如果浏览器原生实现了 <code>JSON.parse</code>， jQuery 则会使用它来解析字符串。更多关于JSON格式的细节请参考 <a href="http://json.org/">http://json.org/</a> 
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>解析一个 JSON 字符串。</p>
+      <h5>jQuery 代码:</h5><pre><code>var obj = jQuery.parseJSON('{"name":"John"}');
+alert( obj.name === "John" );</code></pre></div>
+</div>

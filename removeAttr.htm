@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>removeAttr(attributeName)<br></h2>
+   <div class="desc">
+      <p>Remove an attribute from each element in the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>removeAttr(attributeName)
+               								
+            </h4>
+            <div class="arguement"><strong>attributeName</strong>
+               								(String)
+               								An attribute to remove.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.removeAttr()</code> method uses the JavaScript <code>removeAttribute()</code> function, but it has the advantage of being able to be called directly on a jQuery object and it accounts for different attribute
+            naming across browsers.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Clicking the button enables the input next to it.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Enable&lt;/button&gt;
+&lt;input type="text" disabled="disabled" value="can't edit this" /&gt;
+
+&lt;script&gt;
+
+
+$("button").click(function () {
+  $(this).next().removeAttr("disabled")
+  .focus()
+  .val("editable now");
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

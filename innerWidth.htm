@@ -1,0 +1,48 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Integer</span>innerWidth()<br></h2>
+   <div class="desc">
+      <p>Get the current computed width for the first element in the set of matched elements, including padding but not border.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.6 新增</span>innerWidth()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method returns the width of the element, including left and right padding, in pixels.</p>
+         
+         <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="width.htm">.width()</a></code> instead.
+         </p>
+         
+         <p class="image">
+            <img src="images/0042_04_05.png">
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Get the innerWidth of a paragraph.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;p { margin:10px;padding:5px;border:2px solid #666; } &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var p = $("p:first");
+$("p:last").text( "innerWidth:" + p.innerWidth() );
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

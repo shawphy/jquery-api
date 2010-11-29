@@ -1,0 +1,87 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Element</span>event.target
+   </h2>
+   <div class="desc">
+      <p>最初触发事件的DOM元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>event.target
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"> 
+         
+         <p><code>event.target</code> 属性指向的对象可能是事件绑定时的那个对象，也可能是它的子孙元素。通常通过比较 <code>event.target</code> 和 <code>this</code> 来确定事件是不是由于冒泡而触发的。经常用于事件冒泡时处理事件委托。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>显示点击元素的标签名。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+span, strong, p { 
+  padding: 8px; display: block; border: 1px solid #999;  }
+    &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div id="log"&gt;&lt;/div&gt;
+&lt;div&gt;
+  &lt;p&gt;
+    &lt;strong&gt;&lt;span&gt;click&lt;/span&gt;&lt;/strong&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+
+$("body").click(function(event) {
+  $("#log").html("clicked: " + event.target.nodeName);
+});  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>实现一个简单的事件委托：给无序列表增加一个点击事件处理函数，然后它的子元素li的子元素都隐藏起来。当点击这个ul其中一个子元素li的时候，来回切换显示（参见 toggle()）li的子元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;ul&gt;
+  &lt;li&gt;item 1
+    &lt;ul&gt;
+      &lt;li&gt;sub item 1-a&lt;/li&gt;
+      &lt;li&gt;sub item 1-b&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;item 2
+    &lt;ul&gt;
+      &lt;li&gt;sub item 2-a&lt;/li&gt;
+      &lt;li&gt;sub item 2-b&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;  
+&lt;/ul&gt;
+
+&lt;script&gt;
+
+function handler(event) {
+  var $target = $(event.target);
+  if( $target.is("li") ) {
+    $target.children().toggle();
+  }
+}
+$("ul").click(handler).find("ul").hide();
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

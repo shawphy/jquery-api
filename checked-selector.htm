@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:checked</h2>
+   <div class="desc">
+      <p>匹配所有勾选的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:checked
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:checked</code> 选择器仅适用于复选框和单选框按钮。如果要选择 select 中选中的 option 元素，请使用 <code>:selected</code> 选择器。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找选中的 input 元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;
+    &lt;input type="checkbox" name="newsletter" checked="checked" value="Hourly" /&gt;
+
+    &lt;input type="checkbox" name="newsletter" value="Daily" /&gt;
+    &lt;input type="checkbox" name="newsletter" value="Weekly" /&gt;
+
+    &lt;input type="checkbox" name="newsletter" checked="checked" value="Monthly" /&gt;
+    &lt;input type="checkbox" name="newsletter" value="Yearly" /&gt;
+
+  &lt;/form&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    function countChecked() {
+      var n = $("input:checked").length;
+      $("div").text(n + (n &lt;= 1 ? " is" : " are") + " checked!");
+    }
+    countChecked();
+    $(":checkbox").click(countChecked);
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h5>结果:</h5><pre><code>&lt;input type="checkbox" name="newsletter" checked="checked" value="Daily" /&gt;,
+  &lt;input type="checkbox" name="newsletter" checked="checked" value="Monthly" /&gt; ]</code></pre></div>
+</div>

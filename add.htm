@@ -1,0 +1,187 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>add(selector)<br></h2>
+   <div class="desc">
+      <p>Add elements to the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>add(selector)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								A string containing a selector expression to match additional elements against.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>add(elements)
+               								
+            </h4>
+            <div class="arguement"><strong>elements</strong>
+               								(Elements)
+               								one or more elements to add to the set of matched elements.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>add(html)
+               								
+            </h4>
+            <div class="arguement"><strong>html</strong>
+               								(HTML)
+               								An HTML fragment to add to the set of matched elements.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>add(selector, context)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								A string containing a selector expression to match additional elements against.
+            </div>
+            <div class="arguement"><strong>context</strong>
+               								(Element)
+               								Add some elements rooted against the specified context.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Given a jQuery object that represents a set of DOM elements, the <code>.add()</code> method constructs a new jQuery object from the union of those elements and the ones passed into the method. The argument
+            to <code>.add()</code> can be pretty much anything that  <code>$()</code> accepts, including a jQuery selector expression, references to DOM elements, or an HTML snippet.
+         </p>
+         
+         <p>Consider a page with a simple list and a paragraph following it:</p>
+         <pre>&lt;ul&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2&lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;a paragraph&lt;/p&gt;</pre>
+         <p>We can select the list items and then the paragraph by using either a selector or a reference to the DOM element itself as
+            the <code>.add()</code> method's argument:
+         </p>
+         <pre>$('li').add('p').css('background-color', 'red');</pre>
+         <p>Or:</p>
+         <pre>$('li').add(document.getElementsByTagName('p')[0])
+  .css('background-color', 'red');</pre>
+         <p>The result of this call is a red background behind all four elements.
+            Using an HTML snippet as the <code>.add()</code> method's argument (as in the third version), we can create additional elements on the fly and add those elements to the matched
+            set of elements. Let's say, for example, that we want to alter the background of the list items along with a newly created
+            paragraph:
+         </p>
+         <pre>$('li').add('&lt;p id="new"&gt;new paragraph&lt;/p&gt;')
+  .css('background-color', 'red');</pre>
+         <p>Although the new paragraph has been created and its background color changed, it still does not appear on the page. To place
+            it on the page, we could add one of the insertion methods to the chain.
+         </p>
+         
+         <p>As of jQuery 1.4 the results from .add() will always be returned in document order (rather than a simple concatenation).</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds all divs and makes a border.  Then adds all paragraphs to the jQuery object to set their backgrounds yellow.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+ div { width:60px; height:60px; margin:10px; float:left; }
+ p { clear:left; font-weight:bold; font-size:16px; 
+     color:blue; margin:0 10px; padding:2px; }
+ &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;/div&gt;
+
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+  &lt;p&gt;Added this... (notice no border)&lt;/p&gt;
+
+&lt;script&gt;
+
+
+
+$("div").css("border", "2px solid red")
+        .add("p")
+        .css("background", "yellow");
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Adds more elements, matched by the given expression, to the set of matched elements.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;span&gt;Hello Again&lt;/span&gt;
+
+&lt;script&gt;
+
+$("p").add("span").css("background", "yellow");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Adds more elements, created on the fly, to the set of matched elements.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;
+
+&lt;script&gt;
+
+$("p").clone().add("&lt;span&gt;Again&lt;/span&gt;").appendTo(document.body);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Adds one or more Elements to the set of matched elements.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
+
+&lt;script&gt;
+
+$("p").add(document.getElementById("a")).css("background", "yellow");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Demonstrates how to add (or push) elements to an existing collection</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;span id="a"&gt;Hello Again&lt;/span&gt;
+
+&lt;script&gt;
+
+var collection = $("p");
+// capture the new collection
+collection = collection.add(document.getElementById("a"));
+collection.css("background", "yellow");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

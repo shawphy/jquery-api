@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:selected</h2>
+   <div class="desc">
+      <p>选择所有选中的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:selected
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:selected</code> 选择器仅适用于 <code>&lt;option&gt;</code> 元素。复选框和单选框元素请使用 <code>:checked</code></p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>附加 change 事件到一个 select 元素上，获取选中的 option 元素并把文本写入一个 div 之中。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;select name="garden" multiple="multiple"&gt;
+
+    &lt;option&gt;Flowers&lt;/option&gt;
+    &lt;option selected="selected"&gt;Shrubs&lt;/option&gt;
+    &lt;option&gt;Trees&lt;/option&gt;
+    &lt;option selected="selected"&gt;Bushes&lt;/option&gt;
+
+    &lt;option&gt;Grass&lt;/option&gt;
+    &lt;option&gt;Dirt&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    $("select").change(function () {
+          var str = "";
+          $("select option:selected").each(function () {
+                str += $(this).text() + " ";
+              });
+          $("div").text(str);
+        })
+        .trigger('change');
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

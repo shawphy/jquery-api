@@ -1,0 +1,55 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Integer</span>outerHeight(<em class="optional">[includeMargin]</em>)<br></h2>
+   <div class="desc">
+      <p>Get the current computed height for the first element in the set of matched elements, including padding, border, and optionally
+         margin.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.6 新增</span>outerHeight(<em class="optional">[includeMargin]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>includeMargin</strong>
+               								(Boolean)
+               								 可选参数，A Boolean indicating whether to include the element's margin in the calculation.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The top and bottom padding and border are always included in the <code>.outerHeight()</code> calculation; if the <code>includeMargin</code> argument is set to <code>true</code>, the margin (top and bottom) is also included.
+         </p>
+         
+         <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="height.htm">.height()</a></code> instead.
+         </p>
+         
+         <p class="image">
+            <img src="images/0042_04_03.png">
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Get the outerHeight of a paragraph.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;p { margin:10px;padding:5px;border:2px solid #666; } &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var p = $("p:first");
+$("p:last").text( "outerHeight:" + p.outerHeight() + " , outerHeight(true):" + p.outerHeight(true) );
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:last</h2>
+   <div class="desc">
+      <p>选择最后一个匹配到的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:last
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>注意，<code>:last</code> 只会选择单个元素，这个元素是这个选择器之前的选择器匹配到的元素集合中的最后一个元素。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找表格中最后一行。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table&gt;
+
+    &lt;tr&gt;&lt;td&gt;First Row&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Middle Row&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Last Row&lt;/td&gt;&lt;/tr&gt;
+
+  &lt;/table&gt;
+
+&lt;script&gt;
+
+$("tr:last").css({backgroundColor: 'yellow', fontWeight: 'bolder'});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

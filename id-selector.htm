@@ -1,0 +1,98 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>#id</h2>
+   <div class="desc">
+      <p>Selects a single element with the given id attribute. </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>#id
+            </h4>
+            <div class="arguement"><strong>id</strong>
+               								(String)
+               								An ID to search for, specified via the id attribute of an element.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>For id selectors, jQuery uses the JavaScript function <code>document.getElementById()</code>, which is extremely efficient. When another selector is attached to the id selector, such as <code>h2#pageTitle</code>, jQuery performs an additional check before identifying the element as a match.
+         </p>
+         
+         <blockquote>
+            
+            <p>As always, remember that as a developer, your time is typically the most valuable resource. Do not focus on optimization of
+               selector speed unless it is clear that performance needs to be improved.
+            </p>
+            
+         </blockquote>
+         
+         <p>Each <code>id</code> value must be used only once within a document. If more than one element has been assigned the same ID, queries that use
+            that ID will only select the first matched element in the DOM. This behavior should not be relied on, however; a document
+            with more than one element using the same ID is invalid.
+         </p>
+         
+         <p>If the id contains characters like periods or colons you have to <a href="http://docs.jquery.com/Frequently_Asked_Questions#How_do_I_select_an_element_by_an_ID_that_has_characters_used_in_CSS_notation.3F">escape those characters with backslashes</a>.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds the element with the id "myDiv".</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div {
+    width: 90px;
+    height: 90px;
+    float:left;
+    padding: 5px;
+    margin: 5px;
+    background-color: #EEEEEE;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="notMe"&gt;&lt;p&gt;id="notMe"&lt;/p&gt;&lt;/div&gt;
+
+  &lt;div id="myDiv"&gt;id="myDiv"&lt;/div&gt;
+
+&lt;script&gt;
+
+$("#myDiv").css("border","3px solid red");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Finds the element with the id "myID.entry[1]".  See how certain characters must be escaped with backslashes.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div {
+    width: 300px;
+    float:left;
+    padding: 2px;
+    margin: 3px;
+    background-color: #EEEEEE;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="myID.entry[0]"&gt;id="myID.entry[0]"&lt;/div&gt;
+
+  &lt;div id="myID.entry[1]"&gt;id="myID.entry[1]"&lt;/div&gt;
+  &lt;div id="myID.entry[2]"&gt;id="myID.entry[2]"&lt;/div&gt;
+
+&lt;script&gt;
+
+$("#myID\\.entry\\[1\\]").css("border","3px solid red");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

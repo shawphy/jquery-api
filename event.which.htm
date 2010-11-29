@@ -1,0 +1,44 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>event.which
+   </h2>
+   <div class="desc">
+      <p>针对键盘和鼠标事件，这个属性能确定你到底按的是哪个键。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.3 新增</span>event.which
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"> 
+         
+         <p>
+            <code>event.which</code> 将 <code>event.keyCode</code> 和 <code>event.charCode</code> 标准化了。推荐用 <code>event.which</code> 来监视键盘输入。更多细节请参阅： <a href="https://developer.mozilla.org/en/DOM/event.charCode#Notes">event.charCode on the MDC</a>. 
+         </p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>记录按键</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;input id="whichkey" value="type something"&gt;
+&lt;div id="log"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$('#whichkey').bind('keydown',function(e){ 
+  $('#log').html(e.type + ': ' +  e.which );
+});  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h5>结果:</h5><pre><code>"keydown" 74  </code></pre></div>
+</div>

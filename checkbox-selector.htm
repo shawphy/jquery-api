@@ -1,0 +1,70 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:checkbox</h2>
+   <div class="desc">
+      <p>选择所有复选框，即 type 为 checkbox 的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:checkbox
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>$(':checkbox')</code> 等价于 <code>$('[type=checkbox]')</code>。如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':checkbox')</code> 等价于 <code>$('*:checkbox')</code>，所以应该使用 <code>$('input:checkbox')</code> 来提升匹配效率。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有复选框。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  textarea { height:25px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;
+    &lt;input type="button" value="Input Button"/&gt;
+    &lt;input type="checkbox" /&gt;
+
+    &lt;input type="checkbox" /&gt;
+    &lt;input type="file" /&gt;
+    &lt;input type="hidden" /&gt;
+
+    &lt;input type="image" /&gt;
+    &lt;input type="password" /&gt;
+    &lt;input type="radio" /&gt;
+
+    &lt;input type="reset" /&gt;
+    &lt;input type="submit" /&gt;
+    &lt;input type="text" /&gt;
+
+    &lt;select&gt;&lt;option&gt;Option&lt;option/&gt;&lt;/select&gt;
+    &lt;textarea&gt;&lt;/textarea&gt;
+    &lt;button&gt;Button&lt;/button&gt;
+  &lt;/form&gt;
+
+  &lt;div&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    var input = $("form input:checkbox").wrap('&lt;span&gt;&lt;/span&gt;').parent().css({background:"yellow", border:"3px red solid"});
+    $("div").text("For this type jQuery found " + input.length + ".")
+            .css("color", "red");
+    $("form").submit(function () { return false; }); // so it won't submit
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

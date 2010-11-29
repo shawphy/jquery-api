@@ -1,0 +1,91 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>submit(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>选择所有提交按钮，即 type 为 submit 的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>submit(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>submit(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>submit()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:submit</code> 选择器主要用于 button 或者 input 元素。注意，某些浏览器默认把没有设置 type 的 <code>&lt;button&gt;</code> 元素看做 <code>type="default"</code> ，而其他浏览器(比如IE)则并非如此。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有作为 td 元素后代的提交按钮。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  p { margin:0; color:blue; }
+  div,p { margin-left:10px; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Type 'correct' to validate.&lt;/p&gt;
+  &lt;form action="javascript:alert('success!');"&gt;
+    &lt;div&gt;
+      &lt;input type="text" /&gt;
+
+      &lt;input type="submit" /&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+  &lt;span&gt;&lt;/span&gt;
+
+&lt;script&gt;
+
+
+
+    $("form").submit(function() {
+      if ($("input:first").val() == "correct") {
+        $("span").text("Validated...").show();
+        return true;
+      }
+      $("span").text("Not valid!").show().fadeOut(1000);
+      return false;
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p></p>
+      <h5>jQuery 代码:</h5><pre><code>$("form").submit( function () {
+  return this.some_flag_variable;
+} );</code></pre><h3>示例:</h3>
+      <p></p>
+      <h5>jQuery 代码:</h5><pre><code>$("form:first").submit();</code></pre></div>
+</div>

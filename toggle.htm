@@ -1,0 +1,327 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>toggle(handler(eventObject), handler(eventObject), <em class="optional">[handler(eventObject)]</em>)<br></h2>
+   <div class="desc">
+      <p>Bind two or more handlers to the matched elements, to be executed on alternate clicks.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>toggle(handler(eventObject), handler(eventObject), <em class="optional">[handler(eventObject)]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								A function to execute every even time the element is clicked.
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								A function to execute every odd time the element is clicked.
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								 可选参数，Additional handlers to cycle through after clicks.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.toggle()</code> method binds a handler for the <code>click</code> event, so the rules outlined for the triggering of <code>click</code> apply here as well.
+         </p>
+         <pre>For example, consider the HTML:
+&lt;div id="target"&gt;
+  Click here
+&lt;/div&gt;</pre>
+         
+         <p class="image">
+            <img src="images/0042_05_05.png" alt="">
+            
+         </p>
+         
+         <p>Event handlers can then be bound to the <code>&lt;div&gt;</code>:
+         </p>
+         <pre>$('#target').toggle(function() {
+  alert('First handler for .toggle() called.');
+}, function() {
+  alert('Second handler for .toggle() called.');
+});</pre>
+         <p>As the element is clicked repeatedly, the messages alternate:</p>
+         
+         <p>
+            <span class="output">First handler for .toggle() called.</span>
+            <br>
+            <span class="output">Second handler for .toggle() called.</span>
+            <br>
+            <span class="output">First handler for .toggle() called.</span>
+            <br>
+            <span class="output">Second handler for .toggle() called.</span>
+            <br>
+            <span class="output">First handler for .toggle() called.</span>
+            
+         </p>
+         
+         <p>If more than two handlers are provided, <code>.toggle()</code> will cycle among all of them. For example, if there are three handlers, then the first handler will be called on the first
+            click, the fourth click, the seventh click, and so on.
+         </p>
+         
+         <blockquote>
+            <p>Note: jQuery also provides an animation method named <a href="http://api.jquery.com/toggle/">.toggle()</a> that toggles the visibility of elements. Whether the animation or the event method is fired depends on the set of arguments
+               passed.
+            </p>
+         </blockquote>
+         
+         <p>The <code>.toggle()</code> method is provided for convenience. It is relatively straightforward to implement the same behavior by hand, and this can
+            be necessary if the assumptions built into <code>.toggle()</code> prove limiting. For example, <code>.toggle()</code> is not guaranteed to work correctly if applied twice to the same element. Since <code>.toggle()</code> internally uses a <code>click</code> handler to do its work, we must unbind <code>click</code> to remove a behavior attached with <code>.toggle()</code>, so other <code>click</code> handlers can be caught in the crossfire. The implementation also calls <code>.preventDefault()</code> on the event, so links will not be followed and buttons will not be clicked if <code>.toggle()</code> has been called on the element.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Click to toggle highlight on the list item.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  ul { margin:10px; list-style:inside circle; font-weight:bold; }
+  li { cursor:pointer; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Go to the store&lt;/li&gt;
+    &lt;li&gt;Pick up dinner&lt;/li&gt;
+    &lt;li&gt;Debug crash&lt;/li&gt;
+
+    &lt;li&gt;Take a jog&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;script&gt;
+
+
+    $("li").toggle(
+      function () {
+        $(this).css({"list-style-type":"disc", "color":"blue"});
+      },
+      function () {
+        $(this).css({"list-style-type":"disc", "color":"red"});
+      },
+      function () {
+        $(this).css({"list-style-type":"", "color":""});
+      }
+    );
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To toggle a style on table cells:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("td").toggle(
+  function () {
+    $(this).addClass("selected");
+  },
+  function () {
+    $(this).removeClass("selected");
+  }
+);</code></pre></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>toggle(<em class="optional">[duration]</em>, <em class="optional">[callback]</em>)<br></h2>
+   <div class="desc">
+      <p>Display or hide the matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>toggle(<em class="optional">[duration]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>toggle(<em class="optional">[duration]</em>, <em class="optional">[easing]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>easing</strong>
+               								(String)
+               								 可选参数，要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.3 新增</span>toggle(showOrHide)
+               								
+            </h4>
+            <div class="arguement"><strong>showOrHide</strong>
+               								(Boolean)
+               								A Boolean indicating whether to show or hide the elements.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>With no parameters, the <code>.toggle()</code> method simply toggles the visibility of elements:
+         </p>
+         <pre>$('.target').toggle();
+</pre>
+         <p>The matched elements will be revealed or hidden immediately, with no animation, by changing the CSS <code>display</code> property. If the element is initially displayed, it will be hidden; if hidden, it will be shown. The <code>display</code> property is saved and restored as needed. If an element has a <code>display</code> value of <code>inline</code>, then is hidden and shown, it will once again be displayed <code>inline</code>.
+         </p>
+         
+         <p>When a duration is provided, <code>.toggle()</code> becomes an animation method. The <code>.toggle()</code> method animates the width, height, and opacity of the matched elements simultaneously. When these properties reach 0 after
+            a hiding animation, the <code>display</code> style property is set to <code>none</code> to ensure that the element no longer affects the layout of the page.
+         </p>
+         
+         <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。
+         </p>
+         
+         <blockquote>
+            <p>Note: The event handling suite also has a method named <a href="http://api.jquery.com/toggle-event/">.toggle()</a>. Which one is fired depends on the set of arguments passed.
+            </p>
+         </blockquote>
+         
+         <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。
+         </p>
+         
+         <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。
+         </p>
+         
+         <p>比如下面这个页面：</p>
+         <pre>&lt;div id="clickme"&gt;
+  Click here
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;
+</pre>
+         <p>We will cause <code>.toggle()</code> to be called when another element is clicked:
+         </p>
+         <pre>$('#clickme').click(function() {
+  $('#book').toggle('slow', function() {
+    // 动画完成
+  });
+});
+</pre>
+         <p>With the element initially shown, we can hide it slowly with the first click:
+            
+         </p>
+         
+         <p class="image four-across"> 
+            <img src="images/0042_06_09.png" alt="">
+            <img src="images/0042_06_10.png" alt="">
+            <img src="images/0042_06_11.png" alt="">
+            <img src="images/0042_06_12.png" alt="">
+            
+         </p>
+         
+         <p>A second click will show the element once again:</p>
+         
+         <p class="image four-across">
+            <img src="images/0042_06_13.png" alt="">
+            <img src="images/0042_06_14.png" alt="">
+            <img src="images/0042_06_15.png" alt="">
+            <img src="images/0042_06_16.png" alt="">
+            
+         </p>
+         
+         <p>The second version of the method accepts a Boolean parameter. If this parameter is <code>true</code>, then the matched elements are shown; if <code>false</code>, the elements are hidden. In essence, the statement:
+            
+         </p>
+         <pre>$('#foo').toggle(showOrHide);</pre>
+         <p>is equivalent to:</p>
+         <pre>if (showOrHide) {
+  $('#foo').show();
+} else {
+  $('#foo').hide();
+}
+</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Toggles all paragraphs.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Toggle&lt;/button&gt;
+&lt;p&gt;Hello&lt;/p&gt;
+&lt;p style="display: none"&gt;Good Bye&lt;/p&gt;
+
+&lt;script&gt;
+
+
+
+$("button").click(function () {
+$("p").toggle();
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Animates all paragraphs to be shown if they are hidden and hidden if they are visible, 用时 600 毫秒。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p { background:#dad;
+font-weight:bold;
+font-size:16px; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Toggle 'em&lt;/button&gt;
+
+&lt;p&gt;Hiya&lt;/p&gt;
+&lt;p&gt;Such interesting text, eh?&lt;/p&gt;
+
+&lt;script&gt;
+
+
+$("button").click(function () {
+$("p").toggle("slow");
+});    
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Shows all paragraphs, then hides them all, back and forth.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Toggle&lt;/button&gt;
+&lt;p&gt;Hello&lt;/p&gt;
+&lt;p style="display: none"&gt;Good Bye&lt;/p&gt;
+
+&lt;script&gt;
+
+
+
+var flip = 0;
+$("button").click(function () {
+$("p").toggle( flip++ % 2 == 0 );
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

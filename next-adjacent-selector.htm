@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>prev + next</h2>
+   <div class="desc">
+      <p>选择所有紧跟在 "prev" 后面的，匹配 "next" 选择器的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>prev + next
+            </h4>
+            <div class="arguement"><strong>prev</strong>
+               								(Selector)
+               								任何有效的选择器。
+            </div>
+            <div class="arguement"><strong>next</strong>
+               								(Selector)
+               								用于筛选紧跟在后面的元素的选择器。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>非常重要的一点是，(<code>prev + next</code>) 和 (<code>prev ~ siblings</code>) 所选择到的元素，必须是在同一个父元素下的。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有跟在 label 后面的 input 元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;
+
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input name="name" /&gt;
+    &lt;fieldset&gt;
+      &lt;label&gt;Newsletter:&lt;/label&gt;
+
+      &lt;input name="newsletter" /&gt;
+    &lt;/fieldset&gt;
+  &lt;/form&gt;
+  &lt;input name="none" /&gt;
+
+&lt;script&gt;
+
+$("label + input").css("color", "blue").val("Labeled!")
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>first()<br></h2>
+   <div class="desc">
+      <p>选择第一个匹配到的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>first()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:first</code> 伪类选择器等价于 <code>:eq(0)</code>。也等价于 <code>:lt(1)</code>，因为这也只能匹配到第一个元素。 <a href="first-child-selector">:first-child</a> 则可以匹配到多个元素：即每个父元素中的第一个元素。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找表格中的第一行。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;.highlight{background-color: yellow}&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;&lt;span&gt;Look:&lt;/span&gt; &lt;span&gt;This is some text in a paragraph.&lt;/span&gt; &lt;span&gt;This is a note about it.&lt;/span&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+$("p span").first().addClass('highlight');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

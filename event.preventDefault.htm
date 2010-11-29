@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:undefined</span>event.preventDefault()<br></h2>
+   <div class="desc">
+      <p>阻止默认事件行为的触发。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>event.preventDefault()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"> 
+         
+         <p>举例来说，在执行这个方法后，如果点击一个锚点<code>&lt;a /&gt;</code>，就不会让浏览器跳转到新的 URL 去了。我们可以用 <code>event.isDefaultPrevented()</code> 来确定这个方法是否(在那个事件对象上)调用过了。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>取消点击的默认行为(导航)。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;a href="http://jquery.com"&gt;default click action is prevented&lt;/a&gt;
+&lt;div id="log"&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+
+
+$("a").click(function(event) {
+  event.preventDefault();
+  $('&lt;div/&gt;')
+    .append('default ' + event.type + ' prevented')
+    .appendTo('#log');
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

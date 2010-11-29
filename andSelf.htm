@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>andSelf()<br></h2>
+   <div class="desc">
+      <p>Add the previous set of elements on the stack to the current set.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>andSelf()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>As described in the discussion for <code>.end()</code> above, jQuery objects maintain an internal stack that keeps track of changes to the matched set of elements. When one of
+            the DOM traversal methods is called, the new set of elements is pushed onto the stack. If the previous set of elements is
+            desired as well, <code>.andSelf()</code> can help.
+         </p>
+         
+         <p>Consider a page with a simple list on it:</p>
+         <pre>
+&lt;ul&gt;
+   &lt;li&gt;list item 1&lt;/li&gt;
+   &lt;li&gt;list item 2&lt;/li&gt;
+   &lt;li class="third-item"&gt;list item 3&lt;/li&gt;
+   &lt;li&gt;list item 4&lt;/li&gt;
+   &lt;li&gt;list item 5&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>If we begin at the third item, we can find the elements which come after it:</p>
+         <pre>$('li.third-item').nextAll().andSelf()
+  .css('background-color', 'red');
+</pre>
+         <p>The result of this call is a red background behind items 3, 4 and 5. First, the initial selector locates item 3, initializing
+            the stack with the set containing just this item. The call to <code>.nextAll()</code> then pushes the set of items 4 and 5 onto the stack. Finally, the <code>.andSelf()</code> invocation merges these two sets together, creating a jQuery object that points to all three items in document order: <code>{[&lt;li.third-item&gt;,&lt;li&gt;,&lt;li&gt; ]}</code>.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Find all divs, and all the paragraphs inside of them, and give them both classnames.  Notice the div doesn't have the yellow
+         background color since it didn't use andSelf.
+      </p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p, div { margin:5px; padding:5px; }
+  .border { border: 2px solid red; }
+  .background { background:yellow; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    &lt;p&gt;First Paragraph&lt;/p&gt;
+    &lt;p&gt;Second Paragraph&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+    $("div").find("p").andSelf().addClass("border");
+    $("div").find("p").addClass("background");
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

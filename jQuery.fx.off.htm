@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>jQuery.fx.off
+   </h2>
+   <div class="desc">
+      <p>禁用页面上所有的动画。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>jQuery.fx.off
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>把这个属性设置为 <code>true</code> 后，所有动画方法会立即停止特效，并把元素设置成动画的最终状态。有时候确实有必要这样做，比如：
+         </p>
+         
+         <ul>
+            
+            <li>jQuery 用在资源较少的设备。</li>
+            
+            <li>一些用户由于动画效果而遇到了可访问性问题。（参考文章 <a href="http://www.jdeegan.phlegethon.org/turn_off_animation.htm">Turn Off Animation</a> 以获取更多信息。）
+            </li>
+            
+         </ul>
+         
+         <p>当把这个属性设成 <code>false</code> 之后，可以重新开启所有动画。
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>切换开启或关闭动画。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+    div { width:50px; height:30px; margin:5px; float:left;
+          background:green; }
+    &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;&lt;input type="button" value="Run"/&gt; &lt;button&gt;Toggle fx&lt;/button&gt;&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+var toggleFx = function() {
+  $.fx.off = !$.fx.off;
+};
+toggleFx();
+
+$("button").click(toggleFx)
+
+$("input").click(function(){
+  $("div").toggle("slow");
+});
+  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

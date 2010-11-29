@@ -1,0 +1,112 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Object</span>jQuery.extend(target, <em class="optional">[object1]</em>, <em class="optional">[objectN]</em>)<br></h2>
+   <div class="desc">
+      <p>Merge the contents of two or more objects together into the first object.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.extend(target, <em class="optional">[object1]</em>, <em class="optional">[objectN]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>target</strong>
+               								(Object)
+               								 An object that will receive the new properties if additional objects are passed in or that will extend the jQuery namespace
+               if it is the sole argument.
+            </div>
+            <div class="arguement"><strong>object1</strong>
+               								(Object)
+               								 可选参数，An object containing additional properties to merge in.
+            </div>
+            <div class="arguement"><strong>objectN</strong>
+               								(Object)
+               								 可选参数，Additional objects containing properties to merge in.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.1.4 新增</span>jQuery.extend(<em class="optional">[deep]</em>, target, object1, <em class="optional">[objectN]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>deep</strong>
+               								(Boolean)
+               								 可选参数，If true, the merge becomes recursive (aka. deep copy).
+            </div>
+            <div class="arguement"><strong>target</strong>
+               								(Object)
+               								The object to extend. It will receive the new properties.
+            </div>
+            <div class="arguement"><strong>object1</strong>
+               								(Object)
+               								An object containing additional properties to merge in.
+            </div>
+            <div class="arguement"><strong>objectN</strong>
+               								(Object)
+               								 可选参数，Additional objects containing properties to merge in.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>When we supply two or more objects to <code>$.extend()</code>, properties from all of the objects are added to the target object.
+         </p>
+         
+         <p>If only one argument is supplied to <code>$.extend()</code>, this means the target argument was omitted. In this case, the jQuery object itself is assumed to be the target. By doing
+            this, we can add new functions to the jQuery namespace.  This can be useful for plugin authors wishing to add new methods
+            to JQuery.
+         </p>
+         
+         <p>Keep in mind that the target object (first argument) will be modified, and will also be returned from <code>$.extend()</code>. If, however, we want to preserve both of the original objects, we can do so by passing an empty object as the target:
+         </p>
+         <pre>var object = $.extend({}, object1, object2);</pre>
+         
+         <p>The merge performed by <code>$.extend()</code> is not recursive by default; if a property of the first object is itself an object or array, it will be completely overwritten
+            by a property with the same key in the second object. The values are not merged. This can be seen in the example below by
+            examining the value of banana. However, by passing <code>true</code> for the first function argument, objects will be recursively merged.
+         </p>
+         
+         <p>Undefined properties are not copied. However, properties inherited from the object's prototype <em>will</em> be copied over.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Merge two objects, modifying the first.</p>
+      <h5>jQuery 代码:</h5><pre><code>
+var object1 = {
+  apple: 0,
+  banana: {weight: 52, price: 100},
+  cherry: 97
+};
+var object2 = {
+  banana: {price: 200},
+  durian: 100
+};
+
+$.extend(object1, object2);
+</code></pre><h5>结果:</h5><pre><code>object1 === {apple: 0, banana: {price: 200}, cherry: 97, durian: 100}</code></pre><h3>示例:</h3>
+      <p>Merge two objects recursively, modifying the first.</p>
+      <h5>jQuery 代码:</h5><pre><code>
+var object1 = {
+  apple: 0,
+  banana: {weight: 52, price: 100},
+  cherry: 97
+};
+var object2 = {
+  banana: {price: 200},
+  lime: 100
+};
+
+$.extend(true, object1, object2);
+</code></pre><h5>结果:</h5><pre><code>object1 === {apple: 0, banana: {weight: 52, price: 200}, cherry: 97, lime: 100}</code></pre><h3>示例:</h3>
+      <p>Merge settings and options, modifying settings.</p>
+      <h5>jQuery 代码:</h5><pre><code>var settings = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+jQuery.extend(settings, options);</code></pre><h5>结果:</h5><pre><code>settings == { validate: true, limit: 5, name: "bar" }</code></pre><h3>示例:</h3>
+      <p>Merge defaults and options, without modifying the defaults. This is a common plugin development pattern.</p>
+      <h5>jQuery 代码:</h5><pre><code>var empty = {}
+var defaults = { validate: false, limit: 5, name: "foo" };
+var options = { validate: true, name: "bar" };
+var settings = $.extend(empty, defaults, options);</code></pre><h5>结果:</h5><pre><code>settings == { validate: true, limit: 5, name: "bar" }
+empty == { validate: true, limit: 5, name: "bar" }</code></pre></div>
+</div>

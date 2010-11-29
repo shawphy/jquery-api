@@ -1,0 +1,102 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Integer</span>scrollTop()<br></h2>
+   <div class="desc">
+      <p>Get the current vertical position of the scroll bar for the first element in the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.6 新增</span>scrollTop()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The vertical scroll position is the same as the number of pixels that are hidden from view above the scrollable area. If the
+            scroll bar is at the very top, or if the element is not scrollable, this number will be <code>0</code>.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Get the scrollTop of a paragraph.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { margin:10px;padding:5px;border:2px solid #666; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var p = $("p:first");
+$("p:last").text( "scrollTop:" + p.scrollTop() );
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>scrollTop(value)<br></h2>
+   <div class="desc">
+      <p>Set the current vertical position of the scroll bar for each of the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.6 新增</span>scrollTop(value)
+               								
+            </h4>
+            <div class="arguement"><strong>value</strong>
+               								(Number)
+               								An integer indicating the new position to set the scroll bar to.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The vertical scroll position is the same as the number of pixels that are hidden from view above the scrollable area. Setting
+            the <code>scrollTop</code> positions the vertical scroll of each matched element.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Set the scrollTop of a div.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div.demo {
+background:#CCCCCC none repeat scroll 0 0;
+border:3px solid #666666;
+margin:5px;
+padding:5px;
+position:relative;
+width:200px;
+height:100px;
+overflow:auto;
+}
+  p { margin:10px;padding:5px;border:2px solid #666;width:1000px;height:1000px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="demo"&gt;&lt;h1&gt;lalala&lt;/h1&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$("div.demo").scrollTop(300);
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

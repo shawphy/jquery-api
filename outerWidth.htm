@@ -1,0 +1,59 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Integer</span>outerWidth(<em class="optional">[includeMargin]</em>)<br></h2>
+   <div class="desc">
+      <p>Get the current computed width for the first element in the set of matched elements, including padding and border.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.6 新增</span>outerWidth(<em class="optional">[includeMargin]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>includeMargin</strong>
+               								(Boolean)
+               								 可选参数，A Boolean indicating whether to include the element's margin in the calculation.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Returns the width of the element, along with left and right padding, border, and optionally margin, in pixels.</p>
+         
+         <p>If <code>includeMargin</code> is omitted or <code>false</code>, the padding and border are included in the calculation; if <code>true</code>, the margin is also included.
+         </p>
+         
+         <p>This method is not applicable to <code>window</code> and <code>document</code> objects; for these, use <code><a href="width.htm">.width()</a></code> instead.
+         </p>
+         
+         <p class="image">
+            <img src="images/0042_04_06.png">
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Get the outerWidth of a paragraph.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { margin:10px;padding:5px;border:2px solid #666; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var p = $("p:first");
+$("p:last").text( "outerWidth:" + p.outerWidth()+ " , outerWidth(true):" + p.outerWidth(true) );
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

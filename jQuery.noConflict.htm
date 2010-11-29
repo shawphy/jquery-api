@@ -1,0 +1,83 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Object</span>jQuery.noConflict(<em class="optional">[removeAll]</em>)<br></h2>
+   <div class="desc">
+      <p>放弃jQuery对 <code>$</code> 变量的控制权。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.noConflict(<em class="optional">[removeAll]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>removeAll</strong>
+               								(Boolean)
+               								 可选参数，一个布朗值，用于确定是否在全局作用域中移除所有 jQuery 变量，包括 jQuery 本身。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>许多 JavaScript 库会跟 jQuery 一样使用 <code> $</code> 作为一个函数或者变量名。在 jQuery 中 <code>$</code> 仅仅是 <code>jQuery</code> 对象的别名，所以就算不用 <code>$</code> 也可以通过 <code>jQuery</code> 完整地使用所有功能。例如，用到 $("div p") 的地方，换成 jQuery("div p") 也是可以的。下面的例子就展示了如果你需要跟 jQuery 同时使用其他 JavaScript 库，我们可以通过调用 <code>$.noConflict()</code> 来把 <code>$</code> 的控制权交还给其他库：
+         </p>
+         <pre>
+&lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  $.noConflict();
+  // 这里的代码使用其他库中的 $ 。
+&lt;/script&gt;
+</pre>
+         <p>这里有个技巧对于解决冲突特别有效。.ready() 方法可以给 jQuery 对象取个别名，这样就能够在传给 .ready() 的回调函数的内部继续使用 $ 而不用担心冲突：</p>
+         <pre>
+&lt;script type="text/javascript" src="other_lib.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+  $.noConflict();
+  jQuery(document).ready(function($) {
+    // 这里的代码使用 jQuery 中的 $
+  });
+  // 这里的代码使用其他库的 $
+&lt;/script&gt;
+</pre>
+         <p>如果有必要，我们只要把参数 <code>true</code> 传给这个方法，就可以把 <code>jQuery</code> 这个变量完全释放。这种情况非常罕见，但有时候我们必须这么做（比如我们需要在一个页面中引入多个版本的 <code>jQuery</code> 库）。注意，这样做很有可能导致插件失效，因为插件通常依赖于 jQuery 变量。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>把原先映射在 $ 上的对象重新映射到 $ 上。</p>
+      <h5>jQuery 代码:</h5><pre><code>jQuery.noConflict();
+// Do something with jQuery
+jQuery("div p").hide();
+// Do something with another library's $()
+$("content").style.display = 'none';</code></pre><h3>示例:</h3>
+      <p>恢复 $ 别名，然后创建并执行一个函数，其内部作用域提供了 $ 作为 jQuery 的别名。这样，就不会访问到全局的 $ 对象了。大多数不依赖其他库的插件在这个函数中都可以正常使用。</p>
+      <h5>jQuery 代码:</h5><pre><code>jQuery.noConflict();
+(function($) { 
+  $(function() {
+    // more code using $ as alias to jQuery
+  });
+})(jQuery);
+// other code using $ as an alias to the other library</code></pre><h3>示例:</h3>
+      <p>你可以对 jQuery.noConflict() 进行链式操作来调用 ready 的快捷方式，这样可以压缩代码。</p>
+      <h5>jQuery 代码:</h5><pre><code>jQuery.noConflict()(function(){
+    // code using jQuery
+}); 
+// other code using $ as an alias to the other library</code></pre><h3>示例:</h3>
+      <p>创建一个不同的别名，之后的脚本中就可以使用这个别名来替代 jQuery 。</p>
+      <h5>jQuery 代码:</h5><pre><code>var j = jQuery.noConflict();
+// Do something with jQuery
+j("div p").hide();
+// Do something with another library's $()
+$("content").style.display = 'none';</code></pre><h3>示例:</h3>
+      <p>完全把 jQuery 移到另一个对象上新的命名空间中。</p>
+      <h5>jQuery 代码:</h5><pre><code>var dom = {};
+dom.query = jQuery.noConflict(true);</code></pre><h5>结果:</h5><pre><code>// Do something with the new jQuery
+dom.query("div p").hide();
+// Do something with another library's $()
+$("content").style.display = 'none';
+// Do something with another version of jQuery
+jQuery("div &gt; p").hide();</code></pre></div>
+</div>

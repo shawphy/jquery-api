@@ -1,0 +1,164 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>hover(handlerIn(eventObject), handlerOut(eventObject))<br></h2>
+   <div class="desc">
+      <p>Bind two handlers to the matched elements, to be executed when the mouse pointer enters and leaves the elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>hover(handlerIn(eventObject), handlerOut(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handlerIn(eventObject)</strong>
+               								(Function)
+               								A function to execute when the mouse pointer enters the element.
+            </div>
+            <div class="arguement"><strong>handlerOut(eventObject)</strong>
+               								(Function)
+               								A function to execute when the mouse pointer leaves the element.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.hover()</code> method binds handlers for both <code>mouseenter</code> and <code>mouseleave</code> events. We can use it to simply apply behavior to an element during the time the mouse is within the element.
+         </p>
+         
+         <p>Calling <code>$(selector).hover(handlerIn, handlerOut)</code> is shorthand for:
+         </p>
+         <pre>$(selector).mouseenter(handlerIn).mouseleave(handlerOut);</pre>
+         <p>See the discussions for <code><a href="mouseenter.htm">.mouseenter()</a></code> and <code><a href="mouseleave.htm">.mouseleave()</a></code> for more details.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>To add a special style to list items that are being hovered over, try:</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  ul { margin-left:20px; color:blue; }
+  li { cursor:default; }
+  span { color:red; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Milk&lt;/li&gt;
+    &lt;li&gt;Bread&lt;/li&gt;
+    &lt;li class='fade'&gt;Chips&lt;/li&gt;
+
+    &lt;li class='fade'&gt;Socks&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;script&gt;
+
+
+$("li").hover(
+  function () {
+    $(this).append($("&lt;span&gt; ***&lt;/span&gt;"));
+  }, 
+  function () {
+    $(this).find("span:last").remove();
+  }
+);
+
+
+
+//li with fade class
+$("li.fade").hover(function(){$(this).fadeOut(100);$(this).fadeIn(500);});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To add a special style to table cells that are being hovered over, try:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("td").hover(
+  function () {
+    $(this).addClass("hover");
+  },
+  function () {
+    $(this).removeClass("hover");
+  }
+);</code></pre><h3>示例:</h3>
+      <p>To unbind the above example use:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("td").unbind('mouseenter mouseleave');</code></pre></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>hover(handlerInOut(eventObject))<br></h2>
+   <div class="desc">
+      <p>Bind a single handler to the matched elements, to be executed when the mouse pointer enters or leaves the elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>hover(handlerInOut(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handlerInOut(eventObject)</strong>
+               								(Function)
+               								A function to execute when the mouse pointer enters or leaves the element.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.hover()</code> method, when passed a single function, will execute that handler for both <code>mouseenter</code> and <code>mouseleave</code> events.   This allows the user to use jQuery's various toggle methods within the handler.
+         </p>
+         
+         <p>Calling <code>$(selector).hover(handlerInOut)</code> is shorthand for:
+         </p>
+         <pre>$(selector).bind("mouseenter mouseleave",handlerInOut);</pre>
+         <p>See the discussions for <code><a href="mouseenter.htm">.mouseenter()</a></code> and <code><a href="mouseleave.htm">.mouseleave()</a></code> for more details.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Slide the next sibling LI up or down on hover, and toggle a class.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  ul { margin-left:20px; color:blue; }
+  li { cursor:default; }
+  li.active { background:black;color:white; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;Milk&lt;/li&gt;
+    &lt;li&gt;White&lt;/li&gt;
+    &lt;li&gt;Carrots&lt;/li&gt;
+    &lt;li&gt;Orange&lt;/li&gt;
+    &lt;li&gt;Broccoli&lt;/li&gt;
+    &lt;li&gt;Green&lt;/li&gt;
+  &lt;/ul&gt;
+
+&lt;script&gt;
+
+
+$("li")
+.filter(":odd")
+.hide()
+ .end()
+.filter(":even")
+.hover(
+  function () {
+    $(this).toggleClass("active")
+      .next().stop(true, true).slideToggle();
+  }
+);
+
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>event.isDefaultPrevented()<br></h2>
+   <div class="desc">
+      <p>根据事件对象中是否调用过 <a href="event.preventDefault.htm">event.preventDefault()</a> 方法来返回一个布尔值。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>event.isDefaultPrevented()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">   </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>检测 event.preventDefault() 是否被调用过。</p>
+      <h5>jQuery 代码:</h5><pre><code>$("a").click(function(event){
+  alert( event.isDefaultPrevented() ); // false
+  event.preventDefault();
+  alert( event.isDefaultPrevented() ); // true
+});  </code></pre></div>
+</div>

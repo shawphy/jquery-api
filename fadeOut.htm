@@ -1,0 +1,189 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>fadeOut(<em class="optional">[duration]</em>, <em class="optional">[callback]</em>)<br></h2>
+   <div class="desc">
+      <p>通过渐变形式让匹配的元素变成透明。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>fadeOut(<em class="optional">[duration]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>fadeOut(<em class="optional">[duration]</em>, <em class="optional">[easing]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值。
+            </div>
+            <div class="arguement"><strong>easing</strong>
+               								(String)
+               								 可选参数，要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.fadeOut()</code> 方法对匹配元素的透明度生成动画效果。当透明度变成 0 之后，再把 <code>display</code> 样式属性设置成 <code>none</code> 以确保这个元素不再对页面布局产生影响。
+         </p>
+         
+         <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。
+         </p>
+         
+         <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。
+         </p>
+         
+         <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。
+         </p>
+         
+         <p>比如下面这个页面：</p>
+         <pre>&lt;div id="clickme"&gt;
+  Click here
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+         <p>如果元素一开始是显现的，我们可以这样将其缓慢的隐藏：</p>
+         <pre>$('#clickme').click(function() {
+  $('#book').fadeOut('slow', function() {
+    // 动画完成
+  });
+});</pre>
+         <p class="image four-across">
+            <img src="images/0042_06_37.png" alt="">
+            <img src="images/0042_06_38.png" alt="">
+            <img src="images/0042_06_39.png" alt="">
+            <img src="images/0042_06_40.png" alt="">
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>让所有段落渐渐消失，用时 600 毫秒。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { font-size:150%; cursor:pointer; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+  If you click on this paragraph
+  you'll see it just fade away.
+  &lt;/p&gt;
+
+&lt;script&gt;
+
+
+  $("p").click(function () {
+  $("p").fadeOut("slow");
+  });
+  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>渐隐你点击的 span 。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span { cursor:pointer; }
+  span.hilite { background:yellow; }
+  div { display:inline; color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h3&gt;Find the modifiers - &lt;div&gt;&lt;/div&gt;&lt;/h3&gt;
+  &lt;p&gt;
+  If you &lt;span&gt;really&lt;/span&gt; want to go outside
+  &lt;span&gt;in the cold&lt;/span&gt; then make sure to wear
+  your &lt;span&gt;warm&lt;/span&gt; jacket given to you by
+  your &lt;span&gt;favorite&lt;/span&gt; teacher.
+  &lt;/p&gt;
+
+&lt;script&gt;
+
+
+
+  $("span").click(function () {
+  $(this).fadeOut(1000, function () {
+  $("div").text("'" + $(this).text() + "' has faded!");
+  $(this).remove();
+  });
+  });
+  $("span").hover(function () {
+  $(this).addClass("hilite");
+  }, function () {
+  $(this).removeClass("hilite");
+  });
+
+  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>渐隐两个 div ，一个使用 "linear" 缓冲效果，另一个使用默认的 "swing," 缓冲效果。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.box,
+button { float:left; margin:5px 10px 5px 0; }
+.box { height:80px; width:80px; background:#090; }
+#log { clear:left; }
+
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;button id="btn1"&gt;fade out&lt;/button&gt;
+&lt;button id="btn2"&gt;show&lt;/button&gt;
+
+&lt;div id="log"&gt;&lt;/div&gt;
+
+&lt;div id="box1" class="box"&gt;linear&lt;/div&gt;
+&lt;div id="box2" class="box"&gt;swing&lt;/div&gt;
+
+
+&lt;script&gt;
+
+
+$("#btn1").click(function() {
+  function complete() {
+    $("&lt;div/&gt;").text(this.id).appendTo("#log");
+  }
+  
+  $("#box1").fadeOut(1600, "linear", complete);
+  $("#box2").fadeOut(1600, complete);
+});
+
+$("#btn2").click(function() {
+  $("div").show();
+  $("#log").empty();
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

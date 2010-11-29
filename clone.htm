@@ -1,0 +1,83 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>clone(<em class="optional">[withDataAndEvents]</em>)<br></h2>
+   <div class="desc">
+      <p>Create a deep copy of the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>clone(<em class="optional">[withDataAndEvents]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>withDataAndEvents</strong>
+               								(Boolean)
+               								 可选参数，A Boolean indicating whether event handlers should be copied along with the elements. As of jQuery 1.4 element data will be
+               copied as well.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.clone()</code> method performs a <em>deep</em> copy of the set of matched elements, meaning that it copies the matched elements as well as all of their descendant elements
+            and text nodes. When used in conjunction with one of the insertion methods, <code>.clone()</code> is a convenient way to duplicate elements on a page. Consider the following HTML:
+         </p>
+         <pre>&lt;div class="container"&gt;
+  &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</pre>
+         <p>As shown in the discussion for <code><a href="append.htm">.append()</a></code>,  normally when we insert an element somewhere in the DOM, it is moved from its old location. So, given the code:
+         </p>
+         <pre>$('.hello').appendTo('.goodbye');</pre>
+         <p>The resulting DOM structure would be:</p>
+         <pre>&lt;div class="container"&gt;
+  &lt;div class="goodbye"&gt;
+    Goodbye
+    &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+         <p>To prevent this and instead create a copy of the element, we could write the following:</p>
+         <pre>$('.hello').clone().appendTo('.goodbye');</pre>
+         <p>This would produce:</p>
+         <pre>&lt;div class="container"&gt;
+  &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;div class="goodbye"&gt;
+    Goodbye
+    &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+         <blockquote>
+            
+            <p>Note that when using the <code>.clone()</code> method, we can modify the cloned elements or their contents before (re-)inserting them into the document.
+            </p>
+            
+         </blockquote>
+         
+         <p>Normally, any event handlers bound to the original element are <em>not</em> copied to the clone. The optional <code>withDataAndEvents </code>parameter allows us to change this behavior, and to instead make copies of all of the event handlers as well, bound to the
+            new copy of the element. As of jQuery 1.4, all element data (attached by the <code>.data()</code> method) is also copied to the new copy. 
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Clones all b elements (and selects the clones) and prepends them to all paragraphs.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+  &lt;b&gt;Hello&lt;/b&gt;&lt;p&gt;, how are you?&lt;/p&gt;
+
+
+&lt;script&gt;
+
+
+  $("b").clone().prependTo("p");
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,125 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:XMLHttpRequest</span>jQuery.getJSON(url, <em class="optional">[data]</em>, <em class="optional">[callback(data, textStatus, xhr)]</em>)<br></h2>
+   <div class="desc">
+      <p>通过 HTTP GET 方式从服务器载入 JSON 编码的数据。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.getJSON(url, <em class="optional">[data]</em>, <em class="optional">[callback(data, textStatus, xhr)]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>url</strong>
+               								(String)
+               								将要请求的 URL 字符串。
+            </div>
+            <div class="arguement"><strong>data</strong>
+               								(Map)
+               								 可选参数，发送给服务器的字符串或者映射。
+            </div>
+            <div class="arguement"><strong>callback(data, textStatus, xhr)</strong>
+               								(Function)
+               								 可选参数，当请求成功后会执行的回调函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
+         <pre>$.ajax({
+  url: <em>url</em>,
+  dataType: 'json',
+  data: <em>data</em>,
+  success: <em>callback</em>
+});
+</pre>
+         <p>数据会以 URL 查询字符串形式发送给服务器。如果 <code>data</code> 参数的值是一个对象(映射)，他会自动被转换成 URL 编码的字符串。
+         </p>
+         
+         <p>回调函数会传入一个返回的数据，这个数据是由 <code><a href="jQuery.parseJSON.htm">$.parseJSON()</a></code> 方法解析后得到的 JavaScript 对象或者数组。
+         </p>
+         
+         <p>大多数情况下都会指定一个请求成功后的回调函数：</p>
+         <pre>$.getJSON('ajax/test.json', function(data) {
+  $('.result').html('&lt;p&gt;' + data.foo + '&lt;/p&gt;'
+    + '&lt;p&gt;' + data.baz[1] + '&lt;/p&gt;');
+});
+</pre>
+         	           <p>当然，这个例子需要依赖下面的 JSON 文件结构：</p>
+         	           <pre>{
+  "foo": "The quick brown fox jumps over the lazy dog.",
+  "bar": "ABCDEFG",
+  "baz": [52, 97]
+}
+</pre>
+         <p>使用这种结构数据后，这个例子就能把第一个字符串和第二个数字插入到页面当中。</p>
+         
+         <blockquote>
+            
+            <p><strong>重要提示：</strong> 从 jQuery 1.4 起，如果 JSON 文件包含语法错误，这个请求会失败而不会返回任何提示信息。因此，请尽量避免频繁地手动编辑 JSON 数据。JSON 是一个数据交换格式，所以他的语法规则比普通的 JavaScript 对象字面量表示法还要严格。比如
+               JSON 中的所有字符串都必须用双引号包裹，不管他是属性还是值。更多信息请参考：<a href="http://json.org/">http://json.org/</a>。
+            </p>
+            
+         </blockquote>
+         
+         <h4 id="jsonp">JSONP</h4>
+         
+         <p>如果 URL 中包涵字符串 "callback=?" (或者其他类似的，取决于服务器端 API 是如何定义的)，这个请求就会被看做 JSONP 请求。更多关于 <code>jsonp</code> 数据类型的探讨，请参考 <code><a href="jQuery.ajax.htm">$.ajax()</a></code>。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>用 Flickr 的 JSONP API 载入最近的四张关于猫的图片。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;img{ height: 100px; float: left; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="images"&gt;
+
+&lt;/div&gt;
+
+&lt;script&gt;
+
+
+$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+  {
+    tags: "cat",
+    tagmode: "any",
+    format: "json"
+  },
+  function(data) {
+    $.each(data.items, function(i,item){
+      $("&lt;img/&gt;").attr("src", item.media.m).appendTo("#images");
+      if ( i == 3 ) return false;
+    });
+  });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>从 test.js 中载入 JSON 数据，并且从返回的 JSON 数据中获得 name 的值。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.getJSON("test.js", function(json) {
+   alert("JSON Data: " + json.users[3].name);
+ });</code></pre><h3>示例:</h3>
+      <p>从 test.js 中载入 JSON 数据，传递一个附加的数据，并且从返回的 JSON 数据中获得 name 的值。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.getJSON("test.js", { name: "John", time: "2pm" }, function(json){
+    alert("JSON Data: " + json.users[3].name);
+    });</code></pre><h3>示例:</h3>
+      <p>列出从 pages.php 中获得的信息。</p>
+      <h5>jQuery 代码:</h5><pre><code>
+
+var id=$("#id").attr("value");
+$.getJSON("pages.php",{id:id},dates);
+
+function dates(datos) {
+    
+  $("#list").html("Name:"+datos[1].name+"&lt;br&gt;"+"Last Name:"+datos[1].lastname+"&lt;br&gt;"+"Address:"+datos[1].address);
+}
+
+</code></pre></div>
+</div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>detach(<em class="optional">[selector]</em>)<br></h2>
+   <div class="desc">
+      <p>Remove the set of matched elements from the DOM.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>detach(<em class="optional">[selector]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								 可选参数，A selector expression that filters the set of matched elements to be removed.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.detach()</code> method is the same as <code><a href="remove.htm">.remove()</a></code>, except that <code>.detach()</code> keeps all jQuery data associated with the removed elements. This method is useful when removed elements are to be reinserted
+            into the DOM at a later time.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Detach all paragraphs from the DOM</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;p { background:yellow; margin:6px 0; } p.off { background: black; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt; 
+  how are 
+  &lt;p&gt;you?&lt;/p&gt;
+  &lt;button&gt;Attach/detach paragraphs&lt;/button&gt;
+
+&lt;script&gt;
+
+
+    $("p").click(function(){
+      $(this).toggleClass("off");
+    });
+    var p;
+    $("button").click(function(){
+      if ( p ) {
+        p.appendTo("body");
+        p = null;
+      } else {
+        p = $("p").detach();
+      }
+    });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

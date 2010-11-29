@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>jQuery.error(message)<br></h2>
+   <div class="desc">
+      <p>接受一个字符串，并抛出包含这个字符串的异常。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.1 新增</span>jQuery.error(message)
+               								
+            </h4>
+            <div class="arguement"><strong>message</strong>
+               								(String)
+               								将要发出的消息.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个方法主要是为了让插件开发人员可以重载此方法，并以更好的方式显示错误消息，或者提供更多相关信息。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>重载 jQuery.error 以便可以在 Firebug 中显示。</p>
+      <h5>jQuery 代码:</h5><pre><code>jQuery.error = console.error;</code></pre></div>
+</div>

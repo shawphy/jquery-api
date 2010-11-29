@@ -1,0 +1,142 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:nth-child(index/even/odd/equation)</h2>
+   <div class="desc">
+      <p>如果某个元素是父元素中的第 n 个子元素，那么他就会被选中。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>:nth-child(index/even/odd/equation)
+            </h4>
+            <div class="arguement"><strong>index</strong>
+               								(Number/String)
+               								用于匹配子元素的索引值，可以是从 <code>1</code> 开始计数的数字、 字符串 <code>even</code> 和 <code>odd</code>, 或者一个表达式。(比如 <code>:nth-child(even)</code>, <code>:nth-child(4n)</code> )
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>由于 jQuery 中的 <code>:nth-child(n)</code> 是严格按照 CSS 规范设计的，所以这里 <code>n</code> 的数值是从 1 开始计数的。然而，所有其他的选择器表达式中，jQuery 遵从的是 JavaScript 以 0 开始计数的规范。因此，如果一个 <code>&lt;ul&gt;</code> 含有两个 <code>&lt;li&gt;</code> ，那么 <code>$('li:nth-child(1)')</code> 选中的会是第一个 <code>&lt;li&gt;</code> 而 <code>$('li:eq(1)')</code> 选中的则是第二个。
+         </p>
+         
+         
+         <p><code>:nth-child(n)</code> 伪类很容易跟 <code>:eq(n)</code> 混淆起来，然而两者匹配元素有着很大的差异。 用 <code>:nth-child(n)</code> 时，不论子元素是何种元素，他们都会被计数，而最终被选中的，只有与这个伪类前面的选择器相匹配的元素。如果用 <code>:eq(n)</code> 时，只有与这个伪类前面的选择相匹配的元素才会被计数，而不管他们是否是哪个元素的子元素，并且最终选中的是第 n+1 个元素(因为是从 0 开始计数的)。
+         </p>
+         
+         
+         <p>关于这个不寻常的用法的深入探讨，可以在 <a href="http://www.w3.org/TR/css3-selectors/#nth-child-pseudo">W3C CSS 规范</a> 中找到。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找每个匹配的 ul 中第二个 li，并标记出来。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  div { float:left; }
+  span { color:blue; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;ul&gt;
+    &lt;li&gt;John&lt;/li&gt;
+    &lt;li&gt;Karl&lt;/li&gt;
+    &lt;li&gt;Brandon&lt;/li&gt;
+
+  &lt;/ul&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;ul&gt;
+    &lt;li&gt;Sam&lt;/li&gt;
+  &lt;/ul&gt;&lt;/div&gt;
+
+  &lt;div&gt;&lt;ul&gt;
+    &lt;li&gt;Glen&lt;/li&gt;
+    &lt;li&gt;Tane&lt;/li&gt;
+    &lt;li&gt;Ralph&lt;/li&gt;
+
+    &lt;li&gt;David&lt;/li&gt;
+  &lt;/ul&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$("ul li:nth-child(2)").append("&lt;span&gt; - 2nd!&lt;/span&gt;");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>这是例子展示了两个容易混淆的选择器是如何工作的。注意这里的 :even 和 :odd 会无视他们的父元素，而仅仅把元素列表中的元素一个隔一个的过滤出来。而 :nth-child 则会计算子元素在各自父元素中的索引值。很多时候，直接看例子会比空讲容易理解的多...</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  button { display:block; font-size:12px; width:100px; }
+  div { float:left; margin:10px; font-size:10px; 
+        border:1px solid black; }
+  span { color:blue; font-size:18px; }
+  #inner { color:red; }
+  td { width:50px; text-align:center; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    &lt;button&gt;:nth-child(even)&lt;/button&gt;
+    &lt;button&gt;:nth-child(odd)&lt;/button&gt;
+    &lt;button&gt;:nth-child(3n)&lt;/button&gt;
+
+    &lt;button&gt;:nth-child(2)&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button&gt;:nth-child(3n+1)&lt;/button&gt;
+    &lt;button&gt;:nth-child(3n+2)&lt;/button&gt;
+
+    &lt;button&gt;:even&lt;/button&gt;
+    &lt;button&gt;:odd&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;&lt;table&gt;
+
+    &lt;tr&gt;&lt;td&gt;John&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Karl&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Brandon&lt;/td&gt;&lt;/tr&gt;
+
+    &lt;tr&gt;&lt;td&gt;Benjamin&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;table&gt;
+    &lt;tr&gt;&lt;td&gt;Sam&lt;/td&gt;&lt;/tr&gt;
+
+  &lt;/table&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;table&gt;
+    &lt;tr&gt;&lt;td&gt;Glen&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Tane&lt;/td&gt;&lt;/tr&gt;
+
+    &lt;tr&gt;&lt;td&gt;Ralph&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;David&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Mike&lt;/td&gt;&lt;/tr&gt;
+
+    &lt;tr&gt;&lt;td&gt;Dan&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;&lt;/div&gt;
+  &lt;span&gt;
+    tr&lt;span id="inner"&gt;&lt;/span&gt;
+
+  &lt;/span&gt;
+
+&lt;script&gt;
+
+
+    $("button").click(function () {
+      var str = $(this).text();
+      $("tr").css("background", "white");
+      $("tr" + str).css("background", "#ff0000");
+      $("#inner").text(str);
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

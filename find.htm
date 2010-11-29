@@ -1,0 +1,128 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>find(selector)<br></h2>
+   <div class="desc">
+      <p>Get the descendants of each element in the current set of matched elements, filtered by a selector.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>find(selector)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								用于匹配元素的选择器字符串
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Given a jQuery object that represents a set of DOM elements, the <code>.find()</code> method allows us to search through the descendants of these elements in the DOM tree and construct a new jQuery object from
+            the matching elements. The <code>.find()</code> and <code>.children()</code> methods are similar, except that the latter only travels a single level down the DOM tree.
+         </p>
+         
+         <p>The method accepts a selector expression of the same type that we can pass to the <code>$()</code> function. The elements will be filtered by testing whether they match this selector.
+         </p>
+         
+         <p>Consider a page with a basic nested list on it:</p>
+         <pre>
+&lt;ul class="level-1"&gt;
+  &lt;li class="item-i"&gt;I&lt;/li&gt;
+  &lt;li class="item-ii"&gt;II
+    &lt;ul class="level-2"&gt;
+      &lt;li class="item-a"&gt;A&lt;/li&gt;
+      &lt;li class="item-b"&gt;B
+        &lt;ul class="level-3"&gt;
+          &lt;li class="item-1"&gt;1&lt;/li&gt;
+          &lt;li class="item-2"&gt;2&lt;/li&gt;
+          &lt;li class="item-3"&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="item-c"&gt;C&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class="item-iii"&gt;III&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>If we begin at item II, we can find list items within it:</p>
+         <pre>$('li.item-ii').find('li').css('background-color', 'red');</pre>
+         <p>The result of this call is a red background on items A, B, 1, 2, 3, and C. Even though item II matches the selector expression,
+            it is not included in the results; only descendants are considered candidates for the match.
+         </p>
+         
+         <blockquote>
+            
+            <p>Unlike in the rest of the tree traversal methods, the selector expression is required in a call to <code>.find()</code>. If we need to retrieve all of the descendant elements, we can pass in the universal selector <code>'*'</code> to accomplish this.
+            </p>
+            
+         </blockquote>
+         
+         <p>
+            <a href="http://api.jquery.com/jquery/#selector-context">Selector context</a> is implemented with the <code>.find()</code> 
+            <code>method;</code> therefore, <code>$('li.item-ii').find('li')</code> is equivalent to <code>$('li', 'li.item-ii')</code>.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Starts with all paragraphs and searches for descendant span elements, same as $("p span")</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;&lt;span&gt;Hello&lt;/span&gt;, how are you?&lt;/p&gt;
+&lt;p&gt;Me? I'm &lt;span&gt;good&lt;/span&gt;.&lt;/p&gt;
+
+&lt;script&gt;
+
+
+  $("p").find("span").css('color','red');
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Add spans around each word then add a hover and italicize words with the letter t.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { font-size:20px; width:200px; cursor:default; 
+      color:blue; font-weight:bold; margin:0 10px; }
+  .hilite { background:yellow; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+  When the day is short
+  find that which matters to you
+  or stop believing
+  &lt;/p&gt;
+
+&lt;script&gt;
+
+
+  var newText = $("p").text().split(" ").join("&lt;/span&gt; &lt;span&gt;");
+  newText = "&lt;span&gt;" + newText + "&lt;/span&gt;";
+
+  $("p").html(newText)
+    .find('span')
+    .hover(function() { 
+      $(this).addClass("hilite"); 
+    },
+      function() { $(this).removeClass("hilite"); 
+    })
+  .end()
+    .find(":contains('t')")
+    .css({"font-style":"italic", "font-weight":"bolder"});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

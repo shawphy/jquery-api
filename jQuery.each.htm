@@ -1,0 +1,115 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Object</span>jQuery.each(collection, callback(indexInArray, valueOfElement))<br></h2>
+   <div class="desc">
+      <p>A generic iterator function, which can be used to seamlessly iterate over both objects and arrays. Arrays and array-like objects
+         with a length property (such as a function's arguments object) are iterated by numeric index, from 0 to length-1. Other objects
+         are iterated via their named properties.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.each(collection, callback(indexInArray, valueOfElement))
+               								
+            </h4>
+            <div class="arguement"><strong>collection</strong>
+               								(Object)
+               								The object or array to iterate over.
+            </div>
+            <div class="arguement"><strong>callback(indexInArray, valueOfElement)</strong>
+               								(Function)
+               								The function that will be executed on every object.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>$.each()</code> function is not the same as <a href="each.htm">.each()</a>, which is used to iterate, exclusively, over a jQuery object. The <code>$.each()</code> function can be used to iterate over any collection, whether it is a map (JavaScript object) or an array. In the case of
+            an array, the callback is passed an array index and a corresponding array value each time. (The value can also be accessed
+            through the <code>this</code> keyword, but Javascript will always wrap the <code>this</code> value as an <code>Object</code> even if it is a simple string or number value.) The method returns its first argument, the object that was iterated.
+         </p>
+         
+         <pre>$.each([52, 97], function(index, value) { 
+  alert(index + ': ' + value); 
+});
+</pre>
+         <p>This produces two messages:</p>
+         
+         <p>
+            <span class="output">0: 52</span>
+            <br>
+            <span class="output">1: 97</span>
+            
+         </p>
+         
+         <p>If a map is used as the collection, the callback is passed a key-value pair each time:</p>
+         <pre>var map = { 
+  'flammable': 'inflammable', 
+  'duh': 'no duh' 
+}; 
+$.each(map, function(key, value) { 
+  alert(key + ': ' + value); 
+});</pre>
+         <p>Once again, this produces two messages:</p>
+         
+         <p>
+            <span class="output">flammable: inflammable</span>
+            <br>
+            <span class="output">duh: no duh</span>
+            
+         </p>
+         
+         
+         <p>We can break the <code>$.each()</code> loop at a particular iteration by making the callback function return <code>false</code>. Returning <em>non-false</em> is the same as a <code>continue</code> statement in a for loop; it will skip immediately to the next iteration.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Iterates through the array displaying each number as both a word and numeral</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:blue; }
+  div#five { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+  &lt;div id="one"&gt;&lt;/div&gt;
+  &lt;div id="two"&gt;&lt;/div&gt;
+  &lt;div id="three"&gt;&lt;/div&gt;
+  &lt;div id="four"&gt;&lt;/div&gt;
+  &lt;div id="five"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+    var arr = [ "one", "two", "three", "four", "five" ];
+    var obj = { one:1, two:2, three:3, four:4, five:5 };
+
+    jQuery.each(arr, function() {
+      $("#" + this).text("Mine is " + this + ".");
+       return (this != "three"); // will stop running after "three"
+   });
+
+    jQuery.each(obj, function(i, val) {
+      $("#" + i).append(document.createTextNode(" - " + val));
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Iterates over items in an array, accessing both the current item and its index.</p>
+      <h5>jQuery 代码:</h5><pre><code>$.each( ['a','b','c'], function(i, l){
+   alert( "Index #" + i + ": " + l );
+ });</code></pre><h3>示例:</h3>
+      <p>Iterates over the properties in an object, accessing both the current item and its key.</p>
+      <h5>jQuery 代码:</h5><pre><code>$.each( { name: "John", lang: "JS" }, function(k, v){
+   alert( "Key: " + k + ", Value: " + v );
+ });</code></pre></div>
+</div>

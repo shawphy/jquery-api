@@ -1,0 +1,28 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>jQuery.isEmptyObject(object)<br></h2>
+   <div class="desc">
+      <p>测试对象是否是空对象（不包含任何属性）。.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>jQuery.isEmptyObject(object)
+               								
+            </h4>
+            <div class="arguement"><strong>object</strong>
+               								(Object)
+               								用于检测是否为空的对象。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         <p>jQuery 1.4 中，这个方法既检测对象本身的属性，也检测从原型继承的属性( 因为没有使用hasOwnProperty )。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>检测一个对象是否是一个空对象。</p>
+      <h5>jQuery 代码:</h5><pre><code>jQuery.isEmptyObject({}) // true
+jQuery.isEmptyObject({ foo: "bar" }) // false</code></pre></div>
+</div>

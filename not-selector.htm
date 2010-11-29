@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:not(selector)</h2>
+   <div class="desc">
+      <p>选择所有不匹配给定选择器的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:not(selector)
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								用于过滤的选择器。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:not()</code> 可以接受所有选择器。比如 <code>:not(div a)</code> 和 <code>:not(div,a)</code>。
+         </p>
+         
+         <h3>附加信息</h3>
+         
+         <p>使用 <code><a href="not.htm">.not()</a></code> 方法可以让代码更易读。使用 <code>:not()</code> 通常会构建出一个非常复杂的选择器。所以大多数情况下，推荐使用使用 <code><a href="not.htm">.not()</a></code> 方法。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有没有被选中的复选框，然后高亮后面的 span 。注意，当你点击复选框的时候不会有反应，因为这里没有绑定任何点击事件。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+  &lt;input type="checkbox" name="a" /&gt;
+  &lt;span&gt;Mary&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+  &lt;input type="checkbox" name="b" /&gt;
+  &lt;span&gt;lcm&lt;/span&gt;
+
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;input type="checkbox" name="c" checked="checked" /&gt;
+
+  &lt;span&gt;Peter&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+
+
+  $("input:not(:checked) + span").css("background-color", "yellow");
+  $("input").attr("disabled", "disabled");
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

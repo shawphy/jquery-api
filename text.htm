@@ -1,0 +1,126 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:String</span>text()<br></h2>
+   <div class="desc">
+      <p>选择所有文本输入框，即 type 为 text 的元素。不包括 textarea 元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>text()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>$(':text')</code> 等价于 <code>$('[type=text]')</code>。如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':text')</code> 等价于 <code>$('*:text')</code>，所以应该使用 <code>$('input:text')</code> 来提升匹配效率。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有文本框。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { color:blue; margin:8px; }
+  b { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;&lt;b&gt;Test&lt;/b&gt; Paragraph.&lt;/p&gt;
+
+  &lt;p&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+
+    var str = $("p:first").text();
+    $("p:last").html(str);
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>text(textString)<br></h2>
+   <div class="desc">
+      <p>Get the combined text contents of each element in the set of matched elements, including their descendants.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>text(textString)
+               								
+            </h4>
+            <div class="arguement"><strong>textString</strong>
+               								(String)
+               								
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>text(function(index, text))
+               								
+            </h4>
+            <div class="arguement"><strong>function(index, text)</strong>
+               								(Function)
+               								
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Unlike the <code>.html()</code> method, <code>.text()</code> can be used in both XML and HTML documents. The result of the <code>.text()</code> method is a string containing the combined text of all matched elements. (Due to variations in the HTML parsers in different
+            browsers, the text returned may vary in newlines and other white space.) Consider the following HTML:
+         </p>
+         <pre>&lt;div class="demo-container"&gt;
+  &lt;div class="demo-box"&gt;Demonstration Box&lt;/div&gt;
+  &lt;ul&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list &lt;strong&gt;item&lt;/strong&gt; 2&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/div&gt;
+</pre>
+         <p>The code <code>$('div.demo-container').text()</code> would produce the following result:
+         </p>
+         
+         <p>
+            <code>Demonstration Box list item 1 list item 2</code>
+            
+         </p>
+         
+         <p>The <code>.text()</code> method cannot be used on input elements.  For input field text, use the <a href="val.htm">.val()</a> method.
+         </p>
+         
+         <p>As of jQuery 1.4, the <code>.text()</code> method returns the value of text and CDATA nodes as well as element nodes.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Find the text in the first paragraph (stripping out the html), then set the html of the last paragraph to show it is just
+         text (the red bold is gone).
+      </p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  p { color:blue; margin:8px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Test Paragraph.&lt;/p&gt;
+
+&lt;script&gt;
+
+$("p").text("&lt;b&gt;Some&lt;/b&gt; new text.");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

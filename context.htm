@@ -1,0 +1,52 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Element</span>context
+   </h2>
+   <div class="desc">
+      <p>传给jQuery()的原始的DOM节点内容，即jQuery()的第二个参数。如果没有传递过第二个参数，那么 context 指向当前的文档(document)。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>context
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.live()</code> 方法绑定事件处理函数时会用到这个属性，用于检测将要使用的元素根节点以实现事件委派。需要实现类似功能的插件就很可能需要使用这个属性。
+         </p>
+         
+         <p>这个属性的值通常等价于 document 。因为 jQuery 对象的 context 参数默认情况下是无需提供的。有时候这个值会有变化，比如是在 <code>&lt;iframe&gt;</code> 中搜索，或者 XML 文档中搜索时。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>检测实际使用的上下文。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  body { cursor:pointer; }
+  div { width:50px; height:30px; margin:5px; float:left;
+        background:green; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+Context:&lt;ul&gt;&lt;/ul&gt;
+
+&lt;script&gt;
+
+$("ul")
+  .append("&lt;li&gt;" + $("ul").context + "&lt;/li&gt;")
+  .append("&lt;li&gt;" + $("ul", document.body).context.nodeName + "&lt;/li&gt;");
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

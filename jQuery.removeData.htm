@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>jQuery.removeData(element, <em class="optional">[name]</em>)<br></h2>
+   <div class="desc">
+      <p>移除先前存储的数据片段。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.3 新增</span>jQuery.removeData(element, <em class="optional">[name]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>element</strong>
+               								(Element)
+               								将要移除数据的DOM元素。
+            </div>
+            <div class="arguement"><strong>name</strong>
+               								(String)
+               								 可选参数，将要移除的数据片段名。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>
+            <strong>注意：</strong> 这是一个底层方法，使用 <code><a href="removeData.htm">.removeData()</a></code> 更方便。
+         </p>
+         	           
+         <p><code>jQuery.removeData()</code> 允许我们移除先前用 <code><a href="jQuery.data.htm">jQuery.data()</a></code> 设置的数据。如果提供了name参数，则 <code>jQuery.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>设置两个数据，然后再删除其中一个。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+		div { margin:2px; color:blue; }
+		span { color:red; }
+		&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;value1 before creation: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+		&lt;div&gt;value1 after creation: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+		&lt;div&gt;value1 after removal: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+		&lt;div&gt;value2 after removal: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+var div = $("div")[0];
+$("span:eq(0)").text("" + $("div").data("test1"));
+jQuery.data(div, "test1", "VALUE-1");
+jQuery.data(div, "test2", "VALUE-2");
+$("span:eq(1)").text("" + jQuery.data(div, "test1"));
+jQuery.removeData(div, "test1");
+$("span:eq(2)").text("" + jQuery.data(div, "test1"));
+$("span:eq(3)").text("" + jQuery.data(div, "test2"));
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

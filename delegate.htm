@@ -1,0 +1,149 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>delegate(selector, eventType, handler)<br></h2>
+   <div class="desc">
+      <p>Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific
+         set of root elements.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.2 新增</span>delegate(selector, eventType, handler)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(String)
+               								A selector to filter the elements that trigger the event.
+            </div>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing one or more space-separated JavaScript event types, such as "click" or "keydown," or custom event names.
+            </div>
+            <div class="arguement"><strong>handler</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.2 新增</span>delegate(selector, eventType, eventData, handler)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(String)
+               								A selector to filter the elements that trigger the event.
+            </div>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing one or more space-separated JavaScript event types, such as "click" or "keydown," or custom event names.
+            </div>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Delegate is an alternative to using the <a href="live.htm">.live()</a> method, allowing for each binding of event delegation to specific DOM elements. For example the following delegate code:
+         </p>
+         
+         <pre>$("table").delegate("td", "hover", function(){
+	$(this).toggleClass("hover");
+});</pre>
+         
+         <p>Is equivalent to the following code written using <code>.live()</code>:
+         </p>
+         
+         <pre>$("table").each(function(){
+	$("td", this).live("hover", function(){
+		$(this).toggleClass("hover");
+	});
+});</pre>
+         
+         <p>See also the <a href="undelegate.htm">.undelegate()</a> method for a way of removing event handlers added in <a href="delegate.htm">.delegate()</a>.
+         </p>
+         
+         <p>Passing and handling event data works <a href="http://api.jquery.com/bind/#passing-event-data">the same way as it does for .bind()</a>.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Click a paragraph to add another. Note that .delegate() binds the click event to all paragraphs - even new ones.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { background:yellow; font-weight:bold; cursor:pointer; 
+      padding:5px; }
+  p.over { background: #ccc; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Click me!&lt;/p&gt;
+
+  &lt;span&gt;&lt;/span&gt;
+
+&lt;script&gt;
+
+
+    $("body").delegate("p", "click", function(){
+      $(this).after("&lt;p&gt;Another paragraph!&lt;/p&gt;");
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To display each paragraph's text in an alert box whenever it is clicked:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("body").delegate("p", "click", function(){
+  alert( $(this).text() );
+});</code></pre><h3>示例:</h3>
+      <p>To cancel a default action and prevent it from bubbling up, return false:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("body").delegate("a", "click", function() { return false; })</code></pre><h3>示例:</h3>
+      <p>To cancel only the default action by using the preventDefault method.</p>
+      <h5>jQuery 代码:</h5><pre><code>$("body").delegate("a", "click", function(event){
+  event.preventDefault();
+});</code></pre><h3>示例:</h3>
+      <p>Can bind custom events too.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { color:red; }
+  span { color:blue; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Has an attached custom event.&lt;/p&gt;
+  &lt;button&gt;Trigger custom event&lt;/button&gt;
+  &lt;span style="display:none;"&gt;&lt;/span&gt;
+
+&lt;script&gt;
+
+
+
+    $("body").delegate("p", "myCustomEvent", function(e, myName, myValue){
+      $(this).text("Hi there!");
+      $("span").stop().css("opacity", 1)
+               .text("myName = " + myName)
+               .fadeIn(30).fadeOut(1000);
+    });
+    $("button").click(function () {
+      $("p").trigger("myCustomEvent");
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

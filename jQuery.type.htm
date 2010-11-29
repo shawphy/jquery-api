@@ -1,0 +1,74 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:String</span>jQuery.type(obj)<br></h2>
+   <div class="desc">
+      <p>Determine the internal JavaScript [[Class]] of an object.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.3 新增</span>jQuery.type(obj)
+               								
+            </h4>
+            <div class="arguement"><strong>obj</strong>
+               								(Object)
+               								Object to get the internal JavaScript [[Class]] of.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>A number of different aspects are utilized to determine the exact return value for an object. The logic can be determined
+            as follows:
+         </p>
+         
+         <ul>
+            
+            <li>If the object is undefined or null then "undefined" or "null" is returned accordingly.</li>
+            
+            <li>If the object has an internal [[Class]] equivalent to one of the browser's built-in objects we return the associated name.
+               (<a href="http://perfectionkills.com/instanceof-considered-harmful-or-how-to-write-a-robust-isarray/">More details about this technique.</a>)
+               <ul>
+                  
+                  <li>jQuery.type(true) === "boolean"</li>
+                  
+                  <li>jQuery.type(3) === "number"</li>
+                  
+                  <li>jQuery.type("test") === "string"</li>
+                  
+                  <li>jQuery.type(function(){}) === "function"</li>
+                  
+                  <li>jQuery.type([]) === "array"</li>
+                  
+                  <li>jQuery.type(new Date()) === "date"</li>
+                  
+                  <li>jQuery.type(/test/) === "regexp"</li>
+                  
+               </ul>
+               
+            </li>
+            
+            <li>Everything else will return "object" as its type.</li>
+            
+         </ul>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds out if the parameter is a RegExp.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+Is it a RegExp? &lt;b&gt;&lt;/b&gt;
+
+&lt;script&gt;
+
+$("b").append( "" + jQuery.type(/test/) );
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

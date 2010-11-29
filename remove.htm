@@ -1,0 +1,101 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>remove(<em class="optional">[selector]</em>)<br></h2>
+   <div class="desc">
+      <p>Remove the set of matched elements from the DOM.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>remove(<em class="optional">[selector]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(String)
+               								 可选参数，A selector expression that filters the set of matched elements to be removed.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Similar to <code><a href="empty.htm">.empty()</a></code>, the <code>.remove()</code> method takes elements out of the DOM. We use <code>.remove()</code> when we want to remove the element itself, as well as everything inside it. In addition to the elements themselves, all bound
+            events and jQuery data  associated with the elements are removed.
+         </p>
+         
+         <p>Consider the following HTML:</p>
+         <pre>&lt;div class="container"&gt;
+  &lt;div class="hello"&gt;Hello&lt;/div&gt;
+  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</pre>
+         <p>We can target any element for removal:</p>
+         <pre>$('.hello').remove();</pre>
+         <p>This will result in a DOM structure with the <code>&lt;div&gt;</code> element deleted:
+         </p>
+         <pre>&lt;div class="container"&gt;
+  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</pre>
+         <p>If we had any number of nested elements inside <code>&lt;div class="hello"&gt;</code>, they would be removed, too. Other jQuery constructs such as data or event handlers are erased as well.
+         </p>
+         
+         <p>We can also include a selector as an optional parameter. For example, we could rewrite the previous DOM removal code as follows:</p>
+         <pre>$('div').remove('.hello');</pre>
+         <p>This would result in the same DOM structure:</p>
+         <pre>&lt;div class="container"&gt;
+  &lt;div class="goodbye"&gt;Goodbye&lt;/div&gt;
+&lt;/div&gt;</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Removes all paragraphs from the DOM</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;p { background:yellow; margin:6px 0; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt; 
+  how are 
+  &lt;p&gt;you?&lt;/p&gt;
+  &lt;button&gt;Call remove() on paragraphs&lt;/button&gt;
+
+&lt;script&gt;
+
+
+    $("button").click(function () {
+      $("p").remove();
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Removes all paragraphs that contain "Hello" from the DOM</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;p { background:yellow; margin:6px 0; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p class="hello"&gt;Hello&lt;/p&gt;
+  how are 
+  &lt;p&gt;you?&lt;/p&gt;
+
+  &lt;button&gt;Call remove(":contains('Hello')") on paragraphs&lt;/button&gt;
+
+&lt;script&gt;
+
+
+
+    $("button").click(function () {
+      $("p").remove(":contains('Hello')");
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

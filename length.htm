@@ -1,0 +1,52 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>length
+   </h2>
+   <div class="desc">
+      <p>jQuery 对象中元素的个数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>length
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>当前匹配的元素个数。<a href="size.htm">size()</a> 方法将返回相同的值。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>计算 div 数目，点击后增加还会增加。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  body { cursor:pointer; }
+  div { width:50px; height:30px; margin:5px; float:left;
+        background:green; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;span&gt;&lt;/span&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$(document.body).click(function () {
+      $(document.body).append($("&lt;div&gt;"));
+      var n = $("div").length;
+      $("span").text("There are " + n + " divs." +
+                     "Click to add more.");
+    }).trigger('click'); // trigger the click to start
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

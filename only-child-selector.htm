@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:only-child</h2>
+   <div class="desc">
+      <p>选择所有的独生子元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>:only-child
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>如果某个元素是他父元素下唯一的子元素，那他就会被匹配到。换句话说，如果某个元素有同辈元素，则不会被匹配到。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>在每个 div 中查找没有同辈的 button 按钮，并且改变这些按钮的外观。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  div { width:100px; height:80px; margin:5px; float:left; background:#b9e }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    &lt;button&gt;Sibling!&lt;/button&gt;
+    &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;/div&gt;
+
+  &lt;div&gt;
+    &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    None
+  &lt;/div&gt;
+
+  &lt;div&gt;  
+    &lt;button&gt;Sibling!&lt;/button&gt;
+    &lt;button&gt;Sibling!&lt;/button&gt;
+    &lt;button&gt;Sibling!&lt;/button&gt;
+
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;button&gt;Sibling!&lt;/button&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+$("div button:only-child").text("Alone").css("border", "2px blue solid");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h5>结果:</h5><pre><code>[ &lt;li&gt;Glen&lt;/li&gt; ] </code></pre></div>
+</div>

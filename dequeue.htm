@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>dequeue(<em class="optional">[queueName]</em>)<br></h2>
+   <div class="desc">
+      <p>执行匹配元素上函数队列中的下一个函数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>dequeue(<em class="optional">[queueName]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>queueName</strong>
+               								(String)
+               								 可选参数，包含队列名称的字符串，默认值是动画效果队列 <code>fx</code>。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>当调用 <code>.dequeue()</code> 时，队列中的下一个函数会移除并执行。这个执行的函数中也应当直接或间接的包含 <code>.dequeue()</code> 语句，这样才能继续执行队列中的再下一个函数，让队列可以继续下去。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>在自定义队列函数中，使用 dequeue 来做结尾，以便队列可以继续运行下去。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { margin:3px; width:50px; position:absolute;
+  height:50px; left:10px; top:30px; 
+  background-color:yellow; }
+  div.red { background-color:red; }  
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Start&lt;/button&gt;  
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+$("button").click(function () {
+  $("div").animate({left:'+=200px'}, 2000);
+  $("div").animate({top:'0px'}, 600);
+  $("div").queue(function () {
+    $(this).toggleClass("red");
+    $(this).dequeue();
+  });
+  $("div").animate({left:'10px', top:'30px'}, 700);
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

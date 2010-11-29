@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Object</span>position()<br></h2>
+   <div class="desc">
+      <p>Get the current coordinates of the first element in the set of matched elements, relative to the offset parent.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>position()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.position()</code> method allows us to retrieve the current position of an element <em>relative to the offset parent</em>. Contrast this with <code><a href="offset.htm">.offset()</a></code>, which retrieves the current position <em>relative to the document</em>. When positioning a new element near another one and within the same containing DOM element, <code>.position()</code> is the more useful.
+         </p>
+         
+         <p>Returns an object containing the properties <code>top</code> and <code>left</code>.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Access the position of the second paragraph:</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  div { padding: 15px;}
+  p { margin-left:10px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div&gt;
+  &lt;p&gt;Hello&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+
+
+&lt;script&gt;
+
+
+var p = $("p:first");
+var position = p.position();
+$("p:last").text( "left: " + position.left + ", top: " + position.top );
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

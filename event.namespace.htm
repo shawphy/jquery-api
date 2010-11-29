@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:String</span>event.namespace
+   </h2>
+   <div class="desc">
+      <p>当事件出发时指定命名空间。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.3 新增</span>event.namespace
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         <p>这个属性对插件作者比较有用。可以根据不同的事件命名空间，来完成不同的任务。</p>
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>检测使用的事件命名空间。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;button&gt;display event.namespace&lt;/button&gt;
+&lt;p&gt;&lt;/p&gt;
+
+
+&lt;script&gt;
+
+
+$("p").bind("test.something", function(event) {
+  alert( event.namespace );
+});
+$("button").click(function(event) {
+  $("p").trigger("test.something");
+});  
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>event.stopImmediatePropagation()<br></h2>
+   <div class="desc">
+      <p>阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>event.stopImmediatePropagation()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>除了阻止元素上其它的事件处理函数的执行，这个方法还会通过在内部调用 <code>event.stopPropagation()</code> 来停止事件冒泡。如果仅仅想要停止事件冒泡到前辈元素上，而让这个元素上的其它事件处理函数继续执行，我们可以使用 <code><a href="event.stopPropagation.htm">event.stopPropagation()</a></code> 来代替。
+         </p>
+         
+         <p>使用 <code><a href="event.isImmediatePropagationStopped.htm">event.isImmediatePropagationStopped()</a></code> 来确定这个方法是否(在那个事件对象上)调用过了。
+         </p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>阻止调用其它事件处理函数。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p { height: 30px; width: 150px; background-color: #ccf; }
+div {height: 30px; width: 150px; background-color: #cfc; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;paragraph&lt;/p&gt;
+&lt;div&gt;division&lt;/div&gt;
+
+&lt;script&gt;
+
+
+$("p").click(function(event){
+  event.stopImmediatePropagation();
+});
+$("p").click(function(event){
+  // This function won't be executed
+  $(this).css("background-color", "#f00");
+});  
+$("div").click(function(event) {
+  // This function will be executed
+    $(this).css("background-color", "#f00");
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

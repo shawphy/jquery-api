@@ -1,0 +1,104 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>die()<br></h2>
+   <div class="desc">
+      <p>Remove all event handlers previously attached using <code>.live()</code> from the elements.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.1 新增</span>die()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Any handler that has been attached with <code>.live()</code> can be removed with <code>.die()</code>. This method is analogous to calling <code>.unbind()</code> with no arguments, which is used to remove all handlers attached with <code>.bind()</code>.
+            See the discussions of <code>.live()</code> and <code>.unbind()</code> for further details.
+         </p>
+         
+      </div>
+   </div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>die(eventType, <em class="optional">[handler]</em>)<br></h2>
+   <div class="desc">
+      <p>Remove an event handler previously attached using <code>.live()</code> from the elements.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>die(eventType, <em class="optional">[handler]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing a JavaScript event type, such as <code>click</code> or <code>keydown</code>.
+            </div>
+            <div class="arguement"><strong>handler</strong>
+               								(String)
+               								 可选参数，The function that is to be no longer executed.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Any handler that has been attached with <code>.live()</code> can be removed with <code>.die()</code>. This method is analogous to <code>.unbind()</code>, which is used to remove handlers attached with <code>.bind()</code>.
+            See the discussions of <code>.live()</code> and <code>.unbind()</code> for further details.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Can bind and unbind events to the colored button.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+button { margin:5px; }
+button#theone { color:red; background:yellow; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
+&lt;button id="bind"&gt;Bind Click&lt;/button&gt;
+&lt;button id="unbind"&gt;Unbind Click&lt;/button&gt;
+
+&lt;div style="display:none;"&gt;Click!&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+function aClick() {
+  $("div").show().fadeOut("slow");
+}
+$("#bind").click(function () {
+  $("#theone").live("click", aClick)
+              .text("Can Click!");
+});
+$("#unbind").click(function () {
+  $("#theone").die("click", aClick)
+              .text("Does nothing...");
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To unbind all live events from all paragraphs, write:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").die()</code></pre><h3>示例:</h3>
+      <p>To unbind all live click events from all paragraphs, write:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").die( "click" )</code></pre><h3>示例:</h3>
+      <p>To unbind just one previously bound handler, pass the function in as the second argument:</p>
+      <h5>jQuery 代码:</h5><pre><code>var foo = function () {
+// code to handle some kind of event
+};
+
+$("p").live("click", foo); // ... now foo will be called when paragraphs are clicked ...
+
+$("p").die("click", foo); // ... foo will no longer be called.</code></pre></div>
+</div>

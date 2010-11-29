@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Function</span>jQuery.proxy(function, context)<br></h2>
+   <div class="desc">
+      <p>接受一个函数，然后返回一个新函数，并且这个新函数始终保持了特定的上下文语境。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>jQuery.proxy(function, context)
+               								
+            </h4>
+            <div class="arguement"><strong>function</strong>
+               								(Function)
+               								将要改变上下文语境的函数。
+            </div>
+            <div class="arguement"><strong>context</strong>
+               								(Object)
+               								函数的上下文语境(`this`)会被设置成这个 object 对象。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>jQuery.proxy(context, name)
+               								
+            </h4>
+            <div class="arguement"><strong>context</strong>
+               								(Object)
+               								函数的上下文语境会被设置成这个 object 对象。
+            </div>
+            <div class="arguement"><strong>name</strong>
+               								(String)
+               								将要改变上下文语境的函数名(这个函数必须是前一个参数 'context' 对象的属性)
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个方法通常在向一个元素上附加事件处理函数时，上下文语境实际是指向另一个对象的情况下使用。另外，jQuery 能够确保即使你绑定的函数是经过 jQuery.proxy() 处理过的函数，你依然可以用原先的函数来正确地取消绑定。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>强制修改函数的上下文语境</p>
+      <h5>jQuery 代码:</h5><pre><code>var obj = {
+  name: "John",
+  test: function() {
+    alert( this.name );
+    $("#test").unbind("click", obj.test);
+  }
+};
+
+$("#test").click( jQuery.proxy( obj, "test" ) );
+
+// This also works:
+// $("#test").click( jQuery.proxy( obj.test, obj ) );</code></pre></div>
+</div>

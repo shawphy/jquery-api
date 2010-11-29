@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>not(selector)<br></h2>
+   <div class="desc">
+      <p>选择所有不匹配给定选择器的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>not(selector)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								用于过滤的选择器。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>not(elements)
+               								
+            </h4>
+            <div class="arguement"><strong>elements</strong>
+               								(Elements)
+               								
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>not(function(index))
+               								
+            </h4>
+            <div class="arguement"><strong>function(index)</strong>
+               								(Function)
+               								
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:not()</code> 可以接受所有选择器。比如 <code>:not(div a)</code> 和 <code>:not(div,a)</code>。
+         </p>
+         
+         <h3>附加信息</h3>
+         
+         <p>使用 <code><a href="not.htm">.not()</a></code> 方法可以让代码更易读。使用 <code>:not()</code> 通常会构建出一个非常复杂的选择器。所以大多数情况下，推荐使用使用 <code><a href="not.htm">.not()</a></code> 方法。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有没有被选中的复选框，然后高亮后面的 span 。注意，当你点击复选框的时候不会有反应，因为这里没有绑定任何点击事件。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { width:50px; height:50px; margin:10px; float:left;
+        background:yellow; border:2px solid white; }
+  .green { background:#8f8; }
+  .gray { background:#ccc; }
+  #blueone { background:#99f; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;/div&gt;
+  &lt;div id="blueone"&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div class="green"&gt;&lt;/div&gt;
+
+  &lt;div class="green"&gt;&lt;/div&gt;
+  &lt;div class="gray"&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+    $("div").not(".green, #blueone")
+            .css("border-color", "red");
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p></p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").not( $("#selected")[0] )</code></pre><h3>示例:</h3>
+      <p></p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").not("#selected")</code></pre><h3>示例:</h3>
+      <p></p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").not($("div p.selected"))</code></pre></div>
+</div>

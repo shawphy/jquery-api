@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>[attribute~="value"]</h2>
+   <div class="desc">
+      <p>选择那些属性值中，含有给定单词的元素。单词以空格分隔。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>[attribute~="value"]
+            </h4>
+            <div class="arguement"><strong>attribute</strong>
+               								(String)
+               								属性名。
+            </div>
+            <div class="arguement"><strong>value</strong>
+               								(String)
+               								属性值，引号是强制性的。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个选择器会用测试字符串去匹配属性值中的每一个单词。这里“单词”的定义是以空格为界的字符串。只要测试字符串等于属性中任何一个单词，这个元素就会被选中。</p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有属性中含有 'man' 这个单词的文本框，并且修改其文本值。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;input name="man-news" /&gt;
+
+  &lt;input name="milk man" /&gt;
+  &lt;input name="letterman2" /&gt;
+  &lt;input name="newmilk" /&gt;
+
+&lt;script&gt;
+
+$('input[name~="man"]').val('mr. man is in it!');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

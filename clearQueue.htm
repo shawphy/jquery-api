@@ -1,0 +1,68 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>clearQueue(<em class="optional">[queueName]</em>)<br></h2>
+   <div class="desc">
+      <p>清空对象上尚未执行的所有队列。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>clearQueue(<em class="optional">[queueName]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>queueName</strong>
+               								(String)
+               								 可选参数，包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>当调用 <code>.clearQueue()</code> 方法时，队列中所有尚未执行的函数都将被移除。如果不带参数，则 <code>.clearQueue()</code> 默认清空标准动画队列 <code>fx</code> 中剩余的函数。这个方法跟 <code>.stop(true)</code>. 很类似。但 <code>.stop()</code> 方法只适用于动画，而 <code>.clearQueue()</code> 则可以用于移除任何由 <code>.queue()</code> 方法添加的jQuery通用队列中的函数。 
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>清空队列。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { margin:3px; width:40px; height:40px;
+    position:absolute; left:0px; top:30px; 
+    background:green; display:none; }
+div.newcolor { background:blue; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button id="start"&gt;Start&lt;/button&gt;
+&lt;button id="stop"&gt;Stop&lt;/button&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$("#start").click(function () {
+  $("div").show("slow");
+  $("div").animate({left:'+=200'},5000);
+  $("div").queue(function () {
+    $(this).addClass("newcolor");
+    $(this).dequeue();
+  });
+  $("div").animate({left:'-=200'},1500);
+  $("div").queue(function () {
+    $(this).removeClass("newcolor");
+    $(this).dequeue();
+  });
+  $("div").slideUp();
+});
+$("#stop").click(function () {
+  $("div").clearQueue();
+  $("div").stop();
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

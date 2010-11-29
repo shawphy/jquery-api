@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:contains(text)</h2>
+   <div class="desc">
+      <p>选择含有特定文本的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>:contains(text)
+            </h4>
+            <div class="arguement"><strong>text</strong>
+               								(String)
+               								用于查找的文本，大小写敏感。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>匹配的文本可以直接出现在选中的元素之中，或者出现在这个元素的子孙元素之中。作为一个属性选择器，<code>:contains()</code> 的括号中的文本可以直接书写字符串，也可以用引号包裹一下。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有含有 "John" 的 div 并且添加下划线。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div&gt;John Resig&lt;/div&gt;
+
+&lt;div&gt;George Martin&lt;/div&gt;
+&lt;div&gt;Malcom John Sinclair&lt;/div&gt;
+&lt;div&gt;J. Ohn&lt;/div&gt;
+      
+    
+
+&lt;script&gt;
+
+
+$("div:contains('John')").css("text-decoration", "underline");
+    
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

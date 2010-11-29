@@ -1,0 +1,323 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>bind(eventType, <em class="optional">[eventData]</em>, handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>Attach a handler to an event for the elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>bind(eventType, <em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
+            </div>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>bind(eventType, <em class="optional">[eventData]</em>, false)
+               								
+            </h4>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing one or more JavaScript event types, such as "click" or "submit," or custom event names.
+            </div>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>false</strong>
+               								(Boolean)
+               								Setting the third argument to false will attach a function that prevents the default action from occurring and stops the event
+               from bubbling.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>bind(events)
+               								
+            </h4>
+            <div class="arguement"><strong>events</strong>
+               								(Object)
+               								A map of one or more JavaScript event types and functions to execute for them.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.bind()</code> method is the primary means of attaching behavior to a document. All JavaScript event types, such as <code>focus</code>, <code>mouseover</code>, and <code>resize</code>, are allowed for <code>eventType.</code> (The <code>beforeunload</code> and <code>error</code> events on the <code>window</code> object use nonstandard conventions and are not supported by jQuery; attach a handler directly to the <code>window</code> object instead.) 
+         </p>
+         
+         <p>The jQuery library provides shortcut methods for binding the standard event types, such as <code>.click()</code> for <code>.bind('click')</code>. A description of each can be found in the discussion of its shortcut method: <a href="blur.htm">blur</a>, <a href="focus.htm">focus</a>, <a href="focusin.htm">focusin</a>, <a href="focusout.htm">focusout</a>, <a href="load-event.htm">load</a>, <a href="resize.htm">resize</a>, <a href="scroll.htm">scroll</a>, <a href="unload.htm">unload</a>, <a href="click.htm">click</a>, <a href="dblclick.htm">dblclick</a>, <a href="mousedown.htm">mousedown</a>, <a href="mouseup.htm">mouseup</a>, <a href="mousemove.htm">mousemove</a>, <a href="mouseover.htm">mouseover</a>, <a href="mouseout.htm">mouseout</a>, <a href="mouseenter.htm">mouseenter</a>, <a href="mouseleave.htm">mouseleave</a>, <a href="change.htm">change</a>, <a href="select.htm">select</a>, <a href="submit.htm">submit</a>, <a href="keydown.htm">keydown</a>, <a href="keypress.htm">keypress</a>, <a href="keyup.htm">keyup</a>,  <a href="error.htm">error</a>
+            
+         </p>
+         
+         
+         <p>Any string is legal for <code>eventType</code>; if the string is not the name of a native JavaScript event, then the handler is bound to a custom event. These events are
+            never called by the browser, but may be triggered manually from other JavaScript code using <code>.trigger()</code> or <code>.triggerHandler()</code>.
+         </p>
+         
+         <p>If the <code>eventType</code> string contains a period (<code>.</code>) character, then the event is namespaced. The period character separates the event from its namespace. For example, in the
+            call <code>.bind('click.name', handler)</code>, the string <code>click</code> is the event type, and the string <code>name</code> is the namespace. Namespacing allows us to unbind or trigger some events of a type without affecting others. See the discussion
+            of <code>.unbind()</code> for more information.
+         </p>
+         
+         <p>When an event reaches an element, all handlers bound to that event type for the element are fired. If there are multiple handlers
+            registered, they will always execute in the order in which they were bound. After all handlers have executed, the event continues
+            along the normal event propagation path.
+         </p>
+         
+         <p>A basic usage of <code>.bind()</code> is:
+         </p>
+         <pre>
+$('#foo').bind('click', function() {
+  alert('User clicked on "foo."');
+});
+</pre>
+         <p>This code will cause the element with an ID of <code>foo</code> to respond to the <code>click</code> event. When a user clicks inside this element thereafter, the alert will be shown.
+         </p>
+         
+         <h4 id="multiple-events">Multiple Events</h4>
+         
+         <p>Multiple event types can be bound at once by including each one separated by a space:</p>
+         <pre>
+$('#foo').bind('mouseenter mouseleave', function() {
+  $(this).toggleClass('entered');
+});
+</pre>
+         <p>The effect of this on <code>&lt;div id="foo"&gt;</code> (when it does not initially have the "entered" class) is to add the "entered" class when the mouse enters the <code>&lt;div&gt;</code> and remove the class when the mouse leaves. 
+         </p>
+         
+         <p>As of jQuery 1.4 we can bind multiple event handlers simultaneously by passing a map of event type/handler pairs:</p>
+         <pre>
+$('#foo').bind({
+  click: function() {
+    // do something on click
+  },
+  mouseenter: function() {
+    // do something on mouseenter
+  }
+});
+</pre>
+         <h4 id="event-handlers">Event Handlers</h4>
+         
+         <p>The <code>handler</code> parameter takes a callback function, as shown above. Within the handler, the keyword <code>this</code> refers to the DOM element to which the handler is bound. To make use of the element in jQuery, it can be passed to the normal
+            <code>$()</code> function. For example:
+         </p>
+         <pre>$('#foo').bind('click', function() {
+  alert($(this).text());
+});
+</pre>
+         <p>After this code is executed, when the user clicks inside the element with an ID of <code>foo</code>, its text contents will be shown as an alert.
+            
+         </p>
+         
+         <p>As of jQuery 1.4.2 duplicate event handlers can be bound to an element instead of being discarded. For example:</p>
+         <pre>function test(){ alert("Hello"); }
+$("button").click( test );
+$("button").click( test );</pre>
+         <p>The above will generate two alerts when the button is clicked.</p>
+         
+         
+         <p>In jQuery 1.4.3 you can now pass in 'false' in place of an event handler. This will bind an event handler that's equivalent
+            to: <code>function(){ return false; }</code>. This function can be removed at a later time by calling: <code>.unbind( eventName, false )</code>.
+         </p>
+         
+         
+         <h4 id="event-object">
+            <a href="/category/events/event-object/">The Event object</a>
+            
+         </h4>
+         
+         <p>The <code>handler</code> callback function can also take parameters. When the function is called, the JavaScript event object will be passed to the
+            first parameter.
+         </p>
+         
+         <p>The event object is often unnecessary and the parameter omitted, as sufficient context is usually available when the handler
+            is bound to know exactly what needs to be done when the handler is triggered. However, at times it becomes necessary to gather
+            more information about the user's environment at the time the event was initiated. <a href="/category/events/event-object/">View the full Event Object</a>.
+         </p>
+         
+         
+         <p>Returning <code>false</code> from a handler is equivalent to calling both <code>.preventDefault()</code> and <code>.stopPropagation()</code> on the event object.
+         </p>
+         
+         <p>Using the event object in a handler looks like this:</p>
+         <pre>$(document).ready(function() {
+  $('#foo').bind('click', function(event) {
+    alert('The mouse cursor is at ('
+      + event.pageX + ', ' + event.pageY + ')');
+  });
+});
+</pre>
+         <p>Note the parameter added to the anonymous function. This code will cause a click on the element with ID <code>foo</code> to report the page coordinates of the mouse cursor at the time of the click.
+         </p>
+         
+         
+         <h4 id="passing-event-data">Passing Event Data</h4>
+         
+         <p>The optional <code>eventData</code> parameter is not commonly used. When provided, this argument allows us to pass additional information to the handler. One
+            handy use of this parameter is to work around issues caused by closures. For example, suppose we have two event handlers that
+            both refer to the same external variable:
+         </p>
+         <pre>var message = 'Spoon!';
+$('#foo').bind('click', function() {
+  alert(message);
+});
+message = 'Not in the face!';
+$('#bar').bind('click', function() {
+  alert(message);
+});
+</pre>
+         <p>Because the handlers are closures that both have <code>message</code> in their environment, both will display the message <span class="output">Not in the face!</span> when triggered. The variable's value has changed. To sidestep this, we can pass the message in using <code>eventData</code>:
+            
+         </p>
+         <pre>var message = 'Spoon!';
+$('#foo').bind('click', {msg: message}, function(event) {
+  alert(event.data.msg);
+});
+message = 'Not in the face!';
+$('#bar').bind('click', {msg: message}, function(event) {
+  alert(event.data.msg);
+});
+</pre>
+         <p>This time the variable is not referred to directly within the handlers; instead, the variable is passed in <em>by value</em> through <code>eventData</code>, which fixes the value at the time the event is bound. The first handler will now display <span class="output">Spoon!</span> while the second will alert <span class="output">Not in the face!</span>
+            
+         </p>
+         
+         <blockquote>
+            
+            <p>Note that objects are passed to functions <em>by reference</em>, which further complicates this scenario.
+            </p>
+            
+         </blockquote>
+         
+         <p>If <code>eventData</code> is present, it is the second argument to the <code>.bind()</code> method; if no additional data needs to be sent to the handler, then the callback is passed as the second and final argument.
+         </p>
+         
+         <blockquote>
+            
+            <p>See the <code>.trigger()</code> method reference for a way to pass data to a handler at the time the event happens rather than when the handler is bound.
+            </p>
+            
+         </blockquote>
+         
+         
+         <p>As of jQuery 1.4 we can no longer attach data (and thus, events) to object, embed, or applet elements because critical errors
+            occur when attaching data to Java applets.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Handle click and double-click for the paragraph.  Note: the coordinates are window relative, so in this case relative to the
+         demo iframe.
+      </p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p { background:yellow; font-weight:bold; cursor:pointer; 
+padding:5px; }
+p.over { background: #ccc; }
+span { color:red; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Click or double click here.&lt;/p&gt;
+&lt;span&gt;&lt;/span&gt;
+
+&lt;script&gt;
+
+
+$("p").bind("click", function(event){
+var str = "( " + event.pageX + ", " + event.pageY + " )";
+$("span").text("Click happened! " + str);
+});
+$("p").bind("dblclick", function(){
+$("span").text("Double-click happened in " + this.nodeName);
+});
+$("p").bind("mouseenter mouseleave", function(event){
+$(this).toggleClass("over");
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To display each paragraph's text in an alert box whenever it is clicked:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").bind("click", function(){
+alert( $(this).text() );
+});</code></pre><h3>示例:</h3>
+      <p>You can pass some extra data before the event handler:</p>
+      <h5>jQuery 代码:</h5><pre><code>function handler(event) {
+alert(event.data.foo);
+}
+$("p").bind("click", {foo: "bar"}, handler)</code></pre><h3>示例:</h3>
+      <p>Cancel a default action and prevent it from bubbling up by returning false:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("form").bind("submit", function() { return false; })</code></pre><h3>示例:</h3>
+      <p>Cancel only the default action by using the .preventDefault() method.</p>
+      <h5>jQuery 代码:</h5><pre><code>$("form").bind("submit", function(event) {
+event.preventDefault();
+});</code></pre><h3>示例:</h3>
+      <p>Stop an event from bubbling without preventing the default action by using the .stopPropagation() method.</p>
+      <h5>jQuery 代码:</h5><pre><code>$("form").bind("submit", function(event) {
+  event.stopPropagation();
+});</code></pre><h3>示例:</h3>
+      <p>Bind custom events.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p { color:red; }
+span { color:blue; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Has an attached custom event.&lt;/p&gt;
+&lt;button&gt;Trigger custom event&lt;/button&gt;
+&lt;span style="display:none;"&gt;&lt;/span&gt;
+
+&lt;script&gt;
+
+
+
+$("p").bind("myCustomEvent", function(e, myName, myValue){
+$(this).text(myName + ", hi there!");
+$("span").stop().css("opacity", 1)
+.text("myName = " + myName)
+.fadeIn(30).fadeOut(1000);
+});
+$("button").click(function () {
+$("p").trigger("myCustomEvent", [ "John" ]);
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Bind multiple events simultaneously.</p>
+      <h5>jQuery 代码:</h5><pre><code>$("div.test").bind({
+  click: function(){
+    $(this).addClass("active");
+  },
+  mouseenter: function(){
+    $(this).addClass("inside");
+  },
+  mouseleave: function(){
+    $(this).removeClass("inside");
+  }
+});</code></pre></div>
+</div>

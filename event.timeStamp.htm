@@ -1,0 +1,53 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>event.timeStamp
+   </h2>
+   <div class="desc">
+      <p>事件触发时距离1970年1月1日的毫秒数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.6 新增</span>event.timeStamp
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         <p>通过在代码中两处获得 <code>event.timeStamp</code> 的值并记录他们的差值，可以很方便的检测某个jQuery函数的性能。
+         </p> 
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>显示两次点击之间的时间。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { height: 100px; width: 300px; margin: 10px; 
+      background-color: #ffd; overflow: auto; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div&gt;Click.&lt;/div&gt;
+
+&lt;script&gt;
+
+
+var last, diff;
+$('div').click(function(event) {
+  if ( last ) {
+    diff = event.timeStamp - last
+    $('div').append('time since last event: ' + diff + '&lt;br/&gt;');
+  } else {
+    $('div').append('Click again.&lt;br/&gt;');
+  }
+  last = event.timeStamp;
+});  
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

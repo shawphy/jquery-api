@@ -1,0 +1,47 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Object</span>event.result
+   </h2>
+   <div class="desc">
+      <p>当前事件最后触发的那个处理函数的返回值，除非值是 <code>undefined</code> 。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>event.result
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         <p>这个属性经常用于获取自定义事件的前一个返回值。</p>
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>显示前一个事件处理函数的返回值。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;button&gt;display event.result&lt;/button&gt;
+&lt;p&gt;&lt;/p&gt;
+
+
+&lt;script&gt;
+
+
+$("button").click(function(event) {
+  return "hey";
+});
+$("button").click(function(event) {
+  $("p").html( event.result );
+});  
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

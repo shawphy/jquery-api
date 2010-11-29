@@ -1,0 +1,89 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>nextUntil(<em class="optional">[selector]</em>)<br></h2>
+   <div class="desc">
+      <p>查找当前元素之前所有的同辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>nextUntil(<em class="optional">[selector]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								 可选参数，选择器字符串，用于确定到哪个跟在后面的同辈元素时停止匹配。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         <p>如果提供的jQuery代表了一组DOM元素， <code>.nextUntil()</code> 方法会找遍所有元素所在的DOM树中跟在它们后面的元素，直到遇到了一个跟提供的参数匹配的元素时才会停下来。这个新jQuery对象里包含了后面所有找到的同辈元素，但不包括提供给 <code>.nextUntil()</code> 的选择器匹配到的元素。
+         </p>
+         
+         <p>如果提供的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么排在后面的所有同辈元素都会被选中。这就跟用没有提供参数的 <code>.nextAll()</code> 效果一样。
+         </p>
+         
+         
+         <p>考虑如下的定义列表：</p>
+         <pre>
+&lt;dl&gt;
+  &lt;dt&gt;term 1&lt;/dt&gt;
+  &lt;dd&gt;definition 1-a&lt;/dd&gt;
+  &lt;dd&gt;definition 1-b&lt;/dd&gt;
+  &lt;dd&gt;definition 1-c&lt;/dd&gt;
+  &lt;dd&gt;definition 1-d&lt;/dd&gt;
+
+  &lt;dt id="term-2"&gt;term 2&lt;/dt&gt;
+  &lt;dd&gt;definition 2-a&lt;/dd&gt;
+  &lt;dd&gt;definition 2-b&lt;/dd&gt;
+  &lt;dd&gt;definition 2-c&lt;/dd&gt;
+
+  &lt;dt&gt;term 3&lt;/dt&gt;
+  &lt;dd&gt;definition 3-a&lt;/dd&gt;
+  &lt;dd&gt;definition 3-b&lt;/dd&gt;
+&lt;/dl&gt;
+</pre>
+         <p>如果我们从 term 2 开始，查找在它之后的所有元素，直到 <code>&lt;dt&gt;</code>为止
+         </p>
+         <pre>$('#term-2').nextUntil('dt').css('background-color', 'red');</pre>
+         <p>其结果是使 definition <code>2-a</code>, <code>2-b</code>, and <code>2-c</code> 的背景变为红色。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找跟在 &lt;dt id="term-2"&gt; 之后的同辈元素，直到 &lt;dt&gt; 为止，并把它们的背景都设成红色。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;term 1&lt;/dt&gt;
+  &lt;dd&gt;definition 1-a&lt;/dd&gt;
+  &lt;dd&gt;definition 1-b&lt;/dd&gt;
+  &lt;dd&gt;definition 1-c&lt;/dd&gt;
+  &lt;dd&gt;definition 1-d&lt;/dd&gt;
+
+  &lt;dt id="term-2"&gt;term 2&lt;/dt&gt;
+  &lt;dd&gt;definition 2-a&lt;/dd&gt;
+  &lt;dd&gt;definition 2-b&lt;/dd&gt;
+  &lt;dd&gt;definition 2-c&lt;/dd&gt;
+
+  &lt;dt&gt;term 3&lt;/dt&gt;
+  &lt;dd&gt;definition 3-a&lt;/dd&gt;
+  &lt;dd&gt;definition 3-b&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;script&gt;
+
+
+    $("#term-2").nextUntil("dt")
+      .css("background-color", "red")
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

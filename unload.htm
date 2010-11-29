@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>unload(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>Bind an event handler to the "unload" JavaScript event.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>unload(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								A function to execute when the event is triggered.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>unload(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is a shortcut for <code>.bind('unload', handler)</code>.
+         </p>
+         
+         <p>The <code>unload</code> event is sent to the <code>window</code> element when the user navigates away from the page. This could mean one of many things. The user could have clicked on a
+            link to leave the page, or typed in a new URL in the address bar. The forward and back buttons will trigger the event. Closing
+            the browser window will cause the event to be triggered. Even a page reload will first create an <code>unload</code> event.
+         </p>
+         
+         <blockquote>
+            
+            <p>The exact handling of the <code>unload</code> event has varied from version to version of browsers. For example, some versions of Firefox trigger the event when a link
+               is followed, but not when the window is closed. In practical usage, behavior should be tested on all supported browsers, and
+               contrasted with the proprietary <code>beforeunload</code> event.
+            </p>
+            
+         </blockquote>
+         
+         <p>Any <code>unload</code> event handler should be bound to the <code>window</code> object:
+         </p>
+         <pre>$(window).unload(function() {
+  alert('Handler for .unload() called.');
+});
+</pre>
+         <p>After this code executes, the alert will be displayed whenever the browser leaves the current page.
+            It is not possible to cancel the <code>unload</code> event with <code>.preventDefault()</code>. This event is available so that scripts can perform cleanup when the user leaves the page.
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>To display an alert when a page is unloaded:</p>
+      <h5>jQuery 代码:</h5><pre><code>$(window).unload( function () { alert("Bye now!"); } );</code></pre></div>
+</div>

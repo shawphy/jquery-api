@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>[attributeFilter1][attributeFilter2][attributeFilterN]</h2>
+   <div class="desc">
+      <p>匹配满足所有这些属性选择器的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>[attributeFilter1][attributeFilter2][attributeFilterN]
+            </h4>
+            <div class="arguement"><strong>attributeFilter1</strong>
+               								(Selector)
+               								属性过滤器。
+            </div>
+            <div class="arguement"><strong>attributeFilter2</strong>
+               								(Selector)
+               								另一个属性过滤器，用于进一步减少选择的元素。
+            </div>
+            <div class="arguement"><strong>attributeFilterN</strong>
+               								(Selector)
+               								 可选参数，如果需要，可以跟更多的属性选择器。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc"></div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找那些有 id 属性，并且 name 属性以 man 结尾的输入框，并设置文本值。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;input id="man-news" name="man-news" /&gt;
+
+  &lt;input name="milkman" /&gt;
+  &lt;input id="letterman" name="new-letterman" /&gt;
+  &lt;input name="newmilk" /&gt;
+
+&lt;script&gt;
+
+$('input[id][name$="man"]').val('only this one');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,65 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Array</span>toArray()<br></h2>
+   <div class="desc">
+      <p>返回一个数组，包含jQuery对象集合中的所有DOM元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>toArray()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>
+            用 <code>.toArray()</code> 返回jQuery集合中所有元素：
+         </p>
+         <pre>alert($('li').toArray());</pre>
+         <p>所有匹配的DOM节点都会包含在一个标准的数组中：</p>
+         
+         <p>
+            <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>选择文档中所有的div，并且返回一个DOM元素数组，然后利用浏览器内置的reverse方法反转整个数组。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+Reversed - &lt;span&gt;&lt;/span&gt;
+
+  &lt;div&gt;One&lt;/div&gt;
+  &lt;div&gt;Two&lt;/div&gt;
+  &lt;div&gt;Three&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    function disp(divs) {
+      var a = [];
+      for (var i = 0; i &lt; divs.length; i++) {
+        a.push(divs[i].innerHTML);
+      }
+      $("span").text(a.join(" "));
+    }
+    
+    disp( $("div").toArray().reverse() );
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

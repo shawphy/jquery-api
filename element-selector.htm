@@ -1,0 +1,55 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>element</h2>
+   <div class="desc">
+      <p>Selects all elements with the given tag name.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>element
+            </h4>
+            <div class="arguement"><strong>element</strong>
+               								(String)
+               								An element to search for. Refers to the tagName of DOM nodes.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>JavaScript's <code>getElementsByTagName()</code> function is called to return the appropriate elements when this expression is used.
+         </p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds every DIV element.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div,span {
+    width: 60px;
+    height: 60px;
+    float:left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;DIV1&lt;/div&gt;
+
+  &lt;div&gt;DIV2&lt;/div&gt;
+  &lt;span&gt;SPAN&lt;/span&gt;
+
+&lt;script&gt;
+
+$("div").css("border","9px solid red");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

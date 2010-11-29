@@ -1,0 +1,126 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Element, Array</span>get(<em class="optional">[index]</em>)<br></h2>
+   <div class="desc">
+      <p>获取jQuery对象对应的DOM元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>get(<em class="optional">[index]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>index</strong>
+               								(Number)
+               								 可选参数，从0开始计数，确定获取哪个元素。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.get()</code> 方法允许我们直接访问jQuery对象隐含的DOM节点。假设我们页面上有一个简单的无序列表：
+         </p>
+         <pre>
+&lt;ul&gt;
+  &lt;li id="foo"&gt;foo&lt;/li&gt;
+  &lt;li id="bar"&gt;bar&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>不带参数的 <code>.get()</code> 会返回所有的元素：
+         </p>
+         <pre>alert($('li').get());</pre>
+         <p>调用这个方法会返回所有匹配的DOM节点，这些节点包含在一个标准的数组中：</p>
+         
+         <p>
+            <span class="result">[&lt;li id="foo"&gt;, &lt;li id="bar"&gt;]</span>
+            
+         </p>
+         
+         <p>如果指定了 index 参数， .get() 则会获取单个元素：</p>
+         <pre>alert($('li').get(0));</pre>
+         <p>由于索引 index 是以 0 开始计数的，所以上面代码返回了第一个列表项：</p>
+         
+         <p>
+            <span class="output">&lt;li id="foo"&gt;</span>
+            
+         </p>
+         
+         <p>由于每个 jQuery 对象也会冒充为一个数组，所以我们也可以用直接用数组的取值运算符来获得列表项：</p>
+         <pre>alert($('li')[0]);</pre>
+         <p>然而，这种语法缺少某些 .get() 所具有的附加功能，比如可以指定索引值为负值：</p>
+         <pre>alert($('li').get(-1));</pre>
+         <p>负的索引值表示从匹配的集合中从末尾开始倒数，所以上面这个例子将会返回列表中最后一项：</p>
+         
+         <p>
+            <span class="output">&lt;li id="bar"&gt;</span>
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>选择文档中的所有div，并且作为一个数组返回。然后使用浏览器原生的 reverse 方法将数组翻转。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+Reversed - &lt;span&gt;&lt;/span&gt;
+
+  &lt;div&gt;One&lt;/div&gt;
+  &lt;div&gt;Two&lt;/div&gt;
+  &lt;div&gt;Three&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    function disp(divs) {
+      var a = [];
+      for (var i = 0; i &lt; divs.length; i++) {
+        a.push(divs[i].innerHTML);
+      }
+      $("span").text(a.join(" "));
+    }
+    
+    disp( $("div").get().reverse() );
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>给出点中元素的标签名。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span { color:red; }
+  div { background:yellow; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;span&gt;&amp;nbsp;&lt;/span&gt;
+  &lt;p&gt;In this paragraph is an &lt;span&gt;important&lt;/span&gt; section&lt;/p&gt;
+
+  &lt;div&gt;&lt;input type="text" /&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    $("*", document.body).click(function (e) {
+      e.stopPropagation();
+      var domEl = $(this).get(0);
+      $("span:first").text("Clicked on - " + domEl.tagName);
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

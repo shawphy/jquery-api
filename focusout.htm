@@ -1,0 +1,90 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>focusout(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>为 "focusout" 事件绑定一个处理函数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>focusout(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>focusout(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个方法是 <code>.bind('focusout', handler)</code> 的快捷方式。
+         </p>
+         
+         <p><code>focusout</code> 事件会在元素（或者其内部的任何元素）失去焦点焦点时触发。这跟 <a href="blur.htm">blur</a> 事件的显著区别在于，它可以在父元素上检测子元素失去焦点的情况(换而言之，它支持事件冒泡)。
+         </p>
+         
+         <p>这个事件通常会跟 <a href="focusin.htm">focusin</a> 事件一起使用。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>监视段落内部失去焦点的情况。请注意 focusout 计数和 blur 计数的差异。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+.inputs { float: left; margin-right: 1em; }
+.inputs p { margin-top: 0; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div class="inputs"&gt;
+  &lt;p&gt;
+    &lt;input type="text" /&gt;&lt;br /&gt;
+    &lt;input type="text" /&gt; 
+  &lt;/p&gt;
+  &lt;p&gt;
+    &lt;input type="password" /&gt;
+  &lt;/p&gt;
+&lt;/div&gt;
+&lt;div id="fo"&gt;focusout fire&lt;/div&gt;
+&lt;div id="b"&gt;blur fire&lt;/div&gt;
+
+
+&lt;script&gt;
+
+
+var fo = 0, b = 0;
+$("p").focusout(function() {
+  fo++;
+  $("#fo")
+    .text("focusout fired: " + fo + "x");
+}).blur(function() {
+  b++;
+  $("#b")
+    .text("blur fired: " + b + "x");
+  
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

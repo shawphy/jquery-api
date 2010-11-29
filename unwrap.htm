@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>unwrap()<br></h2>
+   <div class="desc">
+      <p>Remove the parents of the set of matched elements from the DOM, leaving the matched elements in their place.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>unwrap()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.unwrap()</code> method removes the element's parent. This is effectively the inverse of the <code><a href="wrap.htm">.wrap()</a></code> method. The matched elements (and their siblings, if any) replace their parents within the DOM structure.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Wrap/unwrap a div around each of the paragraphs.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { border: 2px solid blue; }
+  p { background:yellow; margin:4px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;wrap/unwrap&lt;/button&gt;
+&lt;p&gt;Hello&lt;/p&gt;
+&lt;p&gt;cruel&lt;/p&gt;
+&lt;p&gt;World&lt;/p&gt;
+
+&lt;script&gt;
+
+
+$("button").toggle(function(){
+  $("p").wrap("&lt;div&gt;&lt;/div&gt;");
+}, function(){
+  $("p").unwrap();
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

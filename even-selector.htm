@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:even</h2>
+   <div class="desc">
+      <p>选择索引值是奇数的元素。索引值从 0 开始计数。同时可以参考 <a href="Selectors/odd.htm">odd</a>。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:even
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>特别注意，跟通常的直觉相反，索引值从 0 开始计数实际上意味着，如果使用了这个偶数索引选择器 <code>:even</code> ，实际选中的是匹配集合中第一个、第三个、第五个这类元素。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找表格中的奇数行，即匹配第一行、第三行等 (索引值是 0, 2 ,4 )。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  table {
+    background:#eeeeee;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table border="1"&gt;
+    &lt;tr&gt;&lt;td&gt;Row with Index #0&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Row with Index #1&lt;/td&gt;&lt;/tr&gt;
+
+    &lt;tr&gt;&lt;td&gt;Row with Index #2&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;Row with Index #3&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+
+&lt;script&gt;
+
+$("tr:even").css("background-color", "#bbbbff");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

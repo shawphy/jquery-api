@@ -1,0 +1,132 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>keydown(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>为 "keydown" 事件绑定一个处理函数，或者触发元素上的 "keydown" 事件。 </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>keydown(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每次事件触发时会执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>keydown(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>keydown()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个函数的第一种用法是 <code>.bind('keydown', handler)</code> 的快捷方式，第二种用法是 <code>.trigger('keydown')</code> 的快捷方式。
+         </p>
+         
+         <p>当用户第一次按下一个按键时，会在这个元素上触发 <code>keydown</code> 。这个事件可以附加给任何元素，但是只有可以获得焦点的元素才能触发这个事件。不同的浏览器中，可聚焦的元素略有不同，但表单元素总是可以获得焦点，所以这个事件可以放心的用在这些元素上。
+         </p>
+         
+         <p>举例来说，请看下面的HTML：</p>
+         <pre>&lt;form&gt;
+  &lt;input id="target" type="text" value="Hello there" /&gt;
+&lt;/form&gt;
+&lt;div id="other"&gt;
+  Trigger the handler
+&lt;/div&gt;</pre>
+         <p>事件处理函数可以绑定在输入框上：</p>
+         <pre>$('#target').keydown(function() {
+  alert('Handler for .keydown() called.');
+});</pre>
+         <p>现在，当插入点在这个输入框内部时，按下一个按键，那么弹出对话框中就会显示下面的文字：</p>
+         
+         <p>
+            <span class="output">Handler for .keydown() called.</span>
+            
+         </p>
+         
+         <p>我们也可以在点击另一个元素时手动触发这个事件：</p>
+         <pre>$('#other').click(function() {
+  $('#target').keydown();
+});</pre>
+         <p>在代码执行后，如果你点击 <span class="output">Trigger the handler</span> 将同样会弹出上面的消息。
+         </p>
+         
+         <p>如果需要捕获在任意位置的按键事件（例如要在页面上实现全局的快捷键），那么可以把这个行为附加到 <code>document</code> 对象上去。由于事件冒泡，所有的按键事件都会沿着各自的DOM树冒泡到 <code>document</code> 对象，除非被明确的制止。
+         </p>
+         
+         <p>要确定哪个按键被按下了，我们可以检测传递给事件处理函数的 <a href="http://api.jquery.com/category/events/event-object/">event object</a> 。由于不同的浏览器使用不同的属性来存储这个信息，所以jQuery将它们标准化成 <code>.which</code> 属性，以便我们能可靠地使用它来获取按键代码。这个代码与键盘上的按键一一对应，包括方向键等特殊键。如果要捕获实际输入的文本， <code>.keypress()</code> 可能是个更好的选择。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>当按键按下时，显示传递给 keydown 事件处理函数的事件对象。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+fieldset { margin-bottom: 1em; }
+input { display: block; margin-bottom: .25em; }
+#print-output {
+  width: 100%;
+}
+.print-output-line {
+  white-space: pre;
+  padding: 5px;
+  font-family: monaco, monospace;
+  font-size: .7em;
+}
+
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;
+  &lt;fieldset&gt;
+    &lt;label for="target"&gt;Type Something:&lt;/label&gt;
+    &lt;input id="target" type="text" /&gt;
+  &lt;/fieldset&gt;
+&lt;/form&gt;
+&lt;button id="other"&gt;
+  Trigger the handler
+&lt;/button&gt;
+&lt;script type="text/javascript" src="/scripts/events.js"&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+
+var xTriggered = 0;
+$('#target').keydown(function(event) {
+  if (event.keyCode == '13') {
+     event.preventDefault();
+   }
+   xTriggered++;
+   var msg = 'Handler for .keydown() called ' + xTriggered + ' time(s).';
+  $.print(msg, 'html');
+  $.print(event);
+});
+
+$('#other').click(function() {
+  $('#target').keydown();
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="460"></iframe></div>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>jQuery.fx.interval
+   </h2>
+   <div class="desc">
+      <p>The rate (in milliseconds) at which animations fire.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.3 新增</span>jQuery.fx.interval
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This property can be manipulated to adjust the number of frames per second at which animations will run. The default is 13
+            milliseconds. Making this a lower number could make the animations run smoother in faster browsers (such as Chrome) but there
+            may be performance and CPU implications of doing so.
+         </p>
+         
+         <p>Since jQuery uses one global interval, no animation should be running or all animations should stop for the change of this
+            property to take effect.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Cause all animations to run with less frames.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+    div { width:50px; height:30px; margin:5px; float:left;
+          background:green; }
+    &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;&lt;input type="button" value="Run"/&gt;&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+jQuery.fx.interval = 100;
+
+$("input").click(function(){
+  $("div").toggle( 3000 );
+});
+  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

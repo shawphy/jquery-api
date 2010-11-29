@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>[attribute*="value"]</h2>
+   <div class="desc">
+      <p>选择那些属性值含有给定子字符串的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>[attribute*="value"]
+            </h4>
+            <div class="arguement"><strong>attribute</strong>
+               								(String)
+               								属性名。
+            </div>
+            <div class="arguement"><strong>value</strong>
+               								(String)
+               								属性值，引号是强制性的。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这是 jQuery 属性值选择器中，能匹配到最多元素的一个选择器。只要元素属性值字符串中任何一部分能匹配到给定的值，这个元素就能被匹配到。很多情况下，相较于单词选择器 (比如 [attr~=word])，他更合适。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有 input 的 name 属性中带有 'man' 的元素并设置一些文本。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;input name="man-news" /&gt;
+
+  &lt;input name="milkman" /&gt;
+  &lt;input name="letterman2" /&gt;
+  &lt;input name="newmilk" /&gt;
+
+&lt;script&gt;
+
+$('input[name*="man"]').val('has man in it!');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

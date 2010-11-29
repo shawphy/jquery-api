@@ -1,0 +1,191 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:String</span>html()<br></h2>
+   <div class="desc">
+      <p>Get the HTML contents of the first element in the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>html()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is not available on XML documents.</p>
+         
+         <p>In an HTML document, we can use <code>.html()</code> to get the contents of any element. If the selector expression matches more than one element, only the first one's HTML content
+            is returned. Consider this code:
+         </p>
+         <pre>$('div.demo-container').html();</pre>
+         <p>In order for the following <code>&lt;div&gt;</code>'s content to be retrieved, it would have to be the first one with <code>class="demo-container"</code> in the document:
+         </p>
+         <pre>&lt;div class="demo-container"&gt;
+  &lt;div class="demo-box"&gt;Demonstration Box&lt;/div&gt;
+&lt;/div&gt;</pre>
+         <p>The result would look like this:</p>
+         <pre>&lt;div class="demo-box"&gt;Demonstration Box&lt;/div&gt;</pre>
+         <p>This method uses the browser's <code>innerHTML</code> property. Some browsers may not return HTML that exactly replicates the HTML source in an original document. For example,
+            Internet Explorer sometimes leaves off the quotes around attribute values if they contain only alphanumeric characters.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Click a paragraph to convert it from html to text.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { margin:8px; font-size:20px; color:blue; 
+      cursor:pointer; }
+  b { text-decoration:underline; }
+  button { cursor:pointer; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+
+    &lt;b&gt;Click&lt;/b&gt; to change the &lt;span id="tag"&gt;html&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;p&gt;
+
+    to a &lt;span id="text"&gt;text&lt;/span&gt; node.
+  &lt;/p&gt;
+  &lt;p&gt;
+    This &lt;button name="nada"&gt;button&lt;/button&gt; does nothing.
+  &lt;/p&gt;
+
+&lt;script&gt;
+
+
+    $("p").click(function () {
+      var htmlStr = $(this).html();
+      $(this).text(htmlStr);
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>html(htmlString)<br></h2>
+   <div class="desc">
+      <p>Set the HTML contents of each element in the set of matched elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>html(htmlString)
+               								
+            </h4>
+            <div class="arguement"><strong>htmlString</strong>
+               								(String)
+               								A string of HTML to set as the content of each matched element.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>html(function(index, oldhtml))
+               								
+            </h4>
+            <div class="arguement"><strong>function(index, oldhtml)</strong>
+               								(Function)
+               								A function returning the HTML content to set. Receives the index position of the element in the set and the old HTML value
+               as arguments. jQuery empties the element before calling the function; use the oldhtml argument to reference the previous content.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>.html()</code> method is not available in XML documents. 
+         </p>
+         
+         <p>When we use <code>.html()</code> to set elements' contents, any contents that were in those elements is completely replaced by the new contents. Consider
+            the following HTML:
+         </p>
+         <pre>&lt;div class="demo-container"&gt;
+  &lt;div class="demo-box"&gt;Demonstration Box&lt;/div&gt;
+&lt;/div&gt;</pre>
+         <p>We can set the HTML contents of <code>&lt;div class="demo-container"&gt;</code> like so:
+         </p>
+         <pre>$('div.demo-container')
+  .html('&lt;p&gt;All new content. &lt;em&gt;You bet!&lt;/em&gt;&lt;/p&gt;');</pre>
+         <p>That line of code will replace everything inside <code>&lt;div class="demo-container"&gt;</code>:
+         </p>
+         <pre>&lt;div class="demo-container"&gt;
+  &lt;p&gt;All new content. &lt;em&gt;You bet!&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;</pre>
+         <p>As of jQuery 1.4, the <code>.html()</code> method allows us to set the HTML content by passing in a function.
+         </p>
+         <pre>$('div.demo-container').html(function() {
+  var emph = '&lt;em&gt;' + $('p').length + ' paragraphs!&lt;/em&gt;';
+  return '&lt;p&gt;All new content for ' + emph + '&lt;/p&gt;';
+});</pre>
+         
+         <p>Given a document with six paragraphs, this example will set the HTML of <code>&lt;div class="demo-container"&gt;</code> to <code>&lt;p&gt;All new content for &lt;em&gt;6 paragraphs!&lt;/em&gt;&lt;/p&gt;</code>.
+         </p>
+         
+         
+         <p>This method uses the browser's <code>innerHTML</code> property. Some browsers may not generate a DOM that exactly replicates the HTML source provided. For example, Internet Explorer
+            prior to version 8 will convert all <code>href</code> properties on links to absolute URLs, and Internet Explorer prior to version 9 will not correctly handle HTML5 elements without
+            the addition of a separate <a href="http://code.google.com/p/html5shiv/">compatibility layer</a>.
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Add some html to each div.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  .red { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;span&gt;Hello&lt;/span&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$("div").html("&lt;span class='red'&gt;Hello &lt;b&gt;Again&lt;/b&gt;&lt;/span&gt;");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Add some html to each div then immediately do further manipulations to the inserted html.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:blue; font-size:18px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    $("div").html("&lt;b&gt;Wow!&lt;/b&gt; Such excitement...");
+    $("div b").append(document.createTextNode("!!!"))
+              .css("color", "red");
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

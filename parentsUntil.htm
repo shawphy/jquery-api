@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>parentsUntil(<em class="optional">[selector]</em>)<br></h2>
+   <div class="desc">
+      <p>查找当前元素的所有的前辈元素，直到遇到选择器匹配的元素为止，不包括那个匹配到的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>parentsUntil(<em class="optional">[selector]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								 可选参数，选择器字符串，用于确定到哪个前辈元素时停止匹配。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>如果提供一个jQuery对象代表DOM元素集合， <code>.parentsUntil()</code> 方法会找遍所有这些元素的前辈元素，直到遇到了跟参数匹配的元素才会停止。返回的jQuery对象中包含了所有找到的前辈元素，除了与 <code>.parentsUntil()</code> 选择器匹配的那个元素。考虑如下的嵌套列表：
+         </p>
+         <pre>&lt;ul class="level-1"&gt;
+  &lt;li class="item-i"&gt;I&lt;/li&gt;
+  &lt;li class="item-ii"&gt;II
+    &lt;ul class="level-2"&gt;
+      &lt;li class="item-a"&gt;A&lt;/li&gt;
+      &lt;li class="item-b"&gt;B
+        &lt;ul class="level-3"&gt;
+          &lt;li class="item-1"&gt;1&lt;/li&gt;
+          &lt;li class="item-2"&gt;2&lt;/li&gt;
+          &lt;li class="item-3"&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="item-c"&gt;C&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class="item-iii"&gt;III&lt;/li&gt;
+&lt;/ul&gt;
+</pre>  
+         <p>如果我们从项目 A 开始找它的前辈，但不包括 <code>&lt;ul class="level-1"&gt;</code> ，就可以用下面代码：
+         </p>
+         <pre>$('li.item-a').parentsUntil('.level-1')
+    .css('background-color', 'red');</pre>
+         <p>结果就是 level-2 列表和项目 II 的背景变红。 </p>
+         
+         <p>如果提供给 .parentsUntil() 的选择器没有匹配到任何东西，或者干脆没有提供选择器，那么返回的对象会是这个对象所有的前辈元素。例如再次从项目 A 开始找，但这次使用一个匹配不到任何东西的选择器：</p>
+         <pre>$('li.item-a').parentsUntil('.not-here')
+    .css('background-color', 'red');</pre>
+         <p>其结果是给 level-2 列表, 项目 II,  level-1 列表, <code>&lt;body&gt;</code> 元素和 <code>&lt;html&gt;</code> 元素都设置了红色背景。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找 &lt;li class="item-a"&gt; 的前辈，直到 &lt;ul class="level-1"&gt; 为止，并给它们设置红色背景。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;ul class="level-1"&gt;
+  &lt;li class="item-i"&gt;I&lt;/li&gt;
+  &lt;li class="item-ii"&gt;II
+    &lt;ul class="level-2"&gt;
+      &lt;li class="item-a"&gt;A&lt;/li&gt;
+      &lt;li class="item-b"&gt;B
+        &lt;ul class="level-3"&gt;
+          &lt;li class="item-1"&gt;1&lt;/li&gt;
+          &lt;li class="item-2"&gt;2&lt;/li&gt;
+          &lt;li class="item-3"&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="item-c"&gt;C&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class="item-iii"&gt;III&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+
+
+    $('li.item-a').parentsUntil('.level-1')
+      .css('background-color', 'red');
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

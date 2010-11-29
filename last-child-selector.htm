@@ -1,0 +1,63 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:last-child</h2>
+   <div class="desc">
+      <p>如果某个元素是父元素中的最后一个元素，那么他就会被选中。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>:last-child
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>注意，<a href="last-selector.htm">:last</a> 只匹配一个元素，就是最后一个元素，而 <code>:last-child</code> 则能匹配多个元素：即每个父元素中的最后一个。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>在每个匹配的 div 中查找最后一个 span ，并加上 CSS 以及增加鼠标悬停效果。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span.solast { text-decoration:line-through; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    &lt;span&gt;John,&lt;/span&gt;
+    &lt;span&gt;Karl,&lt;/span&gt;
+    &lt;span&gt;Brandon,&lt;/span&gt;
+
+    &lt;span&gt;Sam&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;span&gt;Glen,&lt;/span&gt;
+    &lt;span&gt;Tane,&lt;/span&gt;
+
+    &lt;span&gt;Ralph,&lt;/span&gt;
+    &lt;span&gt;David&lt;/span&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+    $("div span:last-child")
+        .css({color:"red", fontSize:"80%"})
+        .hover(function () {
+              $(this).addClass("solast");
+            }, function () {
+              $(this).removeClass("solast");
+            });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

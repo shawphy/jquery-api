@@ -1,0 +1,33 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>jQuery.globalEval(code)<br></h2>
+   <div class="desc">
+      <p>全局执行一些JavaScript代码。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0.4 新增</span>jQuery.globalEval(code)
+               								
+            </h4>
+            <div class="arguement"><strong>code</strong>
+               								(String)
+               								将要执行的 JavaScript 代码。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个方法与普通 JavaScript 中 <code>eval()</code> 的不同之处在于，它是在全局的上下文语境中执行的代码，这对于动态载入外部脚本非常重要。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>全局地执行脚本。</p>
+      <h5>jQuery 代码:</h5><pre><code>function test(){
+    jQuery.globalEval("var newVar = true;")
+}
+test();
+// newVar === true</code></pre></div>
+</div>

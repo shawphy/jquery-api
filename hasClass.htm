@@ -1,0 +1,63 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>hasClass(className)<br></h2>
+   <div class="desc">
+      <p>Determine whether any of the matched elements are assigned the given class.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>hasClass(className)
+               								
+            </h4>
+            <div class="arguement"><strong>className</strong>
+               								(String)
+               								The class name to search for.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Elements may have more than one class assigned to them. In HTML, this is represented by separating the class names with a
+            space:
+         </p>
+         <pre>&lt;div id="mydiv" class="foo bar"&gt;&lt;/div&gt;</pre>
+         <p>The <code>.hasClass()</code> method will return <code>true</code> if the class is assigned to an element, even if other classes also are. For example, given the HTML above, the following
+            will return <code>true</code>:
+         </p>
+         <pre>$('#mydiv').hasClass('foo')</pre>
+         <p>as would:</p>
+         <pre>$('#mydiv').hasClass('bar')</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Looks for the class 'selected' on the matched elements.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  p { margin: 8px; font-size:16px; }
+  .selected { color:red; }
+  .highlight { background:yellow; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello&lt;/p&gt;
+  &lt;p class="selected"&gt;Goodbye&lt;/p&gt;
+  &lt;div id="result1"&gt;First paragraph has selected class: &lt;/div&gt;
+
+  &lt;div id="result2"&gt;Last paragraph has selected class: &lt;/div&gt;
+  &lt;div id="result3"&gt;Some paragraph has selected class: &lt;/div&gt;
+
+&lt;script&gt;
+
+$("div#result1").append($("p:first").hasClass("selected").toString());
+$("div#result2").append($("p:last").hasClass("selected").toString());
+$("div#result3").append($("p").hasClass("selected").toString());
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

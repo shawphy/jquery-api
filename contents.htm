@@ -1,0 +1,88 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>contents()<br></h2>
+   <div class="desc">
+      <p>Get the children of each element in the set of matched elements, including text and comment nodes.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>contents()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Given a jQuery object that represents a set of DOM elements, the <code>.contents()</code> method allows us to search through the immediate children of these elements in the DOM tree and construct a new jQuery object
+            from the matching elements. The <code>.contents()</code> and <code>.children()</code> methods are similar, except that the former includes text nodes as well as HTML elements in the resulting jQuery object.
+         </p>
+         
+         <p>The <code>.contents()</code> method can also be used to get the content document of an iframe, if the iframe is on the same domain as the main page.
+         </p>
+         
+         <p>Consider a simple <code>&lt;div&gt;</code> with a number of text nodes, each of which is separated by two line break elements (<code>&lt;br /&gt;</code>):
+         </p>
+         <pre>&lt;div class="container"&gt;
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed 
+  do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  &lt;br /&gt;&lt;br /&gt;
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+  laboris nisi ut aliquip ex ea commodo consequat.
+  &lt;br /&gt; &lt;br /&gt;
+  Duis aute irure dolor in reprehenderit in voluptate velit 
+  esse cillum dolore eu fugiat nulla pariatur.
+&lt;/div&gt;
+</pre>
+         <p>We can employ the <code>.contents()</code> method to help convert this blob of text into three well-formed paragraphs:
+         </p>
+         <pre>
+$('.container').contents().filter(function() {
+  return this.nodeType == 3;
+})
+  .wrap('&lt;p&gt;&lt;/p&gt;')
+.end()
+.filter('br')
+  .remove();
+</pre>
+         <p>This code first retrieves the contents  of <code>&lt;div class="container"&gt;</code> and then filters it for text nodes, which are wrapped in paragraph tags. This is accomplished by testing the <a href="https://developer.mozilla.org/en/nodeType">
+               <code>.nodeType</code> property</a> of the element. This DOM property holds a numeric code indicating the node's type; text nodes use the code 3. The contents
+            are again filtered, this time for <code>&lt;br /&gt;</code> elements, and these elements are removed.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Find all the text nodes inside a paragraph and wrap them with a bold tag.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Hello &lt;a href="http://ejohn.org/"&gt;John&lt;/a&gt;, how are you doing?&lt;/p&gt;
+
+&lt;script&gt;
+
+$("p").contents().filter(function(){ return this.nodeType != 1; }).wrap("&lt;b/&gt;");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Change the background colour of links inside of an iframe.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;iframe src="http://api.jquery.com/" width="80%" height="600" id='frameDemo'&gt;&lt;/iframe&gt; 
+
+&lt;script&gt;
+
+$("#frameDemo").contents().find("a").css("background-color","#BADA55");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

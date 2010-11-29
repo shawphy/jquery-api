@@ -1,0 +1,57 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>ajaxError(handler(event, XMLHttpRequest, ajaxOptions, thrownError))<br></h2>
+   <div class="desc">
+      <p>注册一个事件处理函数，这个函数会在 Ajax 请求出错时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>ajaxError(handler(event, XMLHttpRequest, ajaxOptions, thrownError))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(event, XMLHttpRequest, ajaxOptions, thrownError)</strong>
+               								(Function)
+               								将要调用的函数
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>当 Ajax 请求出错时，jQuery 会触发 <code>ajaxError</code> 事件。任何先前通过 <code>.ajaxError()</code> 方法注册的事件处理函数都会在此刻执行。
+         </p>
+         
+         <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
+         <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+&lt;div class="result"&gt;&lt;/div&gt;
+&lt;div class="log"&gt;&lt;/div&gt;</pre>
+         <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
+         <pre>$('.log').ajaxError(function() {
+  $(this).text('Triggered ajaxError handler.');
+});</pre>
+         <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
+         <pre>$('.trigger').click(function() {
+  $('.result').load('ajax/missing.html');
+});</pre>
+         <p>当用户点击按钮，接着等 Ajax 请求失败时，由于请求的文件不存在，就会显示日志信息。</p>
+         
+         <p><strong>注意：</strong> 由于 <code>.ajaxError()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。
+         </p>
+         
+         <p>无论是哪一个 Ajax 请求出错了， <code>ajaxError</code> 处理函数都会被执行。如果有时必须区分出不同的请求，我们可以使用传递给事件处理函数的参数来识别不同的请求。每次 <code>ajaxError</code> 的事件处理函数执行时，都会传递一个事件对象，一个 <code>XMLHttpRequest</code> 对象，以及一个 settings 参数对象。其中 settings 参数对象就是调用 Ajax 请求时，传递给 $.ajax 方法的 settings 对象(有时候是在 jQuery 内部传递的，比如用 load 方法时，jQuery 内部也会调用
+            $.ajax 方法，并且构造并传递一个 settings 参数)。通过 settings 对象，我们就可以用来确定这是哪一个请求。比如说，我们可以限定某个回调函数，仅仅处理某个特定的 URL：
+         </p>
+         <pre>$('.log').ajaxError(function(e, xhr, settings, exception) {
+  if (settings.url == 'ajax/missing.html') {
+    $(this).text('Triggered ajaxError handler.');
+  }
+});</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>在 Ajax 请求失败时显示一条信息。</p>
+      <h5>jQuery 代码:</h5><pre><code>$("#msg").ajaxError(function(event, request, settings){
+   $(this).append("&lt;li&gt;Error requesting page " + settings.url + "&lt;/li&gt;");
+ });</code></pre></div>
+</div>

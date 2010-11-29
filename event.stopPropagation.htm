@@ -1,0 +1,34 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>event.stopPropagation()<br></h2>
+   <div class="desc">
+      <p>防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>event.stopPropagation()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">  
+         
+         <p>我们可以用 <code><a href="event.isPropagationStopped.htm">event.isPropagationStopped()</a></code> 来确定这个方法是否(在那个事件对象上)调用过了。
+         </p>
+         
+         <p>这个方法对 <a href="trigger.htm">trigger()</a> 来自定义的事件同样有效。
+         </p>
+         
+         <p>注意，这不会阻止<em>同一个元素上</em>的其它事件处理函数的运行。
+         </p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>灭掉click事件的冒泡。</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").click(function(event){
+  event.stopPropagation();
+  // do something
+});  </code></pre></div>
+</div>

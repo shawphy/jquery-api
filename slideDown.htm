@@ -1,0 +1,147 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>slideDown(<em class="optional">[duration]</em>, <em class="optional">[callback]</em>)<br></h2>
+   <div class="desc">
+      <p>通过滑动的形式显示元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>slideDown(<em class="optional">[duration]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>slideDown(<em class="optional">[duration]</em>, <em class="optional">[easing]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>easing</strong>
+               								(String)
+               								 可选参数，要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.slideDown()</code> 方法对匹配元素的高度进行动画操作。这会导致页面中，在这个元素下面的内容往下滑。
+         </p>
+         
+         <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。
+         </p>
+         
+         <p>从 jQuery 1.4.3 起，增加了一个可选的参数，用于确定使用的缓冲函数。缓冲函数确定了动画在不同的位置的速度。jQuery默认只提供两个缓冲效果：<code>swing</code> 和 <code>linear</code>。更多特效需要使用插件。可以访问 <a href="http://jqueryui.com">jQuery UI 网站</a> 来获得更多信息。
+         </p>
+         
+         <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。
+         </p>
+         
+         <p>比如下面这个页面：</p>
+         <pre>&lt;div id="clickme"&gt;
+  Click here
+&lt;/div&gt;
+&lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+         <p>如果元素一开始是隐藏的，我们可以这样将其缓慢地显现：</p>
+         <pre>$('#clickme').click(function() {
+  $('#book').slideDown('slow', function() {
+    // 动画完成
+  });
+});</pre>
+         <p class="image four-across"> 
+            <img src="images/0042_06_17.png" alt="">
+            <img src="images/0042_06_18.png" alt="">
+            <img src="images/0042_06_19.png" alt="">
+            <img src="images/0042_06_20.png" alt="">
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>用 600 毫秒让所有 div 下滑显示出来。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { background:#de9a44; margin:3px; width:80px; 
+height:40px; display:none; float:left; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+Click me!
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+$(document.body).click(function () {
+if ($("div:first").is(":hidden")) {
+$("div").slideDown("slow");
+} else {
+$("div").hide();
+}
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>用 1000 毫秒让所有文本框组件下滑显示出来。动画完成后改变这些文本框的外观，并让中间的文本框获得输入焦点。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { background:#cfd; margin:3px; width:50px; 
+text-align:center; float:left; cursor:pointer;
+border:2px outset black; font-weight:bolder; }
+input { display:none; width:120px; float:left; 
+margin:10px; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;Push!&lt;/div&gt;
+&lt;input type="text" /&gt;
+&lt;input type="text" class="middle" /&gt;
+
+&lt;input type="text" /&gt;
+
+&lt;script&gt;
+
+
+$("div").click(function () {
+$(this).css({ borderStyle:"inset", cursor:"wait" });
+$("input").slideDown(1000,function(){
+$(this).css("border", "2px red inset")
+.filter(".middle")
+ .css("background", "yellow")
+ .focus();
+$("div").css("visibility", "hidden");
+});
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

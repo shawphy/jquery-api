@@ -1,0 +1,102 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>undelegate()<br></h2>
+   <div class="desc">
+      <p>Remove a handler from the event for all elements which match the current selector, now or in the future, based upon a specific
+         set of root elements.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4.2 新增</span>undelegate()
+               								
+            </h4>
+         </li>
+         <li>
+            <h4><span>1.4.2 新增</span>undelegate(selector, eventType)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(String)
+               								A selector which will be used to filter the event results.
+            </div>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing a JavaScript event type, such as "click" or "keydown"
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.2 新增</span>undelegate(selector, eventType, handler)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(String)
+               								A selector which will be used to filter the event results.
+            </div>
+            <div class="arguement"><strong>eventType</strong>
+               								(String)
+               								A string containing a JavaScript event type, such as "click" or "keydown"
+            </div>
+            <div class="arguement"><strong>handler</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Undelegate is a way of removing event handlers that have been bound using <a href="delegate.htm">.delegate()</a>. It works virtually identically to <a href="die.htm">.die()</a> with the addition of a selector filter argument (which is required for delegation to work).
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Can bind and unbind events to the colored button.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+button { margin:5px; }
+button#theone { color:red; background:yellow; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button id="theone"&gt;Does nothing...&lt;/button&gt;
+&lt;button id="bind"&gt;Bind Click&lt;/button&gt;
+&lt;button id="unbind"&gt;Unbind Click&lt;/button&gt;
+&lt;div style="display:none;"&gt;Click!&lt;/div&gt;
+
+&lt;script&gt;
+
+
+function aClick() {
+  $("div").show().fadeOut("slow");
+}
+$("#bind").click(function () {
+  $("body").delegate("#theone", "click", aClick)
+    .find("#theone").text("Can Click!");
+});
+$("#unbind").click(function () {
+  $("body").undelegate("#theone", "click", aClick)
+    .find("#theone").text("Does nothing...");
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To unbind all delegated events from all paragraphs, write:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").undelegate()</code></pre><h3>示例:</h3>
+      <p>To unbind all delegated click events from all paragraphs, write:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").undelegate( "click" )</code></pre><h3>示例:</h3>
+      <p>To undelegate just one previously bound handler, pass the function in as the third argument:</p>
+      <h5>jQuery 代码:</h5><pre><code>var foo = function () {
+// code to handle some kind of event
+};
+
+$("body").delegate("p", "click", foo); // ... now foo will be called when paragraphs are clicked ...
+
+$("body").undelegate("p", "click", foo); // ... foo will no longer be called.</code></pre></div>
+</div>

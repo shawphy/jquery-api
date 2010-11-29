@@ -1,0 +1,92 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:XMLHttpRequest</span>jQuery.post(url, <em class="optional">[data]</em>, <em class="optional">[success(data, textStatus, XMLHttpRequest)]</em>, <em class="optional">[dataType]</em>)<br></h2>
+   <div class="desc">
+      <p>通过 HTTP POST 方式从服务器载入数据。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.post(url, <em class="optional">[data]</em>, <em class="optional">[success(data, textStatus, XMLHttpRequest)]</em>, <em class="optional">[dataType]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>url</strong>
+               								(String)
+               								将要请求的 URL 字符串。
+            </div>
+            <div class="arguement"><strong>data</strong>
+               								(Map, String)
+               								 可选参数，发送给服务器的字符串或者映射。
+            </div>
+            <div class="arguement"><strong>success(data, textStatus, XMLHttpRequest)</strong>
+               								(Function)
+               								 可选参数，当请求成功后会执行的回调函数。
+            </div>
+            <div class="arguement"><strong>dataType</strong>
+               								(String)
+               								 可选参数，预计从服务器返回的数据类型。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
+         <pre>$.ajax({
+  type: 'POST',
+  url: <em>url</em>,
+  data: <em>data</em>,
+  success: <em>success</em>
+  dataType: <em>dataType</em>
+});
+</pre>
+         <p><code>success</code> 回调函数会传入返回的数据，根据响应的 MIME 类型的不同，他可能是一个 XML 根元素、文本字符串、JavaScript 文件或者 JSON 对象。同时还会传入描述响应状态的字符串。
+         </p>
+         
+         <p>从 jQuery 1.4 起，<code>success</code> 回调函数还会传入一个 XMLHttpRequest 对象。
+         </p>
+         
+         <p>大多数情况下都会指定一个请求成功后的回调函数：</p>
+         <pre>$.post('ajax/test.html', function(data) {
+  $('.result').html(data);
+});
+</pre>
+         <p>这个例子会把请求到的 HTML 代码片段插入到页面中。</p>
+         
+         <p>用 <code>POST</code> 方式获取的页面永远不会被缓存，所以通过 <code><a href="jQuery.ajaxSetup.htm">jQuery.ajaxSetup()</a></code> 设置的 <code>cache</code> 和 <code>ifModified</code> 选项在这些请求中无效。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>请求 test.php 页面，但忽略返回的结果。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php");</code></pre><h3>示例:</h3>
+      <p>请求 test.php 页面，并传递一些附加的数据，但依然忽略返回的结果。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", { name: "John", time: "2pm" } );</code></pre><h3>示例:</h3>
+      <p>传递一个数据数组到服务器，继续忽略返回的结果。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", { 'choices[]': ["Jon", "Susan"] });</code></pre><h3>示例:</h3>
+      <p>通过 Ajax 请求发送表单数据。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", $("#testform").serialize());</code></pre><h3>示例:</h3>
+      <p>弹出从 test.php 请求到的结果(HTML 或者 XML，根据返回的结果而不同)。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", function(data){
+   alert("Data Loaded: " + data);
+ });</code></pre><h3>示例:</h3>
+      <p>弹出从 test.cgi 请求到的数据，同时传递一些数据。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", { name: "John", time: "2pm" },
+   function(data){
+     alert("Data Loaded: " + data);
+   });</code></pre><h3>示例:</h3>
+      <p>获取 test.php 页面的内容，并交给 process() 函数做进一步处理。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", { name: "John", time: "2pm" },
+   function(data){
+     process(data);
+   }, "xml");</code></pre><h3>示例:</h3>
+      <p>获取 test.php 页面的内容，其内容是 JSON 格式 (&lt;?php echo json_encode(array("name"=&gt;"John","time"=&gt;"2pm")); ?&gt;)
+         
+         
+      </p>
+      <h5>jQuery 代码:</h5><pre><code>$.post("test.php", { "func": "getNameAndTime" },
+   function(data){
+     alert(data.name); // John
+     console.log(data.time); //  2pm
+   }, "json");</code></pre></div>
+</div>

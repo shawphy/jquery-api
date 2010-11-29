@@ -1,0 +1,27 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Element</span>event.relatedTarget
+   </h2>
+   <div class="desc">
+      <p>在事件中涉及的其它任何DOM元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>event.relatedTarget
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>对于 <code>mouseout</code> 事件，它指向被进入的元素；对于 <code>mousein</code> 事件，它指向被离开的元素。
+         </p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>对于锚点的 mouseout 事件，显示被进入的元素类型。</p>
+      <h5>jQuery 代码:</h5><pre><code>$("a").mouseout(function(event) {
+  alert(event.relatedTarget.nodeName); // "DIV"
+});  </code></pre></div>
+</div>

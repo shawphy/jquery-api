@@ -1,0 +1,214 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>load(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>Bind an event handler to the "load" JavaScript event.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>load(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								A function to execute when the event is triggered.
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>load(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is a shortcut for <code>.bind('load', handler)</code>.
+         </p>
+         
+         <p>The <code>load</code> event is sent to an element when it and all sub-elements have been completely loaded. This event can be sent to any element
+            associated with a URL: images, scripts, frames, iframes, and the <code>window</code> object.
+         </p>
+         
+         <blockquote>
+            
+            <p>It is possible that the load event will not be triggered if the image is loaded from the browser cache. To account for this
+               possibility, we can use a special load event that fires immediately if the image is ready. <code>event.special.load</code> is currently <a href="http://github.com/peol/jquery.imgloaded/raw/master/ahpi.imgload.js">available as a plugin</a>. 
+            </p>
+            
+         </blockquote>
+         
+         <p>For example, consider a page with a simple image:</p>
+         <pre>&lt;img src="book.png" alt="Book" id="book" /&gt;</pre>
+         <p>The event handler can be bound to the image:</p>
+         <pre>$('#book').load(function() {
+  // Handler for .load() called.
+});</pre>
+         <p>As soon as the image has been loaded, the handler is called.</p>
+         
+         <p>In general, it is not necessary to wait for all images to be fully loaded. If code can be executed earlier, it is usually
+            best to place it in a handler sent to the <code>.ready()</code> method.
+            
+         </p>
+         
+         <blockquote>
+            
+            <p>The Ajax module also has a method named <code><a href="load.htm">.load()</a></code>. Which one is fired depends on the set of arguments passed.
+            </p>
+            
+         </blockquote>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Run a function when the page is fully loaded including graphics.</p>
+      <h5>jQuery 代码:</h5><pre><code>$(window).load(function () {
+  // run code
+});</code></pre><h3>示例:</h3>
+      <p>Add the class bigImg to all images with height greater then 100 upon each image load.</p>
+      <h5>jQuery 代码:</h5><pre><code>$('img.userIcon').load(function(){
+  if($(this).height() &gt; 100) {
+    $(this).addClass('bigImg');
+  }
+});</code></pre></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:jQuery</span>load(url, <em class="optional">[data]</em>, <em class="optional">[complete(responseText, textStatus, XMLHttpRequest)]</em>)<br></h2>
+   <div class="desc">
+      <p>Load data from the server and place the returned HTML into the matched element.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>load(url, <em class="optional">[data]</em>, <em class="optional">[complete(responseText, textStatus, XMLHttpRequest)]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>url</strong>
+               								(String)
+               								A string containing the URL to which the request is sent.
+            </div>
+            <div class="arguement"><strong>data</strong>
+               								(Map, String)
+               								 可选参数，A map or string that is sent to the server with the request.
+            </div>
+            <div class="arguement"><strong>complete(responseText, textStatus, XMLHttpRequest)</strong>
+               								(Function)
+               								 可选参数，A callback function that is executed when the request completes.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is the simplest way to fetch data from the server. It is roughly equivalent to <code>$.get(url, data, success)</code> except that it is a method rather than global function and it has an implicit callback function.  When a successful response
+            is detected (i.e. when <code>textStatus</code> is "success" or "notmodified"), <code>.load()</code> sets the HTML contents of the matched element to the returned data. This means that most uses of the method can be quite
+            simple:
+         </p>
+         <pre>$('#result').load('ajax/test.html');</pre>
+         <p>The provided callback, if any, is executed after this post-processing has been performed:</p>
+         <pre>$('#result').load('ajax/test.html', function() {
+  alert('Load was performed.');
+});</pre>
+         <p>In the two examples above, if the current document does not contain an element with an ID of "result," the <code>.load()</code> method is not executed.
+         </p>
+         
+         <p>The POST method is used if data is provided as an object; otherwise, GET is assumed.</p>
+         
+         
+         <blockquote>
+            
+            <p>Note: The event handling suite also has a method named <code><a href="load-event.htm">.load()</a></code>. Which one is fired depends on the set of arguments passed.
+            </p>
+            
+         </blockquote>
+         
+         <h4>Loading Page Fragments</h4>
+         
+         <p>The <code>.load()</code> method, unlike <code><a href="jQuery.get.htm">$.get()</a></code>, allows us to specify a portion of the remote document to be inserted. This is achieved with a special syntax for the <code>url</code> parameter. If one or more space characters are included in the string, the portion of the string following the first space
+            is assumed to be a jQuery selector that determines the content to be loaded.   
+         </p>
+         
+         <p>We could modify the example above to use only part of the document that is fetched:</p>
+         <pre>$('#result').load('ajax/test.html #container');</pre>
+         <p>When this method executes, it retrieves the content of <code>ajax/test.html</code>, but then jQuery parses the returned document to find the element with an ID of <code>container</code>. This element, along with its contents, is inserted into the element with an ID of <code>result</code>, and the rest of the retrieved document is discarded.
+         </p>
+         
+         <p>jQuery uses the browser's <code>.innerHTML</code> property to parse the retrieved document and insert it into the current document. During this process, browsers often filter
+            elements from the document such as <code>&lt;html&gt;</code>, <code>&lt;title&gt;</code>, or <code>&lt;head&gt;</code> elements. As a result, the elements retrieved by <code>.load()</code> may not be exactly the same as if the document were retrieved directly by the browser.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Load the main page's footer navigation into an ordered list.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+ body{ font-size: 12px; font-family: Arial; }
+ &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;b&gt;Footer navigation:&lt;/b&gt;
+&lt;ol id="new-nav"&gt;&lt;/ol&gt;
+
+
+&lt;script&gt;
+
+
+  $("#new-nav").load("/ #jq-footerNavigation li");
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Display a notice if the Ajax request encounters an error.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  body{ font-size: 12px; font-family: Arial; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;b&gt;Successful Response (should be blank):&lt;/b&gt;
+&lt;div id="success"&gt;&lt;/div&gt;
+&lt;b&gt;Error Response:&lt;/b&gt;
+&lt;div id="error"&gt;&lt;/div&gt;
+  
+
+&lt;script&gt;
+
+
+$("#success").load("/not-here.php", function(response, status, xhr) {
+  if (status == "error") {
+    var msg = "Sorry but there was an error: ";
+    $("#error").html(msg + xhr.status + " " + xhr.statusText);
+  }
+});
+  
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Load the feeds.html file into the div with the ID of feeds.</p>
+      <h5>jQuery 代码:</h5><pre><code>$("#feeds").load("feeds.html");</code></pre><h5>结果:</h5><pre><code>&lt;div id="feeds"&gt;&lt;b&gt;45&lt;/b&gt; feeds found.&lt;/div&gt;</code></pre><h3>示例:</h3>
+      <p>pass arrays of data to the server.</p>
+      <h5>jQuery 代码:</h5><pre><code>$("#objectID").load("test.php", { 'choices[]': ["Jon", "Susan"] } );</code></pre><h3>示例:</h3>
+      <p>Same as above, but will POST the additional parameters to the server and a callback that is executed when the server is finished
+         responding.
+      </p>
+      <h5>jQuery 代码:</h5><pre><code>$("#feeds").load("feeds.php", {limit: 25}, function(){
+alert("The last 25 entries in the feed have been loaded");
+});</code></pre></div>
+</div>

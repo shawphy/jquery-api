@@ -1,0 +1,85 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>.class</h2>
+   <div class="desc">
+      <p>Selects all elements with the given class. </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>.class
+            </h4>
+            <div class="arguement"><strong>class</strong>
+               								(String)
+               								A class to search for. An element can have multiple classes; only one of them must match.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>For class selectors, jQuery uses JavaScript's native <code>getElementsByClassName()</code> function if the browser supports it.
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds the element with the class "myClass".</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div,span {
+    width: 100px;
+    height: 40px;
+    float:left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="notMe"&gt;div class="notMe"&lt;/div&gt;
+
+  &lt;div class="myClass"&gt;div class="myClass"&lt;/div&gt;
+  &lt;span class="myClass"&gt;span class="myClass"&lt;/span&gt;
+
+&lt;script&gt;
+
+$(".myClass").css("border","3px solid red");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Finds the element with both "myclass" and "otherclass" classes.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div,span {
+    width: 100px;
+    height: 40px;
+    float:left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="myclass"&gt;div class="notMe"&lt;/div&gt;
+
+  &lt;div class="myclass otherclass"&gt;div class="myClass"&lt;/div&gt;
+  &lt;span class="myclass otherclass"&gt;span class="myClass"&lt;/span&gt;
+
+&lt;script&gt;
+
+$(".myclass.otherclass").css("border","13px solid red");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

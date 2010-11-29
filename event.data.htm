@@ -1,0 +1,24 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Anything</span>event.data
+   </h2>
+   <div class="desc">
+      <p>在绑定事件时传给 bind 函数的可选数据。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1 新增</span>event.data
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">   </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>显示传入的数据</p>
+      <h5>jQuery 代码:</h5><pre><code>$("a").each(function(i) {
+  $(this).bind('click', {index:i}, function(e){
+     alert('my index is ' + e.data.index);
+  });
+});   </code></pre></div>
+</div>

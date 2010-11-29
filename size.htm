@@ -1,0 +1,66 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>size()<br></h2>
+   <div class="desc">
+      <p>返回 jQuery 对象中对应 DOM 元素的个数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>size()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>假设页面上有下面一个简单的无序列表：</p>
+         <pre>
+&lt;ul&gt;
+  &lt;li&gt;foo&lt;/li&gt;
+  &lt;li&gt;bar&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>我们通过调用 <code>.size()</code> 来获取列表项的数目：
+         </p>
+         <pre>alert('Size: ' + $('li').size());</pre>
+         <p>于是就显示了列表项的个数：</p>
+         
+         <p>
+            <span class="output">Size: 2</span>
+            
+         </p>
+         
+         <p>
+            <strong>你也可以使用 <a href="length.htm">.length</a> 属性来代替，他会略微快那么一点点。</strong>
+            
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Count the divs. Click to add more.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;body { cursor:pointer; }
+ div { width:50px; height:30px; margin:5px; float:left; background:blue; }
+ span { color:red; }
+ &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;span&gt;&lt;/span&gt;
+
+ &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$(document.body).click(function () { $(document.body).append($("&lt;div&gt;"));
+var n = $("div").size();
+$("span").text("There are " + n + " divs." + "Click to add more.");}).click(); // trigger the click to start
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

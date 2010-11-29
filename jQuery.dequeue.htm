@@ -1,0 +1,63 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>jQuery.dequeue(element, <em class="optional">[queueName]</em>)<br></h2>
+   <div class="desc">
+      <p>为匹配的元素执行队列中下一个函数。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>jQuery.dequeue(element, <em class="optional">[queueName]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>element</strong>
+               								(Element)
+               								一个DOM元素，会从它附带的函数队列中弹出并执行一个函数。
+            </div>
+            <div class="arguement"><strong>queueName</strong>
+               								(String)
+               								 可选参数，包含队列名的字符串。默认值是 <code>fx</code> ，即动画效果队列。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>
+            <strong>注意：</strong> 这是一个底层方法，应当使用更合适的 <code><a href="dequeue.htm">.dequeue()</a></code> 来代替。
+         </p>
+         
+         <p>当调用 <code>jQuery.dequeue()</code> 时，队列中的下一个函数会从队列中移出并执行。这个函数应当在内部直接或间接调用 <code>jQuery.dequeue()</code> 以便队列得以继续执行下去。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>使用 dequeue 来结束一个自定义的队列函数，以便能够让队列继续运行下去。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;div { margin:3px; width:50px; position:absolute;
+        height:50px; left:10px; top:30px; 
+        background-color:yellow; }
+  div.red { background-color:red; }  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Start&lt;/button&gt;  &lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$("button").click(function () {
+      $("div").animate({left:'+=200px'}, 2000);
+      $("div").animate({top:'0px'}, 600);
+      $("div").queue(function () {
+        $(this).toggleClass("red");
+         $.dequeue( this );
+              });
+      $("div").animate({left:'10px', top:'30px'}, 700);
+    });
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

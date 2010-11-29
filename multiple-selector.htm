@@ -1,0 +1,105 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>selector1, selector2, selectorN</h2>
+   <div class="desc">
+      <p>Selects the combined results of all the specified selectors.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>selector1, selector2, selectorN
+            </h4>
+            <div class="arguement"><strong>selector1</strong>
+               								(Selector)
+               								任何有效的选择器。
+            </div>
+            <div class="arguement"><strong>selector2</strong>
+               								(Selector)
+               								另一个有效的选择器。
+            </div>
+            <div class="arguement"><strong>selectorN</strong>
+               								(Selector)
+               								 可选参数，只要你愿意，可以提供更多有效的选择器。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>You can specify any number of selectors to combine into a single result.  This multiple expression combinator is an efficient
+            way to select disparate elements. The order of the DOM elements in the returned jQuery object may not be identical, as they
+            will be in document order. An alternative to this combinator is the .<a href="add.htm">add()</a> method.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds the elements that match any of these three selectors.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  div,span,p {
+    width: 126px;
+    height: 60px;
+    float:left;
+    padding: 3px;
+    margin: 2px;
+    background-color: #EEEEEE;
+    font-size:14px;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;div&lt;/div&gt;
+
+  &lt;p class="myClass"&gt;p class="myClass"&lt;/p&gt;
+  &lt;p class="notMyClass"&gt;p class="notMyClass"&lt;/p&gt;
+  &lt;span&gt;span&lt;/span&gt;
+
+&lt;script&gt;
+
+$("div,span,p.myClass").css("border","3px solid red");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Show the order in the jQuery object.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  b { color:red; font-size:16px; display:block; clear:left; }
+  div,span,p { width: 40px; height: 40px; float:left;
+               margin: 10px; background-color: blue; 
+               padding:3px; color:white; 
+             }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;span&gt;span&lt;/span&gt;
+
+  &lt;p&gt;p&lt;/p&gt;
+  &lt;p&gt;p&lt;/p&gt;
+  &lt;div&gt;div&lt;/div&gt;
+  &lt;span&gt;span&lt;/span&gt;
+
+  &lt;p&gt;p&lt;/p&gt;
+  &lt;div&gt;div&lt;/div&gt;
+  &lt;b&gt;&lt;/b&gt;
+
+&lt;script&gt;
+
+
+    var list = $("div,p,span").map(function () {
+      return this.tagName;
+    }).get().join(", ");
+    $("b").append(document.createTextNode(list));
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,145 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>parents(<em class="optional">[selector]</em>)<br></h2>
+   <div class="desc">
+      <p>Get the ancestors of each element in the current set of matched elements, optionally filtered by a selector.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>parents(<em class="optional">[selector]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								 可选参数，用于匹配元素的选择器字符串
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Given a jQuery object that represents a set of DOM elements, the <code>.parents()</code> method allows us to search through the ancestors of these elements in the DOM tree and construct a new jQuery object from
+            the matching elements ordered from immediate parent on up; the elements are returned in order from the closest parent to the
+            outer ones. The <code>.parents()</code> and <code><a href="http://api.jquery.com/parent/">.parent()</a></code> methods are similar, except that the latter only travels a single level up the DOM tree.
+         </p>
+         
+         <p>The method optionally accepts a selector expression of the same type that we can pass to the <code>$()</code> function. If the selector is supplied, the elements will be filtered by testing whether they match it.
+         </p>
+         
+         <p>Consider a page with a basic nested list on it:</p>
+         <pre>
+&lt;ul class="level-1"&gt;
+  &lt;li class="item-i"&gt;I&lt;/li&gt;
+  &lt;li class="item-ii"&gt;II
+    &lt;ul class="level-2"&gt;
+      &lt;li class="item-a"&gt;A&lt;/li&gt;
+      &lt;li class="item-b"&gt;B
+        &lt;ul class="level-3"&gt;
+          &lt;li class="item-1"&gt;1&lt;/li&gt;
+          &lt;li class="item-2"&gt;2&lt;/li&gt;
+          &lt;li class="item-3"&gt;3&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li class="item-c"&gt;C&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class="item-iii"&gt;III&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>If we begin at item A, we can find its ancestors:</p>
+         <pre>$('li.item-a').parents().css('background-color', 'red');</pre>
+         <p>The result of this call is a red background for the level-2 list, item II, and the level-1 list (and on up the DOM tree all
+            the way to the <code>&lt;html&gt;</code> element). Since we do not supply a selector expression, all of the ancestors are part of the returned jQuery object. If we
+            had supplied one, only the matching items among these would be included.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Find all parent elements of each b.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  b, span, p, html body {
+    padding: .5em;
+    border: 1px solid;
+  }
+  b { color:blue; }
+  strong { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    &lt;p&gt;
+      &lt;span&gt;
+        &lt;b&gt;My parents are: &lt;/b&gt;
+      &lt;/span&gt;
+
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+var parentEls = $("b").parents()
+            .map(function () { 
+                  return this.tagName; 
+                })
+            .get().join(", ");
+$("b").append("&lt;strong&gt;" + parentEls + "&lt;/strong&gt;");
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Click to find all unique div parent elements of each span.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  p, div, span {margin:2px; padding:1px; }
+  div { border:2px white solid; }
+  span { cursor:pointer; font-size:12px; }
+  .selected { color:blue; }
+  b { color:red; display:block; font-size:14px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+    &lt;div&gt;
+      &lt;div&gt;&lt;span&gt;Hello&lt;/span&gt;&lt;/div&gt;
+      &lt;span&gt;Hello Again&lt;/span&gt;
+
+    &lt;/div&gt;
+    &lt;div&gt;
+      &lt;span&gt;And Hello Again&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/p&gt;
+
+  &lt;b&gt;Click Hellos to toggle their parents.&lt;/b&gt;
+
+&lt;script&gt;
+
+
+function showParents() {
+  $("div").css("border-color", "white");
+  var len = $("span.selected")
+                   .parents("div")
+                   .css("border", "2px red solid")
+                   .length;
+  $("b").text("Unique div parents: " + len);
+}
+$("span").click(function () {
+  $(this).toggleClass("selected");
+  showParents();
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

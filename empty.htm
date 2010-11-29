@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>empty()<br></h2>
+   <div class="desc">
+      <p>选择所有不含任何子元素以及文本节点的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>empty()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个选择器与 <code>:parent</code> 正好相反。
+         </p>
+         
+         <p><strong>注意</strong>， <code>:empty</code> (和 <code>:parent</code>) 所涉及的子元素，包括文本节点！
+         </p>
+         
+         <p>W3C 推荐  <code>&lt;p&gt;</code> 元素应当至少包含一个子元素，即使那个子元素仅仅是一个文本节点也好。(参考 <a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">http://www.w3.org/TR/html401/struct/text.html#edef-P</a>)。另一方面，某些元素始终被定义成空元素，比如： <code> &lt;input&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有空元素——即不含有子元素和文本的元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { background:yellow; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+  Hello, &lt;span&gt;Person&lt;/span&gt; &lt;a href="javascript:;"&gt;and person&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;button&gt;Call empty() on above paragraph&lt;/button&gt;
+
+&lt;script&gt;
+
+
+  $("button").click(function () {
+    $("p").empty();
+  });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

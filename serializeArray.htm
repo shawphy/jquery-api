@@ -1,0 +1,134 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Array</span>serializeArray()<br></h2>
+   <div class="desc">
+      <p>把表单元素编码成一个名/值对的数组。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2 新增</span>serializeArray()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.serializeArray()</code> 方法会创建一个 JavaScript 对象数组，可以用于编码成 JSON 字符串。他可以对一个代表一组表单元素的 jQuery 对象进行操作。表单元素可以有以下几种类型：
+         </p>
+         <pre>&lt;form&gt;
+  &lt;div&gt;&lt;input type="text" name="a" value="1" id="a" /&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;input type="text" name="b" value="2" id="b" /&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;input type="hidden" name="c" value="3" id="c" /&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;textarea name="d" rows="8" cols="40"&gt;4&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;div&gt;&lt;select name="e"&gt;
+    &lt;option value="5" selected="selected"&gt;5&lt;/option&gt;
+    &lt;option value="6"&gt;6&lt;/option&gt;
+    &lt;option value="7"&gt;7&lt;/option&gt;
+  &lt;/select&gt;&lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="checkbox" name="f" value="8" id="f" /&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="submit" name="g" value="Submit" id="g" /&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</pre>
+         <p><code>.serializeArray()</code> 方法使用了 W3C 关于 <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.13.2">successful controls</a>(有效控件) 的标准来检测哪些元素应当包括在内。禁用的元素不会被包括在内。并且元素应当有含有 <code>name</code> 属性。提交按钮的值也不会被序列化。文件选择元素的数据也不会被序列化。
+         </p>
+         
+         <p><code>.serializeArray()</code> 方法可以对单独选择的表单元素对象进行操作，比如 <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, 和 <code>&lt;select&gt;</code>。然而，还有个更方便的方法是，直接选择 <code>&lt;form&gt;</code> 标签来进行序列化操作。
+         </p>
+         <pre>$('form').submit(function() {
+  alert($(this).serializeArray());
+  return false;
+});</pre>
+         <p>于是生成了如下的数据结构：</p>
+         <pre>[
+  {
+    name: a
+    value: 1
+  },
+  {
+    name: b
+    value: 2
+  },
+  {
+    name: c
+    value: 3
+  },
+  {
+    name: d
+    value: 4
+  },
+  {
+    name: e
+    value: 5
+  }
+]</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>从一个表单获取数据，迭代并把他们在结果中显示。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  body, select { font-size:14px; }
+  form { margin:5px; }
+  p { color:red; margin:5px; }
+  b { color:blue; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;&lt;b&gt;Results:&lt;/b&gt; &lt;span id="results"&gt;&lt;/span&gt;&lt;/p&gt;
+
+  &lt;form&gt;
+    &lt;select name="single"&gt;
+      &lt;option&gt;Single&lt;/option&gt;
+      &lt;option&gt;Single2&lt;/option&gt;
+
+    &lt;/select&gt;
+    &lt;select name="multiple" multiple="multiple"&gt;
+      &lt;option selected="selected"&gt;Multiple&lt;/option&gt;
+      &lt;option&gt;Multiple2&lt;/option&gt;
+
+      &lt;option selected="selected"&gt;Multiple3&lt;/option&gt;
+    &lt;/select&gt;&lt;br/&gt;
+    &lt;input type="checkbox" name="check" value="check1" id="ch1"/&gt;
+
+    &lt;label for="ch1"&gt;check1&lt;/label&gt;
+    &lt;input type="checkbox" name="check" value="check2" checked="checked" id="ch2"/&gt;
+
+    &lt;label for="ch2"&gt;check2&lt;/label&gt;
+    &lt;input type="radio" name="radio" value="radio1" checked="checked" id="r1"/&gt;
+
+    &lt;label for="r1"&gt;radio1&lt;/label&gt;
+    &lt;input type="radio" name="radio" value="radio2" id="r2"/&gt;
+
+    &lt;label for="r2"&gt;radio2&lt;/label&gt;
+  &lt;/form&gt;
+
+&lt;script&gt;
+
+
+
+    function showValues() {
+      var fields = $(":input").serializeArray();
+      $("#results").empty();
+      jQuery.each(fields, function(i, field){
+        $("#results").append(field.value + " ");
+      });
+    }
+
+    $(":checkbox, :radio").click(showValues);
+    $("select").change(showValues);
+    showValues();
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

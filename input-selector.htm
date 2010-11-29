@@ -1,0 +1,71 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:input</h2>
+   <div class="desc">
+      <p>选择所有的 input, textarea, select 和 button 元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:input
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>:input</code> 选择器会选中所有的表单控件。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有的输入元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  textarea { height:25px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;
+    &lt;input type="button" value="Input Button"/&gt;
+    &lt;input type="checkbox" /&gt;
+
+    &lt;input type="file" /&gt;
+    &lt;input type="hidden" /&gt;
+    &lt;input type="image" /&gt;
+
+    &lt;input type="password" /&gt;
+    &lt;input type="radio" /&gt;
+    &lt;input type="reset" /&gt;
+
+    &lt;input type="submit" /&gt;
+    &lt;input type="text" /&gt;
+    &lt;select&gt;&lt;option&gt;Option&lt;/option&gt;&lt;/select&gt;
+
+    &lt;textarea&gt;&lt;/textarea&gt;
+    &lt;button&gt;Button&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;div id="messages"&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    var allInputs = $(":input");
+    var formChildren = $("form &gt; *");
+    $("#messages").text("Found " + allInputs.length + " inputs and the form has " +
+                             formChildren.length + " children.");
+            
+    // so it won't submit
+    $("form").submit(function () { return false; }); 
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

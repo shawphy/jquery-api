@@ -1,0 +1,62 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:first-child</h2>
+   <div class="desc">
+      <p>如果某个元素是父元素中的第一个元素，那么他就会被选中。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>:first-child
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>注意，<a href="first-selector.htm">:first</a> 只匹配一个元素，就是第一个元素，而 <code>:first-child</code> 则能匹配多个元素：即每个父元素中的第一个。这等价于 <code>:nth-child(1)</code>。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>给每个 div 中第一个 span 增加下划线，并增加一个鼠标悬停效果。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  span { color:#008; }
+  span.sogreen { color:green; font-weight: bolder; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    &lt;span&gt;John,&lt;/span&gt;
+    &lt;span&gt;Karl,&lt;/span&gt;
+    &lt;span&gt;Brandon&lt;/span&gt;
+
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;span&gt;Glen,&lt;/span&gt;
+    &lt;span&gt;Tane,&lt;/span&gt;
+    &lt;span&gt;Ralph&lt;/span&gt;
+
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+    $("div span:first-child")
+        .css("text-decoration", "underline")
+        .hover(function () {
+              $(this).addClass("sogreen");
+            }, function () {
+              $(this).removeClass("sogreen");
+            });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

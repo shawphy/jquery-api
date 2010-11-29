@@ -1,0 +1,49 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>ajaxStop(handler())<br></h2>
+   <div class="desc">
+      <p>注册一个事件处理函数，这个函数会在所有的 Ajax 请求都完成时调用。这是一个 <a href="http://docs.jquery.com/Ajax_Events">Ajax 事件</a>。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>ajaxStop(handler())
+               								
+            </h4>
+            <div class="arguement"><strong>handler()</strong>
+               								(Function)
+               								将要调用的函数
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>当一个 Ajax 请求完成后， jQuery 会检测时候还有其他未完成的 Ajax 请求。如果没有还未完成的请求了， jQuery 就触发一个 <code>ajaxStop</code> 事件。任何先前通过 <code>.ajaxStop()</code> 方法注册的事件处理函数都会在此刻执行。
+         </p>
+         
+         <p>为了实际研究这个方法，我们构建一个简单的 Ajax load 请求：</p>
+         <pre>&lt;div class="trigger"&gt;Trigger&lt;/div&gt;
+&lt;div class="result"&gt;&lt;/div&gt;
+&lt;div class="log"&gt;&lt;/div&gt;</pre>
+         <p>我们可以把我们的事件处理函数附加到任何元素上：</p>
+         <pre>$('.log').ajaxStop(function() {
+  $(this).text('Triggered ajaxStop handler.');
+});</pre>
+         <p>现在，我们可以用任意 jQuery 方法来发送一个 Ajax 请求，比如在 click 中发送一个请求：</p>
+         <pre>$('.trigger').click(function() {
+  $('.result').load('ajax/test.html');
+});</pre>
+         <p>当用户点击按钮，接着等 Ajax 请求完成后，就会显示日志信息。</p>
+         
+         <p><strong>注意：</strong> 由于 <code>.ajaxStop()</code> 是作为一个 jQuery 对象实例的方法来实现的，所以我们在回调函数中可以通过 <code>this</code> 关键字来指向原先所选中的元素。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>当所有的 Ajax 请求结束后，隐藏加载提示信息。</p>
+      <h5>jQuery 代码:</h5><pre><code>$("#loading").ajaxStop(function(){
+      $(this).hide();
+      });</code></pre></div>
+</div>

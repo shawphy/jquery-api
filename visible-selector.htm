@@ -1,0 +1,75 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:visible</h2>
+   <div class="desc">
+      <p>选择所有可见的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:visible
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"> 
+         
+         <p>元素可能出于以下几个理由而被隐藏：</p>
+         
+         <ul>
+            
+            <li>他们的 CSS 中 <code>display</code> 值为 <code>none</code>。
+            </li>
+            
+            <li>他们是表单元素，带有 <code>type="hidden"</code> 属性。
+            </li>
+            
+            <li>他们的高和宽被设置成 0。</li>
+            
+            <li>他们的祖辈元素被隐藏了，所以他们也没有在页面中显示。</li>
+            
+         </ul>
+         
+         <p><code>visibility: hidden</code> 或者 <code>opacity: 0</code> 的元素被认为是可见的，因为实际上，他们在页面布局中占据了一定的空间。在执行隐藏效果动画的元素也认为是可见的，直到动画结束为止。在执行显示效果动画的元素，从动画的一开始就被认为是可见的了。
+         </p>
+         
+         <p>从 jQuery 1.3.2 起，<code>:visible</code> 的计算方式发生了变动。可以访问 <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">jQuery 1.3.2 更新信息</a> 来获取更多内容。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>在所有可见的 div 上添加事件，当点击后变成黄色。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { width:50px; height:40px; margin:5px; border:3px outset green; float:left; }
+  .starthidden { display:none; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Show hidden to see they don't change&lt;/button&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div class="starthidden"&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div style="display:none;"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+    $("div:visible").click(function () {
+      $(this).css("background", "yellow");
+    });
+    $("button").click(function () {
+      $("div:hidden").show("fast");
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

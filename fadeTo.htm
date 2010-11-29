@@ -1,0 +1,193 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>fadeTo(duration, opacity, <em class="optional">[callback]</em>)<br></h2>
+   <div class="desc">
+      <p>调整匹配元素的透明度。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>fadeTo(duration, opacity, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>opacity</strong>
+               								(Number)
+               								0 到 1 之间的数字，表示将要达到的透明度。0 是最透明。
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>fadeTo(<em class="optional">[duration]</em>, opacity, <em class="optional">[easing]</em>, <em class="optional">[callback]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(String,Number)
+               								 可选参数，字符串("slow"或 "fast")或表示动画时长的毫秒数值
+            </div>
+            <div class="arguement"><strong>opacity</strong>
+               								(Number)
+               								0 到 1 之间的数字，表示将要达到的透明度。0 是最透明。
+            </div>
+            <div class="arguement"><strong>easing</strong>
+               								(String)
+               								 可选参数，要使用的缓冲效果的名称，默认值是 "swing"。jQuery 内置提供 "linear" 和 "swing" 两种效果，如果要使用更多缓冲效果，需要插件支持。
+            </div>
+            <div class="arguement"><strong>callback</strong>
+               								(Callback)
+               								 可选参数，在动画完成时执行的函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.fadeTo()</code> 方法对匹配元素的透明度生成动画效果。
+         </p>
+         
+         <p>duration 参数可以提供一个毫秒数，代表动画运行的时间，时间越长动画越慢。还可以提供字符串 <code>'fast'</code> 和 <code>'slow'</code> ，分别对应了 <code>200</code> 和 <code>600</code> 毫秒。如果没有设置 <code>duration</code> 参数，或者设置成其他无法识别的字符串，就会使用默认值 400 毫秒。与其他的动画效果不同， <code>.fadeTo()</code> 要求比如设定 <code>duration</code> 参数。
+         </p>
+         
+         <p>如果提供了回调函数，那么当动画结束时，会调用这个函数。通常用来几个不同的动画依次完成。这个函数不接受任何参数，但是 <code>this</code> 会设成将要执行动画的那个元素。如果对多个元素设置动画，那么要非常注意，回调函数会在每一个动画完成的元素上都执行一次，而不是对这组动画整体才执行一次。
+         </p>
+         
+         <p>比如下面这个页面：</p>
+         <pre>&lt;div id="clickme"&gt;
+    Click here
+  &lt;/div&gt;
+  &lt;img id="book" src="book.png" alt="" width="100" height="123" /&gt;</pre>
+         <p>如果元素一开始是显现的，我们可以缓慢调整它的透明度：</p>
+         <pre>$('#clickme').click(function() {
+    $('#book').fadeTo('slow', 0.5, function() {
+      // 动画完成
+    });
+  });
+  </pre>
+         <p class="image four-across"> 
+            <img src="images/0042_06_41.png" alt="">
+            <img src="images/0042_06_42.png" alt="">
+            <img src="images/0042_06_43.png" alt="">
+            <img src="images/0042_06_44.png" alt="">
+            
+         </p>
+         
+         <p>如果 <code>duration</code> 参数设置成 <code>0</code>，那么这个方法就仅仅修改 <code>opacity</code> CSS属性。所以 <code>.fadeTo(0, opacity)</code> 等价于 <code>.css('opacity', opacity)</code>。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>把第一个段落的透明度渐变成 0.33 (33%，大约三分之一透明度), 用时 600 毫秒。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+Click this paragraph to see it fade.
+&lt;/p&gt;
+
+&lt;p&gt;
+Compare to this one that won't fade.
+&lt;/p&gt;
+
+&lt;script&gt;
+
+
+$("p:first").click(function () {
+$(this).fadeTo("slow", 0.33);
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>每次点击后把 div 渐变成随机透明度，用时 200 毫秒。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+p { width:80px; margin:0; padding:5px; }
+div { width:40px; height:40px; position:absolute; }
+div#one { top:0; left:0; background:#f00; }
+div#two { top:20px; left:20px; background:#0f0; }
+div#three { top:40px; left:40px; background:#00f; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;And this is the library that John built...&lt;/p&gt;
+
+&lt;div id="one"&gt;&lt;/div&gt;
+&lt;div id="two"&gt;&lt;/div&gt;
+&lt;div id="three"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+$("div").click(function () {
+$(this).fadeTo("fast", Math.random());
+});
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>找到正确答案！渐变耗时 250 毫秒，并且在完成后会改变字体样式。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div, p { width:80px; height:40px; top:0; margin:0; 
+position:absolute; padding-top:8px; }
+p { background:#fcc; text-align:center; }
+div { background:blue; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;Wrong&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+&lt;p&gt;Wrong&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;p&gt;Right!&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+var getPos = function (n) {
+return (Math.floor(n) * 90) + "px";
+};
+$("p").each(function (n) {
+var r = Math.floor(Math.random() * 3);
+var tmp = $(this).text();
+$(this).text($("p:eq(" + r + ")").text());
+$("p:eq(" + r + ")").text(tmp);
+$(this).css("left", getPos(n));
+});
+$("div").each(function (n) {
+      $(this).css("left", getPos(n));
+    })
+.css("cursor", "pointer")
+.click(function () {
+      $(this).fadeTo(250, 0.25, function () {
+            $(this).css("cursor", "")
+                   .prev().css({"font-weight": "bolder",
+                                "font-style": "italic"});
+          });
+    });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

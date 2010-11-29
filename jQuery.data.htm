@@ -1,0 +1,196 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>jQuery.data(element, key, value)<br></h2>
+   <div class="desc">
+      <p>在指定的元素上随心所欲的存放数据。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.3 新增</span>jQuery.data(element, key, value)
+               								
+            </h4>
+            <div class="arguement"><strong>element</strong>
+               								(Element)
+               								用于存放数据的DOM元素。
+            </div>
+            <div class="arguement"><strong>key</strong>
+               								(String)
+               								将要设置的数据片段名。
+            </div>
+            <div class="arguement"><strong>value</strong>
+               								(Object)
+               								新的数据值。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>
+            <strong>注意：</strong> 这是一个底层方法，使用 <code><a href="data.htm">.data()</a></code> 更方便。
+         </p>
+         	           
+         <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。我们在单个元素上设置几个独立的数据，并且以后还可以分别检索到：
+         </p>
+         	           <pre>jQuery.data(document.body, 'foo', 52);
+jQuery.data(document.body, 'bar', 'test');</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>在一个DIV元素上存放数据，然后检索这个数据。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:blue; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+    The values stored were 
+    &lt;span&gt;&lt;/span&gt;
+    and
+    &lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+var div = $("div")[0];
+    jQuery.data(div, "test", { first: 16, last: "pizza!" });
+    $("span:first").text(jQuery.data(div, "test").first);
+    $("span:last").text(jQuery.data(div, "test").last);
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>
+<div class="entry">
+   <h2><span>返回值:Object</span>jQuery.data(element, key)<br></h2>
+   <div class="desc">
+      <p>返回用 <code>jQuery.data(element, name, value)</code> 存放在元素上的指定数据，或者元素上的所有数据。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.3 新增</span>jQuery.data(element, key)
+               								
+            </h4>
+            <div class="arguement"><strong>element</strong>
+               								(Element)
+               								将要查询数据的DOM元素。
+            </div>
+            <div class="arguement"><strong>key</strong>
+               								(String)
+               								存放的数据名。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4 新增</span>jQuery.data(element)
+               								
+            </h4>
+            <div class="arguement"><strong>element</strong>
+               								(Element)
+               								将要查询数据的DOM元素。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>
+            <strong>注意：</strong> 这是一个底层方法，使用 <code><a href="data.htm">.data()</a></code> 更方便。
+         </p>
+         
+         <p><code>jQuery.data()</code> 方法允许我们安全地将任何类型的数据附加到DOM元素上而不用担心循环引用和内存泄露之类的问题。 我们可以分别在DOM元素上获取几个独立的数据，或者一次获取一组：
+         </p>
+         <pre>alert(jQuery.data( document.body, 'foo' ));
+alert(jQuery.data( document.body ));</pre>
+         <p>上面两行中alert的数据都是先前给 <code>body</code> 设置的。如果先前没有设置过，则返回一个空字符串。
+         </p>
+         
+         <p>调用 <code>jQuery.data(element)</code> 可以返回一个JavaScript对象，包含元素上所有存放的数据。注意jQuery本身也在内部使用这个方法存放数据，比如事件处理函数，所以返回的对象中会包含不是你自己代码存放的数据。
+         </p>
+         
+         <p>
+            <strong>HTML 5 data- 属性</strong>
+            
+         </p>
+         
+         <p>从 jQuery 1.4.3 起，<a href="http://ejohn.org/blog/html-5-data-attributes/">HTML 5 data- 属性</a> 中的数据会自动添加进 jQuery 的 data 对象
+         </p>
+         
+         <p>例如下面的 HTML:</p>
+         
+         <pre>&lt;div data-role="page" data-hidden="true" data-options='{"name":"John"}'&gt;&lt;/div&gt;</pre>
+         
+         <p>如下所有的 jQuery 代码都可以正常使用。</p>
+         
+         <pre>$("div").data("role") === "page";
+$("div").data("hidden") === true;
+$("div").data("options").name === "John";</pre>
+         
+         <p>Note that strings are left intact while JavaScript values are converted to their associated value (this includes booleans,
+            numbers, objects, arrays, and null). When the data attribute is an object (starts with '{') or array (starts with '[') then
+            <code>jQuery.parseJSON</code> is used to parse the string; it must follow valid JSON syntax <em>including quoted property names</em>. The data- attributes are pulled in the first time the data property is accessed and then are no longer accessed or mutated
+            (all data values are then stored internally in jQuery).
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>获取存放在元素上名叫 "blah" 的数据。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { margin:5px; background:yellow; }
+button { margin:5px; font-size:14px; }
+p { margin:5px; color:blue; }
+span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;A div&lt;/div&gt;
+&lt;button&gt;Get "blah" from the div&lt;/button&gt;
+&lt;button&gt;Set "blah" to "hello"&lt;/button&gt;
+
+&lt;button&gt;Set "blah" to 86&lt;/button&gt;
+&lt;button&gt;Remove "blah" from the div&lt;/button&gt;
+&lt;p&gt;The "blah" value of this div is &lt;span&gt;?&lt;/span&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+
+$("button").click(function(e) {
+  var value, div = $("div")[0];
+
+  switch ($("button").index(this)) {
+    case 0 :
+      value = jQuery.data(div, "blah");
+      break;
+    case 1 :
+      jQuery.data(div, "blah", "hello");
+      value = "Stored!";
+      break;
+    case 2 :
+      jQuery.data(div, "blah", 86);
+      value = "Stored!";
+      break;
+    case 3 :
+      jQuery.removeData(div, "blah");
+      value = "Removed!";
+      break;
+  }
+
+  $("span").text("" + value);
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

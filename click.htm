@@ -1,0 +1,128 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>click(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>Bind an event handler to the "click" JavaScript event, or trigger that event on an element.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>click(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>click(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>click()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is a shortcut for <code>.bind('click', handler)</code> in the first variation, and <code>.trigger('click')</code> in the second.
+         </p>
+         
+         <p>The <code>click</code> event is sent to an element when the mouse pointer is over the element, and the mouse button is pressed and released. Any
+            HTML element can receive this event.
+         </p>
+         <pre>For example, consider the HTML:
+&lt;div id="target"&gt;
+  Click here
+&lt;/div&gt;
+&lt;div id="other"&gt;
+  Trigger the handler
+&lt;/div&gt;</pre>
+         
+         <p class="image">
+            <img src="images/0042_05_03.png" alt="">
+            
+         </p>
+         
+         <p>The event handler can be bound to any <code>&lt;div&gt;</code>:
+         </p>
+         <pre>$('#target').click(function() {
+  alert('Handler for .click() called.');
+});</pre>
+         <p>Now if we click on this element, the alert is displayed:</p>
+         
+         <p>
+            <span class="output">Handler for .click() called.</span>
+            
+         </p>
+         
+         <p>We can also trigger the event when a different element is clicked:</p>
+         <pre>$('#other').click(function() {
+  $('#target').click();
+});</pre>
+         <p>After this code executes, clicks on <span class="output">Trigger the handler</span> will also alert the message.
+         </p>
+         
+         <p>The <code>click</code> event is only triggered after this exact series of events:
+         </p>
+         
+         <ul>
+            
+            <li>The mouse button is depressed while the pointer is inside the element.</li>
+            
+            <li>The mouse button is released while the pointer is inside the element.</li>
+            
+         </ul>
+         
+         <p>This is usually the desired sequence before taking an action. If this is not required, the <code>mousedown</code> or <code>mouseup</code> event may be more suitable.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>To hide paragraphs on a page when they are clicked:</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  p { color:red; margin:5px; cursor:pointer; }
+  p.hilite { background:yellow; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;First Paragraph&lt;/p&gt;
+
+  &lt;p&gt;Second Paragraph&lt;/p&gt;
+  &lt;p&gt;Yet one more Paragraph&lt;/p&gt;
+
+&lt;script&gt;
+
+
+    $("p").click(function () { 
+      $(this).slideUp(); 
+    });
+    $("p").hover(function () {
+      $(this).addClass("hilite");
+    }, function () {
+      $(this).removeClass("hilite");
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>To trigger the click event on all of the paragraphs on the page:</p>
+      <h5>jQuery 代码:</h5><pre><code>$("p").click();</code></pre></div>
+</div>

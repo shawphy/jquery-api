@@ -1,0 +1,48 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>jQuery.boxModel
+   </h2>
+   <div class="desc">
+      <p>
+         <strong>Deprecated in jQuery 1.3 (see <a href="jQuery.support.htm">jQuery.support</a>)</strong>. States if the current page, in the user's browser, is being rendered using the <a href="http://www.w3.org/TR/REC-CSS2/box.htm">W3C CSS Box Model</a>.
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.boxModel
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"></div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Returns the box model for the iframe.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+  p { color:blue; margin:20px; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;p&gt;
+  &lt;/p&gt;
+
+&lt;script&gt;
+
+
+
+    $("p").html("The box model for this iframe is: &lt;span&gt;" +
+                jQuery.boxModel + "&lt;/span&gt;");
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Returns false if the page is in Quirks Mode in Internet Explorer</p>
+      <h5>jQuery 代码:</h5><pre><code>$.boxModel</code></pre><h5>结果:</h5><pre><code>false</code></pre></div>
+</div>

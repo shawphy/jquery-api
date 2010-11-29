@@ -1,0 +1,60 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Boolean</span>event.isImmediatePropagationStopped()<br></h2>
+   <div class="desc">
+      <p>根据事件对象中是否调用过 <a href="event.stopImmediatePropagation.htm">event.stopImmediatePropagation()</a> 方法来返回一个布尔值。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.3 新增</span>event.isImmediatePropagationStopped()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc"> 
+         
+         <p>这个事件方法在 <a href="http://www.w3.org/TR/2003/NOTE-DOM-Level-3-Events-20031107/events.html#Events-Event-isImmediatePropagationStopped">DOM level 3</a> 有介绍。
+         </p>  
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>检测 event.stopImmediatePropagation() 是否被调用过。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+  &lt;button&gt;click me&lt;/button&gt;
+  &lt;div id="stop-log"&gt;&lt;/div&gt;
+  
+
+&lt;script&gt;
+
+
+
+function immediatePropStopped(e) {
+  var msg = "";
+  if ( e.isImmediatePropagationStopped() ) {
+    msg =  "called"
+  } else {
+    msg = "not called";
+  }
+  $("#stop-log").append( "&lt;div&gt;" + msg + "&lt;/div&gt;" );
+}
+
+$("button").click(function(event) {
+  immediatePropStopped(event);
+  event.stopImmediatePropagation();
+  immediatePropStopped(event);
+});  
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

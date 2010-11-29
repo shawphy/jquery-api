@@ -1,0 +1,42 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:disabled</h2>
+   <div class="desc">
+      <p>选择所有禁用的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:disabled
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>如其他伪类选择器(以 ":" 开头的选择器)一样，建议使用此类选择器时，跟在一个标签名或者其他选择器后面；否则，默认使用了全局通配符选择器 "*" 。换句话说，<code>$(':disabled')</code> 等价于 <code>$('*:disabled')</code>，所以应该使用 <code>$('input:disabled')</code> 来提升匹配效率。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有禁用的 input 元素。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;form&gt;
+
+    &lt;input name="email" disabled="disabled" /&gt;
+    &lt;input name="id" /&gt;
+  &lt;/form&gt;
+
+&lt;script&gt;
+
+$("input:disabled").val("this is it");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

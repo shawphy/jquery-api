@@ -1,0 +1,136 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>mouseover(handler(eventObject))<br></h2>
+   <div class="desc">
+      <p>Bind an event handler to the "mouseover" JavaScript event, or trigger that event on an element.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>mouseover(handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.4.3 新增</span>mouseover(<em class="optional">[eventData]</em>, handler(eventObject))
+               								
+            </h4>
+            <div class="arguement"><strong>eventData</strong>
+               								(Object)
+               								 可选参数，将要传递给事件处理函数的数据映射。
+            </div>
+            <div class="arguement"><strong>handler(eventObject)</strong>
+               								(Function)
+               								每当事件触发时执行的函数。
+            </div>
+         </li>
+         <li>
+            <h4><span>1.0 新增</span>mouseover()
+               								
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>This method is a shortcut for <code>.bind('mouseover', handler)</code> in the first variation, and <code>.trigger('mouseover')</code> in the second.
+         </p>
+         
+         <p>The <code>mouseover</code> event is sent to an element when the mouse pointer enters the element. Any HTML element can receive this event.
+         </p>
+         
+         <p>For example, consider the HTML:</p>
+         <pre>&lt;div id="outer"&gt;
+  Outer
+  &lt;div id="inner"&gt;
+    Inner
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="other"&gt;
+  Trigger the handler
+&lt;/div&gt;
+&lt;div id="log"&gt;&lt;/div&gt;</pre>
+         
+         <p class="image">
+            <img src="images/0042_05_06.png" alt="">
+            
+         </p>
+         
+         <p>The event handler can be bound to any element:</p>
+         <pre>$('#outer').mouseover(function() {
+  $('#log').append('&lt;div&gt;Handler for .mouseover() called.&lt;/div&gt;');
+});</pre>
+         <p>Now when the mouse pointer moves over the <span class="output">Outer</span> 
+            <code>&lt;div&gt;</code>, the message is appended to <code>&lt;div id="log"&gt;</code>. We can also trigger the event when another element is clicked:
+         </p>
+         <pre>$('#other').click(function() {
+  $('#outer').mouseover();
+});</pre>
+         <p>After this code executes, clicks on <span class="output">Trigger the handler</span> will also append the message.
+         </p>
+         
+         <p>This event type can cause many headaches due to event bubbling. For instance, when the mouse pointer moves over the <span class="output">Inner</span> element in this example, a <code>mouseover</code> event will be sent to that, then trickle up to <span class="output">Outer</span>. This can trigger our bound <code>mouseover</code> handler at inopportune times. See the discussion for <code>.mouseenter()</code> for a useful alternative.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Show the number of times mouseover and mouseenter events are triggered.
+         mouseover fires when the pointer moves into the child element as well, while mouseenter fires only when the pointer moves
+         into the bound element.
+      </p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div.out { width:40%; height:120px; margin:0 15px;
+          background-color:#D6EDFC; float:left; }
+div.in {  width:60%; height:60%; 
+          background-color:#FFCC00; margin:10px auto; }
+p { line-height:1em; margin:0; padding:0; }
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;div class="out overout"&gt;
+  &lt;span&gt;move your mouse&lt;/span&gt;
+  &lt;div class="in"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="out enterleave"&gt;
+  &lt;span&gt;move your mouse&lt;/span&gt;
+  &lt;div class="in"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;script&gt;
+
+
+  var i = 0;
+  $("div.overout").mouseover(function() {
+    i += 1;
+    $(this).find("span").text( "mouse over x " + i );
+  }).mouseout(function(){
+    $(this).find("span").text("mouse out ");
+  });
+
+  var n = 0;
+  $("div.enterleave").mouseenter(function() {
+    n += 1;
+    $(this).find("span").text( "mouse enter x " + n );
+  }).mouseleave(function() {
+    $(this).find("span").text("mouse leave");
+  });
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

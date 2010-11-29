@@ -1,0 +1,86 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:hidden</h2>
+   <div class="desc">
+      <p>选择所有隐藏的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:hidden
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>元素可能出于以下几个理由而被隐藏：</p>
+         
+         <ul>
+            
+            <li>他们的 CSS 中 <code>display</code> 值为 <code>none</code>。
+            </li>
+            
+            <li>他们是表单元素，带有 <code>type="hidden"</code> 属性。
+            </li>
+            
+            <li>他们的高和宽被设置成 0。</li>
+            
+            <li>他们的祖辈元素被隐藏了，所以他们也没有在页面中显示。</li>
+            
+         </ul>
+         
+         <p><code>visibility: hidden</code> 或者 <code>opacity: 0</code> 的元素被认为是可见的，因为实际上，他们在页面布局中占据了一定的空间。在执行隐藏效果动画的元素也认为是可见的，直到动画结束为止。在执行显示效果动画的元素，从动画的一开始就被认为是可见的了。
+         </p>
+         
+         <p>从 jQuery 1.3.2 起，<code>:hidden</code> 的检测方式发生了变动。一个元素，只要他或者他的父元素在页面布局中不占据空间，则被认为是隐藏了。CSS 中的 visibility 属性并不影响这个选择器的判断。（所以 <code>$(elem).css('visibility','hidden').is(':hidden') == false</code>). 访问 <a href="http://docs.jquery.com/Release:jQuery_1.3.2#:visible.2F:hidden_Overhauled">jQuery 1.3.2 更新信息</a> 来获得更多内容。
+         </p>
+         
+         <p><strong>注意</strong>，有些浏览器中，包括 head, title, script, style 在内的一些元素也会被认为是隐藏的元素而被选中！
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>显示所有隐藏的 div 并计算 type='hidden' 的 input 元素数目。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { width:70px; height:40px; background:#ee77ff; margin:5px; float:left; }
+  span { display:block; clear:left; color:red; }
+  .starthidden { display:none; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;span&gt;&lt;/span&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div style="display:none;"&gt;Hider!&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+
+  &lt;div class="starthidden"&gt;Hider!&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;form&gt;
+    &lt;input type="hidden" /&gt;
+
+    &lt;input type="hidden" /&gt;
+    &lt;input type="hidden" /&gt;
+  &lt;/form&gt;
+  &lt;span&gt;
+
+  &lt;/span&gt;
+
+&lt;script&gt;
+
+
+    // in some browsers :hidden includes head, title, script, etc... so limit to body
+    $("span:first").text("Found " + $(":hidden", document.body).length + 
+                         " hidden elements total.");
+    $("div:hidden").show(3000);
+    $("span:last").text("Found " + $("input:hidden").length + " hidden inputs."); 
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Array</span>jQuery.grep(array, function(elementOfArray, indexInArray), <em class="optional">[invert]</em>)<br></h2>
+   <div class="desc">
+      <p>Finds the elements of an array which satisfy a filter function. The original array is not affected.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.grep(array, function(elementOfArray, indexInArray), <em class="optional">[invert]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>array</strong>
+               								(Array)
+               								The array to search through.
+            </div>
+            <div class="arguement"><strong>function(elementOfArray, indexInArray)</strong>
+               								(Function)
+               								The function to process each item against.  The first argument to the function is the item, and the second argument is the
+               index.  The function should return a Boolean value.  <code>this</code> will be the global window object.
+            </div>
+            <div class="arguement"><strong>invert</strong>
+               								(Boolean)
+               								 可选参数，If "invert" is false, or not provided, then the function returns an array consisting of all elements for which "callback"
+               returns true.  If "invert" is true, then the function returns an array consisting of all elements for which "callback" returns
+               false.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>$.grep()</code> method removes items from an array as necessary so that all remaining items pass a provided test. The test is a function
+            that is passed an array item and the index of the item within the array. Only if the test returns true will the item be in
+            the result array.
+         </p>
+         
+         
+         <p> The filter function will be passed two arguments: the current array item and its index. The filter function must return 'true'
+            to include the item in the result array.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Filters the original array of numbers leaving that are not 5 and have an index greater than 4.  Then it removes all 9s.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { color:blue; }
+  p { color:green; margin:0; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;/div&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;span&gt;&lt;/span&gt;
+  
+
+&lt;script&gt;
+
+
+var arr = [ 1, 9, 3, 8, 6, 1, 5, 9, 4, 7, 3, 8, 6, 9, 1 ];
+$("div").text(arr.join(", "));
+
+arr = jQuery.grep(arr, function(n, i){
+  return (n != 5 &amp;&amp; i &gt; 4);
+});
+$("p").text(arr.join(", "));
+
+arr = jQuery.grep(arr, function (a) { return a != 9; });
+$("span").text(arr.join(", "));
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Filter an array of numbers to include only numbers bigger then zero.</p>
+      <h5>jQuery 代码:</h5><pre><code>$.grep( [0,1,2], function(n,i){
+   return n &gt; 0;
+ });</code></pre><h5>结果:</h5><pre><code>[1, 2] </code></pre><h3>示例:</h3>
+      <p>Filter an array of numbers to include numbers that are not bigger than zero.</p>
+      <h5>jQuery 代码:</h5><pre><code>$.grep( [0,1,2], function(n,i){
+    return n &gt; 0;
+},true);</code></pre><h5>结果:</h5><pre><code>[0] </code></pre></div>
+</div>

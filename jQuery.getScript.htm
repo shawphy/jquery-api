@@ -1,0 +1,79 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:XMLHttpRequest</span>jQuery.getScript(url, <em class="optional">[success(data, textStatus)]</em>)<br></h2>
+   <div class="desc">
+      <p>通过 HTTP GET 方式从服务器请求一个 JavaScript 文件，并执行它。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.getScript(url, <em class="optional">[success(data, textStatus)]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>url</strong>
+               								(String)
+               								将要请求的 URL 字符串。
+            </div>
+            <div class="arguement"><strong>success(data, textStatus)</strong>
+               								(Function)
+               								 可选参数，当请求成功后会执行的回调函数。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这是一个 Ajax 函数的简写形式。他等价于：</p>
+         <pre>$.ajax({
+  url: <em>url</em>,
+  dataType: 'script',
+  success: <em>success</em>
+});
+</pre>
+         <p>这里的回调函数会传入返回的 JavaScript 文件。但这通常没什么用，因为此时脚本已经运行过了。</p>
+         
+         <p>载入的脚本会以全局的上下文来执行，所以可以修改其他变量，或者运行 jQuery 函数。比如加载一个 test.js 文件，里边包含下面这段代码：</p>
+         <pre>$('.result').html('&lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt;');</pre>
+         <p>于是就可以动态载入并运行了：</p>
+         <pre>$.getScript('ajax/test.js', function() {
+  alert('Load was performed.');
+});</pre>
+         </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>动态的载入 jQuery 官方颜色插件 ，并且在载入成功后绑定一些色彩动画。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;.block { 
+   background-color: blue; 
+   width: 150px; 
+   height: 70px;
+   margin: 10px; 
+}&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button id="go"&gt;&amp;raquo; Run&lt;/button&gt;
+
+&lt;div class="block"&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+
+$.getScript("http://dev.jquery.com/view/trunk/plugins/color/jquery.color.js", function(){
+  $("#go").click(function(){
+    $(".block").animate( { backgroundColor: 'pink' }, 1000)
+      .animate( { backgroundColor: 'blue' }, 1000);
+  });
+});
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>载入 test.js JavaScript 文件并执行。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.getScript("test.js");</code></pre><h3>示例:</h3>
+      <p>载入 test.js JavaScript 文件并执行。当执行完毕后显示一个警告信息。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.getScript("test.js", function(){
+   alert("Script loaded and executed.");
+ });</code></pre></div>
+</div>

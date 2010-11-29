@@ -1,0 +1,61 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>[attribute!="value"]</h2>
+   <div class="desc">
+      <p>选择那些不含有特定的属性，或者其属性值不等于给定值的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>[attribute!="value"]
+            </h4>
+            <div class="arguement"><strong>attribute</strong>
+               								(String)
+               								属性名。
+            </div>
+            <div class="arguement"><strong>value</strong>
+               								(String)
+               								属性值，引号是强制性的。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个选择器等价于 <code>:not([attr=value])</code>.
+         </p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有 name 属性不是 'newsletter' 的元素，并在其后的 span 中放置一点文本。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;
+
+    &lt;input type="radio" name="newsletter" value="Hot Fuzz" /&gt;
+    &lt;span&gt;name is newsletter&lt;/span&gt;
+
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="radio" value="Cold Fusion" /&gt;
+    &lt;span&gt;no name&lt;/span&gt;
+
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;input type="radio" name="accept" value="Evil Plans" /&gt;
+
+    &lt;span&gt;name is accept&lt;/span&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+$('input[name!="newsletter"]').next().append('&lt;b&gt;; not newsletter&lt;/b&gt;');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

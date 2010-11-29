@@ -1,0 +1,38 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:Number</span>event.pageX
+   </h2>
+   <div class="desc">
+      <p>鼠标相对于文档左部的坐标。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0.4 新增</span>event.pageX
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">   </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>显示鼠标相对于文档（框架中）顶部和左边的坐标。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;body {background-color: #eef; }
+div { padding: 20px; }&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="log"&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+$(document).bind('mousemove',function(e){ 
+            $("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY); 
+}); 
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

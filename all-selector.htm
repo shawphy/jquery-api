@@ -1,0 +1,88 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>*</h2>
+   <div class="desc">
+      <p>Selects all elements.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>*
+            </h4>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>Caution: The all, or universal, selector is extremely slow, except when used by itself.</p> 
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Finds every element (including head, body, etc) in the document.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  h3 { margin: 0; }
+  div,span,p {
+    width: 80px;
+    height: 40px;
+    float:left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;DIV&lt;/div&gt;
+
+  &lt;span&gt;SPAN&lt;/span&gt;
+  &lt;p&gt;P &lt;button&gt;Button&lt;/button&gt;&lt;/p&gt;
+
+&lt;script&gt;
+
+var elementCount = $("*").css("border","3px solid red").length;
+$("body").prepend("&lt;h3&gt;" + elementCount + " elements found&lt;/h3&gt;");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>A common way to select all elements is to find within document.body so elements like head, script, etc are left out.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  h3 { margin: 0; }
+  div,span,p {
+    width: 80px;
+    height: 40px;
+    float:left;
+    padding: 10px;
+    margin: 10px;
+    background-color: #EEEEEE;
+  }
+  #test {
+    width: auto; height: auto; background-color: transparent; 
+  }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div id="test"&gt;
+  &lt;div&gt;DIV&lt;/div&gt;
+  &lt;span&gt;SPAN&lt;/span&gt;
+  &lt;p&gt;P &lt;button&gt;Button&lt;/button&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+
+
+var elementCount = $("#test").find("*").css("border","3px solid red").length;
+$("body").prepend("&lt;h3&gt;" + elementCount + " elements found&lt;/h3&gt;");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

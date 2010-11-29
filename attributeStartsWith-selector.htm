@@ -1,0 +1,48 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>[attribute^="value"]</h2>
+   <div class="desc">
+      <p>选择那些属性值是以给定字符串开头的元素。这里对大小写敏感。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>[attribute^="value"]
+            </h4>
+            <div class="arguement"><strong>attribute</strong>
+               								(String)
+               								属性名。
+            </div>
+            <div class="arguement"><strong>value</strong>
+               								(String)
+               								属性值，引号是强制性的。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个选择器能很方便的定位一些由服务器端框架生成的语义化的 ID ，他们可能带有相同的前缀。然而这个选择器的速度要比用 class 选择器慢得多，所以如果你能做到的话，最好在这些元素上生成相同的 class ，之后使用 class 选择器来选中他们。</p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找所有 name 属性是以 'news' 开头的 input 元素，并放置一些文本。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;input name="newsletter" /&gt;
+
+  &lt;input name="milkman" /&gt;
+  &lt;input name="newsboy" /&gt;
+
+&lt;script&gt;
+
+$('input[name^="news"]').val('news here!');
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

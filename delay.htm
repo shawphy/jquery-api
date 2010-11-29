@@ -1,0 +1,73 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>delay(duration, <em class="optional">[queueName]</em>)<br></h2>
+   <div class="desc">
+      <p>设置一个延时来推迟执行队列中之后的项目。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.4 新增</span>delay(duration, <em class="optional">[queueName]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>duration</strong>
+               								(Integer)
+               								以毫秒为单位的整数，用于设定队列推迟执行的时间。
+            </div>
+            <div class="arguement"><strong>queueName</strong>
+               								(String)
+               								 可选参数，队列名的字符串。默认是动画队列 <code>fx</code> 。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>jQuery 1.4新增, <code>.delay()</code> 用于将队列中的函数延时执行。它既可以推迟动画队列中函数的执行，也可以用于自定义队列。只有在队列中的连续事件可以被延时，因此不带参数的 <code>.show()</code> 和 <code>.hide()</code> 就不会有延时，因为他们没有使用动画队列。
+         </p>
+         
+         <p>毫秒为单位的延时，数字越大，动画越慢。字符串 <code>'fast'</code> 和 <code>'slow'</code> 分别代表200和600毫秒的延时。
+         </p>
+         
+         <p>例如，我们可以在 <code>&lt;div id="foo"&gt;</code> 的 <code>.slideUp()</code> 和 <code>.fadeIn()</code> 动画之间添加800毫秒的延时 :
+         </p>
+         <pre>$('#foo').slideUp(300).delay(800).fadeIn(400);</pre>
+         <p>当这句语句执行后，元素会有300毫秒的卷起动画，接着暂停800毫秒，再出现400毫秒淡入动画。</p>
+         
+         <blockquote>
+            <p><strong><code>.delay()</code> 用在jQuery动画或者类似队列中是再好不过的了。但是，由于其本身的限制，比如无法取消延时，所以不应完全用来替代 JavaScript 原生的 <a href="https://developer.mozilla.org/en/DOM/window.setTimeout">setTimeout</a> 函数，后者更适用于通常情况。</strong></p>
+         </blockquote>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>隐藏再显示两个div。其中绿色的div再次出现得更慢。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+div { width: 60px; height: 60px; float: left; }
+.first { background-color: #3f3; }
+.second { background-color: #33f;}
+&lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+
+&lt;p&gt;&lt;button&gt;Run&lt;/button&gt;&lt;/p&gt;
+&lt;div class="first"&gt;&lt;/div&gt;
+&lt;div class="second"&gt;&lt;/div&gt;
+	
+
+&lt;script&gt;
+
+
+    $("button").click(function() {
+      $("div.first").slideUp(300).delay(800).fadeIn(400);
+      $("div.second").slideUp(300).fadeIn(400);
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

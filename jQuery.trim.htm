@@ -1,0 +1,56 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:String</span>jQuery.trim(str)<br></h2>
+   <div class="desc">
+      <p>Remove the whitespace from the beginning and end of a string.</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>jQuery.trim(str)
+               								
+            </h4>
+            <div class="arguement"><strong>str</strong>
+               								(String)
+               								The string to trim.
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>The <code>$.trim()</code> function removes all newlines, spaces (including non-breaking spaces), and tabs from the beginning and end of the supplied
+            string. If these whitespace characters occur in the middle of the string, they are preserved.
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>Remove the two white spaces at the start and at the end of the string.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;button&gt;Show Trim Example&lt;/button&gt;
+
+&lt;script&gt;
+
+
+
+$("button").click(function () {
+var str = "     lots of spaces before and after     ";
+alert("'" + str + "'");
+
+str = jQuery.trim(str);
+alert("'" + str + "' - no longer");
+});
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p>Remove the two white spaces at the start and at the end of the string.</p>
+      <h5>jQuery 代码:</h5><pre><code>$.trim("  hello, how are you?  ");</code></pre><h5>结果:</h5><pre><code>"hello, how are you?"</code></pre></div>
+</div>

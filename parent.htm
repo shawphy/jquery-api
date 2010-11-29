@@ -1,0 +1,98 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>parent(<em class="optional">[selector]</em>)<br></h2>
+   <div class="desc">
+      <p>选择所有父元素，即含有子元素的元素，文本节点也算是子元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>parent(<em class="optional">[selector]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								 可选参数，
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>这个选择器与 <code>:empty</code> 正好相反。
+         </p>
+         
+         <p><strong>注意</strong>， <code>:parent</code> (和 <code>:empty</code>) 所涉及的子元素，包括文本节点！
+         </p>
+         
+         <p>W3C 推荐  <code>&lt;p&gt;</code> 元素应当至少包含一个子元素，即使那个子元素仅仅是一个文本节点也好。(参考 <a href="http://www.w3.org/TR/html401/struct/text.html#edef-P">http://www.w3.org/TR/html401/struct/text.html#edef-P</a>)。另一方面，某些元素始终被定义成空元素，比如： <code> &lt;input&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>。
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找含有子元素的 td 元素，包括含有文本的 td 。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div,p { margin:10px; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;div, 
+    &lt;span&gt;span, &lt;/span&gt;
+    &lt;b&gt;b &lt;/b&gt;
+
+  &lt;/div&gt;
+  &lt;p&gt;p, 
+    &lt;span&gt;span, 
+      &lt;em&gt;em &lt;/em&gt;
+    &lt;/span&gt;
+  &lt;/p&gt;
+
+  &lt;div&gt;div, 
+    &lt;strong&gt;strong, 
+      &lt;span&gt;span, &lt;/span&gt;
+      &lt;em&gt;em, 
+        &lt;b&gt;b, &lt;/b&gt;
+      &lt;/em&gt;
+
+    &lt;/strong&gt;
+    &lt;b&gt;b &lt;/b&gt;
+  &lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    $("*", document.body).each(function () {
+      var parentTag = $(this).parent().get(0).tagName;
+      $(this).prepend(document.createTextNode(parentTag + " &gt; "));
+    });
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe><h3>示例:</h3>
+      <p></p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;p&gt;Hello&lt;/p&gt;&lt;/div&gt;
+
+  &lt;div class="selected"&gt;&lt;p&gt;Hello Again&lt;/p&gt;&lt;/div&gt;
+
+
+&lt;script&gt;
+
+$("p").parent(".selected").css("background", "yellow");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

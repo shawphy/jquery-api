@@ -1,0 +1,54 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:gt(index)</h2>
+   <div class="desc">
+      <p>选择在匹配的集合中，索引值大于 <code>index</code> 参数的元素。
+      </p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.0 新增</span>:gt(index)
+            </h4>
+            <div class="arguement"><strong>index</strong>
+               								(Number)
+               								从 0 开始计数匹配元素用的索引值。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><strong>索引值相关的选择器</strong></p>
+         
+         <p>索引值相关的选择器 (<code>:eq()</code>, <code>:lt()</code>, <code>:gt()</code>, <code>:even</code>, <code>:odd</code>)，会在先前提供的选择器筛选出的元素基础上再进行筛选。进一步筛选的依据就是这个元素在原先匹配集合中的顺序。举例来说，如果一开始通过 class 选择器 (<code>.myclass</code>) 选中了 4 个元素，然后这四个元素的索引值会被分配为 0 到 3 ，之后就可以用这种索引值选择器来进一步筛选了。
+         </p>
+         
+         <p>注意，由于 JavaScript 数组的索引值是从 0 开始计数的，所以这些选择器也是以 0 开始计数的。例如，<code>$('.myclass:lt(1)')</code> 就能选中文档中 class 是 <code>myclass</code> 的第一个元素，而不是什么都选不到。作为对比， <code>:nth-child(n)</code> 中的 n 是以 1 开始计数的，因为 CSS 规范里是这么设定的。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>查找索引值大于等于 5 的 td 。注意，索引值是从 0 开始计数的。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;table border="1"&gt;
+
+    &lt;tr&gt;&lt;td&gt;TD #0&lt;/td&gt;&lt;td&gt;TD #1&lt;/td&gt;&lt;td&gt;TD #2&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;TD #3&lt;/td&gt;&lt;td&gt;TD #4&lt;/td&gt;&lt;td&gt;TD #5&lt;/td&gt;&lt;/tr&gt;
+
+    &lt;tr&gt;&lt;td&gt;TD #6&lt;/td&gt;&lt;td&gt;TD #7&lt;/td&gt;&lt;td&gt;TD #8&lt;/td&gt;&lt;/tr&gt;
+  &lt;/table&gt;
+
+&lt;script&gt;
+
+$("td:gt(4)").css("text-decoration", "line-through");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

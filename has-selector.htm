@@ -1,0 +1,67 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>:has(selector)</h2>
+   <div class="desc">
+      <p>保留包含特定后代的元素，去掉那些不含有指定后代的元素。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1.4 新增</span>:has(selector)
+            </h4>
+            <div class="arguement"><strong>selector</strong>
+               								(Selector)
+               								一个用于匹配元素的选择器字符串。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>如果提供一个jQuery对象代表DOM元素集合， <code>.has()</code> 方法会用其子集创建一个新的jQuery对象。提供的选择器会一一测试原先那些元素的后代，含有匹配后代的元素会保留在结果中。
+         </p>
+         
+         <p>下面是一个嵌套列表的页面：</p>
+         <pre>
+ &lt;ul&gt;
+  &lt;li&gt;list item 1&lt;/li&gt;
+  &lt;li&gt;list item 2
+    &lt;ul&gt;
+      &lt;li&gt;list item 2-a&lt;/li&gt;
+      &lt;li&gt;list item 2-b&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;list item 3&lt;/li&gt;
+  &lt;li&gt;list item 4&lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+         <p>我们可以用如下方式对列表项集合应用这个方法：</p>
+         <pre>$('li').has('ul').css('background-color', 'red');</pre>
+         <p>结果是 item 2 背景变成了红色，因为只有这个 <code>&lt;li&gt;</code> 含有 <code>&lt;ul&gt;</code> 后代。
+         </p>
+         
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>检测是否一个元素在另一个之内。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  .test{ border: 3px inset red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;&lt;p&gt;Hello in a paragraph&lt;/p&gt;&lt;/div&gt;
+
+  &lt;div&gt;Hello again! (with no paragraph)&lt;/div&gt;
+
+&lt;script&gt;
+
+$("div:has(p)").addClass("test");
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>

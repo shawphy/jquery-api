@@ -1,0 +1,55 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2>jQuery.ajaxSetup(options)<br></h2>
+   <div class="desc">
+      <p>给未来的 Ajax 请求设置默认值。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.1 新增</span>jQuery.ajaxSetup(options)
+               								
+            </h4>
+            <div class="arguement"><strong>options</strong>
+               								(Options)
+               								一组用于配置 Ajax 请求的键值对。所有的选项都是可选的。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p>关于 <code>$.ajaxSetup()</code> 可用的设置选项，请参考 <code><a href="jQuery.ajax.htm">$.ajax()</a></code> 来获取更多信息。
+         </p>
+         
+         <p>之后所有的 Ajax 请求都会使用这个新的设置，除非他们调用时设置了各自的参数重载了这个默认值。这种状态一直持续到下一次调用 <code>$.ajaxSetup()</code> 为止。
+         </p>
+         
+         <p>举例来说，我们可以在重复几次的连接服务器之前，设置默认的 URL 参数：</p>
+         <pre>$.ajaxSetup({
+  url: 'ping.php',
+});</pre>
+         <p>现在每次 Ajax 请求，都会自动使用这个 URL 了：</p>
+         <pre>
+$.ajax({
+  data: {'name': 'Tim'},
+});</pre>
+         
+         <blockquote>
+            
+            <p>注意，全局的回调函数应当通过他们各自代表的全局 Ajax 事件绑定方法来设置——<code><a href="ajaxStart.htm">.ajaxStart()</a></code>, <code><a href="ajaxStop.htm">.ajaxStop()</a></code>, <code><a href="ajaxComplete.htm">.ajaxComplete()</a></code>, <code><a href="ajaxError.htm">.ajaxError()</a></code>, <code><a href="ajaxSuccess.htm">.ajaxSuccess()</a></code>, <code><a href="ajaxSend.htm">.ajaxSend()</a></code>——而不是用 <code>$.ajaxSetup()</code> 来设置 <code>settings</code> 对象。
+            </p>
+            
+         </blockquote>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>设置 Ajax 请求的默认 url 为 "/xmlhttp/"，并且默认禁止触发全局事件，以及用 POST 代替默认的 GET。之后发送的 Ajax 请求，只需要带上数据即可，显得非常清爽。</p>
+      <h5>jQuery 代码:</h5><pre><code>$.ajaxSetup({
+   url: "/xmlhttp/",
+   global: false,
+   type: "POST"
+
+ });
+ $.ajax({ data: myData });</code></pre></div>
+</div>

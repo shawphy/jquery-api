@@ -1,0 +1,64 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div class="entry">
+   <h2><span>返回值:jQuery</span>removeData(<em class="optional">[name]</em>)<br></h2>
+   <div class="desc">
+      <p>移除先前存储的数据片段。</p>
+      <ul class="signatures">
+         <li>
+            <h4><span>1.2.3 新增</span>removeData(<em class="optional">[name]</em>)
+               								
+            </h4>
+            <div class="arguement"><strong>name</strong>
+               								(String)
+               								 可选参数，将要移除的数据片段名。
+            </div>
+         </li>
+      </ul>
+      <div class="longdesc">
+         
+         <p><code>.removeData()</code> 方法允许我们移除先前用 <code>.data()</code>. 设置的数据。如果提供了name参数，则 <code>.removeData()</code> 删除那个指定的值，如果不带参数，则删除所有数据。
+         </p>
+         
+         <p>注意，从 jQuery 1.4.3 起，调用 <code>.removeData()</code> 会让这个要移除的属性值恢复成 DOM 中同名的 data- 属性值，而不是把它设置成 <code>undefined</code>。
+         </p>
+         
+      </div>
+   </div>
+   <div class="example">
+      <h3>示例:</h3>
+      <p>设置两个数据，然后再删除其中一个。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  div { margin:2px; color:blue; }
+  span { color:red; }
+  &lt;/style&gt;
+&lt;script src="jquery.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div&gt;value1 before creation: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div&gt;value1 after creation: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div&gt;value1 after removal: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+
+  &lt;div&gt;value2 after removal: &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+
+&lt;script&gt;
+
+
+
+    $("span:eq(0)").text("" + $("div").data("test1"));
+    $("div").data("test1", "VALUE-1");
+    $("div").data("test2", "VALUE-2");
+    $("span:eq(1)").text("" + $("div").data("test1"));
+    $("div").removeData("test1");
+    $("span:eq(2)").text("" + $("div").data("test1"));
+    $("span:eq(3)").text("" + $("div").data("test2"));
+
+
+
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><h5>演示:</h5><iframe src="blank.html" width="658" height="125"></iframe></div>
+</div>
