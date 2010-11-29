@@ -3,7 +3,7 @@
 <div class="entry">
    <h2><span>返回值:boolean</span>jQuery.isWindow(obj)<br></h2>
    <div class="desc">
-      <p>Determine whether the argument is a window.</p>
+      <p>检测传入的参数是否是一个 window 对象。</p>
       <ul class="signatures">
          <li>
             <h4><span>1.4.3 新增</span>jQuery.isWindow(obj)
@@ -11,21 +11,19 @@
             </h4>
             <div class="arguement"><strong>obj</strong>
                								(Object)
-               								Object to test whether or not it is a window.
+               								用于检测是否是 window 的对象。
             </div>
          </li>
       </ul>
       <div class="longdesc">
          
-         <p>This is used in a number of places in jQuery to determine if we're operating against a browser window (such as the current
-            window or an iframe).
-         </p>
+         <p>jQuery 经常使用这个方法，用于检测当前操作的对象是否是一个浏览器窗口（比如是当前的窗口，或者是个框架）。</p>
          
       </div>
    </div>
    <div class="example">
       <h3>示例:</h3>
-      <p>Finds out if the parameter is a window.</p><pre><code>&lt;!DOCTYPE html&gt;
+      <p>确定传入的参数是否是一个 window 对象。</p><pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;script src="jquery.min.js"&gt;&lt;/script&gt;

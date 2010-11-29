@@ -4,7 +4,7 @@
    <h2><span>返回值:Number</span>jQuery.fx.interval
    </h2>
    <div class="desc">
-      <p>The rate (in milliseconds) at which animations fire.</p>
+      <p>动画时两帧之间的时间间隔(单位是毫秒)。</p>
       <ul class="signatures">
          <li>
             <h4><span>1.4.3 新增</span>jQuery.fx.interval
@@ -13,20 +13,15 @@
       </ul>
       <div class="longdesc">
          
-         <p>This property can be manipulated to adjust the number of frames per second at which animations will run. The default is 13
-            milliseconds. Making this a lower number could make the animations run smoother in faster browsers (such as Chrome) but there
-            may be performance and CPU implications of doing so.
-         </p>
+         <p>这个属性可以调整动画运行时，两帧之间的时间间隔。默认值是 13 毫秒。这个值越低，在较快的浏览器中动画越流畅（比如 Chrome），但是也越消耗 CPU。</p>
          
-         <p>Since jQuery uses one global interval, no animation should be running or all animations should stop for the change of this
-            property to take effect.
-         </p>
+         <p>由于 jQuery 只使用一个全局的动画间隔，所以修改这个属性的时候，请务必保证没有动画正在运行。</p>
          
       </div>
    </div>
    <div class="example">
       <h3>示例:</h3>
-      <p>Cause all animations to run with less frames.</p><pre><code>&lt;!DOCTYPE html&gt;
+      <p>让动画在较低的帧率下运行。</p><pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;style&gt;

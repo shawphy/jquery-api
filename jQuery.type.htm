@@ -3,7 +3,7 @@
 <div class="entry">
    <h2><span>返回值:String</span>jQuery.type(obj)<br></h2>
    <div class="desc">
-      <p>Determine the internal JavaScript [[Class]] of an object.</p>
+      <p>测定一个对象内部的 JavaScript [[Class]]。</p>
       <ul class="signatures">
          <li>
             <h4><span>1.4.3 新增</span>jQuery.type(obj)
@@ -11,22 +11,19 @@
             </h4>
             <div class="arguement"><strong>obj</strong>
                								(Object)
-               								Object to get the internal JavaScript [[Class]] of.
+               								用于获取内部 JavaScript [[Class]] 的对象。
             </div>
          </li>
       </ul>
       <div class="longdesc">
          
-         <p>A number of different aspects are utilized to determine the exact return value for an object. The logic can be determined
-            as follows:
-         </p>
+         <p>一系列不同的特征可以用来检测一个对象实际的类型。对应的检测逻辑如下：</p>
          
          <ul>
             
-            <li>If the object is undefined or null then "undefined" or "null" is returned accordingly.</li>
+            <li>如果对象是 undefined 或 null ，那么就会直接返回 "undefined" 或 "null" 。</li>
             
-            <li>If the object has an internal [[Class]] equivalent to one of the browser's built-in objects we return the associated name.
-               (<a href="http://perfectionkills.com/instanceof-considered-harmful-or-how-to-write-a-robust-isarray/">More details about this technique.</a>)
+            <li>如果对象含有的内部 [[Class]] 等于某一个浏览器内置的对象，这个方法就会返回其关联的名字(<a href="http://perfectionkills.com/instanceof-considered-harmful-or-how-to-write-a-robust-isarray/">更多技术细节</a>)
                <ul>
                   
                   <li>jQuery.type(true) === "boolean"</li>
@@ -47,7 +44,7 @@
                
             </li>
             
-            <li>Everything else will return "object" as its type.</li>
+            <li>其他的任何东西都会返回 "object" 作为他的类型。</li>
             
          </ul>
          
@@ -55,7 +52,7 @@
    </div>
    <div class="example">
       <h3>示例:</h3>
-      <p>Finds out if the parameter is a RegExp.</p><pre><code>&lt;!DOCTYPE html&gt;
+      <p>判断传入的参数是否是一个正则表达式。</p><pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
 &lt;script src="jquery.min.js"&gt;&lt;/script&gt;
